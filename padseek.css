@@ -1,0 +1,62 @@
+* {
+	transition: all 0.1s ease-in-out;
+}
+
+.main_content {
+	margin: 5% 15%;
+	padding: 50px;
+	display: inline-flex;
+	border: 1px dashed black;
+}
+
+.label {
+	
+}
+
+.labels, .selects {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 5px;
+	line-height: 35px;
+}
+
+.labels_item {
+	
+}
+
+.pad {
+	min-width: 280px;
+	max-width: 280px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-wrap: wrap;
+}
+
+.pad_piece {
+	transition: all 0.25s ease-in-out;
+	min-width: 25px;
+	height: 25px;
+	margin: 5px;
+	background: black;
+	padding: 0;
+}
+
+.pad_piece:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.pad_piece:active {
+	opacity 0.25;
+}
+
+.select {
+	width: 150px;
+	outline: none;
+}
+
+.selects {
+	margin-left: 40px;
+}

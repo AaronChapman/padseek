@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>oylo.info - padseek</title>
+
+		<meta charset="utf-8">
+		<meta name="description" content="oylo.info - content">
+
+		<link rel="stylesheet" href="https://oylo.info/css/site-wide/directory-header.css">
+		<link rel="stylesheet" href="https://oylo.info/css/site-wide/template.css">
+		<link rel="stylesheet" href="padseek.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://oylo.info/javascript/links_for_directory_header.js"></script>
+		<script src="padseek.js"></script>
+	</head>
+
+	<body id="page_body" onload="load_directory_header('http://crossorigin.me/https://oylo.info/resources/templates/directory_header.html')">
+		<div id="directory_header"></div>
+		<div class="main_content">
+			<div class="pad"></div>
+			<ul class="labels">
+				<li class="labels_item"><label class="label">crash cymbal</label></li>
+				<li class="labels_item"><label class="label">ride cymbal</label></li>
+				<li class="labels_item"><label class="label">open hi-hat</label></li>
+				<li class="labels_item"><label class="label">closed hi-hat</label></li>
+				<li class="labels_item"><label class="label">snare one</label></li>
+				<li class="labels_item"><label class="label">snare two</label></li>
+				<li class="labels_item"><label class="label">kick drum</label></li>
+				<li class="labels_item"><label class="label">? ¿ ? ¿</label></li>
+			</ul>
+			<ul class="selects">
+				<li class="selects_item"><select class="crash_cymbal_select select"></select></li>
+				<li class="selects_item"><select class="ride_cymbal_select select"></select></li>
+				<li class="selects_item"><select class="open_hi_hat_select select"></select></li>
+				<li class="selects_item"><select class="closed_hi_hat_select select"></select></li>
+				<li class="selects_item"><select class="snare_one_select select"></select></li>
+				<li class="selects_item"><select class="snare_two_select select"></select></li>
+				<li class="selects_item"><select class="kick_drum_select select"></select></li>
+				<li class="selects_item"><select class="miscellaneous_percussion_select select"></select></li>
+				<br>
+				<li class="selects_item"><input class="tempo_field" type="number" value="120"></li>
+			</ul>
+			<div class="sequence_controls">
+				<input class="play_sequence" type="button" value="play sequence">
+				<input class="clear_selections" type="button" value="clear selections">
+			</div>
+		</div>
+	</body>
+
+	<script src="https://oylo.info/javascript/page_fade.js"></script>
+
+</html>
+
+<!-- quite the explorer, aren't you? -- oylo.info 2018 -->

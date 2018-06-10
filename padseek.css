@@ -13,6 +13,10 @@
 	
 }
 
+.labels {
+	width: -webkit-fill-available;
+}
+
 .labels, .selects {
 	list-style-type: none;
 	margin: 0;

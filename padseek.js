@@ -27,9 +27,22 @@ function calculate(tempo) {
 	play_sequence();
 }
 
+//clear drum pad piece selections
+function clear_selections {
+	//reset css and attributes for each pad piece element
+	$('.pad').find('.pad_piece').each(function() {
+		$(this).css({'min-width':'25px',
+					 'margin':'5px','height':'25px',
+					 'opacity':'1.0','background':'black',
+					 'border-radius':'2px'});
+		
+		$(this).attr({'data-state':'inactive'});
+	});
+}
+
 // generate drum pad pieces
 function generate_pad() {
-	//reference to drum pad container
+	// reference to drum pad container
 	var pad_reference = $('.pad');
 	
 	// drum pad piece row generation
@@ -60,7 +73,7 @@ function generate_select_options() {
 
 		// for each item in the sound_paths (array) property
 		for (var j = 0; j < sample_directories[i].sound_paths.length; j++) {
-			//append an option element with appropriate attributes
+			// append an option element with appropriate attributes
 			select_reference.append('<option value="' +
 									sample_directories[i].sound_paths[j] +'">' +  sample_directories[i].sound_paths[j].replace(/-/g, ' ') +
 									'</option>');
@@ -104,15 +117,15 @@ function play_sequence() {
 		}
 	});
 	
-	//incremenet current row in the sequence
+	// incremenet current row in the sequence
 	current_row_in_sequence++;
 	
-	//determine sequence loop point
+	// determine sequence loop point
 	if (current_row_in_sequence === 9) {
 		current_row_in_sequence = 1;
 	}
 	
-	//loop sequence at calculated_tempo while sequence_running = true
+	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {
 		if (sequence_running) {
 			play_sequence();
@@ -122,45 +135,46 @@ function play_sequence() {
 	}, calculated_tempo);
 }
 
-//when the document is ready (for setup & event listeners)
+// when the document is ready (for setup & event listeners)
 $(document).ready(function() {
-	//generate the drum pad
+	// generate the drum pad
 	generate_pad();
 	
-	//when a pad piece is clicked
+	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
-		//determine background color & data-state attribute value
-		if ($(this).css('background') == 'black') {
-			$(this).css({'background':'lightgrey'});
+		// determine background color & data-state attribute value
+		console.log($(this).css('background'));
+		if ($(this).css('border-radius') == '2px') {
+			$(this).css({'background':'green','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
-		} else if ($(this).css('background') == 'lightgrey') {
-			$(this).css({'background':'black'});
+		} else if ($(this).css('border-radius') == '8px') {
+			$(this).css({'background':'black','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		}
 	});
 	
 	// when the play/pause sequence button is clicked
 	$('.play_sequence').click(function() {
-		//if the sequence is not running
+		// if the sequence is not running
 		if (!sequence_running) {
-			//start it
+			// start it
 			sequence_running = true;
 			
-			//calculate tempo
+			// calculate tempo
 			calculate(parseInt($('.tempo_field').val()));
 			
-			//update interface
+			// update interface
 			$('.play_sequence').val('pause sequence');
 		} else {
-			//otherwise, stop the sequence
+			// otherwise, stop the sequence
 			sequence_running = false;
 			
-			//reset the css of all drum pad pieces
+			// reset the css of all drum pad pieces
 			$('.pad_piece').each(function() {
 				$(this).css({'min-width':'25px','margin':'5px','height':'25px','opacity':'1.0'});
 			});
 			
-			//update interface
+			// update interface
 			$('.play_sequence').val('play sequence');
 		}
 	});

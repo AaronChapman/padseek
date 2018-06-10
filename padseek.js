@@ -28,7 +28,7 @@ function calculate(tempo) {
 }
 
 //clear drum pad piece selections
-function clear_selections {
+function clear_selections() {
 	//reset css and attributes for each pad piece element
 	$('.pad').find('.pad_piece').each(function() {
 		$(this).css({'min-width':'25px',

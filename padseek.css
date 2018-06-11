@@ -20,8 +20,10 @@
 .labels, .selects {
 	list-style-type: none;
 	margin: 0;
-	padding: 0 5px;
+	padding: 0 10px;
 	line-height: 35px;
+	height: 294px;
+	display: grid;
 }
 
 .labels_item {
@@ -29,8 +31,8 @@
 }
 
 .pad {
-	min-width: 280px;
-	max-width: 280px;
+	min-width: 296px;
+	max-width: 296px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -38,12 +40,18 @@
 	flex-wrap: wrap;
 }
 
+.pad, .pad_piece {
+	border-radius: 5px;
+	border: 0.5px dashed rgba(00, 00, 00, 0.25);
+	background: floralwhite;
+	padding: 2.5px 0 2.5px 0;
+}
+
 .pad_piece {
 	transition: all 0.2s ease-in-out;
 	min-width: 25px;
 	height: 25px;
 	margin: 5px;
-	background: black;
 	padding: 0;
 	border-radius: 2px;
 }
@@ -63,5 +71,5 @@
 }
 
 .selects {
-	margin-left: 40px;
+	
 }

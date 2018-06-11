@@ -29,15 +29,21 @@ function calculate(tempo) {
 
 //clear drum pad piece selections
 function clear_selections() {
+	//stop sequence
+	sequence_running = false;
+	
 	//reset css and attributes for each pad piece element
 	$('.pad').find('.pad_piece').each(function() {
 		$(this).css({'min-width':'25px',
 					 'margin':'5px','height':'25px',
-					 'opacity':'1.0','background':'black',
+					 'opacity':'1.0','background':'floralwhite',
 					 'border-radius':'2px'});
 		
 		$(this).attr({'data-state':'inactive'});
 	});
+
+	//update interface
+	$('.play_sequence').val('play sequence');
 }
 
 // generate drum pad pieces
@@ -92,7 +98,7 @@ function play_sequence() {
 				// set up the sound path string
 				var sound_path = 'samples/';
 				// get the first character of the clicked piece's id attribute
-				var sound_index = parseInt($(this).attr('id').charAt(0));
+				var sound_index = parseInt($(this).attr('id').charAt(2));
 				// get a reference to the select element for the clicked piece's row
 				var selected_select = $('.select').eq(sound_index - 1);
 				// get the first class from that select element and parse it
@@ -143,12 +149,11 @@ $(document).ready(function() {
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
 		// determine background color & data-state attribute value
-		console.log($(this).css('background'));
 		if ($(this).css('border-radius') == '2px') {
-			$(this).css({'background':'green','border-radius':'8px'});
+			$(this).css({'background':'antiquewhite','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
 		} else if ($(this).css('border-radius') == '8px') {
-			$(this).css({'background':'black','border-radius':'2px'});
+			$(this).css({'background':'floralwhite','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		}
 	});

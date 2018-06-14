@@ -1,9 +1,21 @@
 * {
 	transition: all 0.1s ease-in-out;
+	outline: none;
+}
+
+.clear_selections {
+	width: 100%;
+	border: none;
+	background: sandybrown;
+	border-radius: 5px;
+	height: 50px;
+	font-size: 1.5em;
+	margin: 10px 0;
+	color: cornsilk;
 }
 
 .main_content {
-	margin: 5% 15%;
+	margin: 5%;
 	padding: 50px;
 	display: inline-flex;
 	border: 1px dashed black;
@@ -24,6 +36,7 @@
 	line-height: 35px;
 	height: 294px;
 	display: grid;
+	width: 150px;
 }
 
 .labels_item {
@@ -57,7 +70,7 @@
 }
 
 .pad_piece:hover {
-	opacity: 0.5;
+	opacity: 0.75;
 	cursor: pointer;
 }
 
@@ -65,11 +78,43 @@
 	opacity 0.25;
 }
 
+.play_sequence {
+	width: 100%;
+	border: none;
+	background: aliceblue;
+	height: 50px;
+	border-radius: 5px;
+	font-size: 1.5em;
+	margin: 10px 0;
+	color: slategray;
+}
+
 .select {
 	width: 150px;
-	outline: none;
+	border: none;
+	background: antiquewhite;
 }
 
 .selects {
 	
+}
+
+.sequence_controls {
+	padding: 10px 0 10px 40px;
+}
+
+.tempo_field {
+	text-align: center;
+	font-size: 2em;
+	border: 1px dashed lightgrey;
+	width: -webkit-fill-available;
+	margin: 5px 50px;
+	height: 50px;
+	color: lightgrey;
+	border-radius: 5px;
+}
+
+.tempo_field_label {
+	text-align: center;
+	margin-bottom: 0;
 }

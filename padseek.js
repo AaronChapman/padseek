@@ -4,6 +4,8 @@ var sequence_running = false;
 var calculated_tempo = 125;
 // index of row that's currently firing in sequence
 var current_row_in_sequence = 1;
+// track number of activated pad pieces
+var activated_pad_pieces = 0;
 // lists of drum sample option file names
 var crash_cymbals = ['thin-cymbal.wav'];
 var ride_cymbals = ['tribal-ride.wav'];
@@ -31,6 +33,7 @@ function calculate(tempo) {
 function clear_selections() {
 	//stop sequence
 	sequence_running = false;
+	activated_pad_pieces = 0;
 	
 	//reset css and attributes for each pad piece element
 	$('.pad').find('.pad_piece').each(function() {
@@ -152,16 +155,20 @@ $(document).ready(function() {
 		if ($(this).css('border-radius') == '2px') {
 			$(this).css({'background':'antiquewhite','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
+			
+			activated_pad_pieces++;
 		} else if ($(this).css('border-radius') == '8px') {
 			$(this).css({'background':'floralwhite','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
+			
+			activated_pad_pieces--;
 		}
 	});
 	
 	// when the play/pause sequence button is clicked
 	$('.play_sequence').click(function() {
 		// if the sequence is not running
-		if (!sequence_running) {
+		if (!sequence_running && activated_pad_pieces > 0) {
 			// start it
 			sequence_running = true;
 			

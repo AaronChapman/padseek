@@ -25,6 +25,8 @@ var sample_directories = [{directory: 'crash-cymbals', sound_paths: crash_cymbal
 
 // calculates tempo on change
 function calculate(tempo) {
+	calculated_tempo = (1000 / (tempo / 60));
+	
 	//initializes sequence
 	play_sequence();
 }
@@ -151,6 +153,15 @@ $(document).ready(function() {
 	
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
+		var clicked_pad_piece = $(this);
+		
+		$('.pad_piece').each(function() {
+			if ($(this).attr('id').charAt(0) === clicked_pad_piece.attr('id').charAt(0)) {
+				$(this).css({'background':'floralwhite','border-radius':'2px'});
+				$(this).attr({'data-state':'inactive'});
+			}
+		});
+		
 		// determine background color & data-state attribute value
 		if ($(this).css('border-radius') == '2px') {
 			$(this).css({'background':'antiquewhite','border-radius':'8px'});
@@ -189,5 +200,9 @@ $(document).ready(function() {
 			// update interface
 			$('.play_sequence').val('play sequence');
 		}
+	});
+	
+	$('.tempo_field').on('keydown', function(e) {
+		if (e.keyCode.which === 32) { calculate(parseInt($('.tempo_field').val())); }
 	});
 });

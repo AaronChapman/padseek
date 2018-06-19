@@ -10,16 +10,27 @@ body {
 	margin: 2.5% 0;
 }
 
+input[type="button"], select {
+	cursor: pointer;
+}
+
 .clear_selections {
 	font-family: 'Shrikhand', cursive;
-	width: 100%;
+	width: 80%;
 	border: none;
-	background: sandybrown;
+	background: white;
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	margin: 10px 0;
-	color: cornsilk;
+	margin: 10px 10%;
+	color: rgba(00, 00, 00, 0.25);
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
+}
+
+.clear_selections:hover {
+	background: antiquewhite;
+	color: slategray;
+	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
 .main_content {
@@ -108,6 +119,12 @@ body {
 	font-size: 1.5em;
 	margin: 10px 0;
 	color: slategray;
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
+}
+
+.play_sequence:hover {
+	background: antiquewhite;
+	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
 .select {

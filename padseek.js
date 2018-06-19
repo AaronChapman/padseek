@@ -160,7 +160,7 @@ $(document).ready(function() {
 		});
 
 		if ($(this).css('border-radius') == '2px') {
-			$(this).css({'background':'slategray','border-radius':'8px'});
+			$(this).css({'background':'white','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
 
 			activated_pad_pieces++;
@@ -190,7 +190,7 @@ $(document).ready(function() {
 	// when the play/pause sequence button is clicked
 	$('.play_sequence').click(function() {
 		// if the sequence is not running
-		if (!sequence_running && activated_pad_pieces > 0) {
+		if (!sequence_running) {
 			// start it
 			sequence_running = true;
 			
@@ -202,6 +202,7 @@ $(document).ready(function() {
 		} else {
 			// otherwise, stop the sequence
 			sequence_running = false;
+			current_row_in_sequence = 1;
 			
 			// reset the css of all drum pad pieces
 			$('.pad_piece').each(function() {
@@ -214,6 +215,11 @@ $(document).ready(function() {
 	});
 	
 	$('.tempo_field').on('keydown', function(e) {
-		if (e.keyCode.which === 32) { calculate(parseInt($('.tempo_field').val())); }
+		console.log('e?');
+		if (e.keyCode.which === 13) { 
+			calculate(parseInt($('.tempo_field').val()));
+			console.log('yup');
+			$('.play_sequence').click();
+		}
 	});
 });

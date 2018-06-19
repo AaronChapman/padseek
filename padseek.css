@@ -1,9 +1,17 @@
 * {
 	transition: all 0.1s ease-in-out;
+	font-family: 'Muli', sans-serif;
 	outline: none;
 }
 
+body {
+	display: flex;
+	justify-content: center;
+	margin: 2.5% 0;
+}
+
 .clear_selections {
+	font-family: 'Shrikhand', cursive;
 	width: 100%;
 	border: none;
 	background: sandybrown;
@@ -15,10 +23,8 @@
 }
 
 .main_content {
-	margin: 5%;
 	padding: 50px;
 	display: inline-flex;
-	border: 1px dashed black;
 }
 
 .label {
@@ -27,16 +33,30 @@
 
 .labels {
 	width: -webkit-fill-available;
+	padding: 0 0 0 10px;
+	border-radius: 5px 0 0 5px;
+	margin: 0 0 0 35px;
+}
+
+.labels .label {
+	opacity: 0.5;
 }
 
 .labels, .selects {
 	list-style-type: none;
-	margin: 0;
-	padding: 0 10px;
 	line-height: 35px;
 	height: 294px;
 	display: grid;
 	width: 150px;
+	background: antiquewhite;
+}
+
+.labels li, .selects li {
+	border-bottom: 0.5px dashed rgba(00, 00, 00, 0.5);
+}
+
+.labels li:last-child, .selects li:last-child {
+	border-bottom: none;
 }
 
 .labels_item {
@@ -55,8 +75,8 @@
 
 .pad, .pad_piece {
 	border-radius: 5px;
-	border: 0.5px dashed rgba(00, 00, 00, 0.25);
-	background: floralwhite;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	background: aliceblue;
 	padding: 2.5px 0 2.5px 0;
 }
 
@@ -79,6 +99,7 @@
 }
 
 .play_sequence {
+	font-family: 'Shrikhand', cursive;
 	width: 100%;
 	border: none;
 	background: aliceblue;
@@ -96,7 +117,10 @@
 }
 
 .selects {
-	
+	padding: 0 2.5px;
+	margin: 0 -7.5px;
+	padding: 0 10px 0 0;
+	border-radius: 0 5px 5px 0;
 }
 
 .sequence_controls {
@@ -106,7 +130,7 @@
 .tempo_field {
 	text-align: center;
 	font-size: 2em;
-	border: 1px dashed lightgrey;
+	border: 1px dashed rgba(00, 00, 00, 0.5);
 	width: -webkit-fill-available;
 	margin: 5px 50px;
 	height: 50px;

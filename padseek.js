@@ -77,7 +77,7 @@ function clear_selections() {
 	$('.pad').find('.pad_piece').each(function() {
 		$(this).css({'min-width':'25px',
 					 'margin':'5px','height':'25px',
-					 'opacity':'1.0','background':'floralwhite',
+					 'opacity':'1.0','background':'aliceblue',
 					 'border-radius':'2px'});
 		
 		$(this).attr({'data-state':'inactive'});
@@ -155,17 +155,17 @@ $(document).ready(function() {
 		var clicked_pad_piece = $(this);
 
 		$('.pad_piece[id^="' + clicked_pad_piece.attr('id').charAt(0) + '"]').each(function() {
-			$(this).css({'background':'floralwhite','border-radius':'2px'});
+			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		});
 
 		if ($(this).css('border-radius') == '2px') {
-			$(this).css({'background':'antiquewhite','border-radius':'8px'});
+			$(this).css({'background':'slategray','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
 
 			activated_pad_pieces++;
 		} else if ($(this).css('border-radius') == '8px') {
-			$(this).css({'background':'floralwhite','border-radius':'2px'});
+			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 
 			activated_pad_pieces--;

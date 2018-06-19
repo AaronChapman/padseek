@@ -10,6 +10,7 @@
 
 		<link rel="stylesheet" href="https://oylo.info/css/site-wide/directory-header.css">
 		<link rel="stylesheet" href="https://oylo.info/css/site-wide/template.css">
+		<link rel="stylesheet" href="https://oylo.info/css/site-wide/site-map.css">
 		<link rel="stylesheet" href="padseek.css">
 		
 		<link href="https://fonts.googleapis.com/css?family=Muli|Shrikhand" rel="stylesheet">
@@ -21,6 +22,7 @@
 	</head>
 
 	<body id="page_body" onload="load_directory_header('http://crossorigin.me/https://oylo.info/resources/templates/directory_header.html')">
+		<h1>p a d s e e k</h1>
 		<div id="directory_header"></div>
 		<div class="main_content">
 			<div class="pad"></div>
@@ -49,6 +51,11 @@
 				<input class="clear_selections" type="button" value="clear selections" onclick="clear_selections()">
 				<p class="tempo_field_label">tempo / beats per minute</p>
 				<input class="tempo_field" type="number" value="120">
+			</div>
+		</div>
+		<div class="site_map_container">
+			<div id="site_map">
+				<script> $("#site_map").load("http://crossorigin.me/https://oylo.info/resources/templates/site_map.html"); </script>
 			</div>
 		</div>
 	</body>

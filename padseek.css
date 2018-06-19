@@ -5,9 +5,17 @@
 }
 
 body {
-	display: flex;
+	display: grid;
 	justify-content: center;
 	margin: 2.5% 0;
+}
+
+h1 {
+	transition: all 7s ease-in-out;
+	font-family: 'Shrikhand', cursive;
+	margin: 0 125px;
+	font-size: 36px;
+	color: white;
 }
 
 input[type="button"], select {
@@ -34,7 +42,7 @@ input[type="button"], select {
 }
 
 .main_content {
-	padding: 50px;
+	padding: 25px 50px;
 	display: inline-flex;
 }
 

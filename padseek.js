@@ -15,6 +15,10 @@ var snares = ['circus-snare.wav', 'marching-band-snare.wav'];
 var kick_drums = ['prehistor-khick.wav', 'thumpy-kick.wav'];
 var miscellaneous_percussion = ['radio-transmissions.wav'];
 var sequence_sample_paths = ['path','path','path','path','path','path','path','path'];
+var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.5)', 'rgba(00, 00, 00, 0.25)'];
+var logo_coloring = setInterval(function() {
+	$('h1').css({'color':logo_colors[Math.floor(Math.random() * logo_colors.length)]});
+}, 5000);
 // list of objects with directory name & sound path array properties
 var sample_directories = [{directory: 'crash-cymbals', sound_paths: crash_cymbals},
 						  {directory: 'ride-cymbals', sound_paths: ride_cymbals},
@@ -215,10 +219,10 @@ $(document).ready(function() {
 	});
 	
 	$('.tempo_field').on('keydown', function(e) {
-		console.log('e?');
+		console.log(e.keyCode);
 		if (e.keyCode.which === 13) { 
 			calculate(parseInt($('.tempo_field').val()));
-			console.log('yup');
+			
 			$('.play_sequence').click();
 		}
 	});

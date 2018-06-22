@@ -117,17 +117,23 @@ function play_sequence() {
 			$.play_sound(sequence_sample_paths[current_row_in_sequence - 1]);
 
 			// set active pad piece css properties
-			$(this).css({'min-width':'20px','margin':'7.5px','height':'20px','opacity':'0.25'});
+			$(this).css({'opacity':'0.25','background':'white'});
+			
+			var quick_reference = $(this);
+
+			setTimeout(function() {
+				quick_reference.css({'opacity':'1.0'});
+			}, calculated_tempo);
 		} else {
 			// set inactive pad piece css properties
-			$(this).css({'min-width':'20px','margin':'7.5px','height':'20px','opacity':'0.75'});
+			$(this).css({'opacity':'0.1','background':'rgba(00, 00, 00, 0.01)'});
+			
+			var quick_reference = $(this);
+			
+			setTimeout(function() {
+				quick_reference.css({'opacity':'1.0','background':'aliceblue'});
+			}, calculated_tempo);
 		}
-
-		var quick_reference = $(this);
-
-		setTimeout(function() {
-			quick_reference.css({'min-width':'25px','margin':'5px','height':'25px','opacity':'1.0'});
-		}, calculated_tempo);
 	});
 
 	// incremenet current row in the sequence
@@ -136,6 +142,8 @@ function play_sequence() {
 	// determine sequence loop point
 	if (current_row_in_sequence === 9) {
 		current_row_in_sequence = 1;
+		
+		$('audio.sound-player').each(function() { $(this).remove(); });
 	}
 
 	// loop sequence at calculated_tempo while sequence_running = true
@@ -208,6 +216,8 @@ $(document).ready(function() {
 			sequence_running = false;
 			current_row_in_sequence = 1;
 			
+			$('audio.sound-player').each(function() { $(this).remove(); });
+			
 			// reset the css of all drum pad pieces
 			$('.pad_piece').each(function() {
 				$(this).css({'min-width':'25px','margin':'5px','height':'25px','opacity':'1.0'});
@@ -225,5 +235,11 @@ $(document).ready(function() {
 			
 			$('.play_sequence').click();
 		}
+	});
+	
+	$('.tempo_tool').click(function() {
+		$('.tempo_tool_frame').focus();
+		
+		$(this).css({'box-shadow':'0 2px 0.5px rgba(00, 00, 00, 0.25)'});
 	});
 });

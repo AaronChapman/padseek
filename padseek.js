@@ -162,6 +162,14 @@ $(document).ready(function() {
 	generate_pad();
 	default_path_array();
 	
+	$('.more_beats').click(function() {
+		var new_pad = $('.pad:last').clone(true, true);
+		new_pad.css({'margin-left':'30px'});
+		
+		$('.pad:last').find('.more_beats').remove();
+		$('.pad:last').after(new_pad);
+	});
+	
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
 		var clicked_pad_piece = $(this);

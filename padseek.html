@@ -26,8 +26,20 @@
 		<div id="directory_header"></div>
 		<div class="main_content">
 			<div class="first_row">
-				<div class="pad"></div>
+				<div class="sequence_controls">
+					<input class="play_sequence" type="button" value="play sequence">
+					<input class="clear_selections" type="button" value="clear selections" onclick="clear_selections()">
+					<p class="tempo_field_label">tempo / beats per minute</p>
+					<input class="tempo_field" type="number" value="120">
+				</div>
+				<div class="tempo_tool">
+					<iframe class="tempo_tool_frame" src="https://www.oylo.info/tool/tempo" scrolling="no"></iframe>
+					<label class="tempo_tool_label">click inside module to activate</label>
+				</div>
+			</div>
+			<div class="second_row">
 				<ul class="labels">
+					<li class="labels_item"><label class="label">? ¿ ? ¿</label></li>
 					<li class="labels_item"><label class="label">crash cymbal</label></li>
 					<li class="labels_item"><label class="label">ride cymbal</label></li>
 					<li class="labels_item"><label class="label">open hi-hat</label></li>
@@ -35,9 +47,9 @@
 					<li class="labels_item"><label class="label">snare one</label></li>
 					<li class="labels_item"><label class="label">snare two</label></li>
 					<li class="labels_item"><label class="label">kick drum</label></li>
-					<li class="labels_item"><label class="label">? ¿ ? ¿</label></li>
 				</ul>
 				<ul class="selects">
+					<li class="selects_item"><select class="miscellaneous_percussion_select select"></select></li>
 					<li class="selects_item"><select class="crash_cymbals_select select"></select></li>
 					<li class="selects_item"><select class="ride_cymbals_select select"></select></li>
 					<li class="selects_item"><select class="open_hi_hats_select select"></select></li>
@@ -45,18 +57,10 @@
 					<li class="selects_item"><select class="snares_select select"></select></li>
 					<li class="selects_item"><select class="snares_select select"></select></li>
 					<li class="selects_item"><select class="kick_drums_select select"></select></li>
-					<li class="selects_item"><select class="miscellaneous_percussion_select select"></select></li>
 				</ul>
-				<div class="sequence_controls">
-					<input class="play_sequence" type="button" value="play sequence">
-					<input class="clear_selections" type="button" value="clear selections" onclick="clear_selections()">
-					<p class="tempo_field_label">tempo / beats per minute</p>
-					<input class="tempo_field" type="number" value="120">
+				<div class="pad">
+					<input class="more_beats" type="button" value="duplicate pad">
 				</div>
-			</div>
-			<div class="tempo_tool">
-				<iframe class="tempo_tool_frame" src="https://www.oylo.info/tool/tempo" scrolling="no"></iframe>
-				<label class="tempo_tool_label">click inside module to activate</label>
 			</div>
 		</div>
 		<div class="site_map_container">

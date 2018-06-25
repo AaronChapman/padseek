@@ -115,6 +115,8 @@ function generate_select_options() {
 
 // play sequence
 function play_sequence(pad_reference) {
+	console.log($(pad_reference));
+	
 	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
 			// play sound from path that was jsut built
@@ -142,23 +144,21 @@ function play_sequence(pad_reference) {
 
 	// incremenet current row in the sequence
 	current_row_in_sequence++;
-
-
-	console.log(pad_reference);
 	
 	// determine sequence loop point
 	if (current_row_in_sequence === 9) {
-		console.log($(pad_reference).index() + ' ... transitioning index');
-		console.log($('.pad:last').index() + ' ... value of last pad');
-		
-		if ($(pad_reference).index() == $('.pad:last').index() - 1) {
-			pad_reference = '.pad:eq(' + parseInt(pad_reference.charAt(8) + 1).toString() + ')';
+		if ($(pad_reference).index() != $('.pad:last').index()) {
+			console.log($(pad_reference).index() + ' ... finished pad index');
+			console.log($('.pad:last').index() + ' ... index of last pad');
+			
+			var new_pad_index = $(pad_reference).next('.pad').index() - 2
+			
+			console.log(new_pad_index);
+			
+			pad_reference = '.pad:eq(' + new_pad_index + ')';
 		} else {
 			pad_reference = '.pad:eq(0)';
 		}
-		
-
-		console.log(pad_reference + ' ... new pad');
 		
 		current_row_in_sequence = 1;
 		
@@ -168,7 +168,7 @@ function play_sequence(pad_reference) {
 	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {
 		if (sequence_running) {
-			if ($(pad_reference).index() == $('.pad:last').index() - 1) {
+			if ($(pad_reference).index() == $('.pad:last').index() + 2) {
 				play_sequence('.pad:eq(0)');
 			} else {
 				play_sequence('.pad:eq(' + pad_reference.charAt(8) + ')');

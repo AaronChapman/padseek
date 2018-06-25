@@ -33,7 +33,7 @@ function calculate(tempo) {
 	calculated_tempo = (1000 / (tempo / 60)) / 2;
 	
 	//initializes sequence
-	play_sequence();
+	play_sequence('.pad:eq(0)');
 }
 
 // generate values for sequence_sample_paths array
@@ -108,17 +108,21 @@ function generate_select_options() {
 	}
 }
 
+//new play sequence
+//user clicks play
+//get first index of pad loop through
+//at end of pad check if this is another index of pad
+
 // play sequence
-function play_sequence() {
-	// for each pad piece
-	$('.pad_piece[id^="' + current_row_in_sequence + '"]').each(function() {
+function play_sequence(pad_reference) {
+	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
 			// play sound from path that was jsut built
 			$.play_sound(sequence_sample_paths[current_row_in_sequence - 1]);
 
 			// set active pad piece css properties
 			$(this).css({'opacity':'0.25','background':'white'});
-			
+
 			var quick_reference = $(this);
 
 			setTimeout(function() {
@@ -127,9 +131,9 @@ function play_sequence() {
 		} else {
 			// set inactive pad piece css properties
 			$(this).css({'opacity':'0.1','background':'rgba(00, 00, 00, 0.01)'});
-			
+
 			var quick_reference = $(this);
-			
+
 			setTimeout(function() {
 				quick_reference.css({'opacity':'1.0','background':'aliceblue'});
 			}, calculated_tempo);
@@ -139,8 +143,23 @@ function play_sequence() {
 	// incremenet current row in the sequence
 	current_row_in_sequence++;
 
+
+	console.log(pad_reference);
+	
 	// determine sequence loop point
 	if (current_row_in_sequence === 9) {
+		console.log($(pad_reference).index() + ' ... transitioning index');
+		console.log($('.pad:last').index() + ' ... value of last pad');
+		
+		if ($(pad_reference).index() == $('.pad:last').index() - 1) {
+			pad_reference = '.pad:eq(' + parseInt(pad_reference.charAt(8) + 1).toString() + ')';
+		} else {
+			pad_reference = '.pad:eq(0)';
+		}
+		
+
+		console.log(pad_reference + ' ... new pad');
+		
 		current_row_in_sequence = 1;
 		
 		$('audio.sound-player').each(function() { $(this).remove(); });
@@ -149,7 +168,12 @@ function play_sequence() {
 	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {
 		if (sequence_running) {
-			play_sequence();
+			if ($(pad_reference).index() == $('.pad:last').index() - 1) {
+				play_sequence('.pad:eq(0)');
+			} else {
+				play_sequence('.pad:eq(' + pad_reference.charAt(8) + ')');
+			}
+			
 		} else {
 
 		}
@@ -174,7 +198,7 @@ $(document).ready(function() {
 	$('.pad_piece').click(function() {
 		var clicked_pad_piece = $(this);
 
-		$('.pad_piece[id^="' + clicked_pad_piece.attr('id').charAt(0) + '"]').each(function() {
+		$(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + clicked_pad_piece.attr('id').charAt(0) + '"]').each(function() {
 			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		});

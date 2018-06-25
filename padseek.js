@@ -14,8 +14,11 @@ var closed_hi_hats = ['light-hi-hat.wav'];
 var snares = ['circus-snare.wav', 'marching-band-snare.wav'];
 var kick_drums = ['prehistor-khick.wav', 'thumpy-kick.wav'];
 var miscellaneous_percussion = ['radio-transmissions.wav'];
+// sample directory path array
 var sequence_sample_paths = ['path','path','path','path','path','path','path','path'];
-var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.5)', 'rgba(00, 00, 00, 0.25)'];
+// logo palette
+var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.1)', 'rgba(00, 00, 00, 0.25)'];
+// logo animation
 var logo_coloring = setInterval(function() {
 	$('h1').css({'color':logo_colors[Math.floor(Math.random() * logo_colors.length)]});
 }, 5000);
@@ -32,17 +35,22 @@ var sample_directories = [{directory: 'crash-cymbals', sound_paths: crash_cymbal
 function calculate(tempo) {
 	calculated_tempo = (1000 / (tempo / 60)) / 2;
 	
-	//initializes sequence
+	// initializes sequence
 	play_sequence('.pad:eq(0)');
 }
 
 // generate values for sequence_sample_paths array
 function default_path_array() {
+	// for each type of sample
 	for (var i = 0; i < 8; i++) {
+		// get the associated select element
 		var selected_select = $('.select').eq(i);
+		// get the first class of the element
 		var selected_select_class = selected_select.attr('class').split(" ")[0];
+		// and parse it into a directory string
 		var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
 
+		// build and store the sample path
 		sequence_sample_paths[i] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
 	}
 }
@@ -73,7 +81,7 @@ function generate_pad() {
 
 // clear drum pad piece selections
 function clear_selections() {
-	//stop sequence
+	// stop sequence
 	sequence_running = false;
 	activated_pad_pieces = 0;
 	
@@ -95,7 +103,7 @@ function clear_selections() {
 function generate_select_options() {
 	// for each sample directory item
 	for (var i = 0; i < sample_directories.length; i++) {
-		//get a parsed reference to the select element that has a class matching the current directory item
+		// get a parsed reference to the select element that has a class matching the current directory item
 		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]');
 
 		// for each item in the sound_paths (array) property
@@ -108,15 +116,8 @@ function generate_select_options() {
 	}
 }
 
-//new play sequence
-//user clicks play
-//get first index of pad loop through
-//at end of pad check if this is another index of pad
-
 // play sequence
 function play_sequence(pad_reference) {
-	console.log($(pad_reference));
-	
 	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
 			// play sound from path that was jsut built
@@ -125,6 +126,7 @@ function play_sequence(pad_reference) {
 			// set active pad piece css properties
 			$(this).css({'opacity':'0.25','background':'white'});
 
+			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);
 
 			setTimeout(function() {
@@ -134,6 +136,7 @@ function play_sequence(pad_reference) {
 			// set inactive pad piece css properties
 			$(this).css({'opacity':'0.1','background':'rgba(00, 00, 00, 0.01)'});
 
+			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);
 
 			setTimeout(function() {
@@ -147,30 +150,32 @@ function play_sequence(pad_reference) {
 	
 	// determine sequence loop point
 	if (current_row_in_sequence === 9) {
+		// if the current pad is not the last pad
 		if ($(pad_reference).index() != $('.pad:last').index()) {
-			console.log($(pad_reference).index() + ' ... finished pad index');
-			console.log($('.pad:last').index() + ' ... index of last pad');
-			
-			var new_pad_index = $(pad_reference).next('.pad').index() - 2
-			
-			console.log(new_pad_index);
+			// set the current pad to be the next pad
+			var new_pad_index = $(pad_reference).next('.pad').index() - 2;
 			
 			pad_reference = '.pad:eq(' + new_pad_index + ')';
 		} else {
+			// set the first pad as the current pad
 			pad_reference = '.pad:eq(0)';
 		}
 		
+		// reset current_row_in_sequence
 		current_row_in_sequence = 1;
 		
+		// clean up unused elements
 		$('audio.sound-player').each(function() { $(this).remove(); });
 	}
 
 	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {
 		if (sequence_running) {
+			// if the current pad is the last pad, set the first pad as the current pad
 			if ($(pad_reference).index() == $('.pad:last').index() + 2) {
 				play_sequence('.pad:eq(0)');
 			} else {
+				// if the current pad is not the last pad, do nothing
 				play_sequence('.pad:eq(' + pad_reference.charAt(8) + ')');
 			}
 			
@@ -182,33 +187,42 @@ function play_sequence(pad_reference) {
 
 // when the document is ready (for setup & event listeners)
 $(document).ready(function() {
-	// generate the drum pad
+	// generate the drum pad and fill up the sample path array with default values
 	generate_pad();
 	default_path_array();
 	
-	$('.more_beats').click(function() {
+	// duplicate pad
+	$('.duplicate_pad').click(function() {
+		// clone element and its event listeners
 		var new_pad = $('.pad:last').clone(true, true);
+		// set extra css
 		new_pad.css({'margin-left':'30px'});
 		
-		$('.pad:last').find('.more_beats').remove();
+		// change last pad's option button and append the new pad
+		$('.pad:last').find('.duplicate_pad').remove();
 		$('.pad:last').after(new_pad);
 	});
 	
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
+		// get a reference to ti
 		var clicked_pad_piece = $(this);
 
+		// reset all other pad pieces in the same column
 		$(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + clicked_pad_piece.attr('id').charAt(0) + '"]').each(function() {
 			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		});
 
+		// determine what type of piece was clicked
 		if ($(this).css('border-radius') == '2px') {
+			// if an inactive piece was clicked
 			$(this).css({'background':'white','border-radius':'8px'});
 			$(this).attr({'data-state':'active'});
 
 			activated_pad_pieces++;
 		} else if ($(this).css('border-radius') == '8px') {
+			// if an active piece was clicked
 			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 
@@ -260,8 +274,8 @@ $(document).ready(function() {
 		}
 	});
 	
+	// when the user hits the [enter] key while inside the tempo input field
 	$('.tempo_field').on('keydown', function(e) {
-		console.log(e.keyCode);
 		if (e.keyCode.which === 13) { 
 			calculate(parseInt($('.tempo_field').val()));
 			
@@ -269,7 +283,9 @@ $(document).ready(function() {
 		}
 	});
 	
+	// when a user clicking inside of the tempo tool module frame
 	$('.tempo_tool').click(function() {
+		// focus the frame
 		$('.tempo_tool_frame').focus();
 		
 		$(this).css({'box-shadow':'0 2px 0.5px rgba(00, 00, 00, 0.25)'});

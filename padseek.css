@@ -24,7 +24,8 @@ body {
 h1 {
 	transition: all 7s ease-in-out;
 	font-family: 'Shrikhand', cursive;
-	margin: 0 0 0 75px;
+	margin: 25px 0 25px 75px;
+	position: fixed;
 	font-size: 36px;
 	color: white;
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
@@ -74,10 +75,10 @@ input[type="button"], select {
 }
 
 .main_content {
-	padding: 25px 50px;
+	padding: 50px 50px;
 }
 
-.more_beats {
+.duplicate_pad {
 	position: absolute;
 	margin-top: -25px;
 	border: none;
@@ -213,7 +214,7 @@ input[type="button"], select {
 	min-width: 296px;
 	max-width: 296px;
 	height: 155px;
-	margin-top: 35px;
+	margin-top: 20px;
 	border-radius: 5px;
 	display: flex;
 	border: 1px dashed rgba(00, 00, 00, 0.5);

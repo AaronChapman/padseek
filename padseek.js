@@ -15,7 +15,10 @@ var snares = ['circus-snare.wav', 'marching-band-snare.wav'];
 var kick_drums = ['prehistor-khick.wav', 'thumpy-kick.wav'];
 var miscellaneous_percussion = ['radio-transmissions.wav'];
 // sample directory path array
-var sequence_sample_paths = ['path','path','path','path','path','path','path','path'];
+var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
+							 'samples/none.mp3','samples/none.mp3',
+							 'samples/none.mp3','samples/none.mp3',
+							 'samples/none.mp3','samples/none.mp3'];
 // logo palette
 var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.1)', 'rgba(00, 00, 00, 0.25)'];
 // logo animation
@@ -37,22 +40,6 @@ function calculate(tempo) {
 	
 	// initializes sequence
 	play_sequence('.pad:eq(0)');
-}
-
-// generate values for sequence_sample_paths array
-function default_path_array() {
-	// for each type of sample
-	for (var i = 0; i < 8; i++) {
-		// get the associated select element
-		var selected_select = $('.select').eq(i);
-		// get the first class of the element
-		var selected_select_class = selected_select.attr('class').split(" ")[0];
-		// and parse it into a directory string
-		var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
-
-		// build and store the sample path
-		sequence_sample_paths[i] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
-	}
 }
 
 // generate drum pad pieces
@@ -120,8 +107,14 @@ function generate_select_options() {
 function play_sequence(pad_reference) {
 	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
-			// play sound from path that was jsut built
-			$.play_sound(sequence_sample_paths[current_row_in_sequence - 1]);
+			// create empty none audio file
+			// active pad piece is triggered
+			// array at index of findex
+			
+			var findex = parseInt(pad_reference.charAt(8)) + 1;
+			var sample sequence_sample_paths[(current_row_in_sequence * findex) - 1]);
+			
+			$.play_sound(sample);
 
 			// set active pad piece css properties
 			$(this).css({'opacity':'0.25','background':'white'});
@@ -178,7 +171,6 @@ function play_sequence(pad_reference) {
 				// if the current pad is not the last pad, do nothing
 				play_sequence('.pad:eq(' + pad_reference.charAt(8) + ')');
 			}
-			
 		} else {
 
 		}
@@ -187,9 +179,8 @@ function play_sequence(pad_reference) {
 
 // when the document is ready (for setup & event listeners)
 $(document).ready(function() {
-	// generate the drum pad and fill up the sample path array with default values
+	// generate the drum pad
 	generate_pad();
-	default_path_array();
 	
 	// duplicate pad
 	$('.duplicate_pad').click(function() {
@@ -201,6 +192,10 @@ $(document).ready(function() {
 		// change last pad's option button and append the new pad
 		$('.pad:last').find('.duplicate_pad').remove();
 		$('.pad:last').after(new_pad);
+		
+		var ssp_length = sequence_sample_paths.length;
+		
+		$.merge(sequence_sample_paths, sequence_sample_paths.slice((ssp_length - 8), ssp_length));
 	});
 	
 	// when a pad piece is clicked
@@ -241,8 +236,10 @@ $(document).ready(function() {
 
 		// continue building sound path
 		sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
-
-		sequence_sample_paths[clicked_pad_piece.attr('id').charAt(0) - 1] = sound_path;
+		
+		var findex = $(this).parents('.pad:eq(0)').index() - 2;
+		
+		sequence_sample_paths[(parseInt(clicked_pad_piece.attr('id').charAt(0)) + (findex * 8)) - 1] = sound_path;
 	});
 	
 	// when the play/pause sequence button is clicked

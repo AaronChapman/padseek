@@ -134,8 +134,7 @@ function play_sequence(pad_reference) {
 			}, calculated_tempo);
 		}
 	}); 
-	
-	//
+
 	//
 	//
 	// something is fucked up right here man idk what yet math's hard

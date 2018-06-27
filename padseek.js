@@ -107,12 +107,9 @@ function generate_select_options() {
 function play_sequence(pad_reference) {
 	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
-			// create empty none audio file
-			// active pad piece is triggered
-			// array at index of findex
-			
-			var findex = parseInt(pad_reference.charAt(8)) + 1;
-			var sample sequence_sample_paths[(current_row_in_sequence * findex) - 1]);
+			var sample = sequence_sample_paths[current_row_in_sequence - 1];
+
+			console.log(sample);
 			
 			$.play_sound(sample);
 
@@ -136,30 +133,39 @@ function play_sequence(pad_reference) {
 				quick_reference.css({'opacity':'1.0','background':'aliceblue'});
 			}, calculated_tempo);
 		}
-	});
-
-	// incremenet current row in the sequence
-	current_row_in_sequence++;
+	}); 
 	
-	// determine sequence loop point
-	if (current_row_in_sequence === 9) {
+	//
+	//
+	//
+	// something is fucked up right here man idk what yet math's hard
+
+	if (current_row_in_sequence % 8 == 0) {
+		console.log(pad_reference);
+
 		// if the current pad is not the last pad
 		if ($(pad_reference).index() != $('.pad:last').index()) {
 			// set the current pad to be the next pad
 			var new_pad_index = $(pad_reference).next('.pad').index() - 2;
-			
+
 			pad_reference = '.pad:eq(' + new_pad_index + ')';
+
+			console.log(pad_reference);
 		} else {
 			// set the first pad as the current pad
 			pad_reference = '.pad:eq(0)';
+
+			current_row_in_sequence = 1;
+
+			setTimeout(function() {
+				// clean up unused elements
+				$('audio.sound-player').each(function() { $(this).remove(); });
+			}, calculated_tempo * 2);
 		}
-		
-		// reset current_row_in_sequence
-		current_row_in_sequence = 1;
-		
-		// clean up unused elements
-		$('audio.sound-player').each(function() { $(this).remove(); });
 	}
+
+	// incremenet current row in the sequence
+	current_row_in_sequence++;
 
 	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {
@@ -169,7 +175,7 @@ function play_sequence(pad_reference) {
 				play_sequence('.pad:eq(0)');
 			} else {
 				// if the current pad is not the last pad, do nothing
-				play_sequence('.pad:eq(' + pad_reference.charAt(8) + ')');
+				play_sequence(pad_reference);
 			}
 		} else {
 

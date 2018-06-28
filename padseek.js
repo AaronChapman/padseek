@@ -3,6 +3,8 @@
 // figure out why sequence loops to first column
 // make sure none.mp3 paths get set
 //verify correct samples are playing
+// correct css when duplicating mid-play
+//figure out why clicked samples in duplicate pads arent updating array
 
 // determines whether or not the sequence is running
 var sequence_running = false;
@@ -115,7 +117,7 @@ function play_sequence(pad_reference) {
 		if ($(this).attr('data-state') === "active") {
 			var sample = sequence_sample_paths[current_row_in_sequence - 1];
 
-			console.log(sample);
+			//console.log(sample);
 			
 			$.play_sound(sample);
 
@@ -152,15 +154,15 @@ function play_sequence(pad_reference) {
 			// set the first pad as the current pad
 			pad_reference = '.pad:eq(0)';
 
-			current_row_in_sequence = 1;
+			current_row_in_sequence = 0;
 
 			setTimeout(function() {
 				// clean up unused elements
 				$('audio.sound-player').each(function() { $(this).remove(); });
-			}, calculated_tempo * 2);
+			}, calculated_tempo);
 		}
 	}
-
+	
 	// incremenet current row in the sequence
 	current_row_in_sequence++;
 
@@ -213,8 +215,9 @@ $(document).ready(function() {
 	
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
-		// get a reference to ti
+		// get a reference to it
 		var clicked_pad_piece = $(this);
+		var findex = $(this).parents('.pad:eq(0)').index() - 2;
 
 		// reset all other pad pieces in the same column
 		$(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + clicked_pad_piece.attr('id').substring(0, clicked_pad_piece.attr('id').indexOf('-')) + '"]').each(function() {
@@ -229,30 +232,30 @@ $(document).ready(function() {
 			$(this).attr({'data-state':'active'});
 
 			activated_pad_pieces++;
+			
+			// set up the sound path string
+			var sound_path = 'samples/';
+			// get the first character of the clicked piece's id attribute
+			var sound_index = parseInt($(this).attr('id').split('-')[1]);
+			// get a reference to the select element for the clicked piece's row
+			var selected_select = $('.select').eq(sound_index - 1);
+			// get the first class from that select element and parse it
+			var selected_select_class = selected_select.attr('class').split(" ")[0];
+			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
+
+			// continue building sound path
+			sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
+		
+			sequence_sample_paths[parseInt(clicked_pad_piece.attr('id').substring(0, clicked_pad_piece.attr('id').indexOf('-'))) - 1] = sound_path;
 		} else if ($(this).css('border-radius') == '8px') {
 			// if an active piece was clicked
 			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 
 			activated_pad_pieces--;
+		
+			sequence_sample_paths[parseInt(clicked_pad_piece.attr('id').substring(0, clicked_pad_piece.attr('id').indexOf('-'))) - 1] = 'samples/none.mp3';
 		}
-
-		// set up the sound path string
-		var sound_path = 'samples/';
-		// get the first character of the clicked piece's id attribute
-		var sound_index = parseInt($(this).attr('id').split('-')[1]);
-		// get a reference to the select element for the clicked piece's row
-		var selected_select = $('.select').eq(sound_index - 1);
-		// get the first class from that select element and parse it
-		var selected_select_class = selected_select.attr('class').split(" ")[0];
-		var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
-
-		// continue building sound path
-		sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
-		
-		var findex = $(this).parents('.pad:eq(0)').index() - 2;
-		
-		sequence_sample_paths[(parseInt(clicked_pad_piece.attr('id').charAt(0)) + (findex * 8)) - 1] = sound_path;
 	});
 	
 	// when the play/pause sequence button is clicked

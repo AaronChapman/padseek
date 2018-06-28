@@ -1,3 +1,9 @@
+// TO DO
+// store sample paths properly
+// figure out why sequence loops to first column
+// make sure none.mp3 paths get set
+//verify correct samples are playing
+
 // determines whether or not the sequence is running
 var sequence_running = false;
 // sequence tempo
@@ -105,7 +111,7 @@ function generate_select_options() {
 
 // play sequence
 function play_sequence(pad_reference) {
-	$(pad_reference).find('.pad_piece[id^="' + (current_row_in_sequence) + '"]').each(function() {
+	$(pad_reference).find('.pad_piece[id^="' + current_row_in_sequence + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
 			var sample = sequence_sample_paths[current_row_in_sequence - 1];
 
@@ -135,21 +141,13 @@ function play_sequence(pad_reference) {
 		}
 	}); 
 
-	//
-	//
-	// something is fucked up right here man idk what yet math's hard
-
 	if (current_row_in_sequence % 8 == 0) {
-		console.log(pad_reference);
-
 		// if the current pad is not the last pad
 		if ($(pad_reference).index() != $('.pad:last').index()) {
 			// set the current pad to be the next pad
 			var new_pad_index = $(pad_reference).next('.pad').index() - 2;
 
-			pad_reference = '.pad:eq(' + new_pad_index + ')';
-
-			console.log(pad_reference);
+			pad_reference = '.pad:eq(' + new_pad_index + ')'; 
 		} else {
 			// set the first pad as the current pad
 			pad_reference = '.pad:eq(0)';
@@ -191,8 +189,18 @@ $(document).ready(function() {
 	$('.duplicate_pad').click(function() {
 		// clone element and its event listeners
 		var new_pad = $('.pad:last').clone(true, true);
+		
 		// set extra css
 		new_pad.css({'margin-left':'30px'});
+		
+		new_pad.find('.pad_piece').each(function() {
+			var piece_id = $(this).attr('id');
+			var x_index = piece_id.substring(0, piece_id.indexOf('-'));
+			var y_index = piece_id.split('-')[1];
+			var x_index_conversion = parseInt(x_index) + 8;
+			
+			$(this).attr({'id':x_index_conversion + '-' + y_index});
+		});
 		
 		// change last pad's option button and append the new pad
 		$('.pad:last').find('.duplicate_pad').remove();
@@ -209,7 +217,7 @@ $(document).ready(function() {
 		var clicked_pad_piece = $(this);
 
 		// reset all other pad pieces in the same column
-		$(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + clicked_pad_piece.attr('id').charAt(0) + '"]').each(function() {
+		$(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + clicked_pad_piece.attr('id').substring(0, clicked_pad_piece.attr('id').indexOf('-')) + '"]').each(function() {
 			$(this).css({'background':'aliceblue','border-radius':'2px'});
 			$(this).attr({'data-state':'inactive'});
 		});
@@ -232,7 +240,7 @@ $(document).ready(function() {
 		// set up the sound path string
 		var sound_path = 'samples/';
 		// get the first character of the clicked piece's id attribute
-		var sound_index = parseInt($(this).attr('id').charAt(2));
+		var sound_index = parseInt($(this).attr('id').split('-')[1]);
 		// get a reference to the select element for the clicked piece's row
 		var selected_select = $('.select').eq(sound_index - 1);
 		// get the first class from that select element and parse it

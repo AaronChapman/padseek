@@ -1,10 +1,7 @@
 // TO DO
-// store sample paths properly
-// figure out why sequence loops to first column
-// make sure none.mp3 paths get set
-//verify correct samples are playing
 // correct css when duplicating mid-play
-//figure out why clicked samples in duplicate pads arent updating array
+// figure out why clicked samples in duplicate pads arent updating array
+// make random function
 
 // determines whether or not the sequence is running
 var sequence_running = false;
@@ -116,8 +113,6 @@ function play_sequence(pad_reference) {
 	$(pad_reference).find('.pad_piece[id^="' + current_row_in_sequence + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
 			var sample = sequence_sample_paths[current_row_in_sequence - 1];
-
-			//console.log(sample);
 			
 			$.play_sound(sample);
 

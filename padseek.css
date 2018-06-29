@@ -21,13 +21,14 @@ body {
 }
 
 h1 {
-	transition: all 7s ease-in-out;
-	font-family: 'Shrikhand', cursive;
-	margin: 25px 0 25px 75px;
-	position: fixed;
-	font-size: 36px;
-	color: white;
-	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
+	top: 0;
+  padding: 75px 75px 10px 75px;
+  transition: all 5s ease-in-out;
+  font-family: 'Shrikhand', cursive;
+  margin: 0;
+  position: absolute;
+  font-size: 36px;
+  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 
 input[type="button"], select {

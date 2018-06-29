@@ -2,6 +2,7 @@
 // correct css when duplicating mid-play
 // figure out why clicked samples in duplicate pads arent updating array
 // make random function
+// convert files to mp3s
 
 // determines whether or not the sequence is running
 var sequence_running = false;
@@ -200,7 +201,7 @@ $(document).ready(function() {
 		});
 		
 		// change last pad's option button and append the new pad
-		$('.pad:last').find('.duplicate_pad').remove();
+		//$('.pad:last').find('.duplicate_pad').remove();
 		$('.pad:last').after(new_pad);
 		
 		var ssp_length = sequence_sample_paths.length;

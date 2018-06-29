@@ -28,6 +28,7 @@ h1 {
   margin: 0;
   position: absolute;
   font-size: 36px;
+	color: white;
   text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 
@@ -172,6 +173,30 @@ input[type="button"], select {
 
 .play_sequence:hover {
 	background: antiquewhite;
+	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
+}
+
+.random_generation {
+	display: flex;
+  justify-content: center;
+  padding: 10px 35px;
+}
+
+.random_sequence {
+	font-family: 'Shrikhand', cursive;
+	width: 100%;
+	border: none;
+	background: antiquewhite;
+	height: 50px;
+	border-radius: 5px;
+	font-size: 1.5em;
+	margin: 10px 0;
+	color: slategray;
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
+}
+
+.random_sequence:hover {
+	background: aliceblue;
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 

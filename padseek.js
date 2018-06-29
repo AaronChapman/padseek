@@ -3,6 +3,7 @@
 // figure out why clicked samples in duplicate pads arent updating array
 // make random function
 // convert files to mp3s
+// add github module
 
 // determines whether or not the sequence is running
 var sequence_running = false;

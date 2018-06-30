@@ -177,9 +177,10 @@ input[type="button"], select {
 }
 
 .random_generation {
-	display: flex;
+	display: inline-block;
   justify-content: center;
   padding: 10px 35px;
+	width: 298px;
 }
 
 .random_sequence {

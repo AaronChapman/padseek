@@ -183,7 +183,7 @@ input[type="button"], select {
 	width: 298px;
 }
 
-.random_sequence {
+.randomize {
 	font-family: 'Shrikhand', cursive;
 	width: 100%;
 	border: none;
@@ -196,7 +196,7 @@ input[type="button"], select {
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 }
 
-.random_sequence:hover {
+.randomize:hover {
 	background: aliceblue;
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }

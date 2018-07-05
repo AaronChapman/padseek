@@ -11,7 +11,7 @@ var crash_cymbals = ['thin-cymbal.wav'];
 var ride_cymbals = ['tribal-ride.wav'];
 var open_hi_hats = ['meaty-hi-hat.wav', 'thin-hi-hat.wav'];
 var closed_hi_hats = ['light-hi-hat.wav'];
-var snares = ['circus-snare.wav', 'marching-band-snare.wav'];
+var snares = ['bangle-snare.mp3', 'breathless-snare.mp3', 'bunk-snare.mp3', 'clap-like-snare.mp3', 'crunchy-peanut-spread-snare.mp3', 'crunchy-snare.mp3', 'dopey-snare.mp3', 'hardstyle-snare.mp3', 'heavy-snare.mp3', 'lofi-bump-snare.mp3', 'lofi-crunk-snare.mp3', 'orphan-snare.mp3', 'pathetic-snare.mp3', 'pumped-snare.mp3', 'punctual-snare.mp3', 'raw-cut-snare.mp3', 'smacky-snare.mp3', 'splatter-snare.mp3', 'thick-smack-snare.mp3', 'toy-snare.mp3', 'weak-snare.mp3', 'well-rounded-snare.mp3'];
 var kick_drums = ['prehistor-khick.wav', 'thumpy-kick.wav'];
 var miscellaneous_percussion = ['radio-transmissions.wav'];
 // sample directory path array

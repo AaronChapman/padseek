@@ -79,6 +79,8 @@ function play_sequence(pad_reference) {
 			var sample = sequence_sample_paths[current_row_in_sequence - 1];
 
 			$.play_sound(sample);
+			
+			//find some way to loop player and remove sound player elements while keeping all sound tail
 
 			// set active pad piece css properties
 			$(this).css({'opacity':'0.25','background':'white'});

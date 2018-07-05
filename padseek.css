@@ -231,6 +231,7 @@ h1 {
   border-right: none;
   border-radius: 0 0 0 5px;
 	opacity: 0.5;
+	z-index: 10;
 }
 
 .tempo_field {

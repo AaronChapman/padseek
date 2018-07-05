@@ -22,7 +22,7 @@ body {
 
 h1 {
 	top: 0;
-  padding: 75px 75px 10px 75px;
+  padding: 75px 75px 10px 100px;
   transition: all 5s ease-in-out;
   font-family: 'Shrikhand', cursive;
   margin: 0;
@@ -30,10 +30,6 @@ h1 {
   font-size: 36px;
 	color: white;
   text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
-}
-
-input[type="button"], select {
-	cursor: pointer;
 }
 
 .clear_selections {
@@ -53,6 +49,10 @@ input[type="button"], select {
 	background: antiquewhite;
 	color: slategray;
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
+}
+
+.cursor_pointer:hover {
+	cursor: pointer;
 }
 
 .first_row {
@@ -77,6 +77,7 @@ input[type="button"], select {
 
 .main_content {
 	padding: 50px 50px;
+	margin: 25px;
 }
 
 .duplicate_pad {
@@ -151,7 +152,6 @@ input[type="button"], select {
 
 .pad_piece:hover {
 	opacity: 0.75;
-	cursor: pointer;
 }
 
 .pad_piece:active {
@@ -217,6 +217,20 @@ input[type="button"], select {
 .sequence_controls {
 	padding: 10px 35px 10px 10px;
 	width: 298px;
+}
+
+.stat_repo {
+	position: fixed;
+  right: 0;
+  top: 0;
+  background: aliceblue;
+  padding: 10px;
+  margin: 0;
+  border: 1px dashed rgba(00, 00, 00, 0.5);
+  border-top: none;
+  border-right: none;
+  border-radius: 0 0 0 5px;
+	opacity: 0.5;
 }
 
 .tempo_field {

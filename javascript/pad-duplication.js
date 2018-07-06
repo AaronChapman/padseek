@@ -1,5 +1,7 @@
-// duplicate pad
+$(document).ready(function() {
+	// duplicate pad
 	$('.duplicate_pad').click(function() {
+		console.log('clicked');
 		// clone element and its event listeners
 		var new_pad = $(this).parents('.pad:eq(0)').clone(true, true);
 
@@ -50,3 +52,4 @@
 			}
 		}
 	});
+});

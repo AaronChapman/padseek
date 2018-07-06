@@ -274,3 +274,10 @@ h1 {
 	text-align: center;
 	margin-bottom: -25px;
 }
+
+.tt_container {
+	width: auto;
+	height: auto;
+	padding: 10px 25px;
+	display: block;
+}

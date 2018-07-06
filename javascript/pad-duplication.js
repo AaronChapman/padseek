@@ -1,24 +1,5 @@
 $(document).ready(function() {
-	// duplicate pad
-	$('.duplicate_pad').click(function() {
-		console.log('clicked');
-		// clone element and its event listeners
-		var new_pad = $(this).parents('.pad:eq(0)').clone(true, true);
-
-		// set extra css
-		new_pad.css({'margin-left':'30px'});
-
-		new_pad.find('.pad_piece').each(function() {
-			var piece_id = $(this).attr('id');
-			var x_index = piece_id.substring(0, piece_id.indexOf('-'));
-			var y_index = piece_id.split('-')[1];
-			var x_index_conversion = parseInt(x_index) + 8;
-
-			$(this).attr({'id':x_index_conversion + '-' + y_index});
-		});
-
-		$(this).parents('.pad:eq(0)').after(new_pad);
-
+	function reorder_pad_pieces() {
 		for (var pads = 0; pads < $('body').find('.pad').length; pads++) {
 			var temporary_pad_reference = $('.pad').eq(pads);
 
@@ -31,8 +12,10 @@ $(document).ready(function() {
 		}
 
 		var ssp_length = sequence_sample_paths.length;
+		
+		if (ssp_length == $('body').find('.pad').length * 8) { sequence_sample_paths.length = $('body').find('.pad').length * 8; }
 
-		for (var i = 0; i < $('body').find('.pad').length * 8; i++) {
+		for (var i = 0; i < ssp_length; i++) {
 			var sound_path = 'samples/';
 
 			// get the first character of the clicked piece's id attribute
@@ -51,5 +34,35 @@ $(document).ready(function() {
 				sequence_sample_paths[i] = 'samples/none.mp3';
 			}
 		}
+	}
+	
+	$('.pad').on('click', '.remove_pad', function(event) {
+		console.log('hey');
+		$(this).parents('.pad:eq(0)').remove();
+			
+		reorder_pad_pieces();
+	});
+	
+	
+	// duplicate pad
+	$('.duplicate_pad').click(function() {
+		// clone element and its event listeners
+		var new_pad = $(this).parents('.pad:eq(0)').clone(true, true);
+
+		// set extra css
+		new_pad.css({'margin-left':'30px'});
+		new_pad.prepend('<input class="remove_pad cursor_pointer" type="button" value="remove">');
+		new_pad.find('.pad_piece').each(function() {
+			var piece_id = $(this).attr('id');
+			var x_index = piece_id.substring(0, piece_id.indexOf('-'));
+			var y_index = piece_id.split('-')[1];
+			var x_index_conversion = parseInt(x_index) + 8;
+
+			$(this).attr({'id':x_index_conversion + '-' + y_index});
+		});
+
+		$(this).parents('.pad:eq(0)').after(new_pad);
+
+		reorder_pad_pieces();
 	});
 });

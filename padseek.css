@@ -201,6 +201,15 @@ h1 {
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
+.remove_pad {
+	  position: absolute;
+    margin: -25px 25px 0 -65px;
+    border: none;
+    padding: 0 100px 0 0;
+    z-index: 10;
+    color: crimson;
+}
+
 .select {
 	width: 150px;
 	border: none;

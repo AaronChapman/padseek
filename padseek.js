@@ -1,6 +1,5 @@
 // TO DO
 // start converting files to mp3s
-// localize tempo tool
 // continue to modularize & sort javascript functions
 
 // calculates tempo on change
@@ -108,6 +107,7 @@ function play_sequence(pad_reference) {
 $(document).ready(function() {
 	// generate the drum pad
 	generate_pad();
+	setup_default_interface();
 
 	// when a pad piece is clicked
 	$('.pad_piece').click(function() {
@@ -140,7 +140,7 @@ $(document).ready(function() {
 			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
 
 			// continue building sound path
-			sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
+			sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
 
 			sequence_sample_paths[parseInt(clicked_pad_piece.attr('id').substring(0, clicked_pad_piece.attr('id').indexOf('-'))) - 1] = sound_path;
 		} else if ($(this).css('border-radius') == '8px') {

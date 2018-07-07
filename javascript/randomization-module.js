@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	var random_sample_selection_active = false;
-	var random_pad_pieces_active = false;
+	var random_sample_selection_active = true;
+	var random_pad_pieces_active = true;
 	
 	$('.randomize').click(function() {
 		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));

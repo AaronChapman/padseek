@@ -36,8 +36,12 @@ function generate_select_options() {
 		for (var j = 0; j < sample_directories[i].sound_paths.length; j++) {
 			// append an option element with appropriate attributes
 			select_reference.append('<option value="' +
-									sample_directories[i].sound_paths[j] +'">' +  sample_directories[i].sound_paths[j].replace(/-/g, ' ') +
+									sample_directories[i].sound_paths[j] +'">' +  sample_directories[i].sound_paths[j].substring(0, sample_directories[i].sound_paths[j].length - 4).replace(/-/g, ' ') +
 									'</option>');
 		}
 	}
+}
+
+function setup_default_interface() {
+	$('.module_checkbox').prop('checked', true);
 }

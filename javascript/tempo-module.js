@@ -30,7 +30,7 @@ function updateTempo() {
 		start_time = new Date();
 	}
 
-	$('#bpm_display').html(value + ' bpm');
+	$('#bpm_display').html(Math.round(value) + ' bpm');
 }
 
 function reset() {
@@ -45,4 +45,10 @@ shortcut.add("r", function() {
 
 shortcut.add("t", function() {
 	calculateTempo();
+});
+
+$(document).ready(function() {
+	$('.set_tempo').click(function() {
+		$('.tempo_field').val($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
+	});
 });

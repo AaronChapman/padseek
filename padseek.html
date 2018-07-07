@@ -10,8 +10,8 @@
 
 		<link rel="stylesheet" href="https://oylo.info/css/site-wide/directory-header.css">
 		<link rel="stylesheet" href="https://oylo.info/css/site-wide/template.css">
-		<link rel="stylesheet" href="https://oylo.info/css/site-wide/site-map.css">
 		<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
+		<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
 		<link rel="stylesheet" href="padseek.css">
 		
 		<link href="https://fonts.googleapis.com/css?family=Muli|Shrikhand" rel="stylesheet">
@@ -20,40 +20,41 @@
 		<script src="https://oylo.info/javascript/links_for_directory_header.js"></script>
 		<script src="https://www.oylo.info/tool/tempo.js"></script>
 		<script src="javascript/interface-generation.js"></script>
-		<script src="javascript/pad-duplication.js"></script>
-		<script src="javascript/random-sequence.js"></script>
+		<script src="javascript/pad-manipulation.js"></script>
+		<script src="javascript/randomization-module.js"></script>
 		<script src="javascript/padseek-globals.js"></script>
-		<script src="javascript/tempo-tool.js"></script>
+		<script src="javascript/tempo-module.js"></script>
 		<script src="padseek.js"></script>
 		<script src="sound.js"></script>
 	</head>
 
-	<body id="page_body" onload="load_directory_header('https://crossorigin.me/https://oylo.info/resources/templates/directory_header.html')">
-		<p class="stat_repo">
-			5 july 2018 - - padseek v1.3<br><br>
-			-localized tempo tool<br>
-			-added ability to remove pads
-		</p>
+	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
+		<p class="stat_repo"><br>- refined sequencer styling<br>- added one-click bpm alteration button inside tempo module<br> - currently ironing out some kinks & converting sample file types</p>
 		<h1>p a d s e e k</h1>
 		<div id="directory_header"></div>
 		<div class="main_content">
 			<div class="first_row">
 				<div class="sequence_controls">
-					<input class="play_sequence cursor_pointer" type="button" value="play sequence">
-					<input class="clear_selections cursor_pointer" type="button" value="clear selections" onclick="clear_selections()">
+					<input class="play_sequence cursor_pointer box-shadowed-hover" type="button" value="play sequence">
+					<input class="clear_selections cursor_pointer box-shadowed-hover" type="button" value="clear selections" onclick="clear_selections()">
 					<p class="tempo_field_label">tempo (beats per minute)</p>
 					<input class="tempo_field cursor_pointer" type="text" value="120">
 				</div>
 				<div class="tempo_tool">
-					<div class="tt_container">
-						<p>hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br><br></p><div class="bpm_display" id="bpm_display">0 bpm</div>
-        </div>
+					<p>
+						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br><br>
+					</p>
+					<div class="tempo_controls">
+						<input class="set_tempo cursor_pointer box-shadowed-hover" type="button" value="set tempo">
+						<div class="bpm_display" id="bpm_display">0 bpm</div>
+					</div>
 				</div>
 				<div class="random_generation">
-					<input class="randomize cursor_pointer" type="button" value="randomize">
-					<input class="random_sample_selection cursor_pointer" type="checkbox">
+					<input class="randomize cursor_pointer shake-little shake-constant box-shadowed-hover" type="button" value="randomize">
+					<input class="random_sample_selection module_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random samples</label>
-					<input class="random_pad_pieces cursor_pointer" type="checkbox">
+					<br>
+					<input class="random_pad_pieces module_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random pad pieces</label>
 				</div>
 			</div>
@@ -81,11 +82,6 @@
 				<div class="pad">
 					<input class="duplicate_pad cursor_pointer" type="button" value="duplicate pad">
 				</div>
-			</div>
-		</div>
-		<div class="site_map_container">
-			<div id="site_map">
-				<script> $("#site_map").load("https://crossorigin.me/https://oylo.info/resources/templates/site_map.html"); </script>
 			</div>
 		</div>
 	</body>

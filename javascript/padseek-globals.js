@@ -37,7 +37,25 @@ var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
 // logo palette
 var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.1)', 'rgba(00, 00, 00, 0.25)'];
 
+var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE'];
+
 // logo animation
 var logo_coloring = setInterval(function() {
-$('h1').css({'color':logo_colors[Math.floor(Math.random() * logo_colors.length)]});
+	var temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
+	
+	while ($('.randomize').css('background') === temp_color) {
+		temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
+	}
+	
+	$('h1').css({'color':temp_color});
 }, 5000);
+
+var randomize_coloring = setInterval(function() {
+	var temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
+
+	while ($('.randomize').css('background') === temp_color) {
+		temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
+	}
+	
+	$('.randomize').css({'background':'#' + temp_color});
+}, 1000);

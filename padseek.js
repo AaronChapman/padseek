@@ -38,6 +38,10 @@ function play_sequence(pad_reference) {
 
 			$.play_sound(sample);
 			
+			setTimeout(function() {
+				$('audio.sound-player:first').remove();
+			}, calculated_tempo * 4);
+			
 			//find some way to loop player and remove sound player elements while keeping all sound tail
 
 			// set active pad piece css properties
@@ -75,10 +79,10 @@ function play_sequence(pad_reference) {
 
 			current_row_in_sequence = 0;
 
-			setTimeout(function() {
+			/*setTimeout(function() {
 				// clean up unused elements
 				$('audio.sound-player').each(function() { $(this).remove(); });
-			}, calculated_tempo);
+			}, calculated_tempo);*/
 		}
 	}
 
@@ -171,7 +175,7 @@ $(document).ready(function() {
 			sequence_running = false;
 			current_row_in_sequence = 1;
 
-			$('audio.sound-player').each(function() { $(this).remove(); });
+			//$('audio.sound-player').each(function() { $(this).remove(); });
 
 			// reset the css of all drum pad pieces
 			$('.pad_piece').each(function() {

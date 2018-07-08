@@ -10,15 +10,17 @@ $(document).ready(function() {
 				}
 			}
 		}
-
-		var ssp_length = sequence_sample_paths.length;
 		
-		if (ssp_length == $('body').find('.pad').length * 8) { sequence_sample_paths.length = $('body').find('.pad').length * 8; }
+		
+		console.log($('body').find('.pad').length);
+
+		var ssp_length = $('body').find('.pad').length * 8;
+		
+		sequence_sample_paths.length = ssp_length;
 
 		for (var i = 0; i < ssp_length; i++) {
 			var sound_path = 'samples/';
-
-			// get the first character of the clicked piece's id attribute
+			
 			var active_piece_id = $('.pad_piece[id^="' + (i + 1) + '-"][data-state="active"]').attr('id');
 
 			if (active_piece_id) {
@@ -37,7 +39,6 @@ $(document).ready(function() {
 	}
 	
 	$('.pad').on('click', '.remove_pad', function(event) {
-		console.log('hey');
 		$(this).parents('.pad:eq(0)').remove();
 			
 		reorder_pad_pieces();

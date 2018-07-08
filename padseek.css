@@ -42,6 +42,10 @@ input[type="button"]:active {
 	opacity: 0.75;
 }
 
+.box-shadowed { 
+	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
+}
+
 .box-shadowed-hover:hover { 
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
@@ -158,6 +162,10 @@ input[type="button"]:active {
 	padding: 2.5px 0 2.5px 0;
 }
 
+.pad_manipulator:hover {
+	opacity: 0.5;
+}
+
 .pad_piece {
 	transition: all 0.2s ease-in-out;
 	min-width: 25px;
@@ -196,14 +204,14 @@ input[type="button"]:active {
 .random_generation {
 	display: inline-block;
   justify-content: center;
-  padding: 10px 35px;
+  padding: 10px 32px;
 	width: 298px;
 }
 
 .randomize {
 	font-family: 'Shrikhand', cursive;
   transition: box-shadow 0.1s ease-in-out;
-  transition: background 1s ease-in-out;
+  transition: background 1.25s ease-in-out;
 	width: 100%;
 	border: none;
 	background: antiquewhite;
@@ -236,13 +244,13 @@ input[type="button"]:active {
 
 .selects {
 	padding: 0 2.5px;
-	margin: 0 -7.5px;
+	margin: 0 -2.5px;
 	padding: 0 10px 0 0;
 	border-radius: 0 5px 5px 0;
 }
 
 .sequence_controls {
-	padding: 10px 35px 10px 10px;
+	padding: 10px 47px 10px 10px;
 	width: 298px;
 }
 
@@ -295,8 +303,8 @@ input[type="button"]:active {
 
 .tempo_tool {
 	position: relative;
-	min-width: 296px;
-	max-width: 296px;
+	min-width: 246px;
+	max-width: 246px;
 	height: fit-content;
 	margin-top: 20px;
 	border-radius: 5px;

@@ -29,7 +29,7 @@
 	</head>
 
 	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
-		<p class="stat_repo"><br>- refined sequencer styling<br>- added one-click bpm alteration button inside tempo module<br> - currently ironing out some kinks & converting sample file types</p>
+		<p class="stat_repo box-shadowed"><br>- refined sequencer styling<br>- added sample bank content<br> - reduced latency issues</p>
 		<h1>p a d s e e k</h1>
 		<div id="directory_header"></div>
 		<div class="main_content">
@@ -38,9 +38,9 @@
 					<input class="play_sequence cursor_pointer box-shadowed-hover" type="button" value="play sequence">
 					<input class="clear_selections cursor_pointer box-shadowed-hover" type="button" value="clear selections" onclick="clear_selections()">
 					<p class="tempo_field_label">tempo (beats per minute)</p>
-					<input class="tempo_field cursor_pointer" type="text" value="120">
+					<input class="tempo_field box-shadowed cursor_pointer" type="text" value="120">
 				</div>
-				<div class="tempo_tool">
+				<div class="tempo_tool box-shadowed">
 					<p>
 						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br><br>
 					</p>
@@ -54,8 +54,8 @@
 					<input class="random_sample_selection module_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random samples</label>
 					<br>
-					<input class="random_pad_pieces module_checkbox cursor_pointer" type="checkbox">
-					<label class="label">random pad pieces</label>
+					<input class="random_pad_arrangement module_checkbox cursor_pointer" type="checkbox">
+					<label class="label">random pad arrangement</label>
 				</div>
 			</div>
 			<div class="second_row">
@@ -80,7 +80,7 @@
 					<li class="selects_item"><select class="kick_drums_select select cursor_pointer"></select></li>
 				</ul>
 				<div class="pad">
-					<input class="duplicate_pad cursor_pointer" type="button" value="duplicate pad">
+					<input class="duplicate_pad pad_manipulator cursor_pointer" type="button" value="duplicate pad">
 				</div>
 			</div>
 		</div>

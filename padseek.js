@@ -1,6 +1,7 @@
 // TO DO
 // start converting files to mp3s
 // continue to modularize & sort javascript functions
+// sequence paths don't update when you make a new sample selection
 
 // calculates tempo on change
 function calculate(tempo) {

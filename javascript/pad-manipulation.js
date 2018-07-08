@@ -10,9 +10,6 @@ $(document).ready(function() {
 				}
 			}
 		}
-		
-		
-		console.log($('body').find('.pad').length);
 
 		var ssp_length = $('body').find('.pad').length * 8;
 		
@@ -52,7 +49,7 @@ $(document).ready(function() {
 
 		// set extra css
 		new_pad.css({'margin-left':'30px'});
-		new_pad.prepend('<input class="remove_pad cursor_pointer" type="button" value="remove">');
+		new_pad.prepend('<input class="remove_pad pad_manipulator cursor_pointer" type="button" value="remove">');
 		new_pad.find('.pad_piece').each(function() {
 			var piece_id = $(this).attr('id');
 			var x_index = piece_id.substring(0, piece_id.indexOf('-'));

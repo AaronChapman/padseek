@@ -27,7 +27,7 @@ $(document).ready(function() {
 				var selected_select_class = selected_select.attr('class').split(" ")[0];
 				var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
 
-				sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-');
+				sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
 
 				sequence_sample_paths[i] = sound_path;
 			} else {

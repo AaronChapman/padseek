@@ -17,9 +17,14 @@ $(document).ready(function() {
 			// choose random pad pieces for each column and activate them
 			for (var i = 0; i < x_id_reference; i++) {
 				var y_id_reference = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-				var id_reference_to_activate = $('#' + i + '-' + y_id_reference);
+				var id_reference_to_activate = $('#' + (i + 1) + '-' + y_id_reference);
 				
-				id_reference_to_activate.click();
+				// add variance for empty beats
+				var possible_none = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+				
+				if (possible_none != 2) {
+					id_reference_to_activate.click();
+				}
 			}
 		}
 		

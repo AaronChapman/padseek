@@ -29,7 +29,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 | tempo module | much more |
 | randomization module |
 
-#**`sequence controls`**
+###sequence controls
 
 
 -**play / pause sequence:**
@@ -42,14 +42,15 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - this field controls the speed at which your drum sequence will run
 
 
-#**`sample selection`**
+###sample selection
 
 
 -**drum sample options:**
 - each row of this module houses a different set of drum samples for you to choose from
+- you can make your sample selections at anytime during the sequence
 
 
-#**`drum pads`**
+###drum pads
 
 
 -**duplicate pad:**
@@ -62,7 +63,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - activating a pad piece will result in that piece's row triggering the selected sample
 
 
-#**`tempo tool`**
+###tempo tool
 
 
 -**to operate:**
@@ -73,7 +74,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - this button will set the tempo field according to your calculated tempo
 
 
-#**`randomization module`**
+###randomization module
 
 
 -**randomize:**

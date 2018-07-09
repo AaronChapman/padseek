@@ -21,6 +21,7 @@ $(document).ready(function() {
 // add more sample bank content
 
 // make the logo cooler Lol
+// // // maybe one of those dope red slant backers
 
 // get tempo underline to be a fixed length
 

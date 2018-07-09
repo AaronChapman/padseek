@@ -1,19 +1,21 @@
+// p a d s e e k
+// tempo module
+
+// start time, tempo, and number of beats variables
 var start_time = new Date();
 var tempo = 0, beats = 0;
 
-function tempoStart() {
-
-}
-
+// runs on every keydown
 function calculateTempo() {
 	if (beats == 0) {
-		start_time = Date()
+		start_time = Date();
 	}
 
 	beats++;
 	updateTempo();
 }
 
+// updates display with parsed tempo
 function updateTempo() {
 	var value = '0';
 
@@ -33,22 +35,38 @@ function updateTempo() {
 	$('#bpm_display').html(Math.round(value) + ' bpm');
 }
 
+// resets variables
 function reset() {
 	start_time = null;
 	beats = 0;
 	updateTempo();
 }
 
+// keyboard shortcut for resetting tempo variables
 shortcut.add("r", function() {
 	reset();
 });
 
+// keyboard shortcut for adding another beat to the tempo calculation
 shortcut.add("t", function() {
 	calculateTempo();
 });
 
+// when the document is ready
 $(document).ready(function() {
+	// if the set tempo button was clicked
 	$('.set_tempo').click(function() {
+		// set the tempo field value
 		$('.tempo_field').val($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
+	});
+	
+	// when the user hits the [enter] key while inside the tempo input field
+	$('.tempo_field').on('keydown', function(e) {
+		if (e.keyCode.which === 13) { 
+			// stop and start sequence (tempo gets calculated on sequence start)
+			if (sequence_running) { $('.play_sequence').click(); }
+			
+			$('.play_sequence').click();
+		}
 	});
 });

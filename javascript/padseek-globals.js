@@ -1,3 +1,6 @@
+// p a d s e e k
+// global variables
+
 // determines whether or not the sequence is running
 var sequence_running = false;
 
@@ -33,29 +36,41 @@ var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
 						 'samples/none.mp3','samples/none.mp3',
 						 'samples/none.mp3','samples/none.mp3',
 						 'samples/none.mp3','samples/none.mp3'];
+// selection sample options
+var selected_options = [];
 
 // logo palette
 var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.1)', 'rgba(00, 00, 00, 0.25)'];
 
+// randomize button palette
 var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
 
-// logo animation
+// logo animation - 5 seconds
 var logo_coloring = setInterval(function() {
+	// get a color from the array
 	var temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
 	
-	while ($('.randomize').css('background') === temp_color) {
+	// while the color matches the existing color it's meant to replace
+	while ($('h1').css('color') === temp_color) {
+		// choose a new color from the array
 		temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
 	}
 	
+	// set the text color of the randomize button
 	$('h1').css({'color':temp_color});
 }, 5000);
 
+// randomize button animation - 1 second
 var randomize_coloring = setInterval(function() {
+	// get a color from the array
 	var temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
 
+	// while the color matches the existing color it's meant to replace
 	while ($('.randomize').css('background') === temp_color) {
+		// choose a new color from the array
 		temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
 	}
 	
+	// set the background of the randomize button
 	$('.randomize').css({'background':'#' + temp_color});
 }, 1000);

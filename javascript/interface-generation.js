@@ -20,7 +20,7 @@ function generate_pad() {
 			pad_reference.append(pad_piece);
 		}
 	}
-
+	
 	// set up drum sample options
 	generate_select_options();
 }
@@ -42,6 +42,13 @@ function generate_select_options() {
 	}
 }
 
+// sets up default interface elements and some data points
 function setup_default_interface() {
+	// automatically check the randomization checkboxes
 	$('.module_checkbox').prop('checked', true);
+	
+	// for each sample select element, push their currently selected option's parsed text into the selected_options array
+	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
+		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
+	}
 }

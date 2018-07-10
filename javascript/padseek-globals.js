@@ -84,4 +84,4 @@ var randomize_text = setInterval(function() {
 	}
 
 	$('.randomize').val(temp_text);
-}, 100);
+}, 500);

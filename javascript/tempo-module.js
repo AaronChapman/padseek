@@ -52,6 +52,11 @@ shortcut.add("t", function() {
 	calculateTempo();
 });
 
+// keyboard shortcut for setting the sequence tempo
+shortcut.add("s", function() {
+	$('.set_tempo').click();
+});
+
 // when the document is ready
 $(document).ready(function() {
 	// if the set tempo button was clicked

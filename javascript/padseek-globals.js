@@ -44,6 +44,7 @@ var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite
 
 // randomize button palette
 var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
+var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r an d o miz e', 'randomize', 'rand o mize'];
 
 // logo animation - 5 seconds
 var logo_coloring = setInterval(function() {
@@ -74,3 +75,13 @@ var randomize_coloring = setInterval(function() {
 	// set the background of the randomize button
 	$('.randomize').css({'background':'#' + temp_color});
 }, 1000);
+
+var randomize_text = setInterval(function() {
+	var temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
+
+	while ($('.randomize').val() === temp_text) {
+		temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
+	}
+
+	$('.randomize').val(temp_text);
+}, 100);

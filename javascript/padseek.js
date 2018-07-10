@@ -18,6 +18,8 @@ $(document).ready(function() {
 
 // lengthen amount of time before sound elements are removed (for longer samples)
 
+// add a 'what is padseek?' popup containing a short description and github readme link
+
 // add more sample bank content
 
 // make the logo cooler Lol

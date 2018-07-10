@@ -1,14 +1,31 @@
 // p a d s e e k
 // randomization module
 
+
+
+function force_random() {
+	setTimeout(function() {
+		$('.randomize').click();
+	}, 100);
+}
+
 // when the document is ready
 $(document).ready(function() {
 	// create checkbox state variables
 	var random_sample_selection_active = true;
 	var random_pad_arrangement_active = true;
+	var random_number_of_pads_active = true;
 	
 	// when the randomize button is clicked
 	$('.randomize').click(function() {
+		if (random_number_of_pads_active) {
+			var random_number = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+			
+			$('.pad:not(:first)').each(function() { $(this).remove(); });
+			
+			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:first').click(); }
+		}
+		
 		// get a reference to the x value from the id of the last pad piece attribute
 		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
 		
@@ -56,6 +73,15 @@ $(document).ready(function() {
 			random_pad_arrangement_active = true;
 		} else {
 			random_pad_arrangement_active = false;
+		}
+	});
+	
+	// set states of the random number of pads boolean via the associated checkbox
+	$('.random_number_of_pads').click(function() {
+		if (random_number_of_pads_active === false) {
+			random_number_of_pads_active = true;
+		} else {
+			random_number_of_pads_active = false;
 		}
 	});
 });

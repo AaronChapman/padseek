@@ -278,8 +278,8 @@ input[type="button"]:active {
   right: 0;
   top: 0;
   background: aliceblue;
-  padding: 15px 10px 10px 10px;
-  margin: 0;
+  padding: 10px;
+  margin: 25px 0 0 0;
   border: 1px dashed rgba(00, 00, 00, 0.5);
   border-top: none;
   border-right: none;

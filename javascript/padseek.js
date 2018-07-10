@@ -12,9 +12,7 @@ $(document).ready(function() {
 
 // reset 'active column in sequence' css properties on pad duplicated mid-sequence
 
-// move status report container down to the bottom of the directory header
-
-// fix set tempo css / arrangement & add optional keydown for that same event
+// move status report container down to the bottom of the directory headerxs
 
 // lengthen amount of time before sound elements are removed (for longer samples)
 
@@ -24,10 +22,6 @@ $(document).ready(function() {
 
 // make the logo cooler Lol
 // // // maybe one of those dope red slant backers
-
-// get tempo underline to be a fixed length
-
-// add random tempo functionality
 
 // add some sort of application response message area
 // // // when tempo is too large

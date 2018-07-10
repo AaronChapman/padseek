@@ -27,7 +27,13 @@ $(document).ready(function() {
 
 // get tempo underline to be a fixed length
 
-// add a random number of pads option to the randomization module
+// add random tempo functionality
+
+// add some sort of application response message area
+// // // when tempo is too large
+// // // maybe when pressing play sequence with no active pad pieces
+
+// refine the way random number of pads generation works
 
 // add a method of converting a string into sequence data
 // // // and sharing functionality

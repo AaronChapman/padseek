@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
 		<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
 		<link rel="stylesheet" href="css/padseek.css">
-		<link href="https://fonts.googleapis.com/css?family=Muli|Shrikhand" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli|Shrikhand">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://oylo.info/javascript/links_for_directory_header.js"></script>
@@ -51,14 +51,17 @@
 				</div>
 				<div class="random_generation">
 					<input class="randomize cursor_pointer shake-little shake-constant box-shadowed-hover" type="button" value="randomize">
-					<input class="random_sample_selection module_checkbox cursor_pointer" type="checkbox">
+					<input class="random_sample_selection randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
 					<label class="label">random samples</label>
 					<br>
-					<input class="random_pad_arrangement module_checkbox cursor_pointer" type="checkbox">
+					<input class="random_pad_arrangement randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
 					<label class="label">random pad arrangement</label>
 					<br>
-					<input class="random_number_of_pads module_checkbox cursor_pointer" type="checkbox">
+					<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
 					<label class="label">random number of pads</label>
+					<br>
+					<input class="random_tempo randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
+					<label class="label">random tempo</label>
 				</div>
 			</div>
 			<div class="second_row">

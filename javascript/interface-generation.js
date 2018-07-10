@@ -45,7 +45,7 @@ function generate_select_options() {
 // sets up default interface elements and some data points
 function setup_default_interface() {
 	// automatically check the randomization checkboxes
-	$('.module_checkbox').prop('checked', true);
+	$('.randomization_checkbox').prop('checked', true);
 	
 	// for each sample select element, push their currently selected option's parsed text into the selected_options array
 	for (var i = 0; i < $('body').find('.selects .select').length; i++) {

@@ -11,14 +11,9 @@ function force_random() {
 
 // when the document is ready
 $(document).ready(function() {
-	// create checkbox state variables
-	var random_sample_selection_active = true;
-	var random_pad_arrangement_active = true;
-	var random_number_of_pads_active = true;
-	
 	// when the randomize button is clicked
 	$('.randomize').click(function() {
-		if (random_number_of_pads_active) {
+		if ($('.random_number_of_pads').attr('data-activated') == 'true') {
 			var random_number = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 			
 			$('.pad:not(:first)').each(function() { $(this).remove(); });
@@ -30,7 +25,7 @@ $(document).ready(function() {
 		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
 		
 		// if the pad arrangement checkbox is selected
-		if (random_pad_arrangement_active) {
+		if ($('.random_pad_arrangement').attr('data-activated') == 'true') {
 			// choose random pad pieces for each column and activate them
 			for (var i = 0; i < x_id_reference; i++) {
 				var y_id_reference = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
@@ -46,7 +41,7 @@ $(document).ready(function() {
 		}
 		
 		// if the random sample selection checkbox is selected
-		if (random_sample_selection_active) {
+		if ($('.random_sample_selection').attr('data-activated') == 'true') {
 			// for each select element
 			for (var i = 0; i < $('body').find('.selects .selects_item .select').length; i++) {
 				// select a random option
@@ -56,32 +51,19 @@ $(document).ready(function() {
 				options.eq(~~(Math.random() * options.length)).prop('selected', true);
 			}
 		}
-	});
-	
-	// set states of the random sample selection boolean via the associated checkbox
-	$('.random_sample_selection').click(function() {
-		if (random_sample_selection_active === false) {
-			random_sample_selection_active = true;
-		} else {
-			random_sample_selection_active = false;
+		
+		if ($('.random_tempo').attr('data-activated') == 'true') {
+			$('.tempo_field').val(Math.floor(Math.random() * (240 - 62 + 1)) + 62);
 		}
 	});
-	
-	// set states of the random pad arrangement boolean via the associated checkbox
-	$('.random_pad_pieces').click(function() {
-		if (random_pad_arrangement_active === false) {
-			random_pad_arrangement_active = true;
+
+	$('.randomization_checkbox').click(function() {
+		console.log($(this).attr('data-activated'));
+		
+		if ($(this).attr('data-activated') === 'false') {
+			$(this).attr('data-activated', 'true');
 		} else {
-			random_pad_arrangement_active = false;
-		}
-	});
-	
-	// set states of the random number of pads boolean via the associated checkbox
-	$('.random_number_of_pads').click(function() {
-		if (random_number_of_pads_active === false) {
-			random_number_of_pads_active = true;
-		} else {
-			random_number_of_pads_active = false;
+			$(this).attr('data-activated', 'false');
 		}
 	});
 });

@@ -17,7 +17,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - press 'play sequence' or 'pause sequence' to do exactly what that says
 - see modules below
 
-
+---
 ## sequence controls
 
 
@@ -58,7 +58,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 
 -**to operate:**
-- hit the period [ t ] key for each beat to determine the number of beats per minute
+- hit the [ t ] key for each beat to determine the number of beats per minute
 - hit the [ r ] key to reset the bpm counter
 - hit the [ s ] key to set the sequence tempo field to the newly calculated bpm
 

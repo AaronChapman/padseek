@@ -9,7 +9,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 ---
 
-**`::how to operate::`**
+**`how to operate`**
 
 - choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module
 - activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)
@@ -19,7 +19,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 ---
 
-## modules
+>## modules
 
 **:overview:**
 
@@ -33,8 +33,8 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 **:in-depth:**
 
-
->## sequence controls
+---
+## sequence controls
 
 
 -**play / pause sequence:**
@@ -46,7 +46,8 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 -**tempo (beats per minute):**
 - this field controls the speed at which your drum sequence will run
 
->## sample selection
+---
+## sample selection
 
 
 -**drum sample options:**
@@ -54,7 +55,8 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - you can make your sample selections at anytime during the sequence
 
 
->## drum pads
+---
+## drum pads
 
 
 -**duplicate pad:**
@@ -67,7 +69,8 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - activating a pad piece will result in that piece's row triggering the selected sample
 
 
->## tempo tool
+---
+## tempo tool
 
 
 -**to operate:**
@@ -77,8 +80,8 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 -**set tempo:**
 - this button will set the tempo field according to your calculated tempo
 
-
->## randomization module
+---
+## randomization module
 
 
 -**randomize:**
@@ -89,3 +92,6 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 -**random pad arrangement:**
 - when selected, this option will randomize the active pad pieces across all of your drum pads
+
+-**random number of pads:**
+- when selected, this option will randomize the number of drum pads in the sequence

@@ -116,7 +116,7 @@ function play_sequence(pad_reference) {
 			
 			setTimeout(function() {
 				$('audio.sound-player:first').remove();
-			}, calculated_tempo * 4);
+			}, calculated_tempo * 8);
 			
 			//find some way to loop player and remove sound player elements while keeping all sound tail
 
@@ -131,7 +131,7 @@ function play_sequence(pad_reference) {
 			}, calculated_tempo);
 		} else {
 			// set inactive pad piece css properties
-			$(this).css({'opacity':'0.1','background':'rgba(00, 00, 00, 0.01)'});
+			$(this).css({'opacity':'0.1','background':'white'});
 
 			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);

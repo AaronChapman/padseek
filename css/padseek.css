@@ -86,16 +86,17 @@ input[type="button"]:active {
 	flex-wrap: wrap;
 }
 
-.second_row {
-	display: inline-flex;
-	justify-content: left;
-	white-space: nowrap;
-	width: auto;
-	height: auto;
-	overflow: auto;
-	overflow-y: hidden;
-	margin: 0 auto;
-	margin-top: 20px;
+.github_button {
+	background: white;
+  color: slategray;
+  border: 0.5px dashed rgba(00, 00, 00, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.github_button:hover {
+	opacity: 0.5;
+	background: aliceblue;
 }
 
 .main_content {
@@ -243,6 +244,18 @@ input[type="button"]:active {
     color: crimson;
 }
 
+.second_row {
+	display: inline-flex;
+	justify-content: left;
+	white-space: nowrap;
+	width: auto;
+	height: auto;
+	overflow: auto;
+	overflow-y: hidden;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
 .select {
 	width: 150px;
 	border: none;
@@ -277,15 +290,8 @@ input[type="button"]:active {
 	position: fixed;
   right: 0;
   top: 0;
-  background: aliceblue;
   padding: 10px;
-  margin: 25px 0 0 0;
-  border: 1px dashed rgba(00, 00, 00, 0.5);
-  border-top: none;
-  border-right: none;
-  border-radius: 0 0 0 5px;
-	opacity: 0.5;
-	z-index: 10;
+  margin: 35px 0 0 0;
 }
 
 .tempo_controls {
@@ -333,4 +339,11 @@ input[type="button"]:active {
 	margin: auto;
 	text-align: center;
 	margin-bottom: -25px;
+}
+
+.what_is_this {
+	position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
 }

@@ -10,15 +10,11 @@ $(document).ready(function() {
 
 //•••• to-do list ••••//
 
-// reset 'active column in sequence' css properties on pad duplicated mid-sequence
-
-// move status report container down to the bottom of the directory headerxs
-
-// lengthen amount of time before sound elements are removed (for longer samples)
-
-// add a 'what is padseek?' popup containing a short description and github readme link
-
 // add more sample bank content
+
+// sample pitching
+
+// sample stacking (oof what a task)
 
 // make the logo cooler Lol
 // // // maybe one of those dope red slant backers
@@ -28,6 +24,7 @@ $(document).ready(function() {
 // // // maybe when pressing play sequence with no active pad pieces
 
 // refine the way random number of pads generation works
+// // // make sure array gets altered properly when a bunch of pads get added / removed
 
 // add a method of converting a string into sequence data
 // // // and sharing functionality

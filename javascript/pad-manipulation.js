@@ -18,6 +18,14 @@ $(document).ready(function() {
 
 		// reorder all pad piece id attributes
 		reorder_pad_pieces();
+		
+		new_pad.find('.pad_piece').each(function() {
+			if ($(this).attr('data-state') === "active") {
+				$(this).css({'opacity':'1.0','background':'white'});
+			} else {
+				$(this).css({'opacity':'1.0','background':'aliceblue'});
+			}
+		});
 	});
 	
 	// when a remove pad button is clicked

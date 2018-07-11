@@ -44,7 +44,7 @@ var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite
 
 // randomize button palette
 var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
-var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r an d o miz e', 'randomize', 'rand o mize'];
+var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r ando miz e', 'randomize', 'rand o mize'];
 
 // logo animation - 5 seconds
 var logo_coloring = setInterval(function() {

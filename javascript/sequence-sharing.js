@@ -22,6 +22,7 @@ function update_shared_sequences_container(new_JSON_object) {
 	var converted_object = JSON.stringify(new_JSON_object);
 	
 	$('.shared_sequences').empty();
+	$('.shared_sequences').append('<label class="label">browse community sequences</label>');
 	
 	for (var i = 0; i < shared_sequences.length; i++) {
 		$('.shared_sequences').append(`<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='` + converted_object + `' value='` + new_JSON_object.name + `'>`);

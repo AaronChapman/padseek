@@ -83,7 +83,7 @@ input[type="button"]:active {
 	display: flex;
 	justify-content: left;
 	margin: auto;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 }
 
 .github_button {
@@ -274,6 +274,28 @@ input[type="button"]:active {
 	width: 298px;
 }
 
+.sequence_sharing {
+	position: relative;
+	min-width: 246px;
+	max-width: 246px;
+	min-height: 175px;
+	max-height: 175px;
+	margin-top: 20px;
+	border-radius: 5px;
+	display: block;
+	justify-content: center;
+	text-align: center;
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	padding: 25px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.sequence_sharing input {
+	border-radius: 5px;
+  padding: 10px;
+}
+
 .set_tempo {
 	width: 75px;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
@@ -284,6 +306,25 @@ input[type="button"]:active {
   color: slategray;
 	margin-right: 25px;
 	display: none;
+}
+
+.share_sequence {
+	width: 75%;
+	background: aliceblue;
+}
+
+.shared_sequence {
+	width: 100%;
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	margin: 10px 0;
+}
+
+.shared_sequences {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	top: 100px;
+	margin-left: 2.5px;
 }
 
 .stat_repo {

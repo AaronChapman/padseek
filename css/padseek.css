@@ -23,7 +23,7 @@ body {
 
 h1 {
 	top: 0;
-  padding: 75px 75px 10px 100px;
+  padding: 75px 75px 10px 50px;
   transition: all 5s ease-in-out;
   font-family: 'Shrikhand', cursive;
   margin: 0;
@@ -101,7 +101,7 @@ input[type="button"]:active {
 }
 
 .main_content {
-	padding: 50px 50px;
+	padding: 50px 0;
 	margin: 25px;
 }
 

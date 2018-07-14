@@ -42,6 +42,8 @@ $(document).ready(function() {
 		
 		// if the random sample selection checkbox is selected
 		if ($('.random_sample_selection').attr('data-activated') == 'true') {
+			selected_options = [];
+			
 			// for each select element
 			for (var i = 0; i < $('body').find('.selects .selects_item .select').length; i++) {
 				// select a random option
@@ -49,6 +51,8 @@ $(document).ready(function() {
 				var options = temporary_select.find('option');
 
 				options.eq(~~(Math.random() * options.length)).prop('selected', true);
+				
+				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
 			}
 		}
 		

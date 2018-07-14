@@ -13,10 +13,19 @@ $(document).ready(function() {
 // add more sample bank content
 
 // sample pitching
-
 // sample swing
+// reverb???
+// equalization
 
 // sample stacking
+
+// padseek tutorial
+// // // highlights basic containers showing how to use them
+
+// 'your sequences' module
+// // // create new account
+// // // login
+// // // list of your sequences
 
 // make the logo cooler Lol
 // // // maybe one of those dope red slant backers
@@ -28,17 +37,6 @@ $(document).ready(function() {
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 
-// add a method of converting a string into sequence data
-// // // and sharing functionality
-// // // maybe JSON data
-// // // // // {'name-of-sequence',beats-per-minute',number-of-pads','samples-selected','active-pad-piece-ids'}
-// // // // // look into some type of JSON from URL format conversion or something
+// firebase sequence storage & retrieval
 
-
-// overlay for naming sequence
-// outer container fullscreen white
-// input centered with small label above for naming new sequence
-// button title share sequence
-// if name is valid
-// set sequence method
-// and close overlay
+// better sequence naming overlay

@@ -42,20 +42,28 @@ function reset() {
 	updateTempo();
 }
 
-// keyboard shortcut for resetting tempo variables
-shortcut.add("r", function() {
-	reset();
-});
+function set_shortcuts() {
+	// keyboard shortcut for resetting tempo variables
+	shortcut.add("r", function() {
+		reset();
+	});
 
-// keyboard shortcut for adding another beat to the tempo calculation
-shortcut.add("t", function() {
-	calculateTempo();
-});
+	// keyboard shortcut for adding another beat to the tempo calculation
+	shortcut.add("t", function() {
+		calculateTempo();
+	});
 
-// keyboard shortcut for setting the sequence tempo
-shortcut.add("s", function() {
-	$('.set_tempo').click();
-});
+	// keyboard shortcut for setting the sequence tempo
+	shortcut.add("s", function() {
+		$('.set_tempo').click();
+	});
+}
+
+function remove_shortcuts() {
+	shortcut.remove("r");
+	shortcut.remove("t");
+	shortcut.remove("s");
+}
 
 // when the document is ready
 $(document).ready(function() {

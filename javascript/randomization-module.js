@@ -58,8 +58,6 @@ $(document).ready(function() {
 	});
 
 	$('.randomization_checkbox').click(function() {
-		console.log($(this).attr('data-activated'));
-		
 		if ($(this).attr('data-activated') === 'false') {
 			$(this).attr('data-activated', 'true');
 		} else {

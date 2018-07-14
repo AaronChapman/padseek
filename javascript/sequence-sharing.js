@@ -20,7 +20,7 @@ function convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces) {
 
 function update_shared_sequences_container(new_JSON_object) {
 	$('.shared_sequences').empty();
-	$('.shared_sequences').append('<label class="label">browse community sequences</label>');
+	$('.shared_sequences').append('<label class="label">browse community sequences<br>⬇</label>');
 	
 	for (var i = 0; i < shared_sequences.length; i++) {
 		var converted_object = JSON.stringify(shared_sequences[i]);
@@ -56,8 +56,11 @@ $(document).ready(function() {
 	});
 	
 	$('body').on('click', '.share_sequence', function() {
-		$('.name_sequence_overlay').css({'opacity':'0.95', 'z-index':'2'});
-		//$('.name_sequence').focus();
+		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
+			remove_shortcuts();
+			
+			$('.name_sequence_overlay').css({'opacity':'0.95', 'z-index':'2'});
+		}
 	});
 	
 	$('body').on('click', '.name_and_share_sequence', function() {
@@ -66,6 +69,8 @@ $(document).ready(function() {
 				($('.name_sequence').val().indexOf('"') == -1) &&
 			 	($('.name_sequence').val().indexOf("`") == -1)) {
 			share_sequence_data();
+			
+			set_shortcuts();
 			
 			$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
 		}

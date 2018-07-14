@@ -33,3 +33,12 @@ $(document).ready(function() {
 // // // maybe JSON data
 // // // // // {'name-of-sequence',beats-per-minute',number-of-pads','samples-selected','active-pad-piece-ids'}
 // // // // // look into some type of JSON from URL format conversion or something
+
+
+// overlay for naming sequence
+// outer container fullscreen white
+// input centered with small label above for naming new sequence
+// button title share sequence
+// if name is valid
+// set sequence method
+// and close overlay

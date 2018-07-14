@@ -22,6 +22,7 @@
 		<script src="javascript/pad-manipulation.js"></script>
 		<script src="javascript/sequence-controls.js"></script>
 		<script src="javascript/randomization-module.js"></script>
+		<script src="javascript/sequence-sharing.js"></script>
 		<script src="javascript/padseek-globals.js"></script>
 		<script src="javascript/tempo-module.js"></script>
 		<script src="javascript/padseek.js"></script>
@@ -54,17 +55,22 @@
 				<div class="random_generation">
 					<input class="randomize cursor_pointer shake-little shake-constant box-shadowed-hover" type="button" value="randomize">
 					<br>
-					<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
+					<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random number of pads</label>
 					<br>
-					<input class="random_pad_arrangement randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
-					<label class="label">random pad arrangement</label>
+					<input class="random_pad_arrangement randomization_checkbox cursor_pointer" type="checkbox">
+					<label class="label">random arrangement</label>
 					<br>
-					<input class="random_sample_selection randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
+					<input class="random_sample_selection randomization_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random samples</label>
 					<br>
-					<input class="random_tempo randomization_checkbox cursor_pointer" type="checkbox" data-activated="true">
+					<input class="random_tempo randomization_checkbox cursor_pointer" type="checkbox">
 					<label class="label">random tempo</label>
+				</div>
+				<div class="sequence_sharing">
+					<input class="share_sequence sequence_sharing_button cursor_pointer box-shadowed-hover" type="button" value="share sequence" onclick="share_sequence_data()">
+					<!--<input class="browse_sequences sequence_sharing_button cursor_pointer box-shadowed-hover" type="button" value="browse sequences">-->
+					<div class="shared_sequences"></div>
 				</div>
 			</div>
 			<div class="second_row">

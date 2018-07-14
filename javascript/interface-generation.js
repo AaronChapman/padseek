@@ -45,8 +45,8 @@ function generate_select_options() {
 // sets up default interface elements and some data points
 function setup_default_interface() {
 	// automatically check the randomization checkboxes
-	$('.randomization_checkbox').prop('checked', true);
-	$('.randomization_checkbox').attr('data-active', 'true');
+	$('.randomization_checkbox:not(:last)').prop('checked', true);
+	$('.randomization_checkbox:not(:last)').attr('data-activated', 'true');
 	
 	$('a[href*="github.com/AaronChapman/padseek"]').css({'background':'white', 'color':'slategray'});
 	
@@ -54,4 +54,8 @@ function setup_default_interface() {
 	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
 		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
 	}
+	
+	//$('.randomize').click();
+	
+	//convert_sequence_to_JSON('padseek', 100, ["samples/kick-drums/prehistor-khick.mp3", "samples/kick-drums/prehistor-khick.mp3"], ["#1-1", "#1-2", "#1-3", "#4-7"]);
 }

@@ -39,6 +39,8 @@ var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
 // selection sample options
 var selected_options = [];
 
+var shared_sequences = [];
+
 // logo palette
 var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite', 'antiquewhite', 'rgba(00, 00, 00, 0.1)', 'rgba(00, 00, 00, 0.25)'];
 

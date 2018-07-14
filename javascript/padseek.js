@@ -14,7 +14,9 @@ $(document).ready(function() {
 
 // sample pitching
 
-// sample stacking (oof what a task)
+// sample swing
+
+// sample stacking
 
 // make the logo cooler Lol
 // // // maybe one of those dope red slant backers

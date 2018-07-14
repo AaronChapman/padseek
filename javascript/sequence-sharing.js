@@ -14,7 +14,7 @@ var entries = [];
 
 database.ref().on("value", function(snapshot) {
 	shared_sequences = snapshot.val().shared_sequences;
-
+	
 	for (var i = 0; i < shared_sequences.length; i++) {
 		update_shared_sequences_container(shared_sequences[i]);
 	}
@@ -101,6 +101,8 @@ function set_sequence_from_JSON(new_JSON_object) {
 	selected_options = converted_object.sample_paths;
 	
 	$('.tempo_field').val(converted_object.tempo);
+	
+	reorder_pad_pieces()
 }
 
 $(document).ready(function() {

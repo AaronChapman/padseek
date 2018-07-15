@@ -53,6 +53,7 @@ $(document).ready(function() {
 
 // break up css files on a module-by-module basis
 
-// better sequence naming overlay
+// loaded shared sequences in reverse
+
 // better logo display
 // better randomization button display

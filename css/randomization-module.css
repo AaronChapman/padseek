@@ -1,0 +1,28 @@
+/* p a d s e e k */
+/* randomization module css */
+
+.randomization_module {
+	display: inline-block;
+  justify-content: center;
+  padding: 10px 32px;
+	width: 298px;
+}
+
+.randomize {
+	font-family: 'Shrikhand', cursive;
+  transition: box-shadow 0.1s ease-in-out;
+  transition: background 1.25s ease-in-out;
+	width: 100%;
+	border: none;
+	background: floralwhite;
+	height: 50px;
+	border-radius: 5px;
+	font-size: 1.5em;
+	margin: 10px 0;
+	color: white;
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
+}
+
+.randomize:hover {
+	background: aliceblue;
+}

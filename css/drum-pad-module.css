@@ -1,0 +1,62 @@
+/* p a d s e e k */
+/* drum pad module css */
+
+.duplicate_pad {
+	position: absolute;
+	margin-top: -25px;
+	border: none;
+	padding: 0 0 0 200px;
+	color: #545454;
+}
+
+.duplicate_pad, .remove_pad {
+	text-shadow: none !important;
+}
+
+.pad {
+	min-width: 296px;
+	max-width: 296px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-wrap: wrap;
+	margin-left: 40px;
+}
+
+.pad, .pad_piece {
+	border-radius: 5px;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	background: aliceblue;
+	padding: 2.5px 0 2.5px 0;
+}
+
+.pad_manipulator:hover {
+	opacity: 0.5;
+}
+
+.pad_piece {
+	transition: all 0.2s ease-in-out;
+	min-width: 25px;
+	height: 25px;
+	margin: 5px;
+	padding: 0;
+	border-radius: 2px;
+}
+
+.pad_piece:hover {
+	opacity: 0.75;
+}
+
+.pad_piece:active {
+	opacity 0.25;
+}
+
+.remove_pad {
+	  position: absolute;
+    margin: -25px 25px 0 -65px;
+    border: none;
+    padding: 0 100px 0 0;
+    z-index: 10;
+    color: crimson;
+}

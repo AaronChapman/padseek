@@ -12,6 +12,12 @@
 		<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
 		<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
 		<link rel="stylesheet" href="css/padseek.css">
+		<link rel="stylesheet" href="css/drum-pad-module.css">
+		<link rel="stylesheet" href="css/randomization-module.css">
+		<link rel="stylesheet" href="css/sample-selection-module.css">
+		<link rel="stylesheet" href="css/sequence-controls-module.css">
+		<link rel="stylesheet" href="css/sequence-sharing-module.css">
+		<link rel="stylesheet" href="css/tempo-module.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli|Shrikhand">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -57,7 +63,7 @@
 						<div class="bpm_display" id="bpm_display">0 bpm</div>
 					</div>
 				</div>
-				<div class="random_generation">
+				<div class="randomization_module">
 					<input class="randomize cursor_pointer shake-little shake-constant box-shadowed-hover" type="button" value="randomize">
 					<br>
 					<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
@@ -101,8 +107,16 @@
 			<a class="twelve_px_blue_link what_is_this" href="https://github.com/AaronChapman/padseek#readme" target="_blank">what is this?</a>
 		</div>
 		<div class="name_sequence_overlay">
-			<input class="name_sequence" type="text" placeholder="your sequence name here">
-			<input class="name_and_share_sequence box-shadowed-hover" type="button" value="share your sequence">
+			<input class="name_sequence" type="text" placeholder="your sequence name here"><br>
+			<ul class="naming_sequence_overlay_buttons">
+				<li class="naming_sequence_overlay_button_item">
+					<input class="name_and_share_sequence box-shadowed-hover cursor_pointer" type="button" value="share your sequence">
+				</li>
+				<li class="naming_sequence_overlay_button_item">
+					<input class="close never_mind box-shadowed-hover cursor_pointer" type="button" value="never mind">
+				</li>
+			</ul>
+			
 		</div>
 	</body>
 	<script src="https://oylo.info/javascript/page_fade.js"></script>

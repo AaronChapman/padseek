@@ -1,0 +1,51 @@
+/* p a d s e e k */
+/* sample selection module css */
+
+.label {
+	
+}
+
+.labels {
+	width: -webkit-fill-available;
+	padding: 0 0 0 10px;
+	border-radius: 5px 0 0 5px;
+	margin: 0;
+}
+
+.labels .label {
+	opacity: 0.5;
+}
+
+.labels, .selects {
+	list-style-type: none;
+	line-height: 35px;
+	height: 294px;
+	display: grid;
+	width: 150px;
+	background: floralwhite;
+}
+
+.labels li, .selects li {
+	border-bottom: 0.5px dashed rgba(00, 00, 00, 0.5);
+}
+
+.labels li:last-child, .selects li:last-child {
+	border-bottom: none;
+}
+
+.labels_item {
+	
+}
+
+.select {
+	width: 150px;
+	border: none;
+	background: floralwhite;
+}
+
+.selects {
+	padding: 0 2.5px;
+	margin: 0 -2.5px;
+	padding: 0 10px 0 0;
+	border-radius: 0 5px 5px 0;
+}

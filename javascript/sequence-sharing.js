@@ -164,4 +164,12 @@ $(document).ready(function() {
 			$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
 		}
 	});
+	
+	$('body').on('click', '.close', function() {
+		// reactivate keyboard event listeners
+		set_shortcuts();
+
+		// set sequence-naming overlay container properties
+		$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
+	});
 });

@@ -22,6 +22,7 @@
 	text-align: center;
 	flex-wrap: wrap;
 	margin-left: 40px;
+	overflow: visible;
 }
 
 .pad, .pad_piece {

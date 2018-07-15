@@ -1,4 +1,4 @@
-* {
+*:not('.directory_header') {
 	transition: all 0.1s ease-in-out;
 	font-family: 'Muli', sans-serif;
 	outline: none;
@@ -72,7 +72,8 @@ input[type="button"]:active {
 }
 
 .clear_selections:hover {
-	background: antiquewhite;
+	background: crimson;
+	opacity: 0.7;
 }
 
 .cursor_pointer:hover {
@@ -103,6 +104,10 @@ input[type="button"]:active {
 .main_content {
 	padding: 50px 0;
 	margin: 25px;
+}
+
+.directory_header {
+	z-index: 10;
 }
 
 .duplicate_pad {
@@ -138,7 +143,7 @@ input[type="button"]:active {
 	height: 294px;
 	display: grid;
 	width: 150px;
-	background: antiquewhite;
+	background: floralwhite;
 }
 
 .labels li, .selects li {
@@ -251,8 +256,7 @@ input[type="button"]:active {
 }
 
 .play_sequence:hover {
-	color: aliceblue;
-	background: slategray;
+	background: white;
 }
 
 .random_generation {
@@ -268,7 +272,7 @@ input[type="button"]:active {
   transition: background 1.25s ease-in-out;
 	width: 100%;
 	border: none;
-	background: antiquewhite;
+	background: floralwhite;
 	height: 50px;
 	border-radius: 5px;
 	font-size: 1.5em;
@@ -305,7 +309,7 @@ input[type="button"]:active {
 .select {
 	width: 150px;
 	border: none;
-	background: antiquewhite;
+	background: floralwhite;
 }
 
 .selects {
@@ -356,16 +360,15 @@ input[type="button"]:active {
 
 .share_sequence {
 	width: 100%;
-	background: slategray;
+	background: floralwhite;
 	font-family: 'Shrikhand', cursive;
-	color: white;
+	color: slategray;
 	font-size: 1.5em;
 	height: 50px;
 }
 
 .share_sequence:hover {
 	background: white;
-	color: slategray;
 }
 
 .shared_sequence {
@@ -376,7 +379,7 @@ input[type="button"]:active {
 }
 
 .shared_sequence:hover {
-	background: antiquewhite;
+	background: floralwhite;
 }
 
 .shared_sequences {

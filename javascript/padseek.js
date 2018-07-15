@@ -10,6 +10,13 @@ $(document).ready(function() {
 
 //•••• to-do list ••••//
 
+/* ! critical !
+
+	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
+	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
+
+! critical ! */
+
 // add more sample bank content
 
 // audio effects
@@ -37,6 +44,10 @@ $(document).ready(function() {
 
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
+
+// option for duplicating groups of pads
+
+// attach pad number to end of duplicate pad link
 
 // generate repetitive html content dynamically
 

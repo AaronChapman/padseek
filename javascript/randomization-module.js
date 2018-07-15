@@ -1,30 +1,26 @@
 // p a d s e e k
 // randomization module
 
-
-
-function force_random() {
-	setTimeout(function() {
-		$('.randomize').click();
-	}, 100);
-}
-
 // when the document is ready
 $(document).ready(function() {
 	// when the randomize button is clicked
 	$('.randomize').click(function() {
+		// if the user has chosen to generate a random number of pads
 		if ($('.random_number_of_pads').attr('data-activated') == 'true') {
+			// randomly determine the number of pads to generate
 			var random_number = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 			
+			// remove all pads except the first one
 			$('.pad:not(:first)').each(function() { $(this).remove(); });
 			
+			// duplicate the appropriate number of pads
 			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:first').click(); }
 		}
 		
 		// get a reference to the x value from the id of the last pad piece attribute
 		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
 		
-		// if the pad arrangement checkbox is selected
+		// if the user has chosen to have their pad pieces arranged randomly
 		if ($('.random_pad_arrangement').attr('data-activated') == 'true') {
 			// choose random pad pieces for each column and activate them
 			for (var i = 0; i < x_id_reference; i++) {
@@ -40,8 +36,9 @@ $(document).ready(function() {
 			}
 		}
 		
-		// if the random sample selection checkbox is selected
+		// if the user has chosen to select random sample options
 		if ($('.random_sample_selection').attr('data-activated') == 'true') {
+			// reset the selected options array
 			selected_options = [];
 			
 			// for each select element
@@ -52,16 +49,20 @@ $(document).ready(function() {
 
 				options.eq(~~(Math.random() * options.length)).prop('selected', true);
 				
+				// psuh the newly selected option to the selected options array
 				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
 			}
 		}
 		
+		// if the user has chosen to generate a random tempo
 		if ($('.random_tempo').attr('data-activated') == 'true') {
 			$('.tempo_field').val(Math.floor(Math.random() * (240 - 62 + 1)) + 62);
 		}
 	});
 
+	// when a checkbox inside the randomization module is clicked
 	$('.randomization_checkbox').click(function() {
+		// determine what its data-activated attribute value should be
 		if ($(this).attr('data-activated') === 'false') {
 			$(this).attr('data-activated', 'true');
 		} else {

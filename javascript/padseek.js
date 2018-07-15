@@ -12,12 +12,16 @@ $(document).ready(function() {
 
 // add more sample bank content
 
-// sample pitching
-// sample swing
-// reverb???
-// equalization
+// audio effects
+// // // sample pitching
+// // // sample swing
+// // // reverb
+// // // equalization
 
 // sample stacking
+// // // turn index in sequence_sample_paths into an array
+// // // on playsound area, check if it's array and if so play both sounds
+// // // if not, play the one
 
 // padseek tutorial
 // // // highlights basic containers showing how to use them
@@ -27,9 +31,6 @@ $(document).ready(function() {
 // // // login
 // // // list of your sequences
 
-// make the logo cooler Lol
-// // // maybe one of those dope red slant backers
-
 // add some sort of application response message area
 // // // when tempo is too large
 // // // maybe when pressing play sequence with no active pad pieces
@@ -37,6 +38,10 @@ $(document).ready(function() {
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 
-// firebase sequence storage & retrieval
+// generate repetitive html content dynamically
+
+// break up css files on a module-by-module basis
 
 // better sequence naming overlay
+// better logo display
+// better randomization button display

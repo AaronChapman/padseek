@@ -19,6 +19,7 @@ $(document).ready(function() {
 		// reorder all pad piece id attributes
 		reorder_pad_pieces();
 		
+		// and set their css properties
 		new_pad.find('.pad_piece').each(function() {
 			if ($(this).attr('data-state') === "active") {
 				$(this).css({'opacity':'1.0','background':'white'});
@@ -36,8 +37,6 @@ $(document).ready(function() {
 		// and reorder all of the pad piece id attributes again
 		reorder_pad_pieces();
 	});
-	
-	//something went wrong
 	
 	// when a sample selection is made
 	$('.selects').on('change', '.select', function(event) {

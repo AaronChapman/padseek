@@ -355,15 +355,28 @@ input[type="button"]:active {
 }
 
 .share_sequence {
-	width: 75%;
-	background: aliceblue;
+	width: 100%;
+	background: slategray;
+	font-family: 'Shrikhand', cursive;
+	color: white;
+	font-size: 1.5em;
+	height: 50px;
+}
+
+.share_sequence:hover {
+	background: white;
+	color: slategray;
 }
 
 .shared_sequence {
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	margin: 10px auto;
-	max-width: 75%;
+	max-width: 90%;
   overflow: hidden;
+}
+
+.shared_sequence:hover {
+	background: antiquewhite;
 }
 
 .shared_sequences {
@@ -437,4 +450,5 @@ input[type="button"]:active {
   right: 0;
   margin: 20px;
 	background: rgba(00, 00, 00, 0);
+	color: slategray;
 }

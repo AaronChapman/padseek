@@ -39,6 +39,7 @@ var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
 // selection sample options
 var selected_options = [];
 
+// stores the JSON data objects for shared sequences
 var shared_sequences = [];
 
 // logo palette
@@ -46,6 +47,7 @@ var logo_colors = ['white', 'aliceblue', 'aliceblue', 'slategray', 'antiquewhite
 
 // randomize button palette
 var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
+// randomize button strings
 var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r ando miz e', 'randomize', 'rand o mize'];
 
 // logo animation - 5 seconds
@@ -63,7 +65,7 @@ var logo_coloring = setInterval(function() {
 	$('h1').css({'color':temp_color});
 }, 5000);
 
-// randomize button animation - 1 second
+// randomize button animation
 var randomize_coloring = setInterval(function() {
 	// get a color from the array
 	var temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
@@ -78,12 +80,17 @@ var randomize_coloring = setInterval(function() {
 	$('.randomize').css({'background':'#' + temp_color});
 }, 1000);
 
+// randomize text animation
 var randomize_text = setInterval(function() {
+	// get a string from the array
 	var temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
 
+	// while the string matches the current value of the button
 	while ($('.randomize').val() === temp_text) {
+		// choose a new string from the array
 		temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
 	}
 
+	// set the text of the button
 	$('.randomize').val(temp_text);
 }, 500);

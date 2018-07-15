@@ -42,6 +42,7 @@ function reset() {
 	updateTempo();
 }
 
+// set up keyboard shortcuts
 function set_shortcuts() {
 	// keyboard shortcut for resetting tempo variables
 	shortcut.add("r", function() {
@@ -59,6 +60,7 @@ function set_shortcuts() {
 	});
 }
 
+// remove keyboard shortcut (for actions like naming sequences)
 function remove_shortcuts() {
 	shortcut.remove("r");
 	shortcut.remove("t");

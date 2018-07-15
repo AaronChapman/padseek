@@ -1,4 +1,3 @@
-
 ![GitHub version](https://img.shields.io/badge/version-alpha-red.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/AaronChapman/padseek.svg)
 
 ![GitHub forks](https://img.shields.io/github/forks/AaronChapman/padseek.svg?style=social&label=Fork) ![GitHub followers](https://img.shields.io/github/followers/AaronChapman.svg?style=social&label=Follow)
@@ -54,6 +53,17 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 
 ---
+## sharing sequences
+
+
+-**share sequence:**
+- this button will prompt you to name your sequence before sharing its data with the community
+
+-**browse recently shared sequences:**
+- click on any of the named buttons under this section to load a sequence that has been shared by another user
+
+
+---
 ## tempo tool
 
 
@@ -69,11 +79,15 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 -**randomize:**
 - this button will randomize the sequence according to the randomization options to have selected
 
--**random samples:**
-- when selected, this option will randomize the sample selections you've made
+-**random number of pads:**
+- when selected, this option will randomize the number of drum pads in the sequence
 
 -**random pad arrangement:**
 - when selected, this option will randomize the active pad pieces across all of your drum pads
 
--**random number of pads:**
-- when selected, this option will randomize the number of drum pads in the sequence
+-**random samples:**
+- when selected, this option will randomize the sample selections you've made
+
+-**random tempo:**
+- when selected, this option will randomize the sequence tempo (beats per minute)
+

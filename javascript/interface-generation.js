@@ -50,12 +50,11 @@ function setup_default_interface() {
 	$('.randomization_checkbox:last').prop('checked', false);
 	$('.randomization_checkbox:last').attr('data-activated', 'false');
 	
-	$('a[href*="github.com/AaronChapman/padseek"]').css({'background':'white', 'color':'slategray'});
-	
 	// for each sample select element, push their currently selected option's parsed text into the selected_options array
 	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
 		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
 	}
 	
+	// set up keyboard event listeners
 	set_shortcuts();
 }

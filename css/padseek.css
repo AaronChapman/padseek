@@ -2,7 +2,6 @@
 	transition: all 0.1s ease-in-out;
 	font-family: 'Muli', sans-serif;
 	outline: none;
-	overflow-y: hidden;
 	z-index: 1;
 }
 
@@ -82,6 +81,7 @@ input[type="button"]:active {
 }
 
 .main_content {
+	width: 100%;
 	padding: 50px 0;
 	margin: 25px;
 }

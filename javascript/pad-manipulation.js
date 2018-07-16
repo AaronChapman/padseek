@@ -15,6 +15,9 @@ $(document).ready(function() {
 
 		// insert the new pad element in its appropraite position
 		$(this).parents('.pad:eq(0)').after(new_pad);
+		
+		// remove extra sequence duplication buttons
+		$('body').find('.duplicate_sequence:not(:first)').remove();
 
 		// reorder all pad piece id attributes
 		reorder_pad_pieces();
@@ -27,6 +30,42 @@ $(document).ready(function() {
 				$(this).css({'opacity':'1.0','background':'aliceblue'});
 			}
 		});
+	});
+	
+	// duplicate sequence button event listener
+	$('.pad').on('click', '.duplicate_sequence', function(event) {
+		// clone elements and their event listeners
+		var new_pads = [];
+		
+		$('.pad').each(function() {
+			new_pads.push($(this).clone(true, true));
+		});
+		
+		for (var i = 0; i < new_pads.length; i++) {
+			// set css properties
+			new_pads[i].css({'margin-left':'30px'});
+			// append a button for pad removal
+			new_pads[i].prepend('<input class="remove_pad pad_manipulator cursor_pointer" type="button" value="remove">');
+
+			console.log('extra duplicate sequence button removed');
+			
+			// insert the new pad element in its appropraite position
+			$(this).parents('.pad:last').after(new_pads[i]);
+			
+			$(this).find('.pad_piece').each(function() {
+				if ($(this).attr('data-state') === "active") {
+					$(this).css({'opacity':'1.0','background':'white'});
+				} else {
+					$(this).css({'opacity':'1.0','background':'aliceblue'});
+				}
+			});
+		}
+		
+		// remove extra sequence duplication buttons
+		$('body').find('.duplicate_sequence:not(:first)').remove();
+
+		// reorder all pad piece id attributes
+		reorder_pad_pieces();
 	});
 	
 	// when a remove pad button is clicked

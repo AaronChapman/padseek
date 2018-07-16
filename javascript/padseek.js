@@ -51,9 +51,8 @@ $(document).ready(function() {
 
 // generate repetitive html content dynamically
 
-// break up css files on a module-by-module basis
-
 // loaded shared sequences in reverse
 
 // better logo display
+
 // better randomization button display

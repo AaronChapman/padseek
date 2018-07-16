@@ -10,7 +10,7 @@
 }
 
 .duplicate_pad, .duplicate_sequence, .remove_pad {
-	text-shadow: none !important;
+	text-shadow: none;
 }
 
 .duplicate_sequence {
@@ -23,6 +23,11 @@
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;
+	text-shadow: none;
+}
+
+.duplicate_sequence:hover {
+  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .pad {

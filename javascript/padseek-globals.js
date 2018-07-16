@@ -43,10 +43,10 @@ var selected_options = [];
 var shared_sequences = [];
 
 // logo palette
-var logo_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
+var logo_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "#fff2ec", "#fde7e7", "#e8dbe2", "#d2d1d8", "#e5dfe3", "#ffebe2", "#fcdbdb", "#ddc9d4", "#bcbac5", "#d9d0d6", "#ffe5d9", "#fbd0cf", "#d2b7c5", "#a6a3b2", "#ccc0c8", "#ffdfcf", "#fac4c3", "#c7a5b7", "#908c9f", "#bfb1bb", "#ffd8c6", "#fab8b8", "#bb94a9", "#79758c", "#b3a1ad", "#ffd2bc", "#f9acac", "#b0829b", "#635e79", "#a692a0", "#ffccb3", "#f8a1a0", "#a5708c", "#4d4766", "#998292", "#ffc5a9", "#f79594", "#9a5e7e", "#373053", "#8d7385", "#ffbfa0", "#f68988", "#8f4c70", "#211940", "#806377", "#f5f7f9", "#f1f5f8", "#fbf8f6", "#f9f2f1", "#ecf0f3", "#e4ecf2", "#f7f2ed", "#f3e6e3", "#e3e8ed", "#d7e2ec", "#f3ebe4", "#eed9d5", "#dae1e7", "#c9d9e5", "#efe5dc", "#e8cdc7", "#d1d9e1", "#bcd0df", "#ebdfd3", "#e2c1b9", "#c7d2dc", "#afc6d9", "#e7d8ca", "#ddb4ac", "#becad6", "#a2bdd3", "#e3d2c1", "#d7a89e", "#b5c3d0", "#94b4cc", "#dfccb9", "#d19c90", "#acbbca", "#87aac6", "#dbc5b0", "#cc8f82", "#a3b4c4", "#7aa1c0", "#d7bfa7", "#c68374"];
 
 // randomize button palette
-var randomize_colors = ['9AA0A8', '413C58', '67597A', 'CC7178', 'F2E7C9', 'CF9893', '7D98A1', '5E6572', 'FFEEDD', 'FFD8BE', 'DBAFC1', 'D6EDFF', '907F9F', '904C77', 'F6EFEE'];
+var randomize_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "#fff2ec", "#fde7e7", "#e8dbe2", "#d2d1d8", "#e5dfe3", "#ffebe2", "#fcdbdb", "#ddc9d4", "#bcbac5", "#d9d0d6", "#ffe5d9", "#fbd0cf", "#d2b7c5", "#a6a3b2", "#ccc0c8", "#ffdfcf", "#fac4c3", "#c7a5b7", "#908c9f", "#bfb1bb", "#ffd8c6", "#fab8b8", "#bb94a9", "#79758c", "#b3a1ad", "#ffd2bc", "#f9acac", "#b0829b", "#635e79", "#a692a0", "#ffccb3", "#f8a1a0", "#a5708c", "#4d4766", "#998292", "#ffc5a9", "#f79594", "#9a5e7e", "#373053", "#8d7385", "#ffbfa0", "#f68988", "#8f4c70", "#211940", "#806377", "#f5f7f9", "#f1f5f8", "#fbf8f6", "#f9f2f1", "#ecf0f3", "#e4ecf2", "#f7f2ed", "#f3e6e3", "#e3e8ed", "#d7e2ec", "#f3ebe4", "#eed9d5", "#dae1e7", "#c9d9e5", "#efe5dc", "#e8cdc7", "#d1d9e1", "#bcd0df", "#ebdfd3", "#e2c1b9", "#c7d2dc", "#afc6d9", "#e7d8ca", "#ddb4ac", "#becad6", "#a2bdd3", "#e3d2c1", "#d7a89e", "#b5c3d0", "#94b4cc", "#dfccb9", "#d19c90", "#acbbca", "#87aac6", "#dbc5b0", "#cc8f82", "#a3b4c4", "#7aa1c0", "#d7bfa7", "#c68374"];
 // randomize button strings
 var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r ando miz e', 'randomize', 'rand o mize'];
 
@@ -77,7 +77,7 @@ var randomize_coloring = setInterval(function() {
 	}
 	
 	// set the background of the randomize button
-	$('.randomize').css({'background':'#' + temp_color});
+	$('.randomize').css({'background':temp_color});
 }, 1000);
 
 // randomize text animation

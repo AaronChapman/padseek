@@ -19,7 +19,8 @@
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: white;
-	background: rgba(220, 20, 60, 0.7);
+	/*background: rgba(220, 20, 60, 0.7);*/
+	background: slategray;
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;

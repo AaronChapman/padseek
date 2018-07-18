@@ -1,6 +1,54 @@
 /* p a d s e e k */
 /* randomization module css */
 
+.randomization_checkbox {
+  position: relative;
+  border-radius: 20px;
+  background: white;
+  outline: 0;
+  -webkit-appearance: none;
+  cursor: pointer;
+	width: 20px;
+	height: 12px;
+	border: 0.5px solid slategray;
+}
+
+.randomization_checkboxes {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.randomization_checkboxes label {
+	padding: 0 10px;
+}
+
+.randomization_checkboxes li {
+	display: inline-flex;
+}
+
+.randomization_checkbox::after {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: slategray;
+  transition: all .1s linear;
+}
+
+.randomization_checkbox:checked {
+  background: slategray;
+}
+
+.randomization_checkbox:checked::after {
+  transform: translateX(100%);
+  background: white;
+}
+
 .randomization_module {
 	display: inline-block;
   justify-content: center;

@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 /* ! critical !
 
+	- when duplicating sequence containing multiple pads, they appear out of order
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
 	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
 
@@ -56,3 +57,5 @@ $(document).ready(function() {
 // better logo display
 
 // better randomization button display
+
+// style checkboxes

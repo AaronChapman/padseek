@@ -14,6 +14,8 @@ $(document).ready(function() {
 
 	- when duplicating sequence containing multiple pads, they appear out of order
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
+	- changing sample selection doesn't update sequence sample paths array in all cases
+	- sequence sample paths does not get updated in the right order with randomization
 	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
 
 ! critical ! */
@@ -54,8 +56,17 @@ $(document).ready(function() {
 
 // loaded shared sequences in reverse
 
+// highlight on container hover "Fork on Github"
+
+// maybe stop sequence when sample change is made, make change, and then play sequence
+
+// allow empty pad duplication
+
+// option to see more keyboard shortcuts
+// // // pause / play sequence, clear selections
+
+// create a preview sample option
+
 // better logo display
 
 // better randomization button display
-
-// style checkboxes

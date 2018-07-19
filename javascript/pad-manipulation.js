@@ -79,6 +79,8 @@ $(document).ready(function() {
 	
 	// when a sample selection is made
 	$('.selects').on('change', '.select', function(event) {
+		console.log(sequence_sample_paths);
+		
 		// get a reference to the select whose selected option changed
 		var sample_type_select_changed = $(this);
 		// get & parse the text from that selected option 
@@ -98,6 +100,8 @@ $(document).ready(function() {
 				sequence_sample_paths[sequence_sample_paths.indexOf(item)] = 'samples/' + class_trim + '/' + new_selection;
 			}
 		});
+		
+		console.log(sequence_sample_paths);
 		
 		// update the selected options array so we can keep tracking new option selections
 		selected_options[new_selection_select_index] = new_selection;

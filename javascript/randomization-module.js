@@ -17,6 +17,32 @@ $(document).ready(function() {
 			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:first').click(); }
 		}
 		
+		// get temp variable for selected options
+		// empty selected options
+		// inside for loop
+		// replace all instances of temp selected options at i with new selected option
+		
+		// if the user has chosen to select random sample options
+		if ($('.random_sample_selection').attr('data-activated') == 'true') {
+			console.log(sequence_sample_paths);
+			
+			selected_options = [];
+			
+			// for each select element
+			for (var i = 0; i < $('body').find('.selects .selects_item .select').length; i++) {
+				// select a random option
+				var temporary_select = $('.select:eq(' + i + ')');
+				var options = temporary_select.find('option');
+
+				options.eq(~~(Math.random() * options.length)).prop('selected', true);
+				
+				// psuh the newly selected option to the selected options array
+				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
+				
+				reorder_pad_pieces();
+			}
+		}
+		
 		// get a reference to the x value from the id of the last pad piece attribute
 		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
 		
@@ -33,24 +59,6 @@ $(document).ready(function() {
 				if (possible_none != 2) {
 					id_reference_to_activate.click();
 				}
-			}
-		}
-		
-		// if the user has chosen to select random sample options
-		if ($('.random_sample_selection').attr('data-activated') == 'true') {
-			// reset the selected options array
-			selected_options = [];
-			
-			// for each select element
-			for (var i = 0; i < $('body').find('.selects .selects_item .select').length; i++) {
-				// select a random option
-				var temporary_select = $('.select:eq(' + i + ')');
-				var options = temporary_select.find('option');
-
-				options.eq(~~(Math.random() * options.length)).prop('selected', true);
-				
-				// psuh the newly selected option to the selected options array
-				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
 			}
 		}
 		

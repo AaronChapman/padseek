@@ -113,9 +113,15 @@ function reorder_pad_pieces() {
 			}
 		}
 	}
+	
+	$('.sequence_flow_arrow').remove();
 		
 	for (var i = 0; i < $('body').find('.duplicate_pad').length; i++) {
 		$('.duplicate_pad').eq(i).val('duplicate pad ' + (i + 1));
+		
+		if (i > 0) {
+			$('.duplicate_pad').eq(i - 1).parents('.pad:eq(0)').append('<p class="sequence_flow_arrow" style="position: absolute; font-size: 20px; margin: auto; margin-left: 162.5px; margin-top: 133px; color: rgba(00, 00, 00, 0.1);">⇨</p>')
+		}
 	}
 
 	// creating and setting a new length for the sequence sample paths array

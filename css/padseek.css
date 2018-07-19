@@ -73,11 +73,15 @@ input[type="button"]:active {
 }
 
 .github_button {
+	position: fixed;
+	right: 0;
+	top: 0;
+	margin: 35px 10px 0 0;
 	background: white;
-  color: slategray;
-  border: 0.5px dashed rgba(00, 00, 00, 0.5);
-  border-radius: 5px;
-  padding: 10px;
+	color: slategray;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	border-radius: 5px;
+	padding: 10px;
 }
 
 .github_button:hover {
@@ -101,14 +105,6 @@ input[type="button"]:active {
 	overflow-y: hidden;
 	margin: 0 auto;
 	margin-top: 20px;
-}
-
-.stat_repo {
-	position: fixed;
-  right: 0;
-  top: 0;
-  padding: 10px;
-  margin: 35px 0 0 0;
 }
 
 .what_is_this {

@@ -50,6 +50,8 @@ $(document).ready(function() {
 
 // loaded shared sequences in reverse
 
+// add a 'remove all pads' button matching duplicate sequence button
+
 // highlight on container hover "Fork on Github"
 
 // make current sequence json variable that gets updated everywhere

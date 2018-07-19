@@ -1,6 +1,11 @@
 /* p a d s e e k */
 /* tempo module css */
 
+.all_shortcuts_label {
+	position: absolute;
+  margin: -50px 0 0 140px;
+}
+
 .bpm_display {
 	border-bottom: 1px solid black;
   width: 100px;

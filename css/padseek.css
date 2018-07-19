@@ -39,8 +39,7 @@ h1 {
   text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
-.sequence_controls input[type="button"], .shared_sequences input[type="button"], .randomization_module input[type="button"] {
-	padding-top: 5px;
+.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"] {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 

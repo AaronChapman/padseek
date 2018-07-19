@@ -125,6 +125,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
+	reorder_sequence_sample_paths();
 }
 
 // when the document is ready

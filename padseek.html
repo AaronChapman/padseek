@@ -55,6 +55,7 @@
 					</div>
 				</div>
 				<div class="tempo_tool box-shadowed">
+					<p class="all_shortcuts_label">see all shortcuts: [ c ]</p>
 					<p>
 						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br>hit the [ s ] key to set the sequence tempo<br><br>
 					</p>
@@ -90,14 +91,14 @@
 			</div>
 			<div class="second_row">
 				<ul class="labels">
-					<li class="labels_item"><label class="label">sound effect</label></li>
-					<li class="labels_item"><label class="label">crash cymbal</label></li>
-					<li class="labels_item"><label class="label">ride cymbal</label></li>
-					<li class="labels_item"><label class="label">open hi-hat</label></li>
-					<li class="labels_item"><label class="label">closed hi-hat</label></li>
-					<li class="labels_item"><label class="label">snare one</label></li>
-					<li class="labels_item"><label class="label">snare two</label></li>
-					<li class="labels_item"><label class="label">kick drum</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(0)"><label class="label">sound effect</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(1)"><label class="label">crash cymbal</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(2)"><label class="label">ride cymbal</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(3)"><label class="label">open hi-hat</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(4)"><label class="label">closed hi-hat</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(5)"><label class="label">snare one</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(6)"><label class="label">snare two</label></li>
+					<li class="labels_item"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(7)"><label class="label">kick drum</label></li>
 				</ul>
 				<ul class="selects">
 					<li class="selects_item"><select class="sound_effects_select select cursor_pointer"></select></li>
@@ -110,13 +111,13 @@
 					<li class="selects_item"><select class="kick_drums_select select cursor_pointer"></select></li>
 				</ul>
 				<div class="pad">
-					<input class="duplicate_pad pad_manipulator cursor_pointer" type="button" value="duplicate pad">
+					<input class="duplicate_pad pad_manipulator cursor_pointer" type="button" value="duplicate pad 1">
 					<input class="duplicate_sequence pad_manipulator cursor_pointer box-shadowed-hover" type="button" value="duplicate sequence">
 				</div>
 			</div>
 			<a class="twelve_px_blue_link what_is_this" href="https://github.com/AaronChapman/padseek#readme" target="_blank">what is this?</a>
 		</div>
-		<div class="name_sequence_overlay">
+		<div class="name_sequence_overlay overlay">
 			<input class="name_sequence" type="text" placeholder="your sequence name here"><br>
 			<ul class="naming_sequence_overlay_buttons">
 				<li class="naming_sequence_overlay_button_item">
@@ -126,8 +127,13 @@
 					<input class="close never_mind box-shadowed-hover cursor_pointer" type="button" value="never mind">
 				</li>
 			</ul>
-			
 		</div>
+		<!--
+		<div class="shortcuts_overlay overlay">
+			<input class="close cursor_pointer" type="button" value="never mind">
+			<p class="list_of_shortcuts"></p>
+		</div>
+		-->
 	</body>
 	<script src="https://oylo.info/javascript/page_fade.js"></script>
 </html>

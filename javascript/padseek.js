@@ -12,10 +12,8 @@ $(document).ready(function() {
 
 /* ! critical !
 
-	- when duplicating sequence containing multiple pads, they appear out of order
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
 	- changing sample selection doesn't update sequence sample paths array in all cases
-	- sequence sample paths does not get updated in the right order with randomization
 	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
 
 ! critical ! */
@@ -48,24 +46,18 @@ $(document).ready(function() {
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 
-// option for duplicating groups of pads
-
-// attach pad number to end of duplicate pad link
-
 // generate repetitive html content dynamically
 
 // loaded shared sequences in reverse
 
 // highlight on container hover "Fork on Github"
 
-// maybe stop sequence when sample change is made, make change, and then play sequence
+// make current sequence json variable that gets updated everywhere
 
-// allow empty pad duplication
+// maybe stop sequence when sample change is made, make change, and then play sequence
 
 // option to see more keyboard shortcuts
 // // // pause / play sequence, clear selections
-
-// create a preview sample option
 
 // better logo display
 

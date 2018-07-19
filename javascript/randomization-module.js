@@ -24,8 +24,6 @@ $(document).ready(function() {
 		
 		// if the user has chosen to select random sample options
 		if ($('.random_sample_selection').attr('data-activated') == 'true') {
-			console.log(sequence_sample_paths);
-			
 			selected_options = [];
 			
 			// for each select element

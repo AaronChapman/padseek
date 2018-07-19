@@ -81,7 +81,7 @@ var randomize_coloring = setInterval(function() {
 }, 1000);
 
 // randomize text animation
-var randomize_text = setInterval(function() {
+/*var randomize_text = setInterval(function() {
 	// get a string from the array
 	var temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
 
@@ -93,4 +93,4 @@ var randomize_text = setInterval(function() {
 
 	// set the text of the button
 	$('.randomize').val(temp_text);
-}, 500);
+}, 500);*/

@@ -19,6 +19,8 @@ $(document).ready(function() {
 		// remove extra sequence duplication buttons
 		$('body').find('.duplicate_sequence:not(:first)').remove();
 
+		
+		console.log('gonna reorder pad pieces');
 		// reorder all pad piece id attributes
 		reorder_pad_pieces();
 		
@@ -46,19 +48,9 @@ $(document).ready(function() {
 			new_pads[i].css({'margin-left':'30px'});
 			// append a button for pad removal
 			new_pads[i].prepend('<input class="remove_pad pad_manipulator cursor_pointer" type="button" value="remove">');
-
-			console.log('extra duplicate sequence button removed');
 			
 			// insert the new pad element in its appropraite position
-			$(this).parents('.pad:last').after(new_pads[i]);
-			
-			$(this).find('.pad_piece').each(function() {
-				if ($(this).attr('data-state') === "active") {
-					$(this).css({'opacity':'1.0','background':'white'});
-				} else {
-					$(this).css({'opacity':'1.0','background':'aliceblue'});
-				}
-			});
+			$('.pad:last').after(new_pads[i]);
 		}
 		
 		// remove extra sequence duplication buttons
@@ -79,8 +71,6 @@ $(document).ready(function() {
 	
 	// when a sample selection is made
 	$('.selects').on('change', '.select', function(event) {
-		console.log(sequence_sample_paths);
-		
 		// get a reference to the select whose selected option changed
 		var sample_type_select_changed = $(this);
 		// get & parse the text from that selected option 
@@ -100,8 +90,6 @@ $(document).ready(function() {
 				sequence_sample_paths[sequence_sample_paths.indexOf(item)] = 'samples/' + class_trim + '/' + new_selection;
 			}
 		});
-		
-		console.log(sequence_sample_paths);
 		
 		// update the selected options array so we can keep tracking new option selections
 		selected_options[new_selection_select_index] = new_selection;
@@ -124,6 +112,10 @@ function reorder_pad_pieces() {
 				temporary_piece_reference.attr({'id':(column + (8 * pads)) + '-' + temporary_piece_reference.attr('id').split('-')[1]});
 			}
 		}
+	}
+		
+	for (var i = 0; i < $('body').find('.duplicate_pad').length; i++) {
+		$('.duplicate_pad').eq(i).val('duplicate pad ' + (i + 1));
 	}
 
 	// creating and setting a new length for the sequence sample paths array

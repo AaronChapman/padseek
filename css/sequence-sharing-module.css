@@ -16,18 +16,7 @@
 }
 
 .name_sequence_overlay {
-	background: white;
-	transition: all 0.15s ease-in-out;
-	position: fixed;
-	display: inline-block;
-	justify-content: center;
-	text-align: center;
-	height: 100%;
-	width: 100%;
-	z-index: -1;
-	opacity: 0;
-	padding: 0;
-	margin: 0;
+	text-align: center
 }
 
 .name_and_share_sequence {

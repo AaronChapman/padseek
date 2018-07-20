@@ -46,17 +46,51 @@ function reset() {
 function set_shortcuts() {
 	// keyboard shortcut for resetting tempo variables
 	shortcut.add("r", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
 		reset();
 	});
 
 	// keyboard shortcut for adding another beat to the tempo calculation
 	shortcut.add("t", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
 		calculateTempo();
 	});
 
 	// keyboard shortcut for setting the sequence tempo
 	shortcut.add("s", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
 		$('.set_tempo').click();
+	});
+	
+	shortcut.add("c", function() {
+		if ($('.shortcuts_overlay').css('z-index') === '-1') {
+			$('.shortcuts_overlay').css({'opacity':'1', 'z-index':'2'});
+			
+			show_shortcuts();
+		} else if ($('.shortcuts_overlay').css('z-index') === '2') {
+			$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'}); 
+		}
+	});
+	
+	shortcut.add("p", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
+		$('.play_sequence').click();
+	});
+	
+	shortcut.add("x", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
+		$('.clear_selections').click();
+	});
+	
+	shortcut.add("z", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
+		$('.randomize').click();
 	});
 }
 
@@ -65,6 +99,14 @@ function remove_shortcuts() {
 	shortcut.remove("r");
 	shortcut.remove("t");
 	shortcut.remove("s");
+	shortcut.remove("c");
+	shortcut.remove("p");
+	shortcut.remove("x");
+	shortcut.remove("z");
+}
+
+function show_shortcuts() {
+	$('.shortcuts_overlay').css({'opacity':'1', 'z-index':'2'});
 }
 
 // when the document is ready

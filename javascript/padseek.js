@@ -15,6 +15,7 @@ $(document).ready(function() {
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
 	- changing sample selection doesn't update sequence sample paths array in all cases
 	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
+	-  - on remove, pause, remove, and play sequence
 
 ! critical ! */
 
@@ -50,16 +51,21 @@ $(document).ready(function() {
 
 // loaded shared sequences in reverse
 
-// add a 'remove all pads' button matching duplicate sequence button
+// incorporate a pad number check system (so user can't break page)
 
-// highlight on container hover "Fork on Github"
+// prevent playing sequence over a certain tempo
+// // // or set tempo to max tempo, give an error message, and play sequence
+
+// look into storing selected options in cache immediately so they don't have to get pulled each time
+
+// add a 'remove all pads' button matching duplicate sequence button
 
 // make current sequence json variable that gets updated everywhere
 
 // maybe stop sequence when sample change is made, make change, and then play sequence
 
 // option to see more keyboard shortcuts
-// // // pause / play sequence, clear selections
+// // // pause / play sequence, clear selections, duplicate sequence, randomize, whatever other module functions come up
 
 // better logo display
 

@@ -144,7 +144,7 @@ $(document).ready(function() {
 			remove_shortcuts();
 			
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({'opacity':'0.95', 'z-index':'2'});
+			$('.name_sequence_overlay').css({'opacity':'1', 'z-index':'2'});
 		}
 	});
 	

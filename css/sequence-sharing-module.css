@@ -16,7 +16,7 @@
 }
 
 .name_sequence_overlay {
-	text-align: center
+	text-align: center;
 }
 
 .name_and_share_sequence {
@@ -44,6 +44,7 @@
 	height: 100px;
 	margin: 0 auto;
 	width: max-content;
+	padding: 0;
 }
 
 .naming_sequence_overlay_buttons input {

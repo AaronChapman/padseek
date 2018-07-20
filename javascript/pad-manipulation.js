@@ -11,7 +11,7 @@ $(document).ready(function() {
 		// set css properties
 		new_pad.css({'margin-left':'30px'});
 		// append a button for pad removal
-		new_pad.prepend('<input class="remove_pad pad_manipulator cursor_pointer" type="button" value="remove">');
+		new_pad.prepend('<input class="remove_pad pad_manipulator" type="button" value="remove">');
 
 		// insert the new pad element in its appropraite position
 		$(this).parents('.pad:eq(0)').after(new_pad);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 			// set css properties
 			new_pads[i].css({'margin-left':'30px'});
 			// append a button for pad removal
-			new_pads[i].prepend('<input class="remove_pad pad_manipulator cursor_pointer" type="button" value="remove">');
+			new_pads[i].prepend('<input class="remove_pad pad_manipulator" type="button" value="remove">');
 			
 			// insert the new pad element in its appropraite position
 			$('.pad:last').after(new_pads[i]);

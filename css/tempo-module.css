@@ -17,19 +17,6 @@
 	
 }
 
-.overlay {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 10% 30%;
-	position: fixed;
-	background: white;
-	transition: all 0.15s ease-in-out;
-	display: inline-flex;
-	z-index: -1;
-	opacity: 0;
-}
-
 .tempo_controls {
 	display: inline-flex;
   margin: 10px 0;
@@ -60,5 +47,5 @@
 }
 
 .shortcuts_overlay {
-	
+	padding: 10% 30%;
 }

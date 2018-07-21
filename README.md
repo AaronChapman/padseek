@@ -4,7 +4,7 @@
 
 # p a d s e e k
 
-padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so things might be wonky here and there while I work out the kinks. please feel free to keep checking in for more features and add-ons
+> padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so things might be wonky here and there while I work out the kinks. please feel free to keep checking in for more features and add-ons
 
 ---
 
@@ -18,13 +18,15 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 **`keyboard shortcuts`**
 
-- [ t ] - calculate tempo
-- [ r ] - reset tempo being calculated
-- [ s ] - set sequence tempo to calculated tempo
-- [ c ] - open / close shortcuts menu
-- [ p ] - play / pause sequence
-- [ x ] - clear sequence selections
-- [ z ] - randomize sequqeunce
+key | shortcut
+--- | ---
+`[ t ]` | calculate tempo
+`[ r ]` | reset tempo being calculated
+`[ s ]` | set sequence tempo to calculated tempo
+`[ c ]` | open / close shortcuts menu
+`[ p ]` | play / pause sequence
+`[ x ]` | clear sequence selections
+`[ z ]` | randomize sequence
 
 ---
 ## sequence controls

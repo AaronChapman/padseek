@@ -13,9 +13,8 @@ $(document).ready(function() {
 /* ! critical !
 
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
-	- changing sample selection doesn't update sequence sample paths array in all cases
-	- removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
-	-  - on remove, pause, remove, and play sequence
+	*pretty sure this has been taken care of* - changing sample selection doesn't update sequence sample paths array in all cases
+	*pretty sure this has been taken care of* - removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
 
 ! critical ! */
 

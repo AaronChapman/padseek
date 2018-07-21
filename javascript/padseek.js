@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 // add some sort of application response message area
 // // // when tempo is too large
-// // // maybe when pressing play sequence with no active pad pieces
+// // // when trying to duplicate sequence that would bust cap
 
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
@@ -51,22 +51,15 @@ $(document).ready(function() {
 
 // loaded shared sequences in reverse
 
-// incorporate a pad number check system (so user can't break page)
-
-// prevent playing sequence over a certain tempo
-// // // or set tempo to max tempo, give an error message, and play sequence
-
 // look into storing selected options in cache immediately so they don't have to get pulled each time
 
-// add a 'remove all pads' button matching duplicate sequence button
+// convert specific numbers to constants
+// // // organize data storage file
+
+// implement recent sequence firebase cap
 
 // make current sequence json variable that gets updated everywhere
 
-// maybe stop sequence when sample change is made, make change, and then play sequence
+// make keyboard shortcuts for sequence sharing
 
-// option to see more keyboard shortcuts
-// // // pause / play sequence, clear selections, duplicate sequence, randomize, whatever other module functions come up
-
-// better logo display
-
-// better randomization button display
+// make better shortcut window

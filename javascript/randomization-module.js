@@ -7,20 +7,19 @@ $(document).ready(function() {
 	$('.randomize').click(function() {
 		// if the user has chosen to generate a random number of pads
 		if ($('.random_number_of_pads').attr('data-activated') == 'true') {
+			var pad_lengths = [1, 2, 3, 4, 6, 8];
+			
 			// randomly determine the number of pads to generate
-			var random_number = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+			var random_number = pad_lengths[Math.floor(Math.random() * pad_lengths.length)] - 1;
 			
 			// remove all pads except the first one
 			$('.pad:not(:first)').each(function() { $(this).remove(); });
 			
 			// duplicate the appropriate number of pads
-			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:first').click(); }
+			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:last').click(); }
+			
+			$('.remove_all_pads:not(:first)').remove();
 		}
-		
-		// get temp variable for selected options
-		// empty selected options
-		// inside for loop
-		// replace all instances of temp selected options at i with new selected option
 		
 		// if the user has chosen to select random sample options
 		if ($('.random_sample_selection').attr('data-activated') == 'true') {

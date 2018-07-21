@@ -15,8 +15,7 @@
 }
 
 .clear_selections:hover {
-	background: crimson;
-	opacity: 0.7;
+	background: rgb(218, 110, 123);
 }
 
 .play_sequence {

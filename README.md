@@ -16,6 +16,16 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - press 'play sequence' or 'pause sequence' to do exactly what that says
 - see modules below
 
+**`keyboard shortcuts`**
+
+[ t ] - calculate tempo
+[ r ] - reset tempo being calculated
+[ s ] - set sequence tempo to calculated tempo
+[ c ] - open / close shortcuts menu
+[ p ] - play / pause sequence
+[ x ] - clear sequence selections
+[ z ] - randomize sequqeunce
+
 ---
 ## sequence controls
 
@@ -37,6 +47,9 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - each row of this module houses a different set of drum samples for you to choose from
 - you can make your sample selections at anytime during the sequence
 
+-**sample sampler:**
+- clicking on the the sample type, or the '▶' icon, will play the currently selected option for that sample type
+
 
 ---
 ## drum pads
@@ -50,6 +63,12 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 
 -**pad pieces:**
 - activating a pad piece will result in that piece's row triggering the selected sample
+
+-**duplicate sequence:**
+- this button will duplicate the entire pad sequence (the maximum sequence size is 32 pads)
+
+-**remove all pads:**
+- this button will remove all pads except the first
 
 
 ---
@@ -71,6 +90,7 @@ padseek is a module-based drum sequencer made with love and javascript. this is 
 - hit the [ t ] key for each beat to determine the number of beats per minute
 - hit the [ r ] key to reset the bpm counter
 - hit the [ s ] key to set the sequence tempo field to the newly calculated bpm
+
 
 ---
 ## randomization module

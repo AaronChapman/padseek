@@ -81,6 +81,9 @@ $(document).ready(function() {
 // calculates tempo on change
 function calculate(tempo) {
 	calculated_tempo = (1000 / (tempo / 60)) / 2;
+	
+	if (tempo < 15) { calculated_tempo = (1000 / (15 / 60)) / 2; $('.tempo_field').val('15'); }
+	if (tempo > 240) { calculated_tempo = (1000 / (240 / 60)) / 2; $('.tempo_field').val('240'); }
 
 	// initializes sequence
 	play_sequence('.pad:eq(0)');

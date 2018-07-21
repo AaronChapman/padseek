@@ -30,14 +30,16 @@ body {
 
 h1 {
 	top: 0;
-  padding: 75px 75px 10px 50px;
-  transition: all 5s ease-in-out;
-  font-family: 'Shrikhand', cursive;
-  margin: 0;
-  position: absolute;
-  font-size: 36px;
+	padding: 15px 300px 15px 50px;
+	transition: all 5s ease-in-out;
+	font-family: 'Shrikhand', cursive;
+	margin: 50px 0 15px 0;
+	border-radius: 0 5px 5px 0;
+	position: absolute;
+	background: linear-gradient(to right, rgb(218, 110, 123), white);
+	font-size: 36px;
 	color: white;
-  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"] {

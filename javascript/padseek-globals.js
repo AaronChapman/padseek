@@ -51,7 +51,7 @@ var randomize_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "
 var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r ando miz e', 'randomize', 'rand o mize'];
 
 // logo animation - 5 seconds
-var logo_coloring = setInterval(function() {
+/*var logo_coloring = setInterval(function() {
 	// get a color from the array
 	var temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
 	
@@ -63,7 +63,7 @@ var logo_coloring = setInterval(function() {
 	
 	// set the text color of the randomize button
 	$('h1').css({'color':temp_color});
-}, 5000);
+}, 5000);*/
 
 // randomize button animation
 var randomize_coloring = setInterval(function() {

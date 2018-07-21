@@ -19,7 +19,6 @@
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: white;
-	/*background: rgba(220, 20, 60, 0.7);*/
 	background: slategray;
 	width: 298px;
 	border-radius: 5px;
@@ -69,6 +68,23 @@
 
 .pad_piece:active {
 	opacity 0.25;
+}
+
+.remove_all_pads {
+	position: absolute;
+	border: none;
+	padding: 0 0 0 170px;
+	margin-top: 300px;
+	color: white;
+	background: rgb(218, 110, 123);
+	width: 298px;
+	border-radius: 5px;
+	height: 25px;
+	text-shadow: none;
+}
+
+.remove_all_pads:hover {
+  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .remove_pad {

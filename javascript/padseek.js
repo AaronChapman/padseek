@@ -39,11 +39,6 @@ $(document).ready(function() {
 // // // login
 // // // list of your sequences
 
-// application response message area
-// // // when tempo is too large
-// // // when trying to duplicate sequence that would bust cap
-// // // better display animation
-
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 

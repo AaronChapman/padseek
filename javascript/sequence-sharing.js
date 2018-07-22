@@ -162,7 +162,7 @@ $(document).ready(function() {
 			// set sequence-naming overlay container properties
 			$('.name_sequence_overlay').css({'opacity':'1', 'z-index':'2'});
 		} else {
-			application_message('you can\'t share an empty sequence');
+			application_message('cannot share an empty sequence');
 		}
 	});
 	

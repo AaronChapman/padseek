@@ -31,6 +31,8 @@ $(document).ready(function() {
 					$(this).css({'opacity':'1.0','background':'aliceblue'});
 				}
 			});
+		} else {
+			application_message('sequence cannot contain more than 32 drum pads');
 		}
 	});
 	
@@ -59,6 +61,8 @@ $(document).ready(function() {
 
 			// reorder all pad piece id attributes
 			reorder_pad_pieces();
+		} else {
+			application_message('sequence cannot contain more than 32 drum pads');
 		}
 	});
 	

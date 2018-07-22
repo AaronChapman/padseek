@@ -92,6 +92,12 @@ function set_shortcuts() {
 		
 		$('.randomize').click();
 	});
+	
+	shortcut.add("m", function() {
+		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+		
+		$('.share_sequence').click();
+	});
 }
 
 // remove keyboard shortcut (for actions like naming sequences)
@@ -103,6 +109,7 @@ function remove_shortcuts() {
 	shortcut.remove("p");
 	shortcut.remove("x");
 	shortcut.remove("z");
+	shortcut.remove("m");
 }
 
 function show_shortcuts() {

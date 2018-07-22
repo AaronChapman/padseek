@@ -42,8 +42,19 @@ h1 {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
-.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"] {
-	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
+.application_message {
+	position: fixed;
+	margin: 0;
+	opacity: 0;
+	font-size: 1.5em;
+	padding: 34px;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(218, 110, 123);
+	z-index: -1;
+	width: -webkit-fill-available;
+	text-align: center;
 }
 
 input[type="button"]:active {
@@ -61,10 +72,6 @@ input[type="button"]:active {
 
 .cursor_pointer:hover {
 	cursor: pointer;
-}
-
-.directory_header {
-	z-index: 10 !important;
 }
 
 .first_row {
@@ -123,6 +130,10 @@ input[type="button"]:active {
 	margin-top: 20px;
 }
 
+.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"] {
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
+}
+
 .what_is_this {
 	position: fixed;
   bottom: 0;
@@ -130,4 +141,8 @@ input[type="button"]:active {
   margin: 20px;
 	background: rgba(00, 00, 00, 0);
 	color: slategray;
+}
+
+#directory_header {
+	z-index: 10 !important;
 }

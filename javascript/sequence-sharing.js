@@ -23,9 +23,11 @@ database.ref().on("value", function(snapshot) {
 	shared_sequences = snapshot.val().shared_sequences;
 	
 	// for each JSON object in that array
-	for (var i = 0; i < shared_sequences.length; i++) {
+	for (var i = shared_sequences.length - 1; i > 0; i--) {
 		// add a shared sequence button item to the shared sequences container
 		update_shared_sequences_container(shared_sequences[i]);
+		
+		//console.log(shared_sequences[i].name);
 	}
 }, function(errorObject) {
 	console.log("errors handled: " + errorObject.code);
@@ -49,6 +51,8 @@ function share_sequence_data() {
 	$('body').find('.pad_piece[data-state="active"]').each(function() {
 		active_pieces.push($(this).attr('id'));
 	});
+	
+	$('.name_sequence').val('');
 	
 	// and call the conversion method
 	convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces);
@@ -74,8 +78,19 @@ function update_shared_sequences_container(new_JSON_object) {
 	// append the label separator
 	$('.shared_sequences').append('<label class="label">browse recently shared sequences<br>⬇</label>');
 	
+	// number of sequences to display
+	// if there are more than 25, only display the last 25
+	// if there are less than 25, display all
+	
+	var number_of_shared_sequences = shared_sequences.length;
+	var comparator = number_of_shared_sequences - 25;
+	
+	if (number_of_shared_sequences < 25) {
+		comparator = 0;
+	}
+	
 	// for each JSON object in the database
-	for (var i = 0; i < shared_sequences.length; i++) {
+	for (var i = shared_sequences.length - 1; i >= comparator; i--) {
 		// convert the JSON object to a string
 		var converted_object = JSON.stringify(shared_sequences[i]);
 		
@@ -125,7 +140,6 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
-	reorder_sequence_sample_paths();
 }
 
 // when the document is ready
@@ -138,6 +152,8 @@ $(document).ready(function() {
 	
 	// when the share sequence button is clicked
 	$('body').on('click', '.share_sequence', function() {
+		console.log('clicked');
+		
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// temporarily suspend keyboard event listeners
@@ -145,6 +161,8 @@ $(document).ready(function() {
 			
 			// set sequence-naming overlay container properties
 			$('.name_sequence_overlay').css({'opacity':'1', 'z-index':'2'});
+		} else {
+			application_message('you can\'t share an empty sequence');
 		}
 	});
 	
@@ -163,6 +181,8 @@ $(document).ready(function() {
 			
 			// set sequence-naming overlay container properties
 			$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
+		} else {
+			application_message('please enter a name for your sequence');
 		}
 	});
 	

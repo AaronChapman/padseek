@@ -39,16 +39,15 @@ $(document).ready(function() {
 // // // login
 // // // list of your sequences
 
-// add some sort of application response message area
+// application response message area
 // // // when tempo is too large
 // // // when trying to duplicate sequence that would bust cap
+// // // better display animation
 
 // refine the way random number of pads generation works
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 
 // generate repetitive html content dynamically
-
-// loaded shared sequences in reverse
 
 // look into storing selected options in cache immediately so they don't have to get pulled each time
 
@@ -57,7 +56,10 @@ $(document).ready(function() {
 
 // implement recent sequence firebase cap
 
+// add ability to have apostrophes and similar symbols in the shared seqence name
+
 // make current sequence json variable that gets updated everywhere
+// then I can do an 'undo' feature
 
 // make keyboard shortcuts for sequence sharing
 

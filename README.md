@@ -6,8 +6,6 @@
 
 > padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so things might be wonky here and there while I work out the kinks. please feel free to keep checking in for more features and add-ons
 
----
-
 **`how to operate`**
 
 - choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module
@@ -40,6 +38,8 @@ key | shortcut
 
 -**tempo (beats per minute):**
 - this field controls the speed at which your drum sequence will run
+- you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
+
 
 ---
 ## sample selection

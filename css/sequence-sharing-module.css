@@ -6,7 +6,7 @@
 	text-align: center;
 	width: 40%;
 	height: 30px;
-	background: #f5f5f5;
+	background: #f5f5f5;name_sequence
 	margin: 150px auto;
 	margin-bottom: 25px;
 	border: 1px solid slategray;
@@ -17,6 +17,7 @@
 
 .name_sequence_overlay {
 	text-align: center;
+	padding-top: 10%;
 }
 
 .name_and_share_sequence {
@@ -32,9 +33,7 @@
 }
 
 .name_and_share_sequence:hover {
-	color: white;
-	background: crimson;
-  opacity: 0.7;
+	background: floralwhite;
 }
 
 .naming_sequence_overlay_buttons {
@@ -70,7 +69,8 @@
 }
 
 .never_mind:hover {
-	background: floralwhite;
+	color: white;
+	background: rgb(218, 110, 123);
 }
 
 .sequence_sharing {

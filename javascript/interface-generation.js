@@ -1,6 +1,14 @@
 // p a d s e e k
 // interface generation
 
+
+function application_message(message) {
+	$('.application_message').text(message);
+	$('.application_message').css({'opacity':'1', 'z-index':'3'});
+			
+	setTimeout(function() { $('.application_message').css({'opacity':'0', 'z-index':'-1'}); }, 3000);
+}
+
 // generate drum pad pieces
 function generate_pad() {
 	// reference to drum pad container

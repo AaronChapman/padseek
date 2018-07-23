@@ -152,8 +152,6 @@ $(document).ready(function() {
 	
 	// when the share sequence button is clicked
 	$('body').on('click', '.share_sequence', function() {
-		console.log('clicked');
-		
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// temporarily suspend keyboard event listeners

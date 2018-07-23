@@ -44,18 +44,16 @@ $(document).ready(function() {
 
 // generate repetitive html content dynamically
 
+// move shortcut overlay code
+
 // look into storing selected options in cache immediately so they don't have to get pulled each time
 
 // convert specific numbers to constants
 // // // organize data storage file
 
-// implement recent sequence firebase cap
-
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
 // make current sequence json variable that gets updated everywhere
 // then I can do an 'undo' feature
-
-// make keyboard shortcuts for sequence sharing
 
 // make better shortcut window

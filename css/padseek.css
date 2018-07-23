@@ -49,10 +49,8 @@ h1 {
 	opacity: 0;
 	font-size: 1.75em;
 	padding: 34px;
-	border: 0.5px dashed rgba(00, 00, 00, 0.5);
-	border-radius: 5px;
-	background: white;
-	color: rgb(218, 110, 123);
+	background: rgb(218, 110, 123);
+	color: white;
 	z-index: -1;
 	width: -webkit-fill-available;
 	text-align: center;

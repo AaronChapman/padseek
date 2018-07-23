@@ -61,8 +61,21 @@ function set_shortcuts() {
 	// keyboard shortcut for setting the sequence tempo
 	shortcut.add("s", function() {
 		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+	
+		var new_tempo = parseInt($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
 		
-		$('.set_tempo').click();
+		if (new_tempo < 15) {
+			new_tempo = 15;
+			
+			application_message('tempo must be between 15 and 240 beats per minute');
+		} else if (new_tempo > 240) {
+			new_tempo = 240;
+			
+			application_message('tempo must be between 15 and 240 beats per minute');
+		}
+		
+		// set the tempo field value
+		$('.tempo_field').val(new_tempo);
 	});
 	
 	shortcut.add("c", function() {
@@ -117,13 +130,7 @@ function show_shortcuts() {
 }
 
 // when the document is ready
-$(document).ready(function() {
-	// if the set tempo button was clicked
-	$('.set_tempo').click(function() {
-		// set the tempo field value
-		$('.tempo_field').val($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
-	});
-	
+$(document).ready(function() {	
 	// when the user hits the [enter] key while inside the tempo input field
 	$('.tempo_field').on('keydown', function(e) {
 		if (e.keyCode.which === 13) { 

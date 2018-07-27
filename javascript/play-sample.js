@@ -2,31 +2,32 @@
 // playing samples
 
 
-/*-----------------*/
-/* PLAY SOUND FILE */
-/*-----------------*/
+/*---------------------*/
+/* SAMPLE MANIPULATION */
+/*---------------------*/
 
-(function($) {
-	$.extend({play_sound: function() {
-		return $('<audio class="sound-player" autoplay="autoplay" style="display: none;">' +
-						 '<source src="' + arguments[0] + '" />' +
-						 '<embed src="' + arguments[0] + '" hidden="true" autostart="true" loop="false"/>' +
-						 '</audio>').appendTo('body');
-	}, stop_sound: function() { $(".sound-player").remove(); }});
-})(jQuery);
-
-
+// plays the currently selected sample for that type
 function sample_sample(select_index) {
-	var sound_path = 'samples/';
-	var selected_select = $('.select').eq(select_index);
-	var selected_select_class = selected_select.attr('class').split(" ")[0];
-	var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
+	$('.sample_element').eq(select_index).each(function() { this.play(); });
+}
 
-	sound_path += class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
+// setup or update the audio elements
+function set_audio_elements() {
+	// if there aren't any, generate them
+	if ($('.audio_tags').find('.sample_element').length == 0) {
+		for (var i = 0; i < selected_options.length; i++) {
+			$('.audio_tags').append('<audio class="sample_element" src="samples/' + sample_directories[i].directory + '/' + selected_options[i] + '" preload="auto"></audio>');
+		}
+	// if there are already audio elements present
+	} else {
+		// for each sample type
+		for (var i = 0; i < selected_options.length; i++) {
+			// replace src attributes of any audio element in sequence that doesn't match the current selected option index
+			if ($('.sample_element').eq(i).attr('src').indexOf(selected_options[i]) == -1) {
+				$('.sample_element').eq(i).before('<audio class="sample_element" src="samples/' + sample_directories[i].directory + '/' + selected_options[i] + '" preload="auto"></audio>');
 
-	$.play_sound(sound_path);
-	
-	setTimeout(function() {
-		$('audio.sound-player:first').remove();
-	}, calculated_tempo * 8);
+				$('.sample_element').eq(i).next().remove();
+			}
+		}
+	}
 }

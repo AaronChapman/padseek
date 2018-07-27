@@ -122,13 +122,7 @@ function play_sequence(pad_reference) {
 		if ($(this).attr('data-state') === "active") {
 			var sample = sequence_sample_paths[current_row_in_sequence - 1];
 
-			$.play_sound(sample);
-			
-			setTimeout(function() {
-				$('audio.sound-player:first').remove();
-			}, calculated_tempo * 8);
-			
-			//find some way to loop player and remove sound player elements while keeping all sound tail
+			$('.sample_element[src*="' + sample + '"]').each(function() { this.play(); });
 
 			// set active pad piece css properties
 			$(this).css({'opacity':'0.25','background':'white'});

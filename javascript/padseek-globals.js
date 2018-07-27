@@ -51,13 +51,15 @@ var kick_drums = ['cut-you-up-kick.mp3', 'disruptive-kick.mp3', 'distinct-kick.m
 var sound_effects = ['bicycle-bell.mp3', 'bottle-cap.mp3', 'cork-popping.mp3', 'drum-sticks.mp3', 'lighter-smack.mp3', 'raw-thump.mp3', 'star-twinkle.mp3', 'thawing-tap.mp3', 'wooden-chair.mp3', 'wooden-smack.mp3'];
 
 // list of objects with directory name & sound path array properties
-var sample_directories = [{directory: 'crash-cymbals', sound_paths: crash_cymbals},
+var sample_directories = [
+						{directory: 'sound-effects', sound_paths: sound_effects},
+						{directory: 'crash-cymbals', sound_paths: crash_cymbals},
 						{directory: 'ride-cymbals', sound_paths: ride_cymbals},
 						{directory: 'open-hi-hats', sound_paths: open_hi_hats},
 						{directory: 'closed-hi-hats', sound_paths: closed_hi_hats},
 						{directory: 'snares', sound_paths: snares},
-						{directory: 'kick-drums', sound_paths: kick_drums},
-						{directory: 'sound-effects', sound_paths: sound_effects}];
+						{directory: 'snares', sound_paths: snares},
+						{directory: 'kick-drums', sound_paths: kick_drums}];
 
 // sample directory path array
 var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',

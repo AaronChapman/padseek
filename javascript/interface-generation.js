@@ -46,6 +46,9 @@ function generate_select_options() {
 			select_reference.append('<option value="' + temp_option +'">' +  parsed_temp_option + '</option>');
 		}
 	}
+	
+	setup_default_interface();	
+	set_audio_elements();
 }
 
 // sets up default interface elements and some data points

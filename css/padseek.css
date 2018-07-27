@@ -117,6 +117,10 @@ input[type="button"]:active {
 	opacity: 0;
 }
 
+.sample_element {
+	display: none;
+}
+
 .second_row {
 	display: inline-flex;
 	justify-content: left;

@@ -42,6 +42,7 @@ $(document).ready(function() {
 				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
 				
 				reorder_pad_pieces();
+				set_audio_elements();
 			}
 		}
 		

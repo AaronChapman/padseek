@@ -122,6 +122,8 @@ $(document).ready(function() {
 		
 		// update the selected options array so we can keep tracking new option selections
 		selected_options[new_selection_select_index] = new_selection;
+		
+		set_audio_elements();
 	});
 });
 

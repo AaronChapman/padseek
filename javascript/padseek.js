@@ -6,7 +6,6 @@
 $(document).ready(function() {
 	// get 'er rollin'
 	generate_pad();
-	setup_default_interface();
 });
 
 //•••• to-do list ••••//
@@ -14,6 +13,7 @@ $(document).ready(function() {
 /* ! critical !
 
 	- changing one snare sometimes changes both snares because of the way I'm replacing items in the array
+	- - also snares get added to options twice
 	*pretty sure this has been taken care of* - changing sample selection doesn't update sequence sample paths array in all cases
 	*pretty sure this has been taken care of* - removing a pad mid-sequence doesn't update the number of columns the sequence tries to play
 
@@ -44,12 +44,6 @@ $(document).ready(function() {
 // // // make sure array gets altered properly when a bunch of pads get added / removed
 
 // generate repetitive html content dynamically
-
-// move shortcut overlay code
-
-// comment all code
-
-// update readme
 
 // look into storing selected options in cache immediately so they don't have to get pulled each time
 

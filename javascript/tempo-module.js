@@ -1,22 +1,27 @@
 // p a d s e e k
 // tempo module
 
+
+/*-------------------------------------*/
+/* DETERMINE TEMPO FROM KEYBOARD INPUT */
+/*-------------------------------------*/
+
 // start time, tempo, and number of beats variables
 var start_time = new Date();
 var tempo = 0, beats = 0;
 
-// runs on every keydown
-function calculateTempo() {
+// runs on every [t] keydown
+function calculate_tempo() {
 	if (beats == 0) {
 		start_time = Date();
 	}
 
 	beats++;
-	updateTempo();
+	update_tempo();
 }
 
 // updates display with parsed tempo
-function updateTempo() {
+function update_tempo() {
 	var value = '0';
 
 	if (beats > 1) {
@@ -36,108 +41,8 @@ function updateTempo() {
 }
 
 // resets variables
-function reset() {
+function reset_tempo() {
 	start_time = null;
 	beats = 0;
-	updateTempo();
+	update_tempo();
 }
-
-// set up keyboard shortcuts
-function set_shortcuts() {
-	// keyboard shortcut for resetting tempo variables
-	shortcut.add("r", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		reset();
-	});
-
-	// keyboard shortcut for adding another beat to the tempo calculation
-	shortcut.add("t", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		calculateTempo();
-	});
-
-	// keyboard shortcut for setting the sequence tempo
-	shortcut.add("s", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-	
-		var new_tempo = parseInt($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
-		
-		if (new_tempo < 15) {
-			new_tempo = 15;
-			
-			application_message('tempo must be between 15 and 240 beats per minute');
-		} else if (new_tempo > 240) {
-			new_tempo = 240;
-			
-			application_message('tempo must be between 15 and 240 beats per minute');
-		}
-		
-		// set the tempo field value
-		$('.tempo_field').val(new_tempo);
-	});
-	
-	shortcut.add("c", function() {
-		if ($('.shortcuts_overlay').css('z-index') === '-1') {
-			$('.shortcuts_overlay').css({'opacity':'1', 'z-index':'2'});
-			
-			show_shortcuts();
-		} else if ($('.shortcuts_overlay').css('z-index') === '2') {
-			$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'}); 
-		}
-	});
-	
-	shortcut.add("p", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		$('.play_sequence').click();
-	});
-	
-	shortcut.add("x", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		$('.clear_selections').click();
-	});
-	
-	shortcut.add("z", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		$('.randomize').click();
-	});
-	
-	shortcut.add("m", function() {
-		$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
-		
-		$('.share_sequence').click();
-	});
-}
-
-// remove keyboard shortcut (for actions like naming sequences)
-function remove_shortcuts() {
-	shortcut.remove("r");
-	shortcut.remove("t");
-	shortcut.remove("s");
-	shortcut.remove("c");
-	shortcut.remove("p");
-	shortcut.remove("x");
-	shortcut.remove("z");
-	shortcut.remove("m");
-}
-
-function show_shortcuts() {
-	$('.shortcuts_overlay').css({'opacity':'1', 'z-index':'2'});
-}
-
-// when the document is ready
-$(document).ready(function() {	
-	// when the user hits the [enter] key while inside the tempo input field
-	$('.tempo_field').on('keydown', function(e) {
-		if (e.keyCode.which === 13) { 
-			// stop and start sequence (tempo gets calculated on sequence start)
-			if (sequence_running) { $('.play_sequence').click(); }
-			
-			$('.play_sequence').click();
-		}
-	});
-});

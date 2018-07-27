@@ -1,3 +1,11 @@
+// p a d s e e k
+// playing samples
+
+
+/*-----------------*/
+/* PLAY SOUND FILE */
+/*-----------------*/
+
 (function($) {
 	$.extend({play_sound: function() {
 		return $('<audio class="sound-player" autoplay="autoplay" style="display: none;">' +

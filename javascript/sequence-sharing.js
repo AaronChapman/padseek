@@ -1,6 +1,11 @@
 // p a d s e e k
 // sequence sharing
 
+
+/*----------------*/
+/* FIREBASE SETUP */
+/*----------------*/
+
 // firebase configuration
 var config = {
 	apiKey: "AIzaSyAnQBTNzsGBiAS5BJhDNmRKEJn9QPB4mFA",
@@ -17,6 +22,11 @@ firebase.initializeApp(config);
 // creating database object reference 
 var database = firebase.database();
 
+
+/*------------------*/
+/* SEQUENCE STORAGE */
+/*------------------*/
+
 // when connection to the database has been made
 database.ref().on("value", function(snapshot) {
 	// set the local shared sequences array to the value of the same array in firebase
@@ -32,13 +42,6 @@ database.ref().on("value", function(snapshot) {
 }, function(errorObject) {
 	console.log("errors handled: " + errorObject.code);
 });
-
-// update database on data mutation
-function update_firebase() {
-	database.ref().set({
-		shared_sequences: shared_sequences
-	});
-}
 
 // start sequence data sharing flow
 function share_sequence_data() {
@@ -71,6 +74,18 @@ function convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces) {
 	update_firebase();
 }
 
+// update database on data mutation
+function update_firebase() {
+	database.ref().set({
+		shared_sequences: shared_sequences
+	});
+}
+
+
+/*-------------------*/
+/* INTERFACE CONTENT */
+/*-------------------*/
+
 // update shared sequence button items listed in the shared sequences container
 function update_shared_sequences_container(new_JSON_object) {
 	// empty the container
@@ -79,9 +94,6 @@ function update_shared_sequences_container(new_JSON_object) {
 	$('.shared_sequences').append('<label class="label">browse recently shared sequences<br>⬇</label>');
 	
 	// number of sequences to display
-	// if there are more than 25, only display the last 25
-	// if there are less than 25, display all
-	
 	var number_of_shared_sequences = shared_sequences.length;
 	var comparator = number_of_shared_sequences - 25;
 	
@@ -141,6 +153,11 @@ function set_sequence_from_JSON(new_JSON_object) {
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
 }
+
+
+/*---------------------------------*/
+/* SEQUENCE SHARING EVENT HANDLERS */
+/*---------------------------------*/
 
 // when the document is ready
 $(document).ready(function() {

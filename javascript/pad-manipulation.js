@@ -1,6 +1,11 @@
 // p a d s e e k
 // pad manipulation
 
+
+/*-----------------*/
+/* EVENT LISTENERS */
+/*-----------------*/
+
 // when the document is ready
 $(document).ready(function() {
 	// duplicate pad button event listener
@@ -119,6 +124,11 @@ $(document).ready(function() {
 		selected_options[new_selection_select_index] = new_selection;
 	});
 });
+
+
+/*-------*/
+/* SETUP */
+/*-------*/
 
 // reorder all pad piece id attributes
 function reorder_pad_pieces() {

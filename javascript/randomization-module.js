@@ -1,6 +1,11 @@
 // p a d s e e k
 // randomization module
 
+
+/*----------------------------*/
+/* RANDOMIZED DATA SELECTIONS */
+/*----------------------------*/
+
 // when the document is ready
 $(document).ready(function() {
 	// when the randomize button is clicked

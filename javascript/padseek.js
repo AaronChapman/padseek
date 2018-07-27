@@ -1,6 +1,7 @@
 // p a d s e e k
 // oylo.info - 2018
 
+
 // once ol' buddy's booted up
 $(document).ready(function() {
 	// get 'er rollin'
@@ -18,13 +19,13 @@ $(document).ready(function() {
 
 ! critical ! */
 
+// re-do with html 5 audio to speed up load time
+// load all the audio tags necessary, replace a data attribute on the elements with new source when sequence sample paths changes
+// no removing elements (unless eventually unstacking samples)
+
 // add more sample bank content
 
-// audio effects
-// // // sample pitching
-// // // sample swing
-// // // reverb
-// // // equalization
+// audio effects: equalization, pitch, swing, reverb
 
 // sample stacking
 // // // turn index in sequence_sample_paths into an array
@@ -45,6 +46,10 @@ $(document).ready(function() {
 // generate repetitive html content dynamically
 
 // move shortcut overlay code
+
+// comment all code
+
+// update readme
 
 // look into storing selected options in cache immediately so they don't have to get pulled each time
 

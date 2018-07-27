@@ -1,6 +1,11 @@
 // p a d s e e k
 // global variables
 
+
+/*---------------------*/
+/* INTERFACE VARIABLES */
+/*---------------------*/
+
 // determines whether or not the sequence is running
 var sequence_running = false;
 
@@ -12,6 +17,29 @@ var current_row_in_sequence = 1;
 
 // track number of activated pad pieces
 var activated_pad_pieces = 0;
+
+// randomize button palette
+var randomize_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "#fff2ec", "#fde7e7", "#e8dbe2", "#d2d1d8", "#e5dfe3", "#ffebe2", "#fcdbdb", "#ddc9d4", "#bcbac5", "#d9d0d6", "#ffe5d9", "#fbd0cf", "#d2b7c5", "#a6a3b2", "#ccc0c8", "#ffdfcf", "#fac4c3", "#c7a5b7", "#908c9f", "#bfb1bb", "#ffd8c6", "#fab8b8", "#bb94a9", "#79758c", "#b3a1ad", "#ffd2bc", "#f9acac", "#b0829b", "#635e79", "#a692a0", "#ffccb3", "#f8a1a0", "#a5708c", "#4d4766", "#998292", "#ffc5a9", "#f79594", "#9a5e7e", "#373053", "#8d7385", "#ffbfa0", "#f68988", "#8f4c70", "#211940", "#806377", "#f5f7f9", "#f1f5f8", "#fbf8f6", "#f9f2f1", "#ecf0f3", "#e4ecf2", "#f7f2ed", "#f3e6e3", "#e3e8ed", "#d7e2ec", "#f3ebe4", "#eed9d5", "#dae1e7", "#c9d9e5", "#efe5dc", "#e8cdc7", "#d1d9e1", "#bcd0df", "#ebdfd3", "#e2c1b9", "#c7d2dc", "#afc6d9", "#e7d8ca", "#ddb4ac", "#becad6", "#a2bdd3", "#e3d2c1", "#d7a89e", "#b5c3d0", "#94b4cc", "#dfccb9", "#d19c90", "#acbbca", "#87aac6", "#dbc5b0", "#cc8f82", "#a3b4c4", "#7aa1c0", "#d7bfa7", "#c68374"];
+
+// randomize button animation
+var randomize_coloring = setInterval(function() {
+	// get a color from the array
+	var temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
+
+	// while the color matches the existing color it's meant to replace
+	while ($('.randomize').css('background') === temp_color) {
+		// choose a new color from the array
+		temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
+	}
+	
+	// set the background of the randomize button
+	$('.randomize').css({'background':temp_color});
+}, 1000);
+
+
+/*-----------------------*/
+/* SAMPLE PATH VARIABLES */
+/*-----------------------*/
 
 // lists of drum sample option file names
 var crash_cymbals = ['cinematic-cymbal.mp3', 'knows-all-cymbal.mp3', 'oriental-cymbal.mp3', 'rich-cymbal.mp3', 'thin-cymbal.mp3', 'time-cymbal.mp3', 'wispy-wonky-cymbal.mp3'];
@@ -41,56 +69,3 @@ var selected_options = [];
 
 // stores the JSON data objects for shared sequences
 var shared_sequences = [];
-
-// logo palette
-var logo_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "#fff2ec", "#fde7e7", "#e8dbe2", "#d2d1d8", "#e5dfe3", "#ffebe2", "#fcdbdb", "#ddc9d4", "#bcbac5", "#d9d0d6", "#ffe5d9", "#fbd0cf", "#d2b7c5", "#a6a3b2", "#ccc0c8", "#ffdfcf", "#fac4c3", "#c7a5b7", "#908c9f", "#bfb1bb", "#ffd8c6", "#fab8b8", "#bb94a9", "#79758c", "#b3a1ad", "#ffd2bc", "#f9acac", "#b0829b", "#635e79", "#a692a0", "#ffccb3", "#f8a1a0", "#a5708c", "#4d4766", "#998292", "#ffc5a9", "#f79594", "#9a5e7e", "#373053", "#8d7385", "#ffbfa0", "#f68988", "#8f4c70", "#211940", "#806377", "#f5f7f9", "#f1f5f8", "#fbf8f6", "#f9f2f1", "#ecf0f3", "#e4ecf2", "#f7f2ed", "#f3e6e3", "#e3e8ed", "#d7e2ec", "#f3ebe4", "#eed9d5", "#dae1e7", "#c9d9e5", "#efe5dc", "#e8cdc7", "#d1d9e1", "#bcd0df", "#ebdfd3", "#e2c1b9", "#c7d2dc", "#afc6d9", "#e7d8ca", "#ddb4ac", "#becad6", "#a2bdd3", "#e3d2c1", "#d7a89e", "#b5c3d0", "#94b4cc", "#dfccb9", "#d19c90", "#acbbca", "#87aac6", "#dbc5b0", "#cc8f82", "#a3b4c4", "#7aa1c0", "#d7bfa7", "#c68374"];
-
-// randomize button palette
-var randomize_colors = ["#fff8f5", "#fef3f3", "#f3edf0", "#e8e8eb", "#f2eff1", "#fff2ec", "#fde7e7", "#e8dbe2", "#d2d1d8", "#e5dfe3", "#ffebe2", "#fcdbdb", "#ddc9d4", "#bcbac5", "#d9d0d6", "#ffe5d9", "#fbd0cf", "#d2b7c5", "#a6a3b2", "#ccc0c8", "#ffdfcf", "#fac4c3", "#c7a5b7", "#908c9f", "#bfb1bb", "#ffd8c6", "#fab8b8", "#bb94a9", "#79758c", "#b3a1ad", "#ffd2bc", "#f9acac", "#b0829b", "#635e79", "#a692a0", "#ffccb3", "#f8a1a0", "#a5708c", "#4d4766", "#998292", "#ffc5a9", "#f79594", "#9a5e7e", "#373053", "#8d7385", "#ffbfa0", "#f68988", "#8f4c70", "#211940", "#806377", "#f5f7f9", "#f1f5f8", "#fbf8f6", "#f9f2f1", "#ecf0f3", "#e4ecf2", "#f7f2ed", "#f3e6e3", "#e3e8ed", "#d7e2ec", "#f3ebe4", "#eed9d5", "#dae1e7", "#c9d9e5", "#efe5dc", "#e8cdc7", "#d1d9e1", "#bcd0df", "#ebdfd3", "#e2c1b9", "#c7d2dc", "#afc6d9", "#e7d8ca", "#ddb4ac", "#becad6", "#a2bdd3", "#e3d2c1", "#d7a89e", "#b5c3d0", "#94b4cc", "#dfccb9", "#d19c90", "#acbbca", "#87aac6", "#dbc5b0", "#cc8f82", "#a3b4c4", "#7aa1c0", "#d7bfa7", "#c68374"];
-// randomize button strings
-var random_randomize = ['r a n d o m i z e', 'r an d om i z e', 'ra n dom i ze', 'r a nd omiz e', 'ra nd om ize', 'r ando miz e', 'randomize', 'rand o mize'];
-
-// logo animation - 5 seconds
-/*var logo_coloring = setInterval(function() {
-	// get a color from the array
-	var temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
-	
-	// while the color matches the existing color it's meant to replace
-	while ($('h1').css('color') === temp_color) {
-		// choose a new color from the array
-		temp_color = logo_colors[Math.floor(Math.random() * logo_colors.length)];
-	}
-	
-	// set the text color of the randomize button
-	$('h1').css({'color':temp_color});
-}, 5000);*/
-
-// randomize button animation
-var randomize_coloring = setInterval(function() {
-	// get a color from the array
-	var temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
-
-	// while the color matches the existing color it's meant to replace
-	while ($('.randomize').css('background') === temp_color) {
-		// choose a new color from the array
-		temp_color = randomize_colors[Math.floor(Math.random() * randomize_colors.length)];
-	}
-	
-	// set the background of the randomize button
-	$('.randomize').css({'background':temp_color});
-}, 1000);
-
-// randomize text animation
-/*var randomize_text = setInterval(function() {
-	// get a string from the array
-	var temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
-
-	// while the string matches the current value of the button
-	while ($('.randomize').val() === temp_text) {
-		// choose a new string from the array
-		temp_text = random_randomize[Math.floor(Math.random() * random_randomize.length)];
-	}
-
-	// set the text of the button
-	$('.randomize').val(temp_text);
-}, 500);*/

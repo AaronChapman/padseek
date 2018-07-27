@@ -1,6 +1,11 @@
 // p a d s e e k
 // sequence controls
 
+
+/*----------------------------------*/
+/* SEQUENCE CONTROL EVENT LISTENERS */
+/*----------------------------------*/
+
 // when the document is ready (for setup & event listeners)
 $(document).ready(function() {
 	// when a pad piece is clicked
@@ -78,7 +83,12 @@ $(document).ready(function() {
 	});
 });
 
-// calculates tempo on change
+
+/*----------------------------------*/
+/* SEQUENCE PLAYBACK INITIALIZATION */
+/*----------------------------------*/
+
+// calculates tempo
 function calculate(tempo) {
 	calculated_tempo = (1000 / (tempo / 60)) / 2;
 

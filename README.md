@@ -25,6 +25,7 @@ key | shortcut
 `[ p ]` | play / pause sequence
 `[ x ]` | clear sequence selections
 `[ z ]` | randomize sequence
+`[ m ]` | share current sequence
 
 ---
 ## sequence controls

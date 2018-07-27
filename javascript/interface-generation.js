@@ -2,12 +2,9 @@
 // interface generation
 
 
-function application_message(message) {
-	$('.application_message').text(message);
-	$('.application_message').css({'opacity':'1', 'z-index':'3'});
-
-	setTimeout(function() { $('.application_message').css({'opacity':'0', 'z-index':'-1'}); }, 3000);
-}
+/*-----------*/
+/* DOM SETUP */
+/*-----------*/
 
 // generate drum pad pieces
 function generate_pad() {
@@ -42,10 +39,11 @@ function generate_select_options() {
 
 		// for each sound_paths property in the sample_directories array
 		for (var j = 0; j < sample_directories[i].sound_paths.length; j++) {
+			var temp_option = sample_directories[i].sound_paths[j];
+			var parsed_temp_option = temp_option.substring(0, temp_option.length - 4).replace(/-/g, ' ');
+			
 			// append an option element with appropriate attributes
-			select_reference.append('<option value="' +
-									sample_directories[i].sound_paths[j] +'">' +  sample_directories[i].sound_paths[j].substring(0, sample_directories[i].sound_paths[j].length - 4).replace(/-/g, ' ') +
-									'</option>');
+			select_reference.append('<option value="' + temp_option +'">' +  parsed_temp_option + '</option>');
 		}
 	}
 }
@@ -63,4 +61,114 @@ function setup_default_interface() {
 	
 	// set up keyboard event listeners
 	set_shortcuts();
+}
+
+
+/*-------------------*/
+/* INTERFACE CHANGES */
+/*-------------------*/
+
+// displays messages when user tries to performs an action that could bust the application
+function application_message(message) {
+	$('.application_message').text(message);
+	$('.application_message').css({'opacity':'1', 'z-index':'3'});
+
+	setTimeout(function() { $('.application_message').css({'opacity':'0', 'z-index':'-1'}); }, 3000);
+}
+
+
+/*--------------------*/
+/* KEYBOARD SHORTCUTS */
+/*--------------------*/
+
+// show keyboard shortcuts overlay
+function show_shortcuts() {
+	$('.shortcuts_overlay').css({'opacity':'1', 'z-index':'2'});
+}
+
+// hide keyboard shortcuts overlay
+function hide_shortcuts() {
+	$('.shortcuts_overlay').css({'opacity':'0', 'z-index':'-1'});
+}
+
+// set up keyboard shortcuts
+function set_shortcuts() {
+	// calculate tapped tempo: [t] key
+	shortcut.add("t", function() {
+		hide_shortcuts();
+		calculate_tempo();
+	});
+	
+	// reset calculated tempo: [r] key
+	shortcut.add("r", function() {
+		hide_shortcuts();
+		reset_tempo();
+	});
+
+	// set calculated tempo as sequence tempo
+	shortcut.add("s", function() {
+		hide_shortcuts();
+		
+		var new_tempo = parseInt($('.bpm_display').text().trim().substring(0, $('.bpm_display').text().trim().length - 4));
+		
+		// check for tempo boundaries
+		if (new_tempo < 15) {
+			new_tempo = 15;
+			
+			application_message('tempo must be between 15 and 240 beats per minute');
+		} else if (new_tempo > 240) {
+			new_tempo = 240;
+			
+			application_message('tempo must be between 15 and 240 beats per minute');
+		}
+		
+		// set the tempo field value
+		$('.tempo_field').val(new_tempo);
+	});
+	
+	// show or hide keyboard shortcuts
+	shortcut.add("c", function() {
+		if ($('.shortcuts_overlay').css('z-index') === '-1') { show_shortcuts(); }
+		else if ($('.shortcuts_overlay').css('z-index') === '2') { hide_shortcuts(); }
+	});
+	
+	// play or pause sequence
+	shortcut.add("p", function() {
+		hide_shortcuts();
+		
+		$('.play_sequence').click();
+	});
+	
+	// clear sequence selections
+	shortcut.add("x", function() {
+		hide_shortcuts();
+		
+		$('.clear_selections').click();
+	});
+	
+	// randomize sequence
+	shortcut.add("z", function() {
+		hide_shortcuts();
+		
+		$('.randomize').click();
+	});
+	
+	// share sequence
+	shortcut.add("m", function() {
+		hide_shortcuts();
+		
+		$('.share_sequence').click();
+	});
+}
+
+// remove keyboard shortcuts
+function remove_shortcuts() {
+	shortcut.remove("r");
+	shortcut.remove("t");
+	shortcut.remove("s");
+	shortcut.remove("c");
+	shortcut.remove("p");
+	shortcut.remove("x");
+	shortcut.remove("z");
+	shortcut.remove("m");
 }

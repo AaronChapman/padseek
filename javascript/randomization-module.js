@@ -12,6 +12,13 @@ $(document).ready(function() {
 	$('.randomize').click(function() {
 		// if the user has chosen to generate a random number of pads
 		if ($('.random_number_of_pads').attr('data-activated') == 'true') {
+			if (sequence_running) {
+				$('.play_sequence').click();
+
+				current_row_in_sequence = 1;
+			}
+			
+			// a few good starter pad sizes
 			var pad_lengths = [1, 2, 3, 4, 6, 8];
 			
 			// randomly determine the number of pads to generate
@@ -38,7 +45,7 @@ $(document).ready(function() {
 
 				options.eq(~~(Math.random() * options.length)).prop('selected', true);
 				
-				// psuh the newly selected option to the selected options array
+				// push the newly selected option to the selected options array
 				selected_options.push($('.selects .select').eq(i).find('option:selected').val());
 				
 				reorder_pad_pieces();
@@ -46,28 +53,33 @@ $(document).ready(function() {
 			}
 		}
 		
-		// get a reference to the x value from the id of the last pad piece attribute
-		var x_id_reference = parseInt($('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
-		
 		// if the user has chosen to have their pad pieces arranged randomly
 		if ($('.random_pad_arrangement').attr('data-activated') == 'true') {
-			// choose random pad pieces for each column and activate them
-			for (var i = 0; i < x_id_reference; i++) {
-				var y_id_reference = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-				var id_reference_to_activate = $('#' + (i + 1) + '-' + y_id_reference);
+			$('.clear_selections').click();
+			
+			// on each pad element
+			$('.pad').each(function() {
+				// get a reference to the x value from the id of the first & last pad pieces
+				var first_x_value = parseInt($(this).find('.pad_piece:first').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
+				var last_x_value = parseInt($(this).find('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
 				
-				// add variance for empty beats
-				var possible_none = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-				
-				if (possible_none != 2) {
-					id_reference_to_activate.click();
+				// click up to 20 random pieces
+				for (var clicked_pieces = 0; clicked_pieces < 20; clicked_pieces++) {
+					var x_portion = Math.floor(Math.random() * last_x_value) + first_x_value;
+					var y_portion = Math.floor(Math.random() * 8) + 1;
+					var piece_id = $('#' + x_portion + '-' + y_portion);
+					
+					piece_id.click();
 				}
-			}
+			});
 		}
 		
 		// if the user has chosen to generate a random tempo
 		if ($('.random_tempo').attr('data-activated') == 'true') {
 			$('.tempo_field').val(Math.floor(Math.random() * (240 - 62 + 1)) + 62);
+			
+			// calculate tempo
+			calculate(parseInt($('.tempo_field').val()));
 		}
 	});
 

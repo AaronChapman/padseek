@@ -113,6 +113,13 @@ function update_shared_sequences_container(new_JSON_object) {
 
 // set the current sequence from a JSON string
 function set_sequence_from_JSON(new_JSON_object) {
+	// for sequence size reset
+	if (sequence_running) {
+		$('.play_sequence').click();
+		
+		current_row_in_sequence = 1;
+	}
+	
 	// convert string back into JSON object
 	var converted_object = JSON.parse(new_JSON_object);
 	// get last active pad piece
@@ -135,7 +142,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// set properties and attributes of active piece elements
 	for (var i = 0; i < converted_object.active_pieces.length; i++) {
-		$('#' + converted_object.active_pieces[i]).css({'opacity':'1.0','background':'white'});
+		$('#' + converted_object.active_pieces[i]).css({'opacity':'1.0', 'background':'white', 'border-radius':'8px'});
 		$('#' + converted_object.active_pieces[i]).attr('data-state', 'active');
 	}
 	
@@ -152,6 +159,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
+	set_audio_elements();
 }
 
 

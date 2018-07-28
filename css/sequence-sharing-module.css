@@ -111,7 +111,6 @@
 .shared_sequence {
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	margin: 10px auto;
-	max-width: 90%;
   overflow: hidden;
 }
 

@@ -62,10 +62,10 @@ var sample_directories = [
 						{directory: 'kick-drums', sound_paths: kick_drums}];
 
 // sample directory path array
-var sequence_sample_paths = ['samples/none.mp3','samples/none.mp3',
-						 'samples/none.mp3','samples/none.mp3',
-						 'samples/none.mp3','samples/none.mp3',
-						 'samples/none.mp3','samples/none.mp3'];
+var sequence_sample_paths = [['samples/none.mp3'], ['samples/none.mp3'],
+														['samples/none.mp3'], ['samples/none.mp3'],
+														['samples/none.mp3'], ['samples/none.mp3'],
+														['samples/none.mp3'], ['samples/none.mp3']];
 // selection sample options
 var selected_options = [];
 

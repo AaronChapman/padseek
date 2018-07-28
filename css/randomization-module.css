@@ -10,7 +10,7 @@
   cursor: pointer;
 	width: 20px;
 	height: 12px;
-	border: 0.5px solid slategray;
+	border: 0.5px solid #738290;
 }
 
 .randomization_checkboxes {
@@ -36,12 +36,12 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: slategray;
+  background: #738290;
   transition: all .1s linear;
 }
 
 .randomization_checkbox:checked {
-  background: slategray;
+  background: #738290;
 }
 
 .randomization_checkbox:checked::after {

@@ -10,6 +10,7 @@
 	padding: 0 0 0 10px;
 	border-radius: 5px 0 0 5px;
 	margin: 0;
+	border-right: none;
 }
 
 .labels .label {
@@ -23,6 +24,7 @@
 	display: grid;
 	width: 150px;
 	background: floralwhite;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
 }
 
 .labels li, .selects li {
@@ -48,4 +50,5 @@
 	margin: 0 -2.5px;
 	padding: 0 10px 0 0;
 	border-radius: 0 5px 5px 0;
+	border-left: none;
 }

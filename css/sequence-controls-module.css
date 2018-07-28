@@ -15,7 +15,7 @@
 }
 
 .clear_selections:hover {
-	background: rgb(218, 110, 123);
+	background: rgb(205, 130, 130);
 }
 
 .play_sequence {
@@ -27,7 +27,7 @@
 	border-radius: 5px;
 	font-size: 1.5em;
 	margin: 10px 0;
-	color: slategray;
+	color: #738290;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 }
 

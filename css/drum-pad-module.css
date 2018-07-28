@@ -19,7 +19,7 @@
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: white;
-	background: slategray;
+	background: #738290;
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;
@@ -49,6 +49,10 @@
 	padding: 2.5px 0 2.5px 0;
 }
 
+.pad_manipulator:not(.duplicate_sequence) {
+	background: #FFFCF7;
+}
+
 .pad_manipulator:hover {
 	opacity: 0.5;
 }
@@ -76,7 +80,7 @@
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: white;
-	background: rgb(218, 110, 123);
+	background: rgb(205, 130, 130);
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;
@@ -93,5 +97,5 @@
     border: none;
     padding: 0 100px 0 0;
     z-index: 10;
-    color: crimson;
+    color: rgb(205, 130, 130);
 }

@@ -49,7 +49,7 @@
 	padding: 2.5px 0 2.5px 0;
 }
 
-.pad_manipulator:not(.duplicate_sequence) {
+.pad_manipulator:not(.duplicate_sequence):not(.remove_all_pads) {
 	background: #FFFCF7;
 }
 
@@ -59,6 +59,7 @@
 
 .pad_piece {
 	transition: all 0.2s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
 	min-width: 25px;
 	height: 25px;
 	margin: 5px;

@@ -32,6 +32,7 @@
 	display: inline-block;
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	padding: 25px;
+	background: white;
 }
 
 .set_tempo {

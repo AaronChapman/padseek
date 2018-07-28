@@ -31,8 +31,6 @@ $(document).ready(function() {
 
 // generate repetitive html content dynamically
 
-// snares get added to selectes twice
-
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
 // make current sequence json variable that gets updated everywhere

@@ -47,6 +47,7 @@ function generate_select_options() {
 		}
 	}
 	
+	// update data
 	setup_default_interface();	
 	set_audio_elements();
 }
@@ -61,6 +62,11 @@ function setup_default_interface() {
 	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
 		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
 	}
+	
+	// remove snare duplicates
+	$(".snares_select option").val(function(index, value) {
+  	$(this).siblings('[value="'+ value +'"]').remove();
+	});
 	
 	// set up keyboard event listeners
 	set_shortcuts();

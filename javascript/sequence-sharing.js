@@ -148,7 +148,11 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// set the selected sample options from the sample paths array in the sequence data JSON object being loaded
 	for (var i = 0; i < converted_object.sample_paths.length; i++) {
+		console.log(converted_object.sample_paths[i]);
+		
 		$('.selects .select').eq(i).find('option[value="' + converted_object.sample_paths[i] + '"]').prop('selected', true);
+		
+		console.log($('.selects .select').eq(i).find('option[value="' + converted_object.sample_paths[i] + '"]'));
 	}
 	
 	// set the selected options array equal to the sample paths received from the JSON object

@@ -63,11 +63,6 @@ function setup_default_interface() {
 		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
 	}
 	
-	// remove snare duplicates
-	$(".snares_select option").val(function(index, value) {
-  	$(this).siblings('[value="'+ value +'"]').remove();
-	});
-	
 	// set up keyboard event listeners
 	set_shortcuts();
     

@@ -186,6 +186,8 @@ function play_sequence(pad_reference) {
 		if ($(this).attr('data-state') === "active") {
 			for (var i = 0; i < sequence_sample_paths[current_row_in_sequence - 1].length; i++) {
 				var sample = sequence_sample_paths[current_row_in_sequence - 1][i];
+				
+				console.log(sample);
 
 				// play the samples at the specified index of the sequence_sample_paths array of arrays Lol
 				play_selected_sample(sample, sequence_sample_paths[current_row_in_sequence - 1].length);

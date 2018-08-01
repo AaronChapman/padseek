@@ -52,9 +52,42 @@
 					<input class="tempo_field box-shadowed" type="text" value="120">
 				</div>
 				<div class="sequence_sharing box-shadowed">
+					<div class="name_sequence_overlay overlay">
+						<input class="name_sequence" type="text" placeholder=" your sequence name here"><br>
+						<ul class="naming_sequence_overlay_buttons">
+							<li class="naming_sequence_overlay_button_item">
+								<input class="name_and_share_sequence box-shadowed-hover" type="button" value="share your sequence">
+							</li>
+							<li class="naming_sequence_overlay_button_item">
+								<input class="close never_mind box-shadowed-hover" type="button" value="never mind">
+							</li>
+						</ul>
+					</div>
 					<input class="share_sequence sequence_sharing_button cursor_pointer box-shadowed-hover" type="button" value="share sequence">
 					<div class="shared_sequences">
 						<label class="label">browse recently shared sequences<br>⬇</label><br>
+					</div>
+				</div>
+				<div class="tempo_tool box-shadowed">
+					<div class="shortcuts_overlay overlay">
+						<table class="list_of_shortcuts">
+							<tr><td>open / close shortcuts menu:</td><td>[ c ]</td></tr>
+							<tr><td>play / pause sequence:</td><td>[ p ]</td></tr>
+							<tr><td>clear pad piece selections:</td><td>[ x ]</td></tr>
+							<tr><td>randomize sequence:</td><td>[ z ]</td></tr>
+							<tr><td>share sequence:</td><td>[ m ]</td></tr>
+							<tr><td>calculate tempo:</td><td>[ t ]</td></tr>
+							<tr><td>reset calculated tempo:</td><td>[ r ]</td></tr>
+							<tr><td>set sequence tempo:</td><td>[ s ]</td></tr>
+						</table>
+					</div>
+					<p class="all_shortcuts_label">see all shortcuts: [ c ]</p>
+					<p>
+						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br>hit the [ s ] key to set the sequence tempo<br><br>
+					</p>
+					<div class="tempo_controls">
+						<input class="set_tempo cursor_pointer box-shadowed-hover" type="button" value="set tempo">
+						<div class="bpm_display" id="bpm_display">0 bpm</div>
 					</div>
 				</div>
 				<div class="randomization_module">
@@ -80,16 +113,6 @@
 							<label class="label">random tempo</label>
 						</li>
 					</ul>
-				</div>
-				<div class="tempo_tool box-shadowed">
-					<p class="all_shortcuts_label">see all shortcuts: [ c ]</p>
-					<p>
-						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br>hit the [ s ] key to set the sequence tempo<br><br>
-					</p>
-					<div class="tempo_controls">
-						<input class="set_tempo cursor_pointer box-shadowed-hover" type="button" value="set tempo">
-						<div class="bpm_display" id="bpm_display">0 bpm</div>
-					</div>
 				</div>
 			</div>
 			<div class="second_row">
@@ -119,30 +142,6 @@
 				</div>
 			</div>
 			<a class="twelve_px_blue_link what_is_this" href="https://github.com/AaronChapman/padseek#readme" target="_blank">what is this?</a>
-		</div>
-		<div class="name_sequence_overlay overlay">
-			<input class="name_sequence" type="text" placeholder="your sequence name here"><br>
-			<ul class="naming_sequence_overlay_buttons">
-				<li class="naming_sequence_overlay_button_item">
-					<input class="name_and_share_sequence box-shadowed-hover" type="button" value="share your sequence">
-				</li>
-				<li class="naming_sequence_overlay_button_item">
-					<input class="close never_mind box-shadowed-hover" type="button" value="never mind">
-				</li>
-			</ul>
-		</div>
-		<div class="shortcuts_overlay overlay">
-			<table class="list_of_shortcuts">
-				<tr><td>key</td><td>shortcut</td></tr>
-				<tr><td>[ t ]</td><td>calculate tempo</td></tr>
-				<tr><td>[ r ]</td><td>reset tempo being calculated</td></tr>
-				<tr><td>[ s ]</td><td>set sequence tempo to calculated tempo</td></tr>
-				<tr><td>[ c ]</td><td>open / close shortcuts menu</td></tr>
-				<tr><td>[ p ]</td><td>play / pause sequence</td></tr>
-				<tr><td>[ x ]</td><td>clear sequence selections</td></tr>
-				<tr><td>[ z ]</td><td>randomize sequence</td></tr>
-				<tr><td>[ m ]</td><td>share sequence</td></tr>
-			</table>
 		</div>
 		<div class="audio_tags"></div>
 	</body>

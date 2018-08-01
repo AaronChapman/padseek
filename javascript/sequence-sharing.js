@@ -113,7 +113,7 @@ function update_shared_sequences_container(new_JSON_object) {
 
 // set the current sequence from a JSON string
 function set_sequence_from_JSON(new_JSON_object) {
-	// for sequence size reset
+  // for sequence size reset
 	if (sequence_running) {
 		$('.play_sequence').click();
 		
@@ -156,6 +156,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
+	calculated_tempo = parseInt($('.tempo_field').val());
 	
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
@@ -184,6 +185,8 @@ $(document).ready(function() {
 			
 			// set sequence-naming overlay container properties
 			$('.name_sequence_overlay').css({'opacity':'1', 'z-index':'2'});
+			$('.sequence_sharing').css({'overflow-y':'hidden'});
+			$('.name_sequence').focus();
 		} else {
 			application_message('cannot share an empty sequence');
 		}
@@ -204,6 +207,7 @@ $(document).ready(function() {
 			
 			// set sequence-naming overlay container properties
 			$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
+			$('.sequence_sharing').css({'overflow-y':'scroll'});
 		} else {
 			application_message('please enter a name for your sequence');
 		}
@@ -215,5 +219,6 @@ $(document).ready(function() {
 
 		// set sequence-naming overlay container properties
 		$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
+		$('.sequence_sharing').css({'overflow-y':'scroll'});
 	});
 });

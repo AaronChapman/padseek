@@ -17,7 +17,8 @@ $(document).ready(function() {
 ! critical ! */
 
 // add more sample bank content
-// audio effects: equalization, pitch, swing, reverb
+// // // sample kit options (selects load up with only certain samples)
+// // // examples: lo-fi kit, hardstyle kit, distorted kit, my kits, etc
 
 
 // move shortcut overlay into tempo module container
@@ -37,3 +38,11 @@ $(document).ready(function() {
 // add ability to have apostrophes and similar symbols in the shared seqence name
 // maybe make shared sequences array dynamic on the indecies pulled so I can delete sequences from firebase (.each()?)
 // 'your sequences' module
+
+
+// option for pseudo-random tempo
+// option for pseudo-random pad size
+// options for random shared sequence
+
+
+// audio effects: equalization, pitch, swing, reverb

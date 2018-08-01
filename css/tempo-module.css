@@ -13,10 +13,6 @@
  	text-align: center;
 }
 
-.list_of_shortcuts {
-	
-}
-
 .tempo_controls {
 	display: inline-flex;
   margin: 10px 0;
@@ -26,13 +22,15 @@
 	position: relative;
 	min-width: 246px;
 	max-width: 246px;
-	height: fit-content;
-	margin: 20px 0;
+	min-height: 167.5px;
+  max-height: 167.5px;
+	margin: 20px 0 0 35px;
 	border-radius: 5px;
 	display: inline-block;
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	padding: 25px;
 	background: white;
+	overflow: visible;
 }
 
 .set_tempo {
@@ -48,6 +46,8 @@
 }
 
 .shortcuts_overlay {
-	padding: 10% 30%;
-	margin-top: -50px;
+	width: 90%;
+	height: auto;
+	position: absolute;
+	margin-top: -7px;
 }

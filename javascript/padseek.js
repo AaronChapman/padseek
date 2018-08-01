@@ -46,3 +46,9 @@ $(document).ready(function() {
 
 
 // audio effects: equalization, pitch, swing, reverb
+
+
+// fix share module css
+
+
+// organize random like a grid, remove word 'random' for each option and add more options

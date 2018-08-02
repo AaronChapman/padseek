@@ -1,6 +1,29 @@
 /* p a d s e e k */
 /* randomization module css */
 
+.random_shared_sequence {
+  transition: box-shadow 0.1s ease-in-out;
+  transition: border-color 1.25s ease-in-out;
+	font-family: 'Shrikhand', cursive;
+	width: 80%;
+	border: none;
+	background: white;
+	border-radius: 5px;
+	height: 50px;
+	margin-top: 25px;
+	zoom: 0.75;
+	font-size: 1.5em;
+	width: -webkit-fill-available;
+	text-align: center;
+	color: slategray;
+	border: 1px solid rgba(00, 00, 00, 0.25);
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+}
+
+.random_shared_sequence:hover {
+	background: floralwhite;
+}
+
 .randomization_checkbox {
   position: relative;
   border-radius: 20px;

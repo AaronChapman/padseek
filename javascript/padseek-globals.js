@@ -34,6 +34,7 @@ var randomize_coloring = setInterval(function() {
 	
 	// set the background of the randomize button
 	$('.randomize').css({'background':temp_color});
+	$('.random_shared_sequence').css({'border-color':temp_color});
 }, 1000);
 
 

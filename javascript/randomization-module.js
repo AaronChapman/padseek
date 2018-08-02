@@ -122,4 +122,10 @@ $(document).ready(function() {
 			$('.pseudorandom_tempo').attr('data-activated', 'false');
 		}
 	});
+	
+	$('.random_shared_sequence').click(function() {
+		var random_index = Math.floor(Math.random() * $('body').find('.shared_sequence').length) + 1;
+		
+		$('.shared_sequence').eq(random_index - 1).click();
+	});
 });

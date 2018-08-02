@@ -120,6 +120,14 @@ $(document).ready(function() {
 			$('.play_sequence').val('play sequence');
 		}
 	});
+	
+	$('.tempo_field').on('keydown', function(event) {
+		if (event.keyCode == 13) {
+			event.preventDefault();
+			
+			calculate(parseInt($('.tempo_field').val()));
+		}
+	});
 });
 
 

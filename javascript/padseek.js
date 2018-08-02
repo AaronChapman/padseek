@@ -21,10 +21,6 @@ $(document).ready(function() {
 // // // examples: lo-fi kit, hardstyle kit, distorted kit, my kits, etc
 
 
-// move shortcut overlay into tempo module container
-// move naming sequence overlay into sequence_sharing container
-
-
 // padseek tutorial
 // // // 'what's this?' displays overlay with tutorial option and a README link
 // // // highlights basic containers showing how to use them
@@ -40,15 +36,7 @@ $(document).ready(function() {
 // 'your sequences' module
 
 
-// option for pseudo-random tempo
-// option for pseudo-random pad size
 // options for random shared sequence
 
 
 // audio effects: equalization, pitch, swing, reverb
-
-
-// fix share module css
-
-
-// organize random like a grid, remove word 'random' for each option and add more options

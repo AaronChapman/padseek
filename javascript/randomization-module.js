@@ -110,16 +110,16 @@ $(document).ready(function() {
 			$(this).attr('data-activated', 'true');
 		} else {
 			$(this).attr('data-activated', 'false');
-			
-			if ($(this).hasClass('random_number_of_pads')) {
-				$('.pseudorandom_number_of_pads').prop('checked', false);
-				$('.pseudorandom_number_of_pads').attr('data-activated', 'false');
-			}
-			
-			if ($(this).hasClass('random_tempo')) {
-				$('.pseudorandom_tempo').prop('checked', false);
-				$('.pseudorandom_tempo').attr('data-activated', 'false');
-			}
+		}
+																		 
+		if ($('.random_number_of_pads').attr('data-activated') == 'false') {
+			$('.pseudorandom_number_of_pads').prop('checked', false);
+			$('.pseudorandom_number_of_pads').attr('data-activated', 'false');
+		}
+
+		if ($('.random_tempo').attr('data-activated') == 'false') {
+			$('.pseudorandom_tempo').prop('checked', false);
+			$('.pseudorandom_tempo').attr('data-activated', 'false');
 		}
 	});
 });

@@ -18,14 +18,14 @@
 
 key | shortcut
 --- | ---
-`[ t ]` | calculate tempo
-`[ r ]` | reset tempo being calculated
-`[ s ]` | set sequence tempo to calculated tempo
 `[ c ]` | open / close shortcuts menu
 `[ p ]` | play / pause sequence
-`[ x ]` | clear sequence selections
+`[ x ]` | clear pad piece selections
 `[ z ]` | randomize sequence
 `[ m ]` | share current sequence
+`[ t ]` | calculate tempo
+`[ r ]` | reset calculated tempo
+`[ s ]` | set sequence tempo
 
 ---
 ## sequence controls
@@ -51,7 +51,7 @@ key | shortcut
 - you can make your sample selections at anytime during the sequence
 
 -**sample sampler:**
-- clicking on the the sample type, or the '▶' icon, will play the currently selected option for that sample type
+- clicking on the '▶' icon will play the currently selected option for that sample type
 
 
 ---
@@ -59,7 +59,7 @@ key | shortcut
 
 
 -**duplicate pad:**
-- this button will duplicate the pad beneath it directly in front of it
+- this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)
 
 -**remove pad:**
 - this button will remove the pad beneath it
@@ -68,7 +68,7 @@ key | shortcut
 - activating a pad piece will result in that piece's row triggering the selected sample
 
 -**duplicate sequence:**
-- this button will duplicate the entire pad sequence (the maximum sequence size is 32 pads)
+- this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)
 
 -**remove all pads:**
 - this button will remove all pads except the first
@@ -100,17 +100,14 @@ key | shortcut
 
 
 -**randomize:**
-- this button will randomize the sequence according to the randomization options to have selected
+- this button will randomizes the sequence according to the randomization options to have selected
 
--**random number of pads:**
-- when selected, this option will randomize the number of drum pads in the sequence
+**`randomization options`**
 
--**random pad arrangement:**
-- when selected, this option will randomize the active pad pieces across all of your drum pads
-
--**random samples:**
-- when selected, this option will randomize the sample selections you've made
-
--**random tempo:**
-- when selected, this option will randomize the sequence tempo (beats per minute)
-
+option | description | has pseudorandom
+--- | --- | ---
+arrangement | randomly arranges pad pieces | no
+samples | selects random sample options | no
+number of pads | generates a random sequence size | yes
+beats per minute | randomizes the sequence tempo | yes
+these options | switches random randomization options on / off | no

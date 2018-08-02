@@ -36,7 +36,6 @@ $(document).ready(function() {
 // 'your sequences' module
 
 
-// options for random shared sequence
-
-
 // audio effects: equalization, pitch, swing, reverb
+
+// make a palette list in main css

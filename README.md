@@ -104,10 +104,12 @@ key | shortcut
 
 **`randomization options`**
 
-option | description | has pseudorandom
+option | description | pseudo
 --- | --- | ---
 arrangement | randomly arranges pad pieces | no
 samples | selects random sample options | no
 number of pads | generates a random sequence size | yes
 beats per minute | randomizes the sequence tempo | yes
 these options | switches random randomization options on / off | no
+
+(pseudorandom options choose from a set a predefined values that follow popular sequence structures)

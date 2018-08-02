@@ -17,6 +17,8 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	display: inline-flex;
+	flex-wrap: wrap;
 }
 
 .randomization_checkboxes label {
@@ -24,7 +26,13 @@
 }
 
 .randomization_checkboxes li {
-	display: inline-flex;
+	display: flex;
+	width: 50%;
+ 	flex-wrap: wrap;
+}
+
+.randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1) {
+	padding: 15px 0 25px 0 !important;
 }
 
 .randomization_checkbox::after {
@@ -36,7 +44,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #738290;
+  background: rgb(205, 130, 130);
   transition: all .1s linear;
 }
 

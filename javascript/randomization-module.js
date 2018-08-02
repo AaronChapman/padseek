@@ -19,16 +19,20 @@ $(document).ready(function() {
 			}
 			
 			// a few good starter pad sizes
-			var pad_lengths = [1, 2, 3, 4, 6, 8];
-			
-			// randomly determine the number of pads to generate
-			var random_number = pad_lengths[Math.floor(Math.random() * pad_lengths.length)] - 1;
+			var pad_lengths = [1, 2, 2, 3, 4, 4, 6, 8, 8, 16];
+			var random_number = 0;
 			
 			// remove all pads except the first one
 			$('.pad:not(:first)').each(function() { $(this).remove(); });
 			
+			if ($('.pseudorandom_number_of_pads').attr('data-activated') == 'true') {
+				random_number = pad_lengths[Math.floor(Math.random() * pad_lengths.length)] - 1;
+			} else {
+				random_number = Math.floor(Math.random() * 16) + 1;
+			}
+			
 			// duplicate the appropriate number of pads
-			for (var i = 0; i < random_number; i++) { $('.duplicate_pad:last').click(); }
+			for (var i = 0; i < random_number; i++) { setTimeout(function() { $('.duplicate_pad:last').click(); }, i * 250); }
 			
 			$('.remove_all_pads:not(:first)').remove();
 		}
@@ -76,7 +80,13 @@ $(document).ready(function() {
 		
 		// if the user has chosen to generate a random tempo
 		if ($('.random_tempo').attr('data-activated') == 'true') {
-			$('.tempo_field').val(Math.floor(Math.random() * (240 - 62 + 1)) + 62);
+			var suggested_tempos = [72, 74, 76, 78, 80, 82, 86, 87, 88, 89, 90, 92, 96, 98, 100, 105, 110, 112, 115, 116, 118, 120, 125, 128, 130, 132, 134, 136, 138, 140, 142, 145, 146, 148];
+			
+			if ($('.pseudorandom_tempo').attr('data-activated') == 'true') {
+				$('.tempo_field').val(suggested_tempos[Math.floor(Math.random() * suggested_tempos.length)]);
+			} else {
+				$('.tempo_field').val(Math.floor(Math.random() * (240 - 62 + 1)) + 62);
+			}
 			
 			// calculate tempo
 			calculate(parseInt($('.tempo_field').val()));
@@ -90,6 +100,10 @@ $(document).ready(function() {
 			$(this).attr('data-activated', 'true');
 		} else {
 			$(this).attr('data-activated', 'false');
+			
+			if ($(this).hasClass('random_number_of_pads') || $(this).hasClass('random_tempo')) {
+				$(this).next('.randomization_checkbox').click();
+			}
 		}
 	});
 });

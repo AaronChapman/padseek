@@ -18,6 +18,7 @@
 	padding: 0;
 	list-style-type: none;
 	display: inline-flex;
+	justify-content: center;
 	flex-wrap: wrap;
 }
 
@@ -27,12 +28,15 @@
 
 .randomization_checkboxes li {
 	display: flex;
-	width: 50%;
- 	flex-wrap: wrap;
+	max-width: 47%;
+	margin: 2.5px;
+	flex-wrap: wrap;
+	border: 0.5px dashed rgba(00, 00, 00, 0.25);
+	border-radius: 5px;
 }
 
 .randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1) {
-	padding: 15px 0 25px 0 !important;
+	width: -webkit-fill-available;
 }
 
 .randomization_checkbox::after {

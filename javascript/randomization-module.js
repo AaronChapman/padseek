@@ -10,6 +10,16 @@
 $(document).ready(function() {
 	// when the randomize button is clicked
 	$('.randomize').click(function() {
+		if ($('.random_options').attr('data-activated') == 'true') {
+			$('.randomization_checkbox:not(:last)').each(function() {
+				var random_number = Math.floor(Math.random() * 2) + 1;
+				
+				if (random_number == 1) {
+					$(this).click();
+				}
+			});
+		}
+		
 		// if the user has chosen to generate a random number of pads
 		if ($('.random_number_of_pads').attr('data-activated') == 'true') {
 			if (sequence_running) {
@@ -101,8 +111,14 @@ $(document).ready(function() {
 		} else {
 			$(this).attr('data-activated', 'false');
 			
-			if ($(this).hasClass('random_number_of_pads') || $(this).hasClass('random_tempo')) {
-				$(this).next('.randomization_checkbox').click();
+			if ($(this).hasClass('random_number_of_pads')) {
+				$('.pseudorandom_number_of_pads').prop('checked', false);
+				$('.pseudorandom_number_of_pads').attr('data-activated', 'false');
+			}
+			
+			if ($(this).hasClass('random_tempo')) {
+				$('.pseudorandom_tempo').prop('checked', false);
+				$('.pseudorandom_tempo').attr('data-activated', 'false');
 			}
 		}
 	});

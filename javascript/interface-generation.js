@@ -63,9 +63,11 @@ function setup_default_interface() {
 		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
 	}
 	
-	$('.randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1)').css('padding', '15px 0 25px 0');
-	$('.random_number_of_pads, .pseudorandom_number_of_pads').prop('checked', false);
-	$('.random_number_of_pads, .pseudorandom_number_of_pads').attr('data-activated', 'false');
+	$('.randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1)').css('width', '-webkit-fill-available');
+	$('.randomization_checkboxes li:last').css('padding-right', '166px');
+	
+	$('.random_number_of_pads, .pseudorandom_number_of_pads, .random_options').prop('checked', false);
+	$('.random_number_of_pads, .pseudorandom_number_of_pads, .random_options').attr('data-activated', 'false');
 	
 	// set up keyboard event listeners
 	set_shortcuts();

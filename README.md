@@ -4,7 +4,11 @@
 
 # p a d s e e k
 
+- - - - - - - - - -
+
 > padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so things might be wonky here and there while I work out the kinks. please feel free to keep checking in for more features and add-ons
+
+- - - - - - - - - -
 
 **`how to operate`**
 
@@ -100,11 +104,11 @@ key | shortcut
 
 
 -**randomize:**
-- this button will randomizes the sequence according to the randomization options to have selected
+- this button will randomize the sequence according to the randomization options you have selected
 
 **`randomization options`**
 
-option | description | pseudo
+option | description | pseudo*
 --- | --- | ---
 arrangement | randomly arranges pad pieces | no
 samples | selects random sample options | no
@@ -112,4 +116,4 @@ number of pads | generates a random sequence size | yes
 beats per minute | randomizes the sequence tempo | yes
 these options | switches random randomization options on / off | no
 
-(pseudorandom options choose from a set a predefined values that follow popular sequence structures)
+<sup>*pseudorandom options choose from a set a predefined values that follow popular sequence structures</sup>

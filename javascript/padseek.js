@@ -39,3 +39,5 @@ $(document).ready(function() {
 // audio effects: equalization, pitch, swing, reverb
 
 // make a palette list in main css
+
+// find some place to put a currently loaded shared sequence title

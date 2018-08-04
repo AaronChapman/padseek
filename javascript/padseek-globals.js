@@ -13,7 +13,7 @@ var sequence_running = false;
 var calculated_tempo = 125;
 
 // index of row that's currently firing in sequence
-var current_row_in_sequence = 1;
+var current_column_in_sequence = 1;
 
 // track number of activated pad pieces
 var activated_pad_pieces = 0;
@@ -34,7 +34,7 @@ var randomize_coloring = setInterval(function() {
 	
 	// set the background of the randomize button
 	$('.randomize').css({'background':temp_color});
-	$('.random_shared_sequence').css({'border-color':temp_color});
+	$('.random_shared_sequence').css({'border-color':temp_color, 'color':temp_color});
 }, 1000);
 
 

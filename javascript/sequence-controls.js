@@ -107,7 +107,7 @@ $(document).ready(function() {
 		} else {
 			// otherwise, stop the sequence
 			sequence_running = false;
-			current_row_in_sequence = 1;
+			current_column_in_sequence = 1;
 
 			//$('audio.sound-player').each(function() { $(this).remove(); });
 
@@ -190,19 +190,17 @@ function play_selected_sample(sample, set_size) {
 // play sequence
 function play_sequence(pad_reference) {
 	// find each active piece in the current sequence column
-	$(pad_reference).find('.pad_piece[id^="' + current_row_in_sequence + '"]').each(function() {
+	$(pad_reference).find('.pad_piece[id^="' + current_column_in_sequence + '"]').each(function() {
 		if ($(this).attr('data-state') === "active") {
-			for (var i = 0; i < sequence_sample_paths[current_row_in_sequence - 1].length; i++) {
-				var sample = sequence_sample_paths[current_row_in_sequence - 1][i];
+			for (var i = 0; i < sequence_sample_paths[current_column_in_sequence - 1].length; i++) {
+				var sample = sequence_sample_paths[current_column_in_sequence - 1][i];
 				
-				console.log(sample);
-
 				// play the samples at the specified index of the sequence_sample_paths array of arrays Lol
-				play_selected_sample(sample, sequence_sample_paths[current_row_in_sequence - 1].length);
+				play_selected_sample(sample, sequence_sample_paths[current_column_in_sequence - 1].length);
 			}
 			
 			// set active pad piece css properties
-			$(this).css({'opacity':'0.25','box-shadow':'0 1px 0.5px rgba(00, 00, 00, 0.5)'});
+			$(this).css({'opacity':'0.25','box-shadow':'0 1px 0.5px rgba(00, 00, 00, 0.75)'});
 
 			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);
@@ -210,10 +208,20 @@ function play_sequence(pad_reference) {
 			setTimeout(function() {
 				quick_reference.css({'opacity':'1.0', 'box-shadow':'none'});
 			}, calculated_tempo);
+		} else {
+			// get a reference to the piece and reset its css attributes
+			var quick_reference = $(this);
+			
+			// set inactive pad piece css properties
+			quick_reference.css({'opacity':'0.25', 'box-shadow':'none', 'background':'white'});
+
+			setTimeout(function() {
+				quick_reference.css({'opacity':'1.0', 'box-shadow':'none', 'background':'aliceblue'});
+			}, calculated_tempo);
 		}
 	}); 
 
-	if (current_row_in_sequence % 8 == 0) {
+	if (current_column_in_sequence % 8 == 0) {
 		// if the current pad is not the last pad
 		if ($(pad_reference).index() != $('.pad:last').index()) {
 			// set the current pad to be the next pad
@@ -224,12 +232,12 @@ function play_sequence(pad_reference) {
 			// set the first pad as the current pad
 			pad_reference = '.pad:eq(0)';
 
-			current_row_in_sequence = 0;
+			current_column_in_sequence = 0;
 		}
 	}
 
 	// increment current row in the sequence
-	current_row_in_sequence++;
+	current_column_in_sequence++;
 
 	// loop sequence at calculated_tempo while sequence_running = true
 	setTimeout(function() {

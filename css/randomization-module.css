@@ -2,22 +2,22 @@
 /* randomization module css */
 
 .random_shared_sequence {
-  transition: box-shadow 0.1s ease-in-out;
-  transition: border-color 1.25s ease-in-out;
+	transition-timing-function: ease-in-out;
+  transition: box-shadow 0.1s, border-color 1.25s, color 1.25s;
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: none;
-	background: white;
 	border-radius: 5px;
+	background: #FFFCF7;
 	height: 50px;
-	margin-top: 25px;
+	margin-top: 42px;
 	zoom: 0.75;
 	font-size: 1.5em;
 	width: -webkit-fill-available;
 	text-align: center;
 	color: slategray;
-	border: 1px solid rgba(00, 00, 00, 0.25);
-	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.75);
 }
 
 .random_shared_sequence:hover {
@@ -54,7 +54,7 @@
 	max-width: 47%;
 	margin: 2.5px;
 	flex-wrap: wrap;
-	border: 0.5px dashed rgba(00, 00, 00, 0.25);
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
 	border-radius: 5px;
 }
 

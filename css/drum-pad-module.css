@@ -58,8 +58,8 @@
 }
 
 .pad_piece {
-	transition: all 0.2s ease-in-out;
-	transition: opacity 0.1s ease-in-out;
+	transition-timing-function: ease-in-out;
+	transition: opacity 0.1s, box-shadow 0.1s, border-radius 0.2s, background 0.2s;
 	min-width: 25px;
 	height: 25px;
 	margin: 5px;

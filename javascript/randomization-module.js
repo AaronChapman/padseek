@@ -25,7 +25,7 @@ $(document).ready(function() {
 			if (sequence_running) {
 				$('.play_sequence').click();
 
-				current_row_in_sequence = 1;
+				current_column_in_sequence = 1;
 			}
 			
 			// a few good starter pad sizes

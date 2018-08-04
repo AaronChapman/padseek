@@ -1,3 +1,15 @@
+/* padseek palette */
+// white
+// #FFFCF7
+// #F5F5F5 
+// floralwhite
+// aliceblue
+// #738290
+// rgb(205, 130, 130)
+// rgba(00, 00, 00, 0.5)
+// #545454
+/*******************/
+
 * {
 	transition: all 0.1s ease-in-out;
 	font-family: 'Muli', sans-serif;
@@ -29,7 +41,7 @@ body {
 
 h1 {
 	top: 0;
-	padding: 15px 300px 15px 50px;
+	padding: 15px 55% 15px 50px;
 	transition: all 5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
 	margin: 50px 0 15px 0;
@@ -99,7 +111,7 @@ input[type="button"]:active {
 .main_content {
 	width: auto;
 	height: auto;
-	padding: 25px 0;
+	padding: 35px 0;
 	padding-right: 40px;
 	margin: 30px 40px 40px 40px;
 }

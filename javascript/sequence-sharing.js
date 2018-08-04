@@ -36,8 +36,6 @@ database.ref().on("value", function(snapshot) {
 	for (var i = shared_sequences.length - 1; i > 0; i--) {
 		// add a shared sequence button item to the shared sequences container
 		update_shared_sequences_container(shared_sequences[i]);
-		
-		//console.log(shared_sequences[i].name);
 	}
 }, function(errorObject) {
 	console.log("errors handled: " + errorObject.code);
@@ -117,7 +115,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	if (sequence_running) {
 		$('.play_sequence').click();
 		
-		current_row_in_sequence = 1;
+		current_column_in_sequence = 1;
 	}
 	
 	// convert string back into JSON object
@@ -157,6 +155,8 @@ function set_sequence_from_JSON(new_JSON_object) {
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
 	calculated_tempo = parseInt($('.tempo_field').val());
+	
+	$('.currently_loaded_sequence').text('currently loaded sequence: ' + converted_object.name);
 	
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();

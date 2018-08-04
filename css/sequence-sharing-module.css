@@ -1,6 +1,15 @@
 /* p a d s e e k */
 /* sequence sharing module css */
 
+.currently_loaded_sequence {
+	width: -webkit-fill-available;
+	text-align: left;
+	position: absolute;
+	margin-top: -12.5px;
+	margin-left: 344px;
+	padding: 0 10px;
+}
+
 .name_sequence {
 	padding: 15px;
 	text-align: left;

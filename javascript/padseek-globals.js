@@ -43,13 +43,19 @@ var randomize_coloring = setInterval(function() {
 /*-----------------------*/
 
 // lists of drum sample option file names
-var crash_cymbals = ['cinematic-cymbal.mp3', 'knows-all-cymbal.mp3', 'oriental-cymbal.mp3', 'rich-cymbal.mp3', 'thin-cymbal.mp3', 'time-cymbal.mp3', 'wispy-wonky-cymbal.mp3'];
-var ride_cymbals = ['grime-ride.mp3', 'lazy-ride.mp3', 'steam-ride.mp3', 'traditional-ride.mp3', 'tribal-ride.mp3'];
-var open_hi_hats = ['meaty-hi-hat.mp3', 'rich-hi-hat.mp3', 'substantial-hi-hat.mp3', 'thin-hi-hat.mp3'];
-var closed_hi_hats = ['firm-hi-hat.mp3', 'light-and-lengthy-hi-hat.mp3', 'light-hi-hat.mp3', 'light-spread-hi-hat.mp3', 'lofi-hi-hat.mp3', 'razor-thin-hi-hat.mp3', 'stan-hi-hat.mp3', 'tinny-hi-hat.mp3'];
-var snares = ['bangle-snare.mp3', 'breathless-snare.mp3', 'bunk-snare.mp3', 'clap-like-snare.mp3', 'crunchy-peanut-spread-snare.mp3', 'crunchy-snare.mp3', 'dopey-snare.mp3', 'hardstyle-snare.mp3', 'heavy-snare.mp3', 'lofi-bump-snare.mp3', 'lofi-crunk-snare.mp3', 'orphan-snare.mp3', 'pathetic-snare.mp3', 'pumped-snare.mp3', 'punctual-snare.mp3', 'raw-cut-snare.mp3', 'smacky-snare.mp3', 'splatter-snare.mp3', 'thick-smack-snare.mp3', 'toy-snare.mp3', 'weak-snare.mp3', 'well-rounded-snare.mp3'];
-var kick_drums = ['cut-you-up-kick.mp3', 'disruptive-kick.mp3', 'distinct-kick.mp3', 'pale-kick.mp3', 'prehistor-khick.mp3', 'pumpy-kick.mp3', 'punchy-kick.mp3', 'thumpy-kick.mp3', 'wide-and-weak-kick.mp3'];
-var sound_effects = ['bicycle-bell.mp3', 'bottle-cap.mp3', 'cork-popping.mp3', 'drum-sticks.mp3', 'lighter-smack.mp3', 'raw-thump.mp3', 'star-twinkle.mp3', 'thawing-tap.mp3', 'wooden-chair.mp3', 'wooden-smack.mp3'];
+var crash_cymbals = ['cinematic-cymbal.mp3', 'knows-all-cymbal.mp3', 'oriental-cymbal.mp3', 'rich-cymbal.mp3', 'thin-cymbal.mp3', 'time-cymbal.mp3', 'wispy-wonky-cymbal.mp3', 'at-last-cymbal.mp3', 'dead-cavern-cymbal.mp3', 'dustless-cymbal.mp3', 'logical-tine-cymbal.mp3', 'markarth-cymbal.mp3', 'match-point-cymbal.mp3', 'righto-cymbal.mp3', 'smear-mass-cymbal.mp3', 'time-will-tell-cymbal.mp3', 'worthiness-cymbal.mp3'];
+
+var ride_cymbals = ['grime-ride.mp3', 'lazy-ride.mp3', 'steam-ride.mp3', 'traditional-ride.mp3', 'tribal-ride.mp3', 'goofy-ride.mp3'];
+
+var open_hi_hats = ['meaty-hi-hat.mp3', 'rich-hi-hat.mp3', 'substantial-hi-hat.mp3', 'thin-hi-hat.mp3', 'amusement-park-hi-hat.mp3', 'bead-scatter-hi-hat.mp3', 'chow-time-hi-hat.mp3', 'laser-thin-hi-hat.mp3', 'scissor-hi-hat.mp3', 'sizzling-hi-hat.mp3', 'speed-juice-hi-hat.mp3', 'spicy-hi-hat.mp3', 'steam-tincture-hi-hat.mp3'];
+
+var closed_hi_hats = ['firm-hi-hat.mp3', 'light-and-lengthy-hi-hat.mp3', 'light-hi-hat.mp3', 'light-spread-hi-hat.mp3', 'lofi-hi-hat.mp3', 'razor-thin-hi-hat.mp3', 'stan-hi-hat.mp3', 'tinny-hi-hat.mp3', 'about-to-break-hi-hat.mp3', 'bad-hi-hat.mp3', 'hearty-hi-hat.mp3', 'is-this-even-a-hi-hat.mp3', 'less-solid-hi-hat.mp3', 'loud-af-hi-hat.mp3', 'mad-hi-hat.mp3', 'no-mess-hi-hat.mp3', 'pop-cap-hi-hat.mp3', 'quick-and-sloppy-hi-hat.mp3', 'razor-sharp-hi-hat.mp3', 'rude-hi-hat.mp3', 'sass-cave-hi-hat.mp3', 'solid-hi-hat.mp3', 'spine-sprinkling-hi-hat.mp3', 'tiny-hi-hat.mp3', 'trap-hi-hat.mp3', 'vinyl-hi-hat.mp3', 'wimpy-hi-hat.mp3'];
+
+var snares = ['bangle-snare.mp3', 'breathless-snare.mp3', 'bunk-snare.mp3', 'clap-like-snare.mp3', 'crunchy-peanut-spread-snare.mp3', 'crunchy-snare.mp3', 'dopey-snare.mp3', 'hardstyle-snare.mp3', 'heavy-snare.mp3', 'lofi-bump-snare.mp3', 'lofi-crunk-snare.mp3', 'orphan-snare.mp3', 'pathetic-snare.mp3', 'pumped-snare.mp3', 'punctual-snare.mp3', 'raw-cut-snare.mp3', 'smacky-snare.mp3', 'splatter-snare.mp3', 'thick-smack-snare.mp3', 'toy-snare.mp3', 'weak-snare.mp3', 'well-rounded-snare.mp3', 'smacky-popper-snare.mp3', 'spmock-snare.mp3', 'wrecked-scratch-snare.mp3'];
+
+var kick_drums = ['cut-you-up-kick.mp3', 'disruptive-kick.mp3', 'distinct-kick.mp3', 'pale-kick.mp3', 'prehistor-khick.mp3', 'pumpy-kick.mp3', 'punchy-kick.mp3', 'thumpy-kick.mp3', 'wide-and-weak-kick.mp3', 'a-thousand-leagues-kick.mp3', 'beatbox-kick.mp3', 'bounce-house-kick.mp3', 'bowling-kick.mp3', 'compact-kick.mp3', 'da-bump-kick.mp3', 'dashboard-kick.mp3', 'dat-frump-kick.mp3', 'dunk-kick.mp3', 'jingle-funk-kick.mp3', 'junky-kick.mp3', 'layering-kick.mp3', 'stomp-master-kick.mp3', 'thicc-kick.mp3', 'ugly-mother-fucking-kick.mp3', 'wet-n-wide-kick.mp3', 'whack-kick.mp3', 'whock-kick.mp3'];
+
+var sound_effects = ['bicycle-bell.mp3', 'bottle-cap.mp3', 'cork-popping.mp3', 'drum-sticks.mp3', 'lighter-smack.mp3', 'raw-thump.mp3', 'star-twinkle.mp3', 'thawing-tap.mp3', 'wooden-chair.mp3', 'wooden-smack.mp3', 'gear-knife.mp3', 'techno-anger.mp3', 'techno-horror.mp3', 'techno-labor.mp3', 'techno-murder.mp3'];
 
 // list of objects with directory name & sound path array properties
 var sample_directories = [

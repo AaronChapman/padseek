@@ -24,6 +24,8 @@
 }
 
 body {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
 	display: grid;
 	justify-content: left;
 	margin: 2.5% 0;
@@ -143,7 +145,7 @@ input[type="button"]:active {
 	margin-top: 20px;
 }
 
-.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"] {
+.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"], .advance_tutorial {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 

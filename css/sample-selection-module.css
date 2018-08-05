@@ -5,14 +5,6 @@
 	
 }
 
-.labels {
-	width: -webkit-fill-available;
-	padding: 0 0 0 10px;
-	border-radius: 5px 0 0 5px;
-	margin: 0;
-	border-right: none;
-}
-
 .labels .label {
 	opacity: 0.5;
 }
@@ -25,6 +17,15 @@
 	width: 150px;
 	background: floralwhite;
 	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	position: relative;
+}
+
+.labels {
+	width: -webkit-fill-available;
+	padding: 0 0 0 10px;
+	border-radius: 5px 0 0 5px;
+	margin: 0;
+	border-right: none;
 }
 
 .labels li, .selects li {

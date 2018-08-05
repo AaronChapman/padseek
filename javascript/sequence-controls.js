@@ -14,7 +14,7 @@ $(document).ready(function() {
 		var clicked_pad_piece = $(this);
 		var findex = $(this).parents('.pad:eq(0)').index() - 2;
 
-		// set up sequence sample path storage for array
+		$(this).css('animation', 'unset');
 		
 		// determine what type of piece was clicked
 		if ($(this).css('border-radius') == '2px') {

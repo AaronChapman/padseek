@@ -19,6 +19,7 @@
 }
 
 .play_sequence {
+	transition: zoom 1.5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
 	width: 100%;
 	background: aliceblue;
@@ -29,24 +30,8 @@
 	color: #738290;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 	transform: translatey(0px);
+	position: relative;
 	animation: play_float 2s ease-in-out infinite;
-}
-
-@keyframes play_float {
-	0% {
-		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.5);
-		transform: translatey(0px);
-	}
-	
-	50% {
-		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
-		transform: translatey(-1.5px);
-	}
-	
-	100% {
-		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.55);
-		transform: translatey(0px);
-	}
 }
 
 .play_sequence:hover {

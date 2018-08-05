@@ -21,7 +21,6 @@
 .play_sequence {
 	font-family: 'Shrikhand', cursive;
 	width: 100%;
-	border: none;
 	background: aliceblue;
 	height: 50px;
 	border-radius: 5px;
@@ -29,6 +28,25 @@
 	margin: 10px 0;
 	color: #738290;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
+	transform: translatey(0px);
+	animation: play_float 2s ease-in-out infinite;
+}
+
+@keyframes play_float {
+	0% {
+		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.5);
+		transform: translatey(0px);
+	}
+	
+	50% {
+		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
+		transform: translatey(-1.5px);
+	}
+	
+	100% {
+		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.55);
+		transform: translatey(0px);
+	}
 }
 
 .play_sequence:hover {

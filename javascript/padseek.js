@@ -37,3 +37,5 @@ $(document).ready(function() {
 
 
 // audio effects: equalization, pitch, swing, reverb
+
+// copy JSON option

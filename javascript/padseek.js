@@ -21,11 +21,6 @@ $(document).ready(function() {
 // // // examples: lo-fi kit, hardstyle kit, distorted kit, my kits, etc
 
 
-// padseek tutorial
-// // // 'what's this?' displays overlay with tutorial option and a README link
-// // // highlights basic containers showing how to use them
-
-
 // generate repetitive html content dynamically
 // make current sequence json variable that gets updated everywhere
 // // // then I can do an 'undo' feature
@@ -39,3 +34,5 @@ $(document).ready(function() {
 // audio effects: equalization, pitch, swing, reverb
 
 // copy JSON option
+
+// fix snare options duplicates

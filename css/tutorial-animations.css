@@ -1,15 +1,38 @@
 .advance_tutorial {
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	border-radius: 5px;
-	padding: 10px 30px;
+	padding: 1px 0 0 2px;
   overflow: hidden;
-	font-family: 'Muli', sans-serif;
+	font-family: 'Shrikhand', cursive;
+	color: #738290;
+	font-size: 1.5em;
 	min-height: 40px;
   max-height: 40px;
+	width: 225px;
+	margin: 0 25px 0 0;
 }
 
 .advance_tutorial:hover {
 	background: floralwhite;
+}
+
+.close_walkthrough_window {
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	border-radius: 5px;
+	padding: 1px 0 0 2px;
+  overflow: hidden;
+	font-family: 'Shrikhand', cursive;
+	color: white;
+	background: rgb(205, 130, 130);
+	font-size: 1.5em;
+	min-height: 40px;
+  max-height: 40px;
+	width: 95px;
+}
+
+.close_walkthrough_window:hover {
+	background: white;
+	color: #738290;
 }
 
 .detailed_instructions_link {
@@ -40,6 +63,17 @@
 	max-height: 92.5px;
 }
 
+.walkthrough_options {
+	display: inline-flex;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.walkthrough_option {
+	
+}
+
 @keyframes tutorial_float {
 	0% {
 		box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.5);
@@ -67,23 +101,6 @@
 	}
 	
 	100% {
-		transform: translatey(0px);
-	}
-}
-
-@keyframes tutorial_float_text {
-	0% {
-		text-shadow: 0 1px 0.5px rgba(00, 00, 00, 0.5);
-		transform: translatey(0px);
-	}
-	
-	50% {
-		text-shadow: 0 1px 0.5px rgba(00, 00, 00, 0.25);
-		transform: translatey(-1.5px);
-	}
-	
-	100% {
-		text-shadow: 0 1px 0.5px rgba(00, 00, 00, 0.55);
 		transform: translatey(0px);
 	}
 }

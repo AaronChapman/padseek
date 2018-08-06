@@ -157,7 +157,14 @@
 			<a class="twelve_px_blue_link what_is_this" target="_blank">what is this?</a>
 			<div class="tutorial_overlay box-shadowed">
 					<label class="label tutorial_text">click 'start tour' below for a quick walkthrough</label><a class="twelve_px_blue_link detailed_instructions_link" href="https://github.com/AaronChapman/padseek#readme" target="_blank">detailed instructions</a>
-					<input class="advance_tutorial cursor_pointer box-shadowed-hover" type="button" value="start tour" onclick="fire()">
+					<ul class="walkthrough_options">
+						<li class="walkthrough_option">
+							<input class="advance_tutorial cursor_pointer box-shadowed-hover" type="button" value="start tour" onclick="fire()">
+						</li>
+						<li class="walkthrough_option">
+							<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="close" onclick="close_walkthrough_options()">
+						</li>
+					</ul>
 				</div>
 		</div>
 		<div class="audio_tags"></div>

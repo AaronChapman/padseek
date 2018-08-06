@@ -61,7 +61,7 @@ function tutorial_sample_selection() {
 function tutorial_tempo() {
 	$('.tutorial_text').text('set the tempo of the drum sequence using the tempo field or keyboard commands (tempo is calculated as beats per minute)');
 	
-	$('.shared_sequence:first').css('animation', 'unset');
+	$('.labels, .selects').css('animation', 'unset');
 	$('.tempo_field, .tempo_tool').css({'animation':'tutorial_float 2s ease-in-out infinite'});
 	
 	$('.sequence_controls, .tempo_tool, .tempo_field').css({'opacity':'1.0'});
@@ -76,7 +76,7 @@ function tutorial_pad_pieces() {
 	
 	$('.tempo_field, .tempo_tool').css('animation', 'unset');
 	$('.pad, .pad *').css({'opacity':'1.0'});
-	$('.pad_piece[data-state="inactive"]').css({'opacity':'1.0', 'animation':'tutorial_pad_pieces 2s ease-in-out infinite'});
+	$('.pad_piece[data-state="active"]').css({'opacity':'1.0', 'animation':'tutorial_pad_pieces 2s ease-in-out infinite'});
 	
 	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
 	
@@ -84,13 +84,12 @@ function tutorial_pad_pieces() {
 }
 			
 function tutorial_pad_manipulation() {
-	$('.tutorial_text').text('you can remove or duplicate individual drum pads with by clicking on these');
+	$('.tutorial_text').text('you can remove or duplicate individual drum pads with by clicking on the options directly above each pad');
 	
 	$('.clear_selections').css('animation', 'unset');
 	$('.pad, .remove_pad, .duplicate_pad').css({'opacity':'1.0'});
-	$('.remove_pad, .duplicate_pad').css({'animation':'tutorial_float_text 2s ease-in-out infinite'});
 	
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_sequence, .remove_all_pads, .tempo_tool, .randomization_module, .labels, .selects, .pad_piece').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_sequence, .remove_all_pads, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
 	
 	current_stage = 'sequence manipulation';
 }
@@ -102,7 +101,7 @@ function tutorial_sequence_manipulation() {
 	$('.pad, .duplicate_sequence, .remove_all_pads').css({'opacity':'1.0'});
 	$('.duplicate_sequence, .remove_all_pads').css({'animation':'tutorial_float 2s ease-in-out infinite'});
 	
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_pad, .remove_pad, .tempo_tool, .randomization_module, .labels, .selects, .pad_piece').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_pad, .remove_pad, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
 	
 	current_stage = 'clearing selections';
 }
@@ -126,25 +125,37 @@ function tutorial_randomization() {
 	$('.randomization_module').css({'opacity':'1.0'});
 	$('.randomization_module').css({'animation':'tutorial_float_shadowless 2s ease-in-out infinite'});
 	
-	$('body').find('h1, .github_button, .sequence_controls .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .sequence_controls, sequence_controls .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .labels, .selects, .pad').css('opacity', '0.2');
 	
 	current_stage = 'finished tutorial';
 }
 
 function tutorial_finished() {
-	console.log('tutorial finished');
 	$('.randomization_module').css({'animation':'unset', 'opacity':'0.2'});
-	$('.tutorial_text').text('that\'s basically it. you\'ll probably figure out the rest while you\'re here. enjoy!');
+	$('.tutorial_text').text('that\'s basically it. you can take it from here!');
 	$('.advance_tutorial').val('done');
 	
 	current_stage = 'close tutorial';
 }
 
 function tutorial_close() {
-	$('body').css('opacity', '0');
+	close_walkthrough_options();
+}
+
+function close_walkthrough_options() {
+	$('.tutorial_overlay').css({'opacity':'0'});
+	
+	$('body').find('h1, .github_button, .sequence_controls, .sequence_controls *, .sequence_sharing, .sequence_sharing *:not(".name_sequence_overlay"), .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .randomization_module, .tempo_tool, .labels, .selects, .pad, .currently_loaded_sequence').css('opacity', '1.0');
+	
+	$('.clear_selections, .randomization_module, .duplicate_sequence, .remove_all_pads, .clear_selections, .tempo_field, .tempo_tool, .shared_sequence, .labels, .selects, .remove_pad, .duplicate_pad, .pad_piece').css('animation', 'unset');
+	
+	set_sequence_from_JSON('{"active_pieces":["2-1","6-1","1-2","2-4","3-5","4-5","6-5","7-5","5-7","1-8","8-8","14-1","16-1","13-7","18-1","22-1","17-2","18-4","19-5","20-5","22-5","23-5","21-7","17-8","24-8","30-1","32-1","31-4","26-5","29-7","31-7","27-8"],"name":"clean & simple - stacking test","sample_paths":["wooden-chair.mp3","time-cymbal.mp3","tribal-ride.mp3","meaty-hi-hat.mp3","firm-hi-hat.mp3","lofi-crunk-snare.mp3","well-rounded-snare.mp3","disruptive-kick.mp3"],"tempo":"198"}');
 	
 	setTimeout(function() {
-		location.reload();
+		$('.advance_tutorial').val('start tour');
+		$('.tutorial_text').text("click 'start tour' below for a quick walkthrough");
+		
+		current_stage = 'play sequence';
 	}, 1000);
 }
 

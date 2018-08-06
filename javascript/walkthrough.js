@@ -19,7 +19,7 @@ function advance(stage) {
 	else if (stage == 'pad manipulation') { walkthrough_pad_manipulation(); }
 	else if (stage == 'sequence manipulation') { walkthrough_sequence_manipulation(); }
 	else if (stage == 'randomization') { walkthrough_randomization(); }
-	else if (stage == 'finished walkthrough') { console.log('running walkthrough_finished'); walkthrough_finished(); }
+	else if (stage == 'finished walkthrough') { walkthrough_finished(); }
 	else if (stage == 'close walkthrough') { close_walkthrough_options(); }
 }
 

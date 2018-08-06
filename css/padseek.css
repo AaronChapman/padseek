@@ -145,7 +145,7 @@ input[type="button"]:active {
 	margin-top: 20px;
 }
 
-.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"], .advance_tutorial, .close_walkthrough_window {
+.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"], .advance_walkthrough, .close_walkthrough_window {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 

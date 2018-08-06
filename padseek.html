@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="css/randomization-module.css">
 		<link rel="stylesheet" href="css/sample-selection-module.css">
 		<link rel="stylesheet" href="css/sequence-sharing-module.css">
-		<link rel="stylesheet" href="css/tutorial-animations.css">
+		<link rel="stylesheet" href="css/walkthrough.css">
 		<link rel="stylesheet" href="css/sequence-controls-module.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,7 +36,7 @@
 		<script src="javascript/tempo-module.js"></script>
 		<script src="javascript/padseek.js"></script>
 		<script src="javascript/play-sample.js"></script>
-		<script src="javascript/tutorial.js"></script>
+		<script src="javascript/walkthrough.js"></script>
 	</head>
 	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
 		<p class="stat_repo">
@@ -155,11 +155,11 @@
 				</div>
 			</div>
 			<a class="twelve_px_blue_link what_is_this" target="_blank">what is this?</a>
-			<div class="tutorial_overlay box-shadowed">
-					<label class="label tutorial_text">click 'start tour' below for a quick walkthrough</label><a class="twelve_px_blue_link detailed_instructions_link" href="https://github.com/AaronChapman/padseek#readme" target="_blank">detailed instructions</a>
+			<div class="walkthrough_overlay box-shadowed">
+					<label class="label walkthrough_text">click 'start tour' below for a quick walkthrough</label><a class="twelve_px_blue_link detailed_instructions_link" href="https://github.com/AaronChapman/padseek#readme" target="_blank">detailed instructions</a>
 					<ul class="walkthrough_options">
 						<li class="walkthrough_option">
-							<input class="advance_tutorial cursor_pointer box-shadowed-hover" type="button" value="start tour" onclick="fire()">
+							<input class="advance_walkthrough cursor_pointer box-shadowed-hover" type="button" value="start tour" onclick="fire()">
 						</li>
 						<li class="walkthrough_option">
 							<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="close" onclick="close_walkthrough_options()">

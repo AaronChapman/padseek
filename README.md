@@ -1,6 +1,6 @@
 # p a d s e e k
 
-![GitHub version](https://img.shields.io/badge/version-alpha-red.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/AaronChapman/padseek.svg)
+![GitHub version](https://img.shields.io/badge/version-beta-red.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/AaronChapman/padseek.svg)
 
 ![GitHub forks](https://img.shields.io/github/forks/AaronChapman/padseek.svg?style=social&label=Fork) ![GitHub followers](https://img.shields.io/github/followers/AaronChapman.svg?style=social&label=Follow)
 
@@ -8,6 +8,8 @@
 
 
 **`how to operate`**
+
+<sup>(click "what is this?" in the bottom left corner of padseek for a visual walkthrough)</sup>
 
 - choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module
 - activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)
@@ -91,6 +93,7 @@ key | shortcut
 
 
 -**to operate:**
+- there is a currently calculated bpm display inside the tempo module
 - hit the [ t ] key on each beat to get the number of beats per minute
 - hit the [ r ] key to reset the bpm counter
 - hit the [ s ] key to set the sequence tempo to the newly calculated bpm

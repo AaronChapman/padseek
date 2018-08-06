@@ -150,7 +150,7 @@ function walkthrough_finished() {
 
 // closes walkthrough and resets everything back to the default interface
 function close_walkthrough_options() {
-	$('.walkthrough_overlay').css({'opacity':'0'});
+	$('.walkthrough_overlay').css({'opacity':'0', 'z-index':'-1'});
 	
 	$('body').find('h1, .github_button, .sequence_controls, .sequence_controls *, .sequence_sharing, .sequence_sharing *:not(".name_sequence_overlay"), .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .randomization_module, .tempo_tool, .labels, .selects, .pad, .currently_loaded_sequence').css('opacity', '1.0');
 	

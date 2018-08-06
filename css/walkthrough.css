@@ -17,7 +17,7 @@
 }
 
 .close_walkthrough_window {
-	border: 1px dashed rgba(00, 00, 00, 0.5);
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
 	border-radius: 5px;
 	padding: 1px 0 0 2px;
   overflow: hidden;
@@ -36,7 +36,8 @@
 }
 
 .detailed_instructions_link {
-	margin: 0 0 5px 0;
+	margin: 0 0 5px;
+  padding-left: 10px;
 }
 
 .walkthrough_overlay {

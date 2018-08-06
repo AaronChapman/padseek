@@ -25,8 +25,8 @@ function advance(stage) {
 
 // initial walkthrough stage interface styling - playing the seuquence
 function walkthrough_play_sequence() {
+	$('.walkthrough_text').text('use this button to play the drum sequence that you currently have loaded');
 	$('.advance_walkthrough').val('next');
-	$('.walkthrough_text').text('use this button to play the drum sequence that is currently loaded');
 	
 	$('.play_sequence').css({'animation':'walkthrough_float 1s ease-in-out infinite'});
 	
@@ -38,7 +38,7 @@ function walkthrough_play_sequence() {
 
 // walkthrough interface styling - shared sequences stage
 function walkthrough_shared_sequences() {
-	$('.walkthrough_text').text('here you can load up some drum sequences that have been shared by other users');
+	$('.walkthrough_text').text('with the sequence sharing module, you can load and edit drum sequences that have been shared by others, or share your own sequence');
 	
 	$('.play_sequence').css({'animation':'walkthrough_float 2s ease-in-out infinite'});
 	$('.shared_sequence:first').css({'animation':'walkthrough_float 1s ease-in-out infinite'});
@@ -51,7 +51,7 @@ function walkthrough_shared_sequences() {
 		
 // walkthrough interface styling - sample selection stage
 function walkthrough_sample_selection() {	
-	$('.walkthrough_text').text('choose a set of samples that sounds good to your ears');
+	$('.walkthrough_text').text('use this module to choose a set of samples that sounds good to your ears');
 	
 	$('.shared_sequence:first').css({'animation':'unset'});
 	$('.labels, .selects').css({'opacity':'1.0', 'animation':'walkthrough_samples 2s ease-in-out infinite'});
@@ -63,7 +63,7 @@ function walkthrough_sample_selection() {
 			
 // walkthrough interface styling - tempo stage
 function walkthrough_tempo() {
-	$('.walkthrough_text').text('set the tempo of the drum sequence using the tempo field or keyboard commands (tempo is calculated as beats per minute)');
+	$('.walkthrough_text').text('set the tempo of the drum sequence via the tempo field or using keyboard commands (tempo is calculated as beats per minute)');
 	
 	$('.labels, .selects').css('animation', 'unset');
 	$('.tempo_field, .tempo_tool').css({'animation':'walkthrough_float 2s ease-in-out infinite'});
@@ -77,7 +77,7 @@ function walkthrough_tempo() {
 			
 // walkthrough interface styling - shared pad pieces stage
 function walkthrough_pad_pieces() {
-	$('.walkthrough_text').text('activate or deactivate pad pieces to edit up your drum sequence. the rows are for each sample type and the columns match the tempo');
+	$('.walkthrough_text').text('activate or deactivate pad pieces to edit your drum sequence. the rows correspond to each sample type and the columns fire on each beat');
 	
 	$('.tempo_field, .tempo_tool').css('animation', 'unset');
 	$('.pad, .pad *').css({'opacity':'1.0'});
@@ -90,7 +90,7 @@ function walkthrough_pad_pieces() {
 			
 // walkthrough interface styling - pad manipulation stage
 function walkthrough_pad_manipulation() {
-	$('.walkthrough_text').text('you can remove or duplicate individual drum pads with by clicking on the options directly above each pad');
+	$('.walkthrough_text').text('you can remove or duplicate individual drum pads by clicking on the options directly above each pad');
 	
 	$('.pad_piece').css('animation', 'unset');
 	$('.pad, .remove_pad, .duplicate_pad').css({'opacity':'1.0'});
@@ -102,7 +102,7 @@ function walkthrough_pad_manipulation() {
 			
 // walkthrough interface styling - sequence manipulation stage
 function walkthrough_sequence_manipulation() {
-	$('.walkthrough_text').text('you can also duplicate the entire sequence (up to 16 pads (maximum number of pads is 32)), or remove all drum pads but the first');
+	$('.walkthrough_text').text('you can also duplicate the entire sequence (up to 16 pads (maximum sequence size is 32 pads)), or remove all drum pads but the first');
 	
 	$('.remove_pad, .duplicate_pad').css('animation', 'unset');
 	$('.pad, .duplicate_sequence, .remove_all_pads').css({'opacity':'1.0'});
@@ -115,7 +115,7 @@ function walkthrough_sequence_manipulation() {
 			
 // walkthrough interface styling - clearing selections stage
 function walkthrough_clearing_selections() {
-	$('.walkthrough_text').text('to deactivate all the pad pieces you\'ve activated, use this button');
+	$('.walkthrough_text').text('to deactivate all of the active pad pieces in your sequence, use this button');
 	
 	$('.duplicate_sequence, .remove_all_pads').css('animation', 'unset');
 	$('.sequence_controls, .clear_selections').css({'opacity':'1.0'});
@@ -128,7 +128,7 @@ function walkthrough_clearing_selections() {
 			
 // walkthrough interface styling - randomization module stage
 function walkthrough_randomization() {
-	$('.walkthrough_text').text('randomize your sequence using this module. there are plenty of options to choose from');
+	$('.walkthrough_text').text('you can randomize your sequence using this module. there are plenty of options to choose from');
 	
 	$('.clear_selections').css('animation', 'unset');
 	$('.randomization_module').css({'opacity':'1.0'});
@@ -141,8 +141,9 @@ function walkthrough_randomization() {
 
 // walkthrough interface styling - finishing stage
 function walkthrough_finished() {
+	$('.walkthrough_text').text('and that\'s basically it! I think you can take it from here');
+	
 	$('.randomization_module').css({'animation':'unset', 'opacity':'0.2'});
-	$('.walkthrough_text').text('that\'s basically it. you can take it from here!');
 	$('.advance_walkthrough').val('done');
 	
 	current_stage = 'close walkthrough';
@@ -161,7 +162,7 @@ function close_walkthrough_options() {
 	// aesthetic
 	setTimeout(function() {
 		$('.advance_walkthrough').val('start tour');
-		$('.walkthrough_text').text("click 'start tour' below for a quick walkthrough");
+		$('.walkthrough_text').text("click 'start walkthrough' below for a quick walkthrough");
 		
 		current_stage = 'play sequence';
 	}, 1000);

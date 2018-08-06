@@ -12,10 +12,13 @@ $(document).ready(function() {
 
 /* ! critical !
 
+		- crate a limit for stacked samples
 		- fix snare options duplicates
 		- nothing else to report at the moment 😎
 
 ! critical ! */
+
+// make a list of samples that need to be removed
 
 // generate repetitive html content dynamically
 

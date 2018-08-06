@@ -144,6 +144,8 @@ function set_sequence_from_JSON(new_JSON_object) {
 		$('#' + converted_object.active_pieces[i]).attr('data-state', 'active');
 	}
 	
+	$('.pad_piece[data-state="inactive"]').css({'opacity':'1.0', 'background':'aliceblue', 'border-radius':'2px', 'box-shadow':'none'});
+	
 	// set the selected sample options from the sample paths array in the sequence data JSON object being loaded
 	for (var i = 0; i < converted_object.sample_paths.length; i++) {
 		$('.selects .select').eq(i).find('option[value="' + converted_object.sample_paths[i] + '"]').prop('selected', true);

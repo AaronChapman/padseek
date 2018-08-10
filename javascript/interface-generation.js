@@ -35,8 +35,8 @@ function generate_select_options() {
 	// for each sample directory item
 	for (var i = 0; i < sample_directories.length; i++) {
 		// get a parsed reference to the select element that has a class matching the current directory item
-		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]');
-
+		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]:empty');
+		console.log(select_reference);
 		// for each sound_paths property in the sample_directories array
 		for (var j = 0; j < sample_directories[i].sound_paths.length; j++) {
 			var temp_option = sample_directories[i].sound_paths[j];

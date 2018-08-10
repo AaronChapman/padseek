@@ -8,7 +8,8 @@
 
 // start time, tempo, and number of beats variables
 var start_time = new Date();
-var tempo = 0, beats = 0;
+var tempo = 0,
+	beats = 0;
 
 // runs on every [t] keydown
 function calculate_tempo() {

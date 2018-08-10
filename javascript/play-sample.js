@@ -8,7 +8,9 @@
 
 // plays the currently selected sample for that type
 function sample_sample(select_index) {
-	$('.sample_element').eq(select_index).each(function() { this.play(); });
+	$('.sample_element').eq(select_index).each(function () {
+		this.play();
+	});
 }
 
 // setup or update the audio elements
@@ -18,7 +20,7 @@ function set_audio_elements() {
 		for (var i = 0; i < selected_options.length; i++) {
 			$('.audio_tags').append('<audio class="sample_element" src="samples/' + sample_directories[i].directory + '/' + selected_options[i] + '" preload="auto"></audio>');
 		}
-	// if there are already audio elements present
+		// if there are already audio elements present
 	} else {
 		// for each sample type
 		for (var i = 0; i < selected_options.length; i++) {

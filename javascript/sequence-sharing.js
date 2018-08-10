@@ -28,16 +28,16 @@ var database = firebase.database();
 /*------------------*/
 
 // when connection to the database has been made
-database.ref().on("value", function(snapshot) {
+database.ref().on("value", function (snapshot) {
 	// set the local shared sequences array to the value of the same array in firebase
 	shared_sequences = snapshot.val().shared_sequences;
-	
+
 	// for each JSON object in that array
 	for (var i = shared_sequences.length - 1; i > 0; i--) {
 		// add a shared sequence button item to the shared sequences container
 		update_shared_sequences_container(shared_sequences[i]);
 	}
-}, function(errorObject) {
+}, function (errorObject) {
 	console.log("errors handled: " + errorObject.code);
 });
 
@@ -48,26 +48,31 @@ function share_sequence_data() {
 	var tempo = $('.tempo_field').val();
 	var sample_paths = selected_options;
 	var active_pieces = [];
-	
-	$('body').find('.pad_piece[data-state="active"]').each(function() {
+
+	$('body').find('.pad_piece[data-state="active"]').each(function () {
 		active_pieces.push($(this).attr('id'));
 	});
-	
+
 	$('.name_sequence').val('');
-	
+
 	// and call the conversion method
 	convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces);
 }
 
 // converts fed sequence data variables into new JSON object
 function convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces) {
-	var new_JSON_object = {name, tempo, sample_paths, active_pieces};
-	
+	var new_JSON_object = {
+		name,
+		tempo,
+		sample_paths,
+		active_pieces
+	};
+
 	// push the new object to the shared_sequences array
 	shared_sequences.push(new_JSON_object);
 	// and update the container housing the list of shared sequences
 	update_shared_sequences_container(new_JSON_object);
-	
+
 	// also update the database with the newly shared sequence data
 	update_firebase();
 }
@@ -90,20 +95,20 @@ function update_shared_sequences_container(new_JSON_object) {
 	$('.shared_sequences').empty();
 	// append the label separator
 	$('.shared_sequences').append('<label class="label">browse recently shared sequences<br>⬇</label>');
-	
+
 	// number of sequences to display
 	var number_of_shared_sequences = shared_sequences.length;
 	var comparator = number_of_shared_sequences - 25;
-	
+
 	if (number_of_shared_sequences < 25) {
 		comparator = 0;
 	}
-	
+
 	// for each JSON object in the database
 	for (var i = shared_sequences.length - 1; i >= comparator; i--) {
 		// convert the JSON object to a string
 		var converted_object = JSON.stringify(shared_sequences[i]);
-		
+
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
 		$('.shared_sequences').append(`<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='` + converted_object + `' value='` + shared_sequences[i].name + `'>`);
 	}
@@ -111,13 +116,13 @@ function update_shared_sequences_container(new_JSON_object) {
 
 // set the current sequence from a JSON string
 function set_sequence_from_JSON(new_JSON_object) {
-  // for sequence size reset
+	// for sequence size reset
 	if (sequence_running) {
 		$('.play_sequence').click();
-		
+
 		current_column_in_sequence = 1;
 	}
-	
+
 	// convert string back into JSON object
 	var converted_object = JSON.parse(new_JSON_object);
 	// get last active pad piece
@@ -127,39 +132,48 @@ function set_sequence_from_JSON(new_JSON_object) {
 	// use that to determine the number of pads in the sequence
 	var number_of_pads_to_generate = (parseInt(last_piece_parsed) - 1) / 8;
 	var number_of_pads_parsed = Math.floor(number_of_pads_to_generate);
-	
+
 	// remove all pads but the first
 	$('.pad:not(:first)').remove();
 	// clear active piece selections from the remaining pad
 	$('.clear_selections').click();
-	
+
 	// add the appropriate number of pads for the new sequence being loaded
 	for (var i = 0; i < number_of_pads_parsed; i++) {
 		$('.pad:first .duplicate_pad').click();
 	}
-	
+
 	// set properties and attributes of active piece elements
 	for (var i = 0; i < converted_object.active_pieces.length; i++) {
-		$('#' + converted_object.active_pieces[i]).css({'opacity':'1.0', 'background':'white', 'border-radius':'8px'});
+		$('#' + converted_object.active_pieces[i]).css({
+			'opacity': '1.0',
+			'background': 'white',
+			'border-radius': '8px'
+		});
 		$('#' + converted_object.active_pieces[i]).attr('data-state', 'active');
 	}
-	
-	$('.pad_piece[data-state="inactive"]').css({'opacity':'1.0', 'background':'aliceblue', 'border-radius':'2px', 'box-shadow':'none'});
-	
+
+	$('.pad_piece[data-state="inactive"]').css({
+		'opacity': '1.0',
+		'background': 'aliceblue',
+		'border-radius': '2px',
+		'box-shadow': 'none'
+	});
+
 	// set the selected sample options from the sample paths array in the sequence data JSON object being loaded
 	for (var i = 0; i < converted_object.sample_paths.length; i++) {
 		$('.selects .select').eq(i).find('option[value="' + converted_object.sample_paths[i] + '"]').prop('selected', true);
 	}
-	
+
 	// set the selected options array equal to the sample paths received from the JSON object
 	selected_options = converted_object.sample_paths;
-	
+
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
 	calculated_tempo = parseInt($('.tempo_field').val());
-	
+
 	$('.currently_loaded_sequence').text('currently loaded sequence: ' + converted_object.name);
-	
+
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();
 	set_audio_elements();
@@ -171,56 +185,71 @@ function set_sequence_from_JSON(new_JSON_object) {
 /*---------------------------------*/
 
 // when the document is ready
-$(document).ready(function() {
+$(document).ready(function () {
 	// when a shared sequence button item is clicked
-	$('body').on('click', '.shared_sequence', function() {
+	$('body').on('click', '.shared_sequence', function () {
 		// load up the sequence data from the JSON string stored in the button's data-json attribute
-    set_sequence_from_JSON($(this).attr('data-json'));
+		set_sequence_from_JSON($(this).attr('data-json'));
 	});
-	
+
 	// when the share sequence button is clicked
-	$('body').on('click', '.share_sequence', function() {
+	$('body').on('click', '.share_sequence', function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// temporarily suspend keyboard event listeners
 			remove_shortcuts();
-			
+
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({'opacity':'1', 'z-index':'2'});
-			$('.sequence_sharing').css({'overflow-y':'hidden'});
+			$('.name_sequence_overlay').css({
+				'opacity': '1',
+				'z-index': '2'
+			});
+			$('.sequence_sharing').css({
+				'overflow-y': 'hidden'
+			});
 			$('.name_sequence').focus();
 		} else {
 			application_message('cannot share an empty sequence');
 		}
 	});
-	
+
 	// when the button to confirm sharing the newly named sequence is clicked
-	$('body').on('click', '.name_and_share_sequence', function() {
+	$('body').on('click', '.name_and_share_sequence', function () {
 		// if the name is valid
 		if (($('.name_sequence').val().length > 1) &&
-				($('.name_sequence').val().indexOf("'") == -1) &&
-				($('.name_sequence').val().indexOf('"') == -1) &&
-			 	($('.name_sequence').val().indexOf("`") == -1)) {
+			($('.name_sequence').val().indexOf("'") == -1) &&
+			($('.name_sequence').val().indexOf('"') == -1) &&
+			($('.name_sequence').val().indexOf("`") == -1)) {
 			// fire sequence sharing flow
 			share_sequence_data();
-			
+
 			// reactivate keyboard event listeners
 			set_shortcuts();
-			
+
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
-			$('.sequence_sharing').css({'overflow-y':'scroll'});
+			$('.name_sequence_overlay').css({
+				'opacity': '0',
+				'z-index': '-1'
+			});
+			$('.sequence_sharing').css({
+				'overflow-y': 'scroll'
+			});
 		} else {
 			application_message('please enter a name for your sequence');
 		}
 	});
-	
-	$('body').on('click', '.close', function() {
+
+	$('body').on('click', '.close', function () {
 		// reactivate keyboard event listeners
 		set_shortcuts();
 
 		// set sequence-naming overlay container properties
-		$('.name_sequence_overlay').css({'opacity':'0', 'z-index':'-1'});
-		$('.sequence_sharing').css({'overflow-y':'scroll'});
+		$('.name_sequence_overlay').css({
+			'opacity': '0',
+			'z-index': '-1'
+		});
+		$('.sequence_sharing').css({
+			'overflow-y': 'scroll'
+		});
 	});
 });

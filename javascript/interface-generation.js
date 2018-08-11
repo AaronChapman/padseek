@@ -169,22 +169,16 @@ function set_shortcuts() {
 
 	// play or pause sequence
 	shortcut.add("p", function () {
-		hide_shortcuts();
-
 		$('.play_sequence').click();
 	});
 
 	// clear sequence selections
 	shortcut.add("x", function () {
-		hide_shortcuts();
-
 		$('.clear_selections').click();
 	});
 
 	// randomize sequence
 	shortcut.add("z", function () {
-		hide_shortcuts();
-
 		$('.randomize').click();
 	});
 
@@ -193,6 +187,11 @@ function set_shortcuts() {
 		hide_shortcuts();
 
 		$('.share_sequence').click();
+	});
+
+	// copy json
+	shortcut.add("j", function () {
+		copy_sequence_JSON();
 	});
 }
 

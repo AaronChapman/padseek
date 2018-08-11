@@ -37,6 +37,7 @@
 		<script src="javascript/padseek.js"></script>
 		<script src="javascript/play-sample.js"></script>
 		<script src="javascript/walkthrough.js"></script>
+		<script src="javascript/clipboard.js"></script>
 	</head>
 	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
 		<p class="stat_repo">
@@ -70,6 +71,7 @@
 					<div class="shared_sequences">
 						<label class="label">browse recently shared sequences<br>⬇</label><br>
 					</div>
+					<button class="copy_sequence_JSON" data-clipboard-text=""></button>
 				</div>
 				<div class="tempo_tool box-shadowed">
 					<div class="shortcuts_overlay overlay">
@@ -79,6 +81,7 @@
 							<tr><td>clear pad piece selections:</td><td>[ x ]</td></tr>
 							<tr><td>randomize sequence:</td><td>[ z ]</td></tr>
 							<tr><td>share sequence:</td><td>[ m ]</td></tr>
+							<!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>-->
 							<tr><td>calculate tempo:</td><td>[ t ]</td></tr>
 							<tr><td>reset calculated tempo:</td><td>[ r ]</td></tr>
 							<tr><td>set sequence tempo:</td><td>[ s ]</td></tr>

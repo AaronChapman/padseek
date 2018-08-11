@@ -27,6 +27,7 @@ $(document).ready(function () {
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
 // maybe make shared sequences array dynamic on the indecies pulled so I can delete sequences from firebase (.each()?)
+
 // 'your sequences' module
 
 // audio effects: equalization, pitch, swing, reverb

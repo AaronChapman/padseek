@@ -82,6 +82,15 @@
 	background: white;
 }
 
+.copy_sequence_JSON {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	z-index: -1;
+}
+
 .sequence_sharing {
 	position: relative;
 	min-width: 246px;

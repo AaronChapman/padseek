@@ -102,6 +102,21 @@ function application_message(message) {
 	}, 3000);
 }
 
+$('body').on('click', '.close', function () {
+	// reactivate keyboard event listeners
+	set_shortcuts();
+
+	// set sequence-naming overlay container properties
+	$(this).parents('overlay').css({
+		'opacity': '0',
+		'z-index': '-1'
+	});
+
+	$(this).parents('overlay').parent().css({
+		'overflow-y': 'scroll'
+	});
+});
+
 
 /*--------------------*/
 /* KEYBOARD SHORTCUTS */

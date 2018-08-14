@@ -2,27 +2,6 @@
 // sequence sharing
 
 
-/*----------------*/
-/* FIREBASE SETUP */
-/*----------------*/
-
-// firebase configuration
-var config = {
-	apiKey: "AIzaSyAnQBTNzsGBiAS5BJhDNmRKEJn9QPB4mFA",
-	authDomain: "padseek-oylo-info.firebaseapp.com",
-	databaseURL: "https://padseek-oylo-info.firebaseio.com",
-	projectId: "padseek-oylo-info",
-	storageBucket: "padseek-oylo-info.appspot.com",
-	messagingSenderId: "573441583035"
-};
-
-// initializing communication with database
-firebase.initializeApp(config);
-
-// creating database object reference 
-var database = firebase.database();
-
-
 /*------------------*/
 /* SEQUENCE STORAGE */
 /*------------------*/
@@ -210,14 +189,16 @@ $(document).ready(function () {
 			remove_shortcuts();
 
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({
+			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
 				'z-index': '2'
 			});
+			
 			$('.sequence_sharing').css({
 				'overflow-y': 'hidden'
 			});
-			$('.name_sequence').focus();
+			
+			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence').focus();
 		} else {
 			application_message('cannot share an empty sequence');
 		}
@@ -243,25 +224,12 @@ $(document).ready(function () {
 				'opacity': '0',
 				'z-index': '-1'
 			});
+			
 			$('.sequence_sharing').css({
 				'overflow-y': 'scroll'
 			});
 		} else {
 			application_message('please enter a name for your sequence');
 		}
-	});
-
-	$('body').on('click', '.close', function () {
-		// reactivate keyboard event listeners
-		set_shortcuts();
-
-		// set sequence-naming overlay container properties
-		$('.name_sequence_overlay').css({
-			'opacity': '0',
-			'z-index': '-1'
-		});
-		$('.sequence_sharing').css({
-			'overflow-y': 'scroll'
-		});
 	});
 });

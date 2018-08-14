@@ -1,0 +1,48 @@
+.save_sequence {
+	width: 100%;
+	background: aliceblue;
+	font-family: 'Shrikhand', cursive;
+	color: #738290;
+	font-size: 1.5em;
+	height: 50px;
+}
+
+.save_sequence:hover {
+	background: #738290;
+	color: white;
+}
+
+.saved_sequences_module {
+	position: relative;
+	min-width: 246px;
+	max-width: 246px;
+	min-height: 167.5px;
+	max-height: 167.5px;
+	margin-top: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	justify-content: center;
+	text-align: center;
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	padding: 25px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: white;
+}
+
+.saved_sequences_module input {
+	border-radius: 5px;
+	padding: 10px;
+	width: -webkit-fill-available;
+}
+
+.saved_sequences {
+	display: grid;
+	justify-content: center;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	width: 100%;
+	margin: 25px 25px 0 -25px;
+	padding-bottom: 15px;
+}

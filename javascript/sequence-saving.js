@@ -29,6 +29,8 @@ function load_user_sequences(user) {
 				current_user = user;
 				current_user_firebase_index = snapshot.val().users.indexOf(element);
 				saved_sequences = element.saved_sequences;
+
+				console.log(saved_sequences);
 			}
 		});
 
@@ -48,9 +50,42 @@ function load_user_sequences(user) {
 function save_current_sequence() {
 	if ($('.saved_sequences_module .name_sequence').val().length > 0) {
 		console.log('saving new item (valid name)');
-		database.ref().set({
-			users[current_user_firebase_index].saved_sequences: saved_sequences
-		});
+		console.log(saved_sequences);
+
+		saved_sequences.push(convert_sequence_to_JSON());
+
+		console.log(saved_sequences);
+
+
+		// FIX FIX FIX FIX FIX
+		
+		var updates = {};
+		updates['/posts/' + newPostKey] = postData;
+		updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+		return firebase.database().ref().update(updates);
+
+
+		/*
+				var ref = firebase.database().ref('users');
+				
+				ref.orderByValue().on("value", function (snapshot) {
+					snapshot.forEach(function (data) {
+						console.log("The " + data.key + " score is " + data.val());
+					});
+				});
+
+
+				var ref = firebase.database().ref('users').orderByValue().equalTo('name);
+
+					ref.child('saved_sequences').set(saved_sequences);
+
+					console.log('set new saved sequences array in firebase');
+
+					load_user_sequences(current_user);
+					*/
+	} else {
+		application_message();
 	}
 }
 
@@ -76,20 +111,25 @@ $(document).ready(function () {
 	$('body').on('click', '.save_sequence', function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
-			// temporarily suspend keyboard event listeners
-			remove_shortcuts();
+			if ($('.load_user_sequences_input').val().length > 1) {
+				// temporarily suspend keyboard event listeners
+				remove_shortcuts();
 
-			// set sequence-naming overlay container properties
-			$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
-				'opacity': '1',
-				'z-index': '2'
-			});
+				// set sequence-naming overlay container properties
+				$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
+					'opacity': '1',
+					'z-index': '2'
+				});
 
-			$('.saved_sequences_module').css({
-				'overflow-y': 'hidden'
-			});
+				$('.saved_sequences_module').css({
+					'overflow-y': 'hidden'
+				});
 
-			$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence').focus();
+				$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence').focus();
+
+			} else {
+				application_message('please enter a user to save your sequence for');
+			}
 		} else {
 			application_message('cannot save an empty sequence');
 		}

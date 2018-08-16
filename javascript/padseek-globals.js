@@ -108,4 +108,3 @@ var selected_options = [];
 
 // stores the JSON data objects for shared sequences
 var shared_sequences = [];
-var saved_sequences = [];

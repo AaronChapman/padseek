@@ -43,3 +43,5 @@ $(document).ready(function () {
 // set up firebase storage of new coordinate objects
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
+
+// remove excess shortcut messages (since I added event listeners for all text inputs)

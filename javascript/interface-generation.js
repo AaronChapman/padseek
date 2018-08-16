@@ -221,3 +221,31 @@ function remove_shortcuts() {
 	shortcut.remove("z");
 	shortcut.remove("m");
 }
+
+$(document).ready(function () {
+	$('input[type="text"]').focusin(function () {
+		remove_shortcuts();
+	});
+
+	$('input[type="text"]').focusout(function () {
+		set_shortcuts();
+	});
+
+	$('.never_mind').click(function () {
+		$(this).parents('.overlay:eq(0)').css({
+			'opacity': '0'
+		});
+
+		var stasis = $(this);
+		
+		setTimeout(function () {
+			stasis.parents('.overlay:eq(0)').css({
+				'z-index': '-2'
+			});
+		}, 250);
+			
+		$(this).parents('.overlay:eq(0)').parent().css({
+				'overflow': 'scroll'
+			});
+	});
+});

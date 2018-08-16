@@ -1,12 +1,14 @@
 var current_user = '';
 var current_user_firebase_index = 0;
 
+var saved_sequences = [];
+
 // update shared sequence button items listed in the shared sequences container
 function update_saved_sequences_container(new_JSON_object) {
 	// empty the container
 	$('.saved_sequences').empty();
 	// append the label separator
-	$('.saved_sequences').append('<label class="label">saved sequences<br>⬇</label>');
+	$('.saved_sequences').append('<label class="label">sequences saved by ' + $('.load_user_sequences_input').val() + '<br>⬇</label>');
 
 	saved_sequences.forEach(function (sequence) {
 		var converted_object = JSON.stringify(sequence);
@@ -16,29 +18,38 @@ function update_saved_sequences_container(new_JSON_object) {
 	});
 }
 
-function load_user_sequences(user) {	
+function load_user_sequences(user) {
 	database.ref('users/' + user).on("value", function (snapshot) {
 		saved_sequences = snapshot.val();
 	});
 
-	saved_sequences.forEach(function (sequence) {
-		update_saved_sequences_container(sequence);
-	});
+	if (saved_sequences != null) {
+		saved_sequences.forEach(function (sequence) {
+			update_saved_sequences_container(sequence);
+		});
+	} else {
+		application_message('user does not exist');
+	}
 }
 
 function save_current_sequence() {
 	if ($('.saved_sequences_module .name_sequence').val().length > 0) {
+		if (saved_sequences == null) {
+			saved_sequences = [convert_sequence_to_JSON()];
+		}
 		saved_sequences.push(convert_sequence_to_JSON());
 
-		var onComplete = function (error) {
-				if (error) {
-					console.log('Update failed');
-				} else {
-					console.log('Update succeeded');
-				}
+		var on_complete = function (error) {
+			if (error) {
+				console.log('could not update saved sequences for ' + $('.load_user_sequences_input').val());
+			} else {
+				console.log('updated saved sequences for ' + $('.load_user_sequences_input').val());
 			}
-		
-		database.ref('users/' + $('.load_user_sequences_input').val()).update(saved_sequences, onComplete);
+		}
+
+		database.ref('users/' + $('.load_user_sequences_input').val()).update(saved_sequences, on_complete);
+
+		load_user_sequences($('.load_user_sequences_input').val());
 	}
 }
 
@@ -89,11 +100,11 @@ $(document).ready(function () {
 	});
 
 	// when the button to confirm sharing the newly named sequence is clicked
-	$('body').on('click', '.name_and_save_sequence', function () {
+	$('.name_and_save_sequence').click(function () {
 		var field_reference = $(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence');
 
 		// if the name is valid
-		if ((field_reference.val().length > 1) &&
+		if ((field_reference.val()) &&
 			(field_reference.val().indexOf("'") == -1) &&
 			(field_reference.val().indexOf('"') == -1) &&
 			(field_reference.val().indexOf("`") == -1)) {
@@ -108,7 +119,7 @@ $(document).ready(function () {
 			// set sequence-naming overlay container properties
 			$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '0',
-				'z-index': '-1'
+				'z-index': '-2'
 			});
 
 			$('.saved_sequences_module').css({

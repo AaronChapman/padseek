@@ -2,27 +2,6 @@
 // sequence sharing
 
 
-/*----------------*/
-/* FIREBASE SETUP */
-/*----------------*/
-
-// firebase configuration
-var config = {
-	apiKey: "AIzaSyAnQBTNzsGBiAS5BJhDNmRKEJn9QPB4mFA",
-	authDomain: "padseek-oylo-info.firebaseapp.com",
-	databaseURL: "https://padseek-oylo-info.firebaseio.com",
-	projectId: "padseek-oylo-info",
-	storageBucket: "padseek-oylo-info.appspot.com",
-	messagingSenderId: "573441583035"
-};
-
-// initializing communication with database
-firebase.initializeApp(config);
-
-// creating database object reference 
-var database = firebase.database();
-
-
 /*------------------*/
 /* SEQUENCE STORAGE */
 /*------------------*/
@@ -43,8 +22,19 @@ database.ref().on("value", function (snapshot) {
 
 // start sequence data sharing flow
 function share_sequence_data() {
+	// push the new object to the shared_sequences array
+	shared_sequences.push(convert_sequence_to_JSON());
+	// and update the container housing the list of shared sequences
+	update_shared_sequences_container(new_JSON_object);
+
+	// also update the database with the newly shared sequence data
+	update_firebase();
+}
+
+// converts fed sequence data variables into new JSON object
+function convert_sequence_to_JSON() {
 	// get the sequence data used to form the new JSON object
-	var name = $('.name_sequence').val();
+	var name = current_sequence_name;
 	var tempo = $('.tempo_field').val();
 	var sample_paths = selected_options;
 	var active_pieces = [];
@@ -54,27 +44,15 @@ function share_sequence_data() {
 	});
 
 	$('.name_sequence').val('');
-
-	// and call the conversion method
-	convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces);
-}
-
-// converts fed sequence data variables into new JSON object
-function convert_sequence_to_JSON(name, tempo, sample_paths, active_pieces) {
+	
 	var new_JSON_object = {
 		name,
 		tempo,
 		sample_paths,
 		active_pieces
 	};
-
-	// push the new object to the shared_sequences array
-	shared_sequences.push(new_JSON_object);
-	// and update the container housing the list of shared sequences
-	update_shared_sequences_container(new_JSON_object);
-
-	// also update the database with the newly shared sequence data
-	update_firebase();
+	
+	return new_JSON_object;
 }
 
 // update database on data mutation
@@ -132,6 +110,8 @@ function set_sequence_from_JSON(new_JSON_object) {
 	// use that to determine the number of pads in the sequence
 	var number_of_pads_to_generate = (parseInt(last_piece_parsed) - 1) / 8;
 	var number_of_pads_parsed = Math.floor(number_of_pads_to_generate);
+	
+	current_sequence_name = converted_object.name;
 
 	// remove all pads but the first
 	$('.pad:not(:first)').remove();
@@ -179,6 +159,15 @@ function set_sequence_from_JSON(new_JSON_object) {
 	set_audio_elements();
 }
 
+function copy_sequence_JSON() {
+	var sequence_JSON_data = JSON.stringify(convert_sequence_to_JSON());
+	
+	new ClipboardJS('.copy_sequence_JSON');
+	
+	$('.copy_sequence_JSON').attr('data-clipboard-text', sequence_JSON_data);
+	setTimeout(function() { $('.copy_sequence_JSON').click(); }, 100);
+}
+
 
 /*---------------------------------*/
 /* SEQUENCE SHARING EVENT HANDLERS */
@@ -200,14 +189,16 @@ $(document).ready(function () {
 			remove_shortcuts();
 
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({
+			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
 				'z-index': '2'
 			});
+			
 			$('.sequence_sharing').css({
 				'overflow-y': 'hidden'
 			});
-			$('.name_sequence').focus();
+			
+			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence').focus();
 		} else {
 			application_message('cannot share an empty sequence');
 		}
@@ -220,6 +211,8 @@ $(document).ready(function () {
 			($('.name_sequence').val().indexOf("'") == -1) &&
 			($('.name_sequence').val().indexOf('"') == -1) &&
 			($('.name_sequence').val().indexOf("`") == -1)) {
+			current_sequence_name = $('.name_sequence').val();
+			
 			// fire sequence sharing flow
 			share_sequence_data();
 
@@ -231,25 +224,12 @@ $(document).ready(function () {
 				'opacity': '0',
 				'z-index': '-1'
 			});
+			
 			$('.sequence_sharing').css({
 				'overflow-y': 'scroll'
 			});
 		} else {
 			application_message('please enter a name for your sequence');
 		}
-	});
-
-	$('body').on('click', '.close', function () {
-		// reactivate keyboard event listeners
-		set_shortcuts();
-
-		// set sequence-naming overlay container properties
-		$('.name_sequence_overlay').css({
-			'opacity': '0',
-			'z-index': '-1'
-		});
-		$('.sequence_sharing').css({
-			'overflow-y': 'scroll'
-		});
 	});
 });

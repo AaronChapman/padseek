@@ -14,6 +14,7 @@ var calculated_tempo = 125;
 
 // index of row that's currently firing in sequence
 var current_column_in_sequence = 1;
+var current_sequence_name = '';
 
 // track number of activated pad pieces
 var activated_pad_pieces = 0;

@@ -14,6 +14,7 @@
 	transition-timing-function: ease-in-out;
 	transition: all 0.1s ease-in-out;
 	transition: opacity 0.25s;
+	transition: background 0.1s;
 	font-family: 'Muli', sans-serif;
 	outline: none;
 	z-index: 1;
@@ -58,7 +59,7 @@ h1 {
 
 .application_message {
 	transition: all 0.2s ease-out;
-	position: absolute;
+	position: fixed;
 	margin: 0;
 	opacity: 0;
 	font-size: 1.75em;
@@ -147,7 +148,7 @@ input[type="button"]:active {
 	margin-top: 20px;
 }
 
-.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .randomization_module input[type="button"], .advance_walkthrough, .close_walkthrough_window {
+.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .saved_sequences_module input[type="button"], .randomization_module input[type="button"], .advance_walkthrough, .close_walkthrough_window {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 

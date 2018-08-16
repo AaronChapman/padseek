@@ -102,6 +102,21 @@ function application_message(message) {
 	}, 3000);
 }
 
+$('body').on('click', '.close', function () {
+	// reactivate keyboard event listeners
+	set_shortcuts();
+
+	// set sequence-naming overlay container properties
+	$(this).parents('overlay').css({
+		'opacity': '0',
+		'z-index': '-1'
+	});
+
+	$(this).parents('overlay').parent().css({
+		'overflow-y': 'scroll'
+	});
+});
+
 
 /*--------------------*/
 /* KEYBOARD SHORTCUTS */
@@ -169,22 +184,16 @@ function set_shortcuts() {
 
 	// play or pause sequence
 	shortcut.add("p", function () {
-		hide_shortcuts();
-
 		$('.play_sequence').click();
 	});
 
 	// clear sequence selections
 	shortcut.add("x", function () {
-		hide_shortcuts();
-
 		$('.clear_selections').click();
 	});
 
 	// randomize sequence
 	shortcut.add("z", function () {
-		hide_shortcuts();
-
 		$('.randomize').click();
 	});
 
@@ -193,6 +202,11 @@ function set_shortcuts() {
 		hide_shortcuts();
 
 		$('.share_sequence').click();
+	});
+
+	// copy json
+	shortcut.add("j", function () {
+		copy_sequence_JSON();
 	});
 }
 
@@ -207,3 +221,31 @@ function remove_shortcuts() {
 	shortcut.remove("z");
 	shortcut.remove("m");
 }
+
+$(document).ready(function () {
+	$('input[type="text"]').focusin(function () {
+		remove_shortcuts();
+	});
+
+	$('input[type="text"]').focusout(function () {
+		set_shortcuts();
+	});
+
+	$('.never_mind').click(function () {
+		$(this).parents('.overlay:eq(0)').css({
+			'opacity': '0'
+		});
+
+		var stasis = $(this);
+		
+		setTimeout(function () {
+			stasis.parents('.overlay:eq(0)').css({
+				'z-index': '-2'
+			});
+		}, 250);
+			
+		$(this).parents('.overlay:eq(0)').parent().css({
+				'overflow': 'scroll'
+			});
+	});
+});

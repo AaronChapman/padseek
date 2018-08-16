@@ -22,21 +22,25 @@
 		<link rel="stylesheet" href="css/sequence-sharing-module.css">
 		<link rel="stylesheet" href="css/walkthrough.css">
 		<link rel="stylesheet" href="css/sequence-controls-module.css">
+		<link rel="stylesheet" href="css/your-sequences-module.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 		<script src="https://www.oylo.info/javascript/links_for_directory_header.js"></script>
 		<script src="https://www.oylo.info/tool/tempo.js"></script>
 		<script src="javascript/interface-generation.js"></script>
+		<script src="javascript/firebase-setup.js"></script>
 		<script src="javascript/pad-manipulation.js"></script>
 		<script src="javascript/sequence-controls.js"></script>
 		<script src="javascript/randomization-module.js"></script>
 		<script src="javascript/sequence-sharing.js"></script>
+		<script src="javascript/sequence-saving.js"></script>
 		<script src="javascript/padseek-globals.js"></script>
 		<script src="javascript/tempo-module.js"></script>
 		<script src="javascript/padseek.js"></script>
 		<script src="javascript/play-sample.js"></script>
 		<script src="javascript/walkthrough.js"></script>
+		<script src="javascript/clipboard.js"></script>
 	</head>
 	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
 		<p class="stat_repo">
@@ -70,6 +74,7 @@
 					<div class="shared_sequences">
 						<label class="label">browse recently shared sequences<br>⬇</label><br>
 					</div>
+					<button class="copy_sequence_JSON" data-clipboard-text=""></button>
 				</div>
 				<div class="tempo_tool box-shadowed">
 					<div class="shortcuts_overlay overlay">
@@ -79,6 +84,7 @@
 							<tr><td>clear pad piece selections:</td><td>[ x ]</td></tr>
 							<tr><td>randomize sequence:</td><td>[ z ]</td></tr>
 							<tr><td>share sequence:</td><td>[ m ]</td></tr>
+							<!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>-->
 							<tr><td>calculate tempo:</td><td>[ t ]</td></tr>
 							<tr><td>reset calculated tempo:</td><td>[ r ]</td></tr>
 							<tr><td>set sequence tempo:</td><td>[ s ]</td></tr>
@@ -126,6 +132,26 @@
 						</li>
 						<input class="random_shared_sequence cursor_pointer box-shadowed-hover" type="button" value="random shared sequence">
 					</ul>
+				</div>
+				<div class="saved_sequences_module box-shadowed">
+					<div class="name_sequence_overlay overlay">
+						<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
+						<ul class="naming_sequence_overlay_buttons">
+							<li class="naming_sequence_overlay_button_item">
+								<input class="name_and_save_sequence cursor_pointer box-shadowed-hover" type="button" value="save your sequence">
+							</li>
+							<li class="naming_sequence_overlay_button_item">
+								<input class="close never_mind cursor_pointer box-shadowed-hover" type="button" value="never mind">
+							</li>
+						</ul>
+					</div>
+					<input class="save_sequence cursor_pointer box-shadowed-hover" type="button" value="save sequence">
+					<ul class="user_options">
+						<li><input class="load_user_sequences_input cursor_pointer" type="text" placeholder="user"></li>
+						<li><input class="load_user_sequences cursor_pointer" type="button" value="load sequences from user"></li>
+					</ul><br>
+					<div class="saved_sequences">
+					</div>
 				</div>
 			</div>
 			<div class="second_row">

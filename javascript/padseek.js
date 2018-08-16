@@ -27,6 +27,7 @@ $(document).ready(function () {
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
 // maybe make shared sequences array dynamic on the indecies pulled so I can delete sequences from firebase (.each()?)
+
 // 'your sequences' module
 
 // audio effects: equalization, pitch, swing, reverb
@@ -42,3 +43,5 @@ $(document).ready(function () {
 // set up firebase storage of new coordinate objects
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
+
+// remove excess shortcut messages (since I added event listeners for all text inputs)

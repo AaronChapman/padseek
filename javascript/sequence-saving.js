@@ -8,42 +8,21 @@ function update_saved_sequences_container(new_JSON_object) {
 	// append the label separator
 	$('.saved_sequences').append('<label class="label">saved sequences<br>⬇</label>');
 
-	console.log('begin updated save sequences container loop');
-
 	saved_sequences.forEach(function (sequence) {
 		var converted_object = JSON.stringify(sequence);
 
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
 		$('.saved_sequences').append(`<input class='saved_sequence cursor_pointer box-shadowed-hover' type='button' data-json='` + converted_object + `' value='` + sequence.name + `'>`);
-
-		console.log('appending instance button');
 	});
 }
 
-function load_user_sequences(user) {
-	saved_sequences = [];
-	
-	database.ref().on("value", function (snapshot) {
-		console.log(snapshot.val().users);
+function load_user_sequences(user) {	
+	database.ref('users/' + user).on("value", function (snapshot) {
+		saved_sequences = snapshot.val();
+	});
 
-		snapshot.val().users.forEach(function (element) {
-			if (element.name == user) {
-				current_user = user;
-				current_user_firebase_index = snapshot.val().users.indexOf(element);
-				saved_sequences = element.saved_sequences;
-
-				console.log(saved_sequences);
-			}
-		});
-
-		console.log('saved sequences for user: ' + user);
-		console.log(saved_sequences);
-
-		saved_sequences.forEach(function (sequence) {
-			update_saved_sequences_container(sequence);
-		});
-	}, function (errorObject) {
-		console.log("errors handled: " + errorObject.code);
+	saved_sequences.forEach(function (sequence) {
+		update_saved_sequences_container(sequence);
 	});
 }
 
@@ -51,41 +30,15 @@ function save_current_sequence() {
 	if ($('.saved_sequences_module .name_sequence').val().length > 0) {
 		saved_sequences.push(convert_sequence_to_JSON());
 
-		console.log('NEW SAVED SEQUENCES: ' + saved_sequences);
-
-		/*
-		database.ref().on("value", function (snapshot) {
-			console.log(snapshot.val().users);
-
-			var name = snapshot.child("users").child(current_user_firebase_index).name
-
-			console.log(name);
-		}, function (errorObject) {
-			console.log("errors handled: " + errorObject.code);
-		});
-		*/
-
-		
-		// HOW THE FUCK DO I REFERENCE A SINGLE PIECE OF THE DICTIONARY
-		
-		database.ref().set({
-			shared_sequences: shared_sequences,
-			users: {
-				: current_user,
-				saved_sequences: saved_sequences
+		var onComplete = function (error) {
+				if (error) {
+					console.log('Update failed');
+				} else {
+					console.log('Update succeeded');
+				}
 			}
-		});
-
-		console.log('CHECK FIREBASE');
-		/*var ref = firebase.database().ref('users');
-
-		ref.on("value", function (snapshot) {
-			console.log('reference database: ');
-			console.log(snapshot);
-		});
-		*/
-	} else {
-		application_message();
+		
+		database.ref('users/' + $('.load_user_sequences_input').val()).update(saved_sequences, onComplete);
 	}
 }
 

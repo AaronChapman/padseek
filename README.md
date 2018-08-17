@@ -102,7 +102,7 @@ these options | switches random randomization options on / off | no
 ---
 ## shared sequences
 
-![shared sequences module thumbnail](https://raw.github.com/AaronChapman/padseek/master/images/README/shared.png)
+![shared sequences module thumbnail](https://raw.github.com/AaronChapman/padseek/blob/master/images/README/shared.png)
 
 
 -**share sequence:**

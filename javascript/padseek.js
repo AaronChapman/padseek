@@ -18,7 +18,6 @@ $(document).ready(function () {
 
 // make a list of samples that need to be removed
 
-// application message (box like walkthrough?)
 // comb and perfect all animations
 
 // generate repetitive html content dynamically
@@ -40,8 +39,4 @@ $(document).ready(function () {
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
 
-// remove excess shortcut messages (since I added event listeners for all text inputs)
-
-// prevent randomization from clicking a fifth piece in a column and triggering error
-
-// fix remove/ duplicate pad css issue
+// update walkthrough to account for saved sequences module

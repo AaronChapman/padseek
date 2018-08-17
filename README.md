@@ -78,28 +78,6 @@ key | shortcut
 
 
 ---
-## sharing sequences
-
-
--**share sequence:**
-- this button will prompt you to name your sequence before sharing its data with the community
-
--**browse recently shared sequences:**
-- click on any of the named buttons under this section to load a sequence that has been shared by another user
-
-
----
-## tempo tool
-
-
--**to operate:**
-- there is a currently calculated bpm display inside the tempo module
-- hit the [ t ] key on each beat to get the number of beats per minute
-- hit the [ r ] key to reset the bpm counter
-- hit the [ s ] key to set the sequence tempo to the newly calculated bpm
-
-
----
 ## randomization module
 
 
@@ -117,3 +95,43 @@ samples | selects random sample options | no
 number of pads | generates a random sequence size | yes
 beats per minute | randomizes the sequence tempo | yes
 these options | switches random randomization options on / off | no
+
+
+---
+## shared sequences
+
+
+-**share sequence:**
+- this button will prompt you to name your sequence before sharing its data with the community
+
+-**browse recently shared sequences:**
+- click on any of the named buttons under this section to load a sequence that has been shared by another user
+
+---
+## saved sequences
+
+
+-**load sequences:**
+- after entering the name of an existing user with valid data, pressing this button will load up that user's personally saved sequences
+
+-**save current sequence:**
+- pressing this button will save the current sequence for the user that was provided
+
+-**sequences saved by loaded user:**
+- uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem
+
+
+**`internal commands`**
+key | shortcut
+--- | ---
+`[ j ]` | copy sequence data to clipboard (JSON)
+
+---
+## tempo tool
+
+
+-**to operate:**
+- there is a currently calculated bpm display inside the tempo module
+- hit the [ t ] key on each beat to get the number of beats per minute
+- hit the [ r ] key to reset the bpm counter
+- hit the [ s ] key to set the sequence tempo to the newly calculated bpm

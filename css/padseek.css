@@ -19,11 +19,11 @@
 	outline: none;
 	z-index: 1;
 	-webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 body {
@@ -44,32 +44,35 @@ body {
 }
 
 h1 {
-	    top: 0;
-    z-index: 5;
-    padding: 55px 80% 15px 50px;
-    transition: all 5s ease-in-out;
-    font-family: 'Shrikhand', cursive;
-    margin: 0px 0 15px 0;
-    border-radius: 0 5px 5px 0;
-    position: fixed;
-    background: linear-gradient(to right, #738290, #FFFCF7);
-    font-size: 36px;
-    color: white;
-    text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	top: 0;
+	z-index: 5;
+	padding: 55px 80% 15px 50px;
+	transition: all 5s ease-in-out;
+	font-family: 'Shrikhand', cursive;
+	margin: 0px 0 15px 0;
+	border-radius: 0 5px 5px 0;
+	position: fixed;
+	background: linear-gradient(to right, #738290, #FFFCF7);
+	font-size: 36px;
+	color: white;
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .application_message {
 	transition: all 0.2s ease-out;
 	position: fixed;
-	margin: 0;
 	opacity: 0;
+	top: 30px;
+	right: 175px;
 	font-size: 1.75em;
 	padding: 34px;
 	background: rgb(205, 130, 130);
 	color: white;
 	z-index: -1;
-	width: -webkit-fill-available;
 	text-align: center;
+	border-radius: 5px;
+	border: 0.5px solid white;
+	width: fit-content;
 }
 
 input[type="button"]:active {
@@ -77,11 +80,11 @@ input[type="button"]:active {
 	opacity: 0.75;
 }
 
-.box-shadowed { 
+.box-shadowed {
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
-.box-shadowed-hover:hover { 
+.box-shadowed-hover:hover {
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
@@ -159,9 +162,9 @@ input[type="button"] {
 
 .what_is_this {
 	position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
+	bottom: 0;
+	right: 0;
+	margin: 20px;
 	background: rgba(00, 00, 00, 0);
 	color: #738290;
 }

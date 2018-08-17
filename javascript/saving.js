@@ -2,45 +2,59 @@
 // saving sequences
 
 
-/*------------------*/
-/* SEQUENCE STORAGE */
-/*------------------*/
+/*-----------------------*/
+/* STORAGE AND RETRIEVAL */
+/*-----------------------*/
 
 
+// stores current user and their saved sequences
 var current_user = '';
 var saved_sequences = [];
 
+// load sequences saved by user passed into the function
 function load_user_sequences(user) {
+	// get a snapshot of the possible user match in firebase
 	database.ref('users/' + user).on("value", function (snapshot) {
 		saved_sequences = snapshot.val();
 	});
 
+	// determine if the snapshot already existed or not
 	if (saved_sequences != null) {
+		// if so, updated the saved sequences module with the user's sequences
 		saved_sequences.forEach(function (sequence) {
 			update_saved_sequences_container(sequence);
 		});
 	} else {
+		// or let them know that the user does not exist
 		application_message('user does not exist');
 	}
 }
 
+// saves the current sequence for the username supplied
 function save_current_sequence() {
+	// provided the sequence name field was filled out
 	if ($('.saved_sequences_module .name_sequence').val().length > 0) {
+		// update local saved sequences array with matching user data from database
 		database.ref('users/' + $('.load_user_sequences_input').val()).on("value", function (snapshot) {
 			saved_sequences = snapshot.val();
 		});
 
+		// if the snapshot isn't empty
 		if (saved_sequences != null) {
+			// push the current sequence to the local array
 			saved_sequences.push(convert_sequence_to_JSON());
 			
+			// updated the saved sequences container
 			saved_sequences.forEach(function (sequence) {
 				update_saved_sequences_container(sequence);
 			});
 		} else {
+			// if the snapshot is empty, push the current sequence to the user's saved_sequences in firebase
 			saved_sequences = [];
 			saved_sequences.push(convert_sequence_to_JSON());
 		}
 
+		// determine database connection
 		var on_complete = function (error) {
 			if (error) {
 				console.log('could not update saved sequences for ' + $('.load_user_sequences_input').val());
@@ -49,8 +63,10 @@ function save_current_sequence() {
 			}
 		}
 
+		// update the user's data
 		database.ref('users/' + $('.load_user_sequences_input').val()).update(saved_sequences, on_complete);
 
+		// make sure all user's sequences have been loaded
 		load_user_sequences($('.load_user_sequences_input').val());
 	}
 }
@@ -70,6 +86,11 @@ function update_saved_sequences_container(new_JSON_object) {
 		$('.saved_sequences').append(`<input class='saved_sequence cursor_pointer box-shadowed-hover' type='button' data-json='` + converted_object + `' value='` + sequence.name + `'>`);
 	});
 }
+
+
+/*-----------------*/
+/* EVENT LISTENERS */
+/*-----------------*/
 
 // when the document is ready
 $(document).ready(function () {
@@ -97,9 +118,6 @@ $(document).ready(function () {
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// and if the username field has valid input
 			if ($('.load_user_sequences_input').val().length > 1) {
-				// temporarily suspend keyboard event listeners
-				remove_shortcuts();
-
 				// set overlay and container properties
 				$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
 					'opacity': '1',
@@ -135,9 +153,6 @@ $(document).ready(function () {
 
 			// fire sequence sharing flow
 			save_current_sequence();
-
-			// reactivate keyboard event listeners
-			set_shortcuts();
 
 			// set sequence-naming overlay container properties
 			$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({

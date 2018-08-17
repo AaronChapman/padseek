@@ -185,9 +185,6 @@ $(document).ready(function () {
 	$('body').on('click', '.share_sequence', function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
-			// temporarily suspend keyboard event listeners
-			remove_shortcuts();
-
 			// set sequence-naming overlay container properties
 			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
@@ -198,7 +195,7 @@ $(document).ready(function () {
 				'overflow-y': 'hidden'
 			});
 			
-			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence').focus();
+			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence').focusin();
 		} else {
 			application_message('cannot share an empty sequence');
 		}

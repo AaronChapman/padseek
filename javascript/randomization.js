@@ -80,16 +80,22 @@ $(document).ready(function () {
 			// on each pad element
 			$('.pad').each(function () {
 				// get a reference to the x value from the id of the first & last pad pieces
-				var first_x_value = parseInt($(this).find('.pad_piece:first').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
-				var last_x_value = parseInt($(this).find('.pad_piece:last').attr('id').substring(0, $('.pad_piece:last').attr('id').indexOf('-')));
+				var first_x_value = parseInt($(this).find('.pad_piece:first').attr('id').substring(0, $(this).find('.pad_piece:last').attr('id').indexOf('-')));
+				var last_x_value = parseInt($(this).find('.pad_piece:last').attr('id').substring(0, $(this).find('.pad_piece:last').attr('id').indexOf('-')));
+				
+				//// FIX THIS SHIT AINT COUNTING X VALUES RIGHT
 
 				// click up to 20 random pieces
 				for (var clicked_pieces = 0; clicked_pieces < 20; clicked_pieces++) {
-					var x_portion = Math.floor(Math.random() * last_x_value) + first_x_value;
+					var x_portion = Math.floor(Math.random() * (last_x_value - first_x_value + 1)) + first_x_value;
 					var y_portion = Math.floor(Math.random() * 8) + 1;
 					var piece_id = $('#' + x_portion + '-' + y_portion);
-
-					piece_id.click();
+					
+					var same_column_check = $(this).find('.pad_piece[id^="' + piece_id.attr('id').substring(0, piece_id.attr('id').indexOf('-')) + '"][data-state="active"]').length;
+					
+					if (same_column_check < 4) {
+						piece_id.click();
+					}
 				}
 			});
 		}

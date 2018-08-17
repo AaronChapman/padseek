@@ -4,12 +4,14 @@
 
 ![GitHub forks](https://img.shields.io/github/forks/AaronChapman/padseek.svg?style=social&label=Fork) ![GitHub followers](https://img.shields.io/github/followers/AaronChapman.svg?style=social&label=Follow)
 
-> padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so things might be wonky here and there while I work out the kinks. please feel free to keep checking in for more features and add-ons
+> padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
 
+
+. . .
 
 **`how to operate`**
 
-<sup>(click "what is this?" in the bottom left corner of padseek for a visual walkthrough)</sup>
+>(click "what is this?" in the bottom left corner of padseek for a visual walkthrough)
 
 - choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module
 - activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)
@@ -107,6 +109,7 @@ these options | switches random randomization options on / off | no
 -**browse recently shared sequences:**
 - click on any of the named buttons under this section to load a sequence that has been shared by another user
 
+
 ---
 ## saved sequences
 
@@ -121,17 +124,22 @@ these options | switches random randomization options on / off | no
 - uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem
 
 
+. . .
+
 **`internal commands`**
+
 key | shortcut
 --- | ---
 `[ j ]` | copy sequence data to clipboard (JSON)
+`[ o ]` | coming soon
+
 
 ---
 ## tempo tool
 
 
 -**to operate:**
-- there is a currently calculated bpm display inside the tempo module
+- the bpm display inside the tempo module displays the tempo currently being calculated
 - hit the [ t ] key on each beat to get the number of beats per minute
 - hit the [ r ] key to reset the bpm counter
 - hit the [ s ] key to set the sequence tempo to the newly calculated bpm

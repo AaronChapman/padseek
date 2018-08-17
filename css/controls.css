@@ -31,7 +31,7 @@
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 	transform: translatey(0px);
 	position: relative;
-	animation: play_float 2s ease-in-out infinite;
+	animation: walkthrough_float 2s ease-in-out infinite;
 }
 
 .play_sequence:hover {

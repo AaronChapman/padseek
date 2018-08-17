@@ -1,201 +1,226 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<title>p a d s e e k</title>
 
-		<meta charset="utf-8">
-		<meta name="description" content="p a d s e e k">
+<head>
+	<title>p a d s e e k</title>
 
-		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli|Shrikhand">
-		<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/directory-header.css">
-		<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/template.css">
-		<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
-		<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
-		<link rel="stylesheet" href="css/padseek.css">
-		<link rel="stylesheet" href="css/padseek-dark.css">
-		<link rel="stylesheet" href="css/tempo-module.css">
-		<link rel="stylesheet" href="css/drum-pad-module.css">
-		<link rel="stylesheet" href="css/randomization-module.css">
-		<link rel="stylesheet" href="css/sample-selection-module.css">
-		<link rel="stylesheet" href="css/sequence-sharing-module.css">
-		<link rel="stylesheet" href="css/walkthrough.css">
-		<link rel="stylesheet" href="css/sequence-controls-module.css">
-		<link rel="stylesheet" href="css/your-sequences-module.css">
+	<meta charset="utf-8">
+	<meta name="description" content="p a d s e e k">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-		<script src="https://www.oylo.info/javascript/links_for_directory_header.js"></script>
-		<script src="https://www.oylo.info/tool/tempo.js"></script>
-		<script src="javascript/interface-generation.js"></script>
-		<script src="javascript/firebase-setup.js"></script>
-		<script src="javascript/pad-manipulation.js"></script>
-		<script src="javascript/sequence-controls.js"></script>
-		<script src="javascript/randomization-module.js"></script>
-		<script src="javascript/sequence-sharing.js"></script>
-		<script src="javascript/sequence-saving.js"></script>
-		<script src="javascript/padseek-globals.js"></script>
-		<script src="javascript/tempo-module.js"></script>
-		<script src="javascript/padseek.js"></script>
-		<script src="javascript/play-sample.js"></script>
-		<script src="javascript/walkthrough.js"></script>
-		<script src="javascript/clipboard.js"></script>
-	</head>
-	<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
-		<p class="stat_repo">
-			<a class="github_button" href="https://github.com/AaronChapman/padseek" data-size="large" aria-label="Fork padseek on GitHub">Fork padseek on GitHub</a>
-		</p>
-		<p class="application_message"></p>
-		<h1>p a d s e e k</h1>
-		<div id="directory_header"></div>
-		<div class="main_content">
-			<div class="first_row">
-				<div class="sequence_controls">
-					<label class="label currently_loaded_sequence">currently loaded: clean & simple - stacking test</label>
-					<input class="play_sequence cursor_pointer box-shadowed-hover" type="button" value="play sequence">
-					<input class="clear_selections cursor_pointer box-shadowed-hover" type="button" value="clear selections" onclick="clear_selections()">
-					<p class="tempo_field_label">tempo (beats per minute)</p>
-					<input class="tempo_field cursor_pointer box-shadowed" type="text" value="120">
-				</div>
-				<div class="sequence_sharing box-shadowed">
-					<div class="name_sequence_overlay overlay">
-						<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
-						<ul class="naming_sequence_overlay_buttons">
-							<li class="naming_sequence_overlay_button_item">
-								<input class="name_and_share_sequence cursor_pointer box-shadowed-hover" type="button" value="share your sequence">
-							</li>
-							<li class="naming_sequence_overlay_button_item">
-								<input class="close never_mind cursor_pointer box-shadowed-hover" type="button" value="never mind">
-							</li>
-						</ul>
-					</div>
-					<input class="share_sequence sequence_sharing_button cursor_pointer box-shadowed-hover" type="button" value="share sequence">
-					<div class="shared_sequences">
-						<label class="label">browse recently shared sequences<br>⬇</label><br>
-					</div>
-					<button class="copy_sequence_JSON" data-clipboard-text=""></button>
-				</div>
-				<div class="tempo_tool box-shadowed">
-					<div class="shortcuts_overlay overlay">
-						<table class="list_of_shortcuts">
-							<tr><td>open / close shortcuts menu:</td><td>[ c ]</td></tr>
-							<tr><td>play / pause sequence:</td><td>[ p ]</td></tr>
-							<tr><td>clear pad piece selections:</td><td>[ x ]</td></tr>
-							<tr><td>randomize sequence:</td><td>[ z ]</td></tr>
-							<tr><td>share sequence:</td><td>[ m ]</td></tr>
-							<!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>-->
-							<tr><td>calculate tempo:</td><td>[ t ]</td></tr>
-							<tr><td>reset calculated tempo:</td><td>[ r ]</td></tr>
-							<tr><td>set sequence tempo:</td><td>[ s ]</td></tr>
-						</table>
-					</div>
-					<p class="all_shortcuts_label">see all shortcuts: [ c ]</p>
-					<p>
-						hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br>hit the [ s ] key to set the sequence tempo<br><br>
-					</p>
-					<div class="tempo_controls">
-						<input class="set_tempo cursor_pointer box-shadowed-hover" type="button" value="set tempo">
-						<div class="bpm_display" id="bpm_display">0 bpm</div>
-					</div>
-				</div>
-				<div class="randomization_module">
-					<input class="randomize cursor_pointer shake-little box-shadowed-hover" type="button" value="randomize">
-					<ul class="randomization_checkboxes">
-						<li>
-							<input class="random_pad_arrangement randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">arrangement</label><br>
-						</li>
-						<br>
-						<li>
-							<input class="random_sample_selection randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">samples</label><br>
-						</li>
-						<br>
-						<li>
-							<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">number of pads</label><br>
-							<input class="pseudorandom_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">pseudorandom</label>
-						</li>
-						<br>
-						<li>
-							<input class="random_tempo randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">beats per minute</label><br>
-							<input class="pseudorandom_tempo randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">pseudorandom</label>
-						</li>
-						<br>
-						<li>
-							<input class="random_options randomization_checkbox cursor_pointer" type="checkbox">
-							<label class="label">these options</label>
-						</li>
-						<input class="random_shared_sequence cursor_pointer box-shadowed-hover" type="button" value="random shared sequence">
-					</ul>
-				</div>
-				<div class="saved_sequences_module box-shadowed">
-					<div class="name_sequence_overlay overlay">
-						<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
-						<ul class="naming_sequence_overlay_buttons">
-							<li class="naming_sequence_overlay_button_item">
-								<input class="name_and_save_sequence cursor_pointer box-shadowed-hover" type="button" value="save your sequence">
-							</li>
-							<li class="naming_sequence_overlay_button_item">
-								<input class="close never_mind cursor_pointer box-shadowed-hover" type="button" value="never mind">
-							</li>
-						</ul>
-					</div>
-					<input class="save_sequence cursor_pointer box-shadowed-hover" type="button" value="save sequence">
-					<ul class="user_options">
-						<li><input class="load_user_sequences_input cursor_pointer" type="text" placeholder="user"></li>
-						<li><input class="load_user_sequences cursor_pointer" type="button" value="load sequences from user"></li>
-					</ul><br>
-					<div class="saved_sequences">
-					</div>
-				</div>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli|Shrikhand">
+	<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/directory-header.css">
+	<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/template.css">
+	<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
+	<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
+	<link rel="stylesheet" href="css/padseek.css">
+	<link rel="stylesheet" href="css/padseek-dark.css">
+	<link rel="stylesheet" href="css/tempo.css">
+	<link rel="stylesheet" href="css/pad.css">
+	<link rel="stylesheet" href="css/randomization.css">
+	<link rel="stylesheet" href="css/samples.css">
+	<link rel="stylesheet" href="css/shared.css">
+	<link rel="stylesheet" href="css/walkthrough.css">
+	<link rel="stylesheet" href="css/controls.css">
+	<link rel="stylesheet" href="css/saved.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+	<script src="https://www.oylo.info/javascript/links_for_directory_header.js"></script>
+	<script src="https://www.oylo.info/tool/tempo.js"></script>
+	<script src="javascript/interface.js"></script>
+	<script src="javascript/firebase.js"></script>
+	<script src="javascript/pad.js"></script>
+	<script src="javascript/controls.js"></script>
+	<script src="javascript/randomization.js"></script>
+	<script src="javascript/sharing.js"></script>
+	<script src="javascript/saving.js"></script>
+	<script src="javascript/globals.js"></script>
+	<script src="javascript/tempo.js"></script>
+	<script src="javascript/padseek.js"></script>
+	<script src="javascript/audio.js"></script>
+	<script src="javascript/walkthrough.js"></script>
+	<script src="javascript/clipboard.js"></script>
+</head>
+
+<body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
+	<p class="stat_repo">
+		<a class="github_button" href="https://github.com/AaronChapman/padseek" data-size="large" aria-label="Fork padseek on GitHub">Fork padseek on GitHub</a>
+	</p>
+	<p class="application_message"></p>
+	<h1>p a d s e e k</h1>
+	<div id="directory_header"></div>
+	<div class="main_content">
+		<div class="first_row">
+			<div class="sequence_controls">
+				<label class="label currently_loaded_sequence">recently loaded: clean & simple - stacking test</label>
+				<input class="play_sequence cursor_pointer box-shadowed-hover" type="button" value="play sequence">
+				<input class="clear_selections cursor_pointer box-shadowed-hover" type="button" value="clear selections" onclick="clear_selections()">
+				<p class="tempo_field_label">tempo (beats per minute)</p>
+				<input class="tempo_field cursor_pointer box-shadowed" type="text" value="120">
 			</div>
-			<div class="second_row">
-				<ul class="labels">
-					<li class="labels_item" onclick="sample_sample(0)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">sound effect</label></li>
-					<li class="labels_item" onclick="sample_sample(1)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">crash cymbal</label></li>
-					<li class="labels_item" onclick="sample_sample(2)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">ride cymbal</label></li>
-					<li class="labels_item" onclick="sample_sample(3)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">open hi-hat</label></li>
-					<li class="labels_item" onclick="sample_sample(4)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">closed hi-hat</label></li>
-					<li class="labels_item" onclick="sample_sample(5)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">snare one</label></li>
-					<li class="labels_item" onclick="sample_sample(6)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">snare two</label></li>
-					<li class="labels_item" onclick="sample_sample(7)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">kick drum</label></li>
-				</ul>
-				<ul class="selects">
-					<li class="selects_item"><select class="sound_effects_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="crash_cymbals_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="ride_cymbals_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="open_hi_hats_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="closed_hi_hats_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="kick_drums_select select cursor_pointer"></select></li>
-				</ul>
-				<div class="pad">
-					<input class="duplicate_pad pad_manipulator cursor_pointer" type="button" value="duplicate pad 1">
-					<input class="duplicate_sequence pad_manipulator cursor_pointer box-shadowed-hover" type="button" value="duplicate sequence">
-				</div>
-			</div>
-			<a class="twelve_px_blue_link what_is_this" target="_blank">what is this?</a>
-			<div class="walkthrough_overlay box-shadowed">
-					<label class="label walkthrough_text">click 'start walkthrough' below for a visual tutorial on how to use padseek</label><a class="twelve_px_blue_link detailed_instructions_link" href="https://github.com/AaronChapman/padseek#readme" target="_blank">detailed instructions</a>
-					<ul class="walkthrough_options">
-						<li class="walkthrough_option">
-							<input class="advance_walkthrough cursor_pointer box-shadowed-hover" type="button" value="start walkthrough" onclick="fire()">
+			<div class="sequence_sharing box-shadowed">
+				<div class="name_sequence_overlay overlay">
+					<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
+					<ul class="naming_sequence_overlay_buttons">
+						<li class="naming_sequence_overlay_button_item">
+							<input class="name_and_share_sequence cursor_pointer box-shadowed-hover" type="button" value="share your sequence">
 						</li>
-						<li class="walkthrough_option">
-							<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="close" onclick="close_walkthrough_options()">
+						<li class="naming_sequence_overlay_button_item">
+							<input class="close never_mind cursor_pointer box-shadowed-hover" type="button" value="never mind">
 						</li>
 					</ul>
 				</div>
+				<input class="share_sequence sequence_sharing_button cursor_pointer box-shadowed-hover" type="button" value="share sequence">
+				<div class="shared_sequences">
+					<label class="label">browse recently shared sequences<br>⬇</label><br>
+				</div>
+				<button class="copy_sequence_JSON" data-clipboard-text=""></button>
+			</div>
+			<div class="tempo_tool box-shadowed">
+				<div class="shortcuts_overlay overlay">
+					<table class="list_of_shortcuts">
+						<tr>
+							<td>open / close shortcuts menu:</td>
+							<td>[ c ]</td>
+						</tr>
+						<tr>
+							<td>play / pause sequence:</td>
+							<td>[ p ]</td>
+						</tr>
+						<tr>
+							<td>clear pad piece selections:</td>
+							<td>[ x ]</td>
+						</tr>
+						<tr>
+							<td>randomize sequence:</td>
+							<td>[ z ]</td>
+						</tr>
+						<tr>
+							<td>share sequence:</td>
+							<td>[ m ]</td>
+						</tr>
+						<!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>-->
+						<tr>
+							<td>calculate tempo:</td>
+							<td>[ t ]</td>
+						</tr>
+						<tr>
+							<td>reset calculated tempo:</td>
+							<td>[ r ]</td>
+						</tr>
+						<tr>
+							<td>set sequence tempo:</td>
+							<td>[ s ]</td>
+						</tr>
+					</table>
+				</div>
+				<p class="all_shortcuts_label">see all shortcuts: [ c ]</p>
+				<p>
+					hit the [ t ] key on beat to get a tempo<br>hit the [ r ] key to reset the counter<br>hit the [ s ] key to set the sequence tempo<br><br>
+				</p>
+				<div class="tempo_controls">
+					<input class="set_tempo cursor_pointer box-shadowed-hover" type="button" value="set tempo">
+					<div class="bpm_display" id="bpm_display">0 bpm</div>
+				</div>
+			</div>
+			<div class="randomization_module">
+				<input class="randomize cursor_pointer shake-little box-shadowed-hover" type="button" value="randomize">
+				<ul class="randomization_checkboxes">
+					<li>
+						<input class="random_pad_arrangement randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">arrangement</label><br>
+					</li>
+					<br>
+					<li>
+						<input class="random_sample_selection randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">samples</label><br>
+					</li>
+					<br>
+					<li>
+						<input class="random_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">number of pads</label><br>
+						<input class="pseudorandom_number_of_pads randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">pseudorandom</label>
+					</li>
+					<br>
+					<li>
+						<input class="random_tempo randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">beats per minute</label><br>
+						<input class="pseudorandom_tempo randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">pseudorandom</label>
+					</li>
+					<br>
+					<li>
+						<input class="random_options randomization_checkbox cursor_pointer" type="checkbox">
+						<label class="label">these options</label>
+					</li>
+					<input class="random_shared_sequence cursor_pointer box-shadowed-hover" type="button" value="random shared sequence">
+				</ul>
+			</div>
+			<div class="saved_sequences_module box-shadowed">
+				<div class="name_sequence_overlay overlay">
+					<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
+					<ul class="naming_sequence_overlay_buttons">
+						<li class="naming_sequence_overlay_button_item">
+							<input class="name_and_save_sequence cursor_pointer box-shadowed-hover" type="button" value="save your sequence">
+						</li>
+						<li class="naming_sequence_overlay_button_item">
+							<input class="close never_mind cursor_pointer box-shadowed-hover" type="button" value="never mind">
+						</li>
+					</ul>
+				</div>
+				<input class="load_user_sequences_input cursor_pointer" type="text" placeholder=" your username here">
+				<input class="load_user_sequences cursor_pointer box-shadowed-hover" type="button" value="load sequences">
+				<input class="save_sequence cursor_pointer box-shadowed-hover" type="button" value="save current sequence">
+				<br>
+				<div class="saved_sequences"></div>
+			</div>
 		</div>
-		<div class="audio_tags"></div>
-	</body>
-	<script src="https://oylo.info/javascript/page_fade.js"></script>
+		<div class="second_row">
+			<ul class="labels">
+				<li class="labels_item" onclick="sample_sample(0)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">sound effect</label></li>
+				<li class="labels_item" onclick="sample_sample(1)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">crash cymbal</label></li>
+				<li class="labels_item" onclick="sample_sample(2)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">ride cymbal</label></li>
+				<li class="labels_item" onclick="sample_sample(3)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">open hi-hat</label></li>
+				<li class="labels_item" onclick="sample_sample(4)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">closed hi-hat</label></li>
+				<li class="labels_item" onclick="sample_sample(5)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">snare one</label></li>
+				<li class="labels_item" onclick="sample_sample(6)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">snare two</label></li>
+				<li class="labels_item" onclick="sample_sample(7)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">kick drum</label></li>
+			</ul>
+			<ul class="selects">
+				<li class="selects_item"><select class="sound_effects_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="crash_cymbals_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="ride_cymbals_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="open_hi_hats_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="closed_hi_hats_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
+				<li class="selects_item"><select class="kick_drums_select select cursor_pointer"></select></li>
+			</ul>
+			<div class="pad">
+				<input class="duplicate_pad pad_manipulator cursor_pointer" type="button" value="duplicate pad 1">
+				<input class="duplicate_sequence pad_manipulator cursor_pointer box-shadowed-hover" type="button" value="duplicate sequence">
+			</div>
+		</div>
+		<a class="twelve_px_blue_link what_is_this" target="_blank">what is this?</a>
+		<div class="walkthrough_overlay box-shadowed">
+			<label class="label walkthrough_text">click 'start walkthrough' below for a visual tutorial on how to use padseek</label><a class="twelve_px_blue_link detailed_instructions_link" href="https://github.com/AaronChapman/padseek#readme" target="_blank">detailed instructions</a>
+			<ul class="walkthrough_options">
+				<li class="walkthrough_option">
+					<input class="advance_walkthrough cursor_pointer box-shadowed-hover" type="button" value="start walkthrough" onclick="fire()">
+				</li>
+				<li class="walkthrough_option">
+					<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="close" onclick="close_walkthrough_options()">
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="audio_tags"></div>
+</body>
+<script src="https://oylo.info/javascript/page_fade.js"></script>
+
 </html>
 
 <!-- quite the explorer, aren't you? -- oylo.info 2018 -->

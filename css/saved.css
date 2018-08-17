@@ -1,0 +1,112 @@
+/* p a d s e e k */
+/* saved sequences css */
+
+.load_user_sequences {
+	font-family: 'Shrikhand', cursive;
+	width: 80%;
+	border: none;
+	background: floralwhite;
+	border-radius: 5px;
+	height: 50px;
+	font-size: 1.5em;
+	color: #738290;
+	border: 1px solid rgba(00, 00, 00, 0.25);
+	margin-top: 20px;
+	zoom: 0.75;
+}
+
+.load_user_sequences:hover {
+	background: white;
+}
+
+.load_user_sequences_input {
+	text-align: left;
+	height: 25px;
+	background: #f5f5f5;
+	border: 1px solid #738290;
+	border-radius: 5px;
+	font-size: 1.5em;
+	opacity: 0.75;
+}
+
+.name_and_save_sequence {
+	font-family: 'Shrikhand', cursive;
+	width: 80%;
+	border: none;
+	background: floralwhite;
+	border-radius: 5px;
+	height: 50px;
+	font-size: 1.5em;
+	color: #738290;
+	border: 0.5px solid rgba(00, 00, 00, 0.25);
+}
+
+.name_and_save_sequence:hover {
+	background: white;
+}
+
+.save_sequence {
+	width: 100%;
+	background: aliceblue;
+	font-family: 'Shrikhand', cursive;
+	color: #738290;
+	font-size: 1.5em;
+	height: 50px;
+	zoom: 0.75;
+	margin-top: 10px;
+}
+
+.save_sequence:hover {
+	background: white;
+}
+
+.saved_sequence {
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	margin: 10px auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.saved_sequences {
+	display: grid;
+	justify-content: center;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	width: 100%;
+	margin: 10px 25px 0 -25px;
+	padding-bottom: 15px;
+}
+
+.saved_sequences_module {
+	position: relative;
+	min-width: 246px;
+	max-width: 246px;
+	min-height: 167.5px;
+	max-height: 167.5px;
+	margin-top: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	justify-content: center;
+	text-align: center;
+	border: 1px dashed rgba(00, 00, 00, 0.5);
+	padding: 25px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: white;
+}
+
+.saved_sequences_module input {
+	border-radius: 5px;
+	padding: 10px;
+	width: -webkit-fill-available;
+}
+
+.saved_sequences_module .name_sequence_overlay {
+	height: 170px
+}
+
+.user_options {
+	list-style-type: none;
+	padding: 0;
+}

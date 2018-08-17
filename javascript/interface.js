@@ -1,5 +1,5 @@
 // p a d s e e k
-// interface generation
+// interface
 
 
 /*-----------*/
@@ -91,7 +91,7 @@ function application_message(message) {
 	$('.application_message').text(message);
 	$('.application_message').css({
 		'opacity': '1',
-		'z-index': '3'
+		'z-index': '15'
 	});
 
 	setTimeout(function () {

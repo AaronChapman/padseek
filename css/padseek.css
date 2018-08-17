@@ -44,17 +44,18 @@ body {
 }
 
 h1 {
-	top: 0;
-	padding: 15px 55% 15px 50px;
-	transition: all 5s ease-in-out;
-	font-family: 'Shrikhand', cursive;
-	margin: 50px 0 15px 0;
-	border-radius: 0 5px 5px 0;
-	position: absolute;
-	background: linear-gradient(to right, #738290, #FFFCF7);
-	font-size: 36px;
-	color: white;
-	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	    top: 0;
+    z-index: 5;
+    padding: 55px 80% 15px 50px;
+    transition: all 5s ease-in-out;
+    font-family: 'Shrikhand', cursive;
+    margin: 0px 0 15px 0;
+    border-radius: 0 5px 5px 0;
+    position: fixed;
+    background: linear-gradient(to right, #738290, #FFFCF7);
+    font-size: 36px;
+    color: white;
+    text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .application_message {
@@ -136,6 +137,10 @@ input[type="button"]:active {
 	display: none;
 }
 
+.stat_repo {
+	z-index: 10;
+}
+
 .second_row {
 	display: inline-flex;
 	justify-content: left;
@@ -148,7 +153,7 @@ input[type="button"]:active {
 	margin-top: 20px;
 }
 
-.sequence_controls input[type="button"], .sequence_sharing input[type="button"], .saved_sequences_module input[type="button"], .randomization_module input[type="button"], .advance_walkthrough, .close_walkthrough_window {
+input[type="button"] {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.25);
 }
 

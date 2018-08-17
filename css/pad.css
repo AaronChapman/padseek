@@ -3,13 +3,15 @@
 
 .duplicate_pad {
 	position: absolute;
-	margin-top: -25px;
+	margin: -25px 0 0 50px;
 	border: none;
-	padding: 0 0 0 200px;
+	padding: 0 0 0 85px;
 	color: #545454;
 }
 
-.duplicate_pad, .duplicate_sequence, .remove_pad {
+.duplicate_pad,
+.duplicate_sequence,
+.remove_pad {
 	text-shadow: none;
 }
 
@@ -27,7 +29,7 @@
 }
 
 .duplicate_sequence:hover {
-  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	opacity: 0.75;
 }
 
@@ -43,7 +45,8 @@
 	overflow: visible;
 }
 
-.pad, .pad_piece {
+.pad,
+.pad_piece {
 	border-radius: 5px;
 	border: 0.5px dashed rgba(00, 00, 00, 0.5);
 	background: aliceblue;
@@ -90,14 +93,14 @@
 }
 
 .remove_all_pads:hover {
-  text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 }
 
 .remove_pad {
-	  position: absolute;
-    margin: -25px 25px 0 -65px;
-    border: none;
-    padding: 0 100px 0 0;
-    z-index: 10;
-    color: rgb(205, 130, 130);
+	position: absolute;
+	margin: -25px 25px 0 -65px;
+	border: none;
+	padding: 0 100px 0 0;
+	z-index: 10;
+	color: rgb(205, 130, 130);
 }

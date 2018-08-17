@@ -152,7 +152,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 	$('.tempo_field').val(converted_object.tempo);
 	calculated_tempo = parseInt($('.tempo_field').val());
 
-	$('.currently_loaded_sequence').text('currently loaded sequence: ' + converted_object.name);
+	$('.currently_loaded_sequence').text('recently loaded: ' + converted_object.name);
 
 	// reorder all pad piece id attributes
 	reorder_pad_pieces();

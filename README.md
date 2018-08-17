@@ -35,6 +35,8 @@ key | shortcut
 ---
 ## sequence controls
 
+![controls module](images/README/controls.png "controls module")
+
 
 -**play / pause sequence:**
 - this button allows you to control whether or not the sequence is running
@@ -138,6 +140,8 @@ key | shortcut
 
 ---
 ## tempo tool
+
+![tempo module](images/README/tempo.png "tempo module")
 
 
 -**to operate:**

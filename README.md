@@ -102,7 +102,7 @@ these options | switches random randomization options on / off | no
 ---
 ## shared sequences
 
-![shared sequences module thumbnail](https://raw.githubusercontent.com/aaronchapman/padseek/master/images/shared.png)
+![shared sequences module thumbnail](/images/shared.png?raw=true "shared sequences module thumbnail")
 
 -**share sequence:**
 - this button will prompt you to name your sequence before sharing its data with the community

@@ -58,7 +58,7 @@
 }
 
 .pad_manipulator:hover {
-	opacity: 0.5;
+	opacity: 0.5 !important;
 }
 
 .pad_piece {

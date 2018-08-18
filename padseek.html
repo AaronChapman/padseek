@@ -49,18 +49,18 @@
 	<p class="stat_repo">
 		<a class="github_button" href="https://github.com/AaronChapman/padseek" data-size="large" aria-label="Fork padseek on GitHub">Fork padseek on GitHub</a>
 	</p>
-	<h1>p a d s e e k</h1>
+	<h1 class="title box-shadowed">p a d s e e k</h1>
 	<div id="directory_header"></div>
 	<div class="main_content">
 		<div class="first_row">
-			<div class="sequence_controls">
+			<div class="controls">
 				<label class="label currently_loaded_sequence">recently loaded: clean & simple - stacking test</label>
 				<input class="play_sequence cursor_pointer box-shadowed-hover" type="button" value="play sequence">
 				<input class="clear_selections cursor_pointer box-shadowed-hover" type="button" value="clear selections" onclick="clear_selections()">
 				<p class="tempo_field_label">tempo (beats per minute)</p>
 				<input class="tempo_field cursor_pointer box-shadowed" type="text" value="120">
 			</div>
-			<div class="sequence_sharing box-shadowed">
+			<div class="sharing box-shadowed">
 				<div class="name_sequence_overlay overlay">
 					<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
 					<ul class="naming_sequence_overlay_buttons">
@@ -78,7 +78,7 @@
 				</div>
 				<button class="copy_sequence_JSON" data-clipboard-text=""></button>
 			</div>
-			<div class="tempo_tool box-shadowed">
+			<div class="tempo box-shadowed">
 				<div class="shortcuts_overlay overlay">
 					<table class="list_of_shortcuts">
 						<tr>
@@ -125,7 +125,7 @@
 					<div class="bpm_display" id="bpm_display">0 bpm</div>
 				</div>
 			</div>
-			<div class="randomization_module">
+			<div class="randomization">
 				<input class="randomize cursor_pointer shake-little box-shadowed-hover" type="button" value="randomize">
 				<ul class="randomization_checkboxes">
 					<li>
@@ -159,7 +159,7 @@
 					<input class="random_shared_sequence cursor_pointer box-shadowed-hover" type="button" value="random shared sequence">
 				</ul>
 			</div>
-			<div class="saved_sequences_module box-shadowed">
+			<div class="saved box-shadowed">
 				<div class="name_sequence_overlay overlay">
 					<input class="name_sequence cursor_pointer" type="text" placeholder=" your sequence name here"><br>
 					<ul class="naming_sequence_overlay_buttons">
@@ -178,7 +178,7 @@
 				<div class="saved_sequences"></div>
 			</div>
 		</div>
-		<div class="second_row">
+		<div class="second_row pads">
 			<ul class="labels">
 				<li class="labels_item" onclick="sample_sample(0)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">sound effect</label></li>
 				<li class="labels_item" onclick="sample_sample(1)"><input class="sample_sample cursor_pointer" type="button" value="▶"><label class="label">crash cymbal</label></li>

@@ -91,7 +91,7 @@
 	z-index: -1;
 }
 
-.sequence_sharing {
+.sharing {
 	position: relative;
 	min-width: 246px;
 	max-width: 246px;
@@ -108,7 +108,7 @@
 	overflow-y: scroll;
 }
 
-.sequence_sharing input {
+.sharing input {
 	border-radius: 5px;
   padding: 10px;
   width: -webkit-fill-available;

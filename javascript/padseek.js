@@ -16,14 +16,11 @@ $(document).ready(function () {
 
 ! critical ! */
 
-// make a list of samples that need to be removed
-
 // comb and perfect all animations
 
 // generate repetitive html content dynamically
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
-// maybe make shared sequences array dynamic on the indecies pulled so I can delete sequences from firebase (.each()?)
 
 // audio effects: equalization, pitch, swing, reverb
 
@@ -40,3 +37,8 @@ $(document).ready(function () {
 // alter check for same column pieces
 
 // update walkthrough to account for saved sequences module
+
+// fix h1 css & dup seq / rem all pads css
+
+// add more samples
+// make a list of samples that need to be removed

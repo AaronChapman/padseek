@@ -52,6 +52,8 @@ key | shortcut
 ---
 ## sample selection
 
+![sample selection module](images/README/samples.png "sample selection module")
+
 
 -**drum sample options:**
 - each row of this module houses a different set of drum samples for you to choose from
@@ -63,6 +65,8 @@ key | shortcut
 
 ---
 ## drum pads
+
+![drum pad module](images/README/pad.png "drum pad module")
 
 
 -**duplicate pad:**
@@ -83,6 +87,8 @@ key | shortcut
 
 ---
 ## randomization module
+
+![randomization module](images/README/randomization.png "randomization module")
 
 
 -**randomize:**
@@ -116,6 +122,8 @@ these options | switches random randomization options on / off | no
 
 ---
 ## saved sequences
+
+![saved sequences module](images/README/saved.png "saved sequences module")
 
 
 -**load sequences:**

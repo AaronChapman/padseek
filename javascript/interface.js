@@ -6,6 +6,15 @@
 /* DOM SETUP */
 /*-----------*/
 
+function load_containers() {
+	$('.controls').load('../padseek/markup/controls.html');
+	$('.shared').load('../padseek/markup/shared.html');
+	$('.tempo').load('../padseek/markup/tempo.html');
+	$('.randomization').load('../padseek/markup/randomization.html');
+	$('.saved').load('../padseek/markup/saved.html');
+	$('.pads').load('../padseek/markup/pads.html');
+}
+
 // generate drum pad pieces
 function generate_pad() {
 	// reference to drum pad container

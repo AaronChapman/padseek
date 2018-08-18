@@ -78,7 +78,7 @@
 	padding-bottom: 15px;
 }
 
-.saved_sequences_module {
+.saved {
 	position: relative;
 	min-width: 246px;
 	max-width: 246px;
@@ -96,13 +96,13 @@
 	background: white;
 }
 
-.saved_sequences_module input {
+.saved input {
 	border-radius: 5px;
 	padding: 10px;
 	width: -webkit-fill-available;
 }
 
-.saved_sequences_module .name_sequence_overlay {
+.saved .name_sequence_overlay {
 	height: 170px
 }
 

@@ -186,16 +186,16 @@ $(document).ready(function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// set sequence-naming overlay container properties
-			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence_overlay').css({
+			$(this).parents('.sharing:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
 				'z-index': '2'
 			});
 			
-			$('.sequence_sharing').css({
+			$('.sharing').css({
 				'overflow-y': 'hidden'
 			});
 			
-			$(this).parents('.sequence_sharing:eq(0)').find('.name_sequence').focusin();
+			$(this).parents('.sharing:eq(0)').find('.name_sequence').focusin();
 		} else {
 			application_message('cannot share an empty sequence');
 		}
@@ -222,7 +222,7 @@ $(document).ready(function () {
 				'z-index': '-1'
 			});
 			
-			$('.sequence_sharing').css({
+			$('.sharing').css({
 				'overflow-y': 'scroll'
 			});
 		} else {

@@ -69,7 +69,7 @@ function walkthrough_play_sequence() {
 		'animation': 'walkthrough_float 1s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls *:not(".play_sequence"), .sequence_sharing, .tempo_tool, .randomization_module, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls *:not(".play_sequence"), .sharing, .tempo, .randomization, .labels, .selects, .pad, .saved').css('opacity', '0.2');
 
 	// setting up the next stage in the walkthrough
 	current_stage = 'shared sequences';
@@ -86,10 +86,10 @@ function walkthrough_shared_sequences() {
 		'animation': 'walkthrough_float 1s ease-in-out infinite'
 	});
 
-	$('body').find('.sequence_sharing, .sequence_sharing .shared_sequences').css({
+	$('body').find('.sharing, .sharing .shared_sequences').css({
 		'opacity': '1.0'
 	});
-	$('body').find('h1, .github_button, .sequence_controls, .tempo_tool, .randomization_module, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, .tempo, .randomization, .labels, .selects, .pad').css('opacity', '0.2');
 
 	current_stage = 'sample selection';
 }
@@ -106,7 +106,7 @@ function walkthrough_sample_selection() {
 		'animation': 'walkthrough_samples 2s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .randomization_module, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, .sharing, .randomization, .pad').css('opacity', '0.2');
 
 	current_stage = 'tempo';
 }
@@ -116,17 +116,17 @@ function walkthrough_tempo() {
 	$('.walkthrough_text').text('set the tempo of the drum sequence via the tempo field or using keyboard commands (tempo is calculated as beats per minute)');
 
 	$('.labels, .selects').css('animation', 'unset');
-	$('.tempo_field, .tempo_tool').css({
+	$('.tempo_field, .tempo').css({
 		'animation': 'walkthrough_float 2s ease-in-out infinite'
 	});
 
-	$('.sequence_controls, .tempo_tool, .tempo_field').css({
+	$('.controls, .tempo, .tempo_field').css({
 		'opacity': '1.0'
 	});
-	$('body').find('.tempo_tool, .tempo_field').css({
+	$('body').find('.tempo, .tempo_field').css({
 		'opacity': '1.0'
 	});
-	$('body').find('h1, .github_button, .sequence_controls *:not(".tempo_field"), .sequence_sharing, .randomization_module, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls *:not(".tempo_field"), .sharing, .randomization, .labels, .selects, .pad').css('opacity', '0.2');
 
 	current_stage = 'pad pieces';
 }
@@ -135,7 +135,7 @@ function walkthrough_tempo() {
 function walkthrough_pad_pieces() {
 	$('.walkthrough_text').text('activate or deactivate pad pieces to edit your drum sequence. the rows correspond to each sample type and the columns fire on each beat');
 
-	$('.tempo_field, .tempo_tool').css('animation', 'unset');
+	$('.tempo_field, .tempo').css('animation', 'unset');
 	$('.pad, .pad *').css({
 		'opacity': '1.0'
 	});
@@ -144,7 +144,7 @@ function walkthrough_pad_pieces() {
 		'animation': 'walkthrough_pad_pieces 2s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, .sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo, .randomization, .labels, .selects').css('opacity', '0.2');
 
 	current_stage = 'pad manipulation';
 }
@@ -158,7 +158,7 @@ function walkthrough_pad_manipulation() {
 		'opacity': '1.0'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_sequence, .remove_all_pads, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, .sharing, .duplicate_sequence, .remove_all_pads, .tempo, .randomization, .labels, .selects').css('opacity', '0.2');
 
 	current_stage = 'sequence manipulation';
 }
@@ -175,7 +175,7 @@ function walkthrough_sequence_manipulation() {
 		'animation': 'walkthrough_float 2s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls, .sequence_sharing, .duplicate_pad, .remove_pad, .tempo_tool, .randomization_module, .labels, .selects').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, .sharing, .duplicate_pad, .remove_pad, .tempo, .randomization, .labels, .selects').css('opacity', '0.2');
 
 	current_stage = 'clearing selections';
 }
@@ -185,14 +185,14 @@ function walkthrough_clearing_selections() {
 	$('.walkthrough_text').text('to deactivate all of the active pad pieces in your sequence, use this button');
 
 	$('.duplicate_sequence, .remove_all_pads').css('animation', 'unset');
-	$('.sequence_controls, .clear_selections').css({
+	$('.controls, .clear_selections').css({
 		'opacity': '1.0'
 	});
 	$('.clear_selections').css({
 		'animation': 'walkthrough_pad_pieces 2s ease-in-out infinite, walkthrough_float 2s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls *:not(".clear_selections"), .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .randomization_module, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls *:not(".clear_selections"), .sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo, .randomization, .labels, .selects, .pad').css('opacity', '0.2');
 
 	current_stage = 'randomization';
 }
@@ -202,14 +202,14 @@ function walkthrough_randomization() {
 	$('.walkthrough_text').text('you can randomize your sequence using this module. there are plenty of options to choose from');
 
 	$('.clear_selections').css('animation', 'unset');
-	$('.randomization_module').css({
+	$('.randomization').css({
 		'opacity': '1.0'
 	});
-	$('.randomization_module').css({
+	$('.randomization').css({
 		'animation': 'walkthrough_float_shadowless 2s ease-in-out infinite'
 	});
 
-	$('body').find('h1, .github_button, .sequence_controls, sequence_controls .sequence_sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo_tool, .labels, .selects, .pad').css('opacity', '0.2');
+	$('body').find('h1, .github_button, .controls, controls .sharing, .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .tempo, .labels, .selects, .pad').css('opacity', '0.2');
 
 	current_stage = 'finished walkthrough';
 }
@@ -218,7 +218,7 @@ function walkthrough_randomization() {
 function walkthrough_finished() {
 	$('.walkthrough_text').text('and that\'s basically it! I think you can take it from here');
 
-	$('.randomization_module').css({
+	$('.randomization').css({
 		'animation': 'unset',
 		'opacity': '0.2'
 	});
@@ -234,12 +234,12 @@ function close_walkthrough_options() {
 		'z-index': '-1'
 	});
 
-	$('.clear_selections, .randomization_module, .duplicate_sequence, .remove_all_pads, .clear_selections, .tempo_field, .tempo_tool, .shared_sequence, .labels, .selects, .remove_pad, .duplicate_pad, .pad_piece').css('animation', 'unset');
+	$('.clear_selections, .randomization, .duplicate_sequence, .remove_all_pads, .clear_selections, .tempo_field, .tempo, .shared_sequence, .labels, .selects, .remove_pad, .duplicate_pad, .pad_piece').css('animation', 'unset');
 
 	set_sequence_from_JSON('{"active_pieces":["2-1","6-1","1-2","2-4","3-5","4-5","6-5","7-5","5-7","1-8","8-8","14-1","16-1","13-7","18-1","22-1","17-2","18-4","19-5","20-5","22-5","23-5","21-7","17-8","24-8","30-1","32-1","31-4","26-5","29-7","31-7","27-8"],"name":"clean & simple - stacking test","sample_paths":["wooden-chair.mp3","time-cymbal.mp3","tribal-ride.mp3","meaty-hi-hat.mp3","firm-hi-hat.mp3","lofi-crunk-snare.mp3","well-rounded-snare.mp3","disruptive-kick.mp3"],"tempo":"198"}');
 
 	setTimeout(function () {
-		$('body').find('h1, .github_button, .sequence_controls, .sequence_controls *, .sequence_sharing, .sequence_sharing *:not(".name_sequence_overlay"), .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .randomization_module, .tempo_tool, .labels, .selects, .pad, .currently_loaded_sequence').css('opacity', '1.0');
+		$('body').find('h1, .github_button, .controls, .controls *, .saved, .sharing, .sharing *:not(".name_sequence_overlay"), .duplicate_sequence, .remove_all_pads, .remove_pad, .duplicate_pad, .randomization, .tempo, .labels, .selects, .pad, .currently_loaded_sequence').css('opacity', '1.0');
 	});
 
 	// aesthetic

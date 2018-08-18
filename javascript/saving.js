@@ -33,7 +33,7 @@ function load_user_sequences(user) {
 // saves the current sequence for the username supplied
 function save_current_sequence() {
 	// provided the sequence name field was filled out
-	if ($('.saved_sequences_module .name_sequence').val().length > 0) {
+	if ($('.saved .name_sequence').val().length > 0) {
 		// update local saved sequences array with matching user data from database
 		database.ref('users/' + $('.load_user_sequences_input').val()).on("value", function (snapshot) {
 			saved_sequences = snapshot.val();
@@ -119,17 +119,17 @@ $(document).ready(function () {
 			// and if the username field has valid input
 			if ($('.load_user_sequences_input').val().length > 1) {
 				// set overlay and container properties
-				$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
+				$(this).parents('.saved:eq(0)').find('.name_sequence_overlay').css({
 					'opacity': '1',
 					'z-index': '2'
 				});
 
-				$('.saved_sequences_module').css({
+				$('.saved').css({
 					'overflow-y': 'hidden'
 				});
 
 				// focus the sequence naming field
-				$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence').focusin();
+				$(this).parents('.saved:eq(0)').find('.name_sequence').focusin();
 			} else {
 				// tell them when they haven't specified a user to save the sequence under
 				application_message('please enter a user to save your sequence for');
@@ -142,7 +142,7 @@ $(document).ready(function () {
 
 	// when the button to confirm sharing the newly named sequence is clicked
 	$('.name_and_save_sequence').click(function () {
-		var field_reference = $(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence');
+		var field_reference = $(this).parents('.saved:eq(0)').find('.name_sequence');
 
 		// if the name is valid
 		if ((field_reference.val()) &&
@@ -155,12 +155,12 @@ $(document).ready(function () {
 			save_current_sequence();
 
 			// set sequence-naming overlay container properties
-			$(this).parents('.saved_sequences_module:eq(0)').find('.name_sequence_overlay').css({
+			$(this).parents('.saved:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '0',
 				'z-index': '-2'
 			});
 
-			$('.saved_sequences_module').css({
+			$('.saved').css({
 				'overflow-y': 'scroll'
 			});
 		} else {

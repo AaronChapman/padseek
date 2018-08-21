@@ -49,9 +49,20 @@ function generate_select_options() {
 		// get a parsed reference to the select element that has a class matching the current directory item
 		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]:empty');
 
+		// create temporary array of specified select's samples
+		var samples = sample_directories[i].sound_paths;
+		
+		// and sort that array alphabetically
+		samples = samples.sort(function (a, b) {
+			if (a < b) return -1;
+			else if (a > b) return 1;
+			
+			return 0;
+		});
+
 		// for each sound_paths property in the sample_directories array
-		for (var j = 0; j < sample_directories[i].sound_paths.length; j++) {
-			var temp_option = sample_directories[i].sound_paths[j];
+		for (var j = 0; j < samples.length; j++) {
+			var temp_option = samples[j];
 			var parsed_temp_option = temp_option.substring(0, temp_option.length - 4).replace(/-/g, ' ');
 
 			// append an option element with appropriate attributes
@@ -246,15 +257,15 @@ $(document).ready(function () {
 		});
 
 		var stasis = $(this);
-		
+
 		setTimeout(function () {
 			stasis.parents('.overlay:eq(0)').css({
 				'z-index': '-2'
 			});
 		}, 250);
-			
+
 		$(this).parents('.overlay:eq(0)').parent().css({
-				'overflow': 'scroll'
-			});
+			'overflow': 'scroll'
+		});
 	});
 });

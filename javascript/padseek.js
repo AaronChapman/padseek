@@ -36,9 +36,8 @@ $(document).ready(function () {
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
 
-// update walkthrough to account for saved sequences module
-
-// fix h1 css & dup seq / rem all pads css
-
-// add more samples
 // make a list of samples that need to be removed
+
+// take better screenshots for readme
+
+// add sample type selection for each row 

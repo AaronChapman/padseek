@@ -113,12 +113,7 @@ $(document).ready(function () {
 	// when a sample selection is made
 	$('.selects').on('change', '.select', function (event) {
 		// clear the currently selected options array
-		selected_options = [];
-
-		// and refill the array with the new selected option values
-		for (var i = 0; i < $('body').find('.selects .select').length; i++) {
-			selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
-		}
+		get_selected_options();
 
 		// refresh data
 		reorder_pad_pieces();
@@ -199,14 +194,14 @@ function reorder_pad_pieces() {
 			// grab the row index of the peice
 			var sound_index = active_piece_id.split('-')[1];
 			// and use it to grab the appropriate sample selection element
-			var selected_select = $('.select').eq(sound_index - 1);
+			var selected_select = $('.selects .select').eq(sound_index - 1);
 			// use the first class of the referenced select element to continue building sample path
 			var selected_select_class = selected_select.attr('class').split(" ")[0];
 			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
 
 			// use the currently selected option from that select element for the same reason
-			sound_paths[piece_count] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
-
+			sound_paths[piece_count] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').val();
+			
 			// set the index of the sequence sample paths array to the newly formed sample path
 			sequence_sample_paths[i] = sound_paths;
 

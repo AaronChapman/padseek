@@ -18,11 +18,12 @@ $(document).ready(function () {
 
 // comb and perfect all animations
 
+// make a list of samples that need to be removed
 // generate repetitive html content dynamically
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
-// audio effects: equalization, pitch, swing, reverb
+// audio effects: pitch, swing, reverb
 
 // cut down on string parsing by saving coordinates as objects
 // each piece could have an x-coordinate datattribute and a y-coordinate datattribute
@@ -36,8 +37,6 @@ $(document).ready(function () {
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
 
-// make a list of samples that need to be removed
-
 // take better screenshots for readme
 
 // add sample type selection for each row 
@@ -50,3 +49,18 @@ $(document).ready(function () {
 // determine type of selects that need to get loaded based on sample paths in json objects
 // might be a hang up for hi hats (different problem)
 // make sure select change method is modular so I can reuse it for loading sequences
+
+
+// equalization module
+// low cut and high cut options for each row
+// look into a double-sided slider (20hz - 20,000hz)
+// and a single slider for volume
+// look for knob css sliders
+
+
+
+
+
+// altered sample paths not pushing to firebase
+// all selects update when a change is made to one, causing misselected options
+

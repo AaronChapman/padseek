@@ -39,26 +39,45 @@ function generate_pad() {
 	}
 
 	// set up drum sample options
+	generate_labels();
 	generate_select_options();
+}
+
+function generate_labels() {
+	var label_items = ['sound effect', 'crash cymbal', 'ride cymbal', 'open hi-hat', 'closed hi-hat', 'snare one', 'snare two', 'kick drum'];
+
+	for (var i = 0; i < label_items.length; i++) {
+		var item = '<li class="labels_item"><input class="change_sample_type cursor_pointer" type="button" value="⏣"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(' + i + ')"><label class="label">' + label_items[i] + '</label></li>';
+
+		$('.labels').append(item);
+	}
 }
 
 // generate options for the drum sample selects
 function generate_select_options() {
+	fill_select_options();
+	setup_default_interface();
+	set_audio_elements();
+}
+
+function fill_select_options() {
+	$('.selects .select option').remove();
+
 	// for each sample directory item
 	for (var i = 0; i < sample_directories.length; i++) {
 		// get a parsed reference to the select element that has a class matching the current directory item
-		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]:empty');
+		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]');
 
 		// create temporary array of specified select's samples
 		var samples = sample_directories[i].sound_paths;
-		
-		// and sort that array alphabetically
+
+		/*/ and sort that array alphabetically
 		samples = samples.sort(function (a, b) {
 			if (a < b) return -1;
 			else if (a > b) return 1;
-			
+
 			return 0;
-		});
+		});*/
 
 		// for each sound_paths property in the sample_directories array
 		for (var j = 0; j < samples.length; j++) {
@@ -70,9 +89,30 @@ function generate_select_options() {
 		}
 	}
 
-	// update data
-	setup_default_interface();
-	set_audio_elements();
+	set_selected_options();
+
+	set_sample_labels();
+}
+
+function set_sample_labels() {
+	$('.labels .labels_item').each(function () {
+		var new_label_class = $('.selects .selects_item').eq($(this).index()).find('.select').attr('class').split(' ')[0];
+		var new_label = new_label_class.substring(0, new_label_class.length - 7).replace(/_/g, ' ');
+
+		$(this).find('label').text(new_label);
+	});
+}
+
+function get_selected_options() {
+	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
+		selected_options[i] = $('.selects .select').eq(i).find(':selected').val();
+	}
+}
+
+function set_selected_options() {
+	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
+		$('.selects .select').eq(i).find('option[value="' + selected_options[i] + '"]').prop('selected', true);
+	}
 }
 
 // sets up default interface elements and some data points
@@ -82,9 +122,7 @@ function setup_default_interface() {
 	$('.randomization_checkbox').attr('data-activated', 'true');
 
 	// for each sample select element, push their currently selected option's parsed text into the selected_options array
-	for (var i = 0; i < $('body').find('.selects .select').length; i++) {
-		selected_options.push($('body').find('.selects .select').eq(i).find('option:selected').text().replace(/ /g, '-') + '.mp3');
-	}
+	get_selected_options();
 
 	$('.randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1)').css('width', '-webkit-fill-available');
 	$('.randomization_checkboxes li:last').css('padding-right', '166px');
@@ -264,8 +302,14 @@ $(document).ready(function () {
 			});
 		}, 250);
 
-		$(this).parents('.overlay:eq(0)').parent().css({
-			'overflow': 'scroll'
-		});
+		if ($(this).parents('.overlay:eq(0)').hasClass('sample_swap_overlay')) {
+			$(this).parents('.overlay:eq(0)').parent().css({
+				'overflow': 'visible'
+			});
+		} else {
+			$(this).parents('.overlay:eq(0)').parent().css({
+				'overflow': 'scroll'
+			});
+		}
 	});
 });

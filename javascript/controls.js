@@ -45,7 +45,7 @@ $(document).ready(function () {
 			calculate(parseInt($('.tempo_field').val()));
 
 			// initializes sequence
-			play_sequence('.pad:eq(0)');
+			play_sequence($('.pad').eq(0));
 
 			// update interface
 			$('.play_sequence').val('pause sequence');
@@ -233,11 +233,11 @@ function play_selected_sample(sample, set_size) {
 // play sequence
 function play_sequence(pad_reference) {
 	// find each active piece in the current sequence column
-	$(pad_reference).find('.pad_piece[id^="' + current_column_in_sequence + '"]').each(function () {
+	pad_reference.find('.pad_piece[id^="' + current_column_in_sequence + '"]').each(function () {
 		if ($(this).attr('data-state') === "active") {
 			for (var i = 0; i < sequence_sample_paths[current_column_in_sequence - 1].length; i++) {
 				var sample = sequence_sample_paths[current_column_in_sequence - 1][i];
-
+				
 				// play the samples at the specified index of the sequence_sample_paths array of arrays Lol
 				play_selected_sample(sample, sequence_sample_paths[current_column_in_sequence - 1].length);
 			}
@@ -281,14 +281,11 @@ function play_sequence(pad_reference) {
 	// at the end of every pad
 	if (current_column_in_sequence % 8 == 0) {
 		// if the current pad is not the last pad
-		if ($(pad_reference).index() != $('.pad:last').index()) {
-			// set the current pad to be the next pad
-			var new_pad_index = $(pad_reference).next('.pad').index() - 2;
-
-			pad_reference = '.pad:eq(' + new_pad_index + ')';
+		if (!pad_reference.is(':last-of-type')) {
+			pad_reference = pad_reference.next('.pad');
 		} else {
 			// set the first pad as the current pad
-			pad_reference = '.pad:eq(0)';
+			pad_reference = $('.pad').eq(0);
 
 			current_column_in_sequence = 0;
 		}
@@ -301,8 +298,8 @@ function play_sequence(pad_reference) {
 	setTimeout(function () {
 		if (sequence_running) {
 			// if the current pad is the last pad, set the first pad as the current pad
-			if ($(pad_reference).index() == $('.pad:last').index() + 2) {
-				play_sequence('.pad:eq(0)');
+			if (pad_reference == $('.pad:last')) {
+				play_sequence($('.pad').eq(0));
 			} else {
 				// if the current pad is not the last pad, do nothing
 				play_sequence(pad_reference);

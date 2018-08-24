@@ -24,7 +24,7 @@ function set_audio_elements() {
 	} else {
 		// for each sample type
 		for (var i = 0; i < selected_options.length; i++) {
-			// replace src attributes of any audio element in sequence that doesn't match the current selected option index
+			// replace src attributes of any audio element in sequence that don't match the current selected option index
 			if ($('.sample_element').eq(i).attr('src').indexOf(selected_options[i]) == -1) {
 				$('.sample_element').eq(i).before('<audio class="sample_element" src="samples/' + sample_directories[i].directory + '/' + selected_options[i] + '" preload="auto"></audio>');
 

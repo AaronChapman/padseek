@@ -60,7 +60,7 @@ $(document).ready(function () {
 			// for each select element
 			for (var i = 0; i < $('body').find('.selects .selects_item .select').length; i++) {
 				// select a random option
-				var temporary_select = $('.select:eq(' + i + ')');
+				var temporary_select = $('.selects .select:eq(' + i + ')');
 				var options = temporary_select.find('option');
 
 				options.eq(~~(Math.random() * options.length)).prop('selected', true);
@@ -82,8 +82,6 @@ $(document).ready(function () {
 				// get a reference to the x value from the id of the first & last pad pieces
 				var first_x_value = parseInt($(this).find('.pad_piece:first').attr('id').substring(0, $(this).find('.pad_piece:last').attr('id').indexOf('-')));
 				var last_x_value = parseInt($(this).find('.pad_piece:last').attr('id').substring(0, $(this).find('.pad_piece:last').attr('id').indexOf('-')));
-				
-				//// FIX THIS SHIT AINT COUNTING X VALUES RIGHT
 
 				// click up to 20 random pieces
 				for (var clicked_pieces = 0; clicked_pieces < 20; clicked_pieces++) {
@@ -91,6 +89,7 @@ $(document).ready(function () {
 					var y_portion = Math.floor(Math.random() * 8) + 1;
 					var piece_id = $('#' + x_portion + '-' + y_portion);
 					
+					// determine number of active piece in the same column before clicking
 					var same_column_check = $(this).find('.pad_piece[id^="' + piece_id.attr('id').substring(0, piece_id.attr('id').indexOf('-')) + '"][data-state="active"]').length;
 					
 					if (same_column_check < 4) {
@@ -113,6 +112,8 @@ $(document).ready(function () {
 			// calculate tempo
 			calculate(parseInt($('.tempo_field').val()));
 		}
+		
+		reorder_pad_pieces();
 	});
 
 	// when a checkbox inside the randomization module is clicked

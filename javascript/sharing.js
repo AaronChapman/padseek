@@ -44,14 +44,14 @@ function convert_sequence_to_JSON() {
 	});
 
 	$('.name_sequence').val('');
-	
+
 	var new_JSON_object = {
 		name,
 		tempo,
 		sample_paths,
 		active_pieces
 	};
-	
+
 	return new_JSON_object;
 }
 
@@ -110,8 +110,9 @@ function set_sequence_from_JSON(new_JSON_object) {
 	// use that to determine the number of pads in the sequence
 	var number_of_pads_to_generate = (parseInt(last_piece_parsed) - 1) / 8;
 	var number_of_pads_parsed = Math.floor(number_of_pads_to_generate);
-	
+
 	current_sequence_name = converted_object.name;
+	selected_options = converted_object.sample_paths;
 
 	// remove all pads but the first
 	$('.pad:not(:first)').remove();
@@ -130,6 +131,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 			'background': 'white',
 			'border-radius': '8px'
 		});
+		
 		$('#' + converted_object.active_pieces[i]).attr('data-state', 'active');
 	}
 
@@ -139,15 +141,46 @@ function set_sequence_from_JSON(new_JSON_object) {
 		'border-radius': '2px',
 		'box-shadow': 'none'
 	});
-
+	
 	// set the selected sample options from the sample paths array in the sequence data JSON object being loaded
 	for (var i = 0; i < converted_object.sample_paths.length; i++) {
-		$('.selects .select').eq(i).find('option[value="' + converted_object.sample_paths[i] + '"]').prop('selected', true);
+
+
+		if (sound_effects.includes(selected_options[i])) {
+				sample_directories[i].directory = 'sound-effects';
+				sample_directories[i].sound_paths = sound_effects;
+			} else if (crash_cymbals.includes(selected_options[i])) {
+				sample_directories[i].directory = 'crash-cymbals';
+				sample_directories[i].sound_paths = crash_cymbals;
+			} else if (ride_cymbals.includes(selected_options[i])) {
+				sample_directories[i].directory = 'ride-cymbals';
+				sample_directories[i].sound_paths = ride_cymbals;
+			} else if (open_hi_hats.includes(selected_options[i])) {
+				sample_directories[i].directory = 'open-hi-hats';
+				sample_directories[i].sound_paths = open_hi_hats;
+			} else if (closed_hi_hats.includes(selected_options[i])) {
+				sample_directories[i].directory = 'closed-hi-hats';
+				sample_directories[i].sound_paths = closed_hi_hats;
+			} else if (snares.includes(selected_options[i])) {
+				sample_directories[i].directory = 'snares';
+				sample_directories[i].sound_paths = snares;
+			} else if (kick_drums.includes(selected_options[i])) {
+				sample_directories[i].directory = 'kick-drums';
+				sample_directories[i].sound_paths = kick_drums;
+			} else {
+				application_message('stop trying to break my shit');
+			}
+			
+			var select_to_change = $('.selects .select').eq(i);
+		
+			select_to_change.attr('class', sample_directories[i].directory.replace(/-/g, '_') + '_select' + ' select cursor_pointer');
 	}
 
 	// set the selected options array equal to the sample paths received from the JSON object
 	selected_options = converted_object.sample_paths;
 
+	fill_select_options();
+	
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
 	calculated_tempo = parseInt($('.tempo_field').val());
@@ -161,11 +194,13 @@ function set_sequence_from_JSON(new_JSON_object) {
 
 function copy_sequence_JSON() {
 	var sequence_JSON_data = JSON.stringify(convert_sequence_to_JSON());
-	
+
 	new ClipboardJS('.copy_sequence_JSON');
-	
+
 	$('.copy_sequence_JSON').attr('data-clipboard-text', sequence_JSON_data);
-	setTimeout(function() { $('.copy_sequence_JSON').click(); }, 100);
+	setTimeout(function () {
+		$('.copy_sequence_JSON').click();
+	}, 100);
 }
 
 
@@ -190,11 +225,11 @@ $(document).ready(function () {
 				'opacity': '1',
 				'z-index': '2'
 			});
-			
+
 			$('.sharing').css({
 				'overflow-y': 'hidden'
 			});
-			
+
 			$(this).parents('.sharing:eq(0)').find('.name_sequence').focusin();
 		} else {
 			application_message('cannot share an empty sequence');
@@ -209,7 +244,7 @@ $(document).ready(function () {
 			($('.name_sequence').val().indexOf('"') == -1) &&
 			($('.name_sequence').val().indexOf("`") == -1)) {
 			current_sequence_name = $('.name_sequence').val();
-			
+
 			// fire sequence sharing flow
 			share_sequence_data();
 
@@ -221,7 +256,7 @@ $(document).ready(function () {
 				'opacity': '0',
 				'z-index': '-1'
 			});
-			
+
 			$('.sharing').css({
 				'overflow-y': 'scroll'
 			});

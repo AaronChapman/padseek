@@ -1,15 +1,29 @@
 /* p a d s e e k */
+
 /* sample selection module css */
 
-.label {
-	
+.change_sample_type {
+	transition: all 0.25s ease-in-out;
+	background: none;
+	border: none;
+	opacity: 0.5;
+	position: absolute;
+	margin-left: -40px;
+	margin-top: 5.5px;
 }
+
+.change_sample_type:hover {
+	opacity: 1.0;
+}
+
+.label {}
 
 .labels .label {
 	opacity: 0.5;
 }
 
-.labels, .selects {
+.labels,
+.selects {
 	list-style-type: none;
 	line-height: 35px;
 	height: 294px;
@@ -22,22 +36,53 @@
 
 .labels {
 	width: -webkit-fill-available;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 7.5px;
 	border-radius: 5px 0 0 5px;
 	margin: 0;
 	border-right: none;
+	overflow: visible;
+	min-width: 155px;
+	max-width: 155px;
 }
 
-.labels li, .selects li {
+.labels li,
+.selects li {
 	border-bottom: 0.5px dashed rgba(00, 00, 00, 0.5);
 }
 
-.labels li:last-child, .selects li:last-child {
+.labels li:last-child,
+.selects li:last-child {
 	border-bottom: none;
 }
 
 .labels_item {
 	padding: 0 40px 0 0;
+	overflow: visible;
+}
+
+.samples {
+	display: inline-flex;
+}
+
+.sample_sample {
+	transition: all 0.25s ease-in-out;
+	background: none;
+	border: none;
+	opacity: 0.3;
+	padding: 10px 15px 0 10px;
+}
+
+.sample_sample:hover {
+	opacity: 0.6;
+}
+
+.sample_swap_overlay {
+	text-align: center;
+	padding: 25px;
+	max-width: 267px;
+	max-height: 244px;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	border-radius: 5px;
 }
 
 .select {
@@ -49,7 +94,40 @@
 .selects {
 	padding: 0 2.5px;
 	margin: 0 -2.5px;
-	padding: 0 10px 0 0;
+	padding: 0 7.5px 0 0;
 	border-radius: 0 5px 5px 0;
 	border-left: none;
+	min-width: 150px;
+	max-width: 150px;
+}
+
+.sample_swap_label {
+	font-family: 'Shrikhand', cursive;
+	color: rgb(205, 130, 130);
+	font-size: 2em;
+	text-shadow: 0.5px 0.5px 0.5px rgba(00, 00, 00, 0.25);
+	margin-top: 25px;
+}
+
+.sample_swap_select {
+	width: 150px;
+	margin: 25px 0;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+	zoom: 1.5;
+}
+
+.swap_sample_type {
+	width: 85% !important;
+	border-radius: 5px;
+	background: aliceblue;
+	font-family: 'Shrikhand', cursive;
+	color: #738290;
+	font-size: 1.5em;
+	height: 50px;
+	zoom: 0.75;
+	margin-top: 25px;
+}
+
+.swap_sample_type:hover {
+	background: white;
 }

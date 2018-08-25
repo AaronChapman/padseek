@@ -63,7 +63,7 @@ key | shortcut
 - clicking on the '▶' icon will play the currently selected option for that sample type
 
 -**sample swapper:**
-- clicking on the '⏣' icon will allow you to swamp that row's sample type with a new one
+- clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
 
 ![sample swapper](images/README/swapper.png "sample swapper")
 

@@ -1,5 +1,4 @@
 /* p a d s e e k */
-
 /* sample selection module css */
 
 .change_sample_type {
@@ -76,15 +75,6 @@
 	opacity: 0.6;
 }
 
-.sample_swap_overlay {
-	text-align: center;
-	padding: 25px;
-	max-width: 267px;
-	max-height: 244px;
-	border: 0.5px dashed rgba(00, 00, 00, 0.5);
-	border-radius: 5px;
-}
-
 .select {
 	width: 150px;
 	border: none;
@@ -99,35 +89,4 @@
 	border-left: none;
 	min-width: 150px;
 	max-width: 150px;
-}
-
-.sample_swap_label {
-	font-family: 'Shrikhand', cursive;
-	color: rgb(205, 130, 130);
-	font-size: 2em;
-	text-shadow: 0.5px 0.5px 0.5px rgba(00, 00, 00, 0.25);
-	margin-top: 25px;
-}
-
-.sample_swap_select {
-	width: 150px;
-	margin: 25px 0;
-	border: 0.5px dashed rgba(00, 00, 00, 0.5);
-	zoom: 1.5;
-}
-
-.swap_sample_type {
-	width: 85% !important;
-	border-radius: 5px;
-	background: aliceblue;
-	font-family: 'Shrikhand', cursive;
-	color: #738290;
-	font-size: 1.5em;
-	height: 50px;
-	zoom: 0.75;
-	margin-top: 25px;
-}
-
-.swap_sample_type:hover {
-	background: white;
 }

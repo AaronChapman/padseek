@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="css/padseek-dark.css">
 	<link rel="stylesheet" href="css/walkthrough.css">
 	<link rel="stylesheet" href="css/animations.css">
+	<link rel="stylesheet" href="css/overlays.css">
 	<link rel="stylesheet" href="css/controls.css">
 	<link rel="stylesheet" href="css/samples.css">
 	<link rel="stylesheet" href="css/padseek.css">
@@ -50,6 +51,8 @@
 	<script src="javascript/saving.js"></script>
 	<script src="javascript/tempo.js"></script>
 	<script src="javascript/audio.js"></script>
+	
+	<!--<script src="javascript/padseek.min.js"></script>-->
 </head>
 
 <body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
@@ -228,7 +231,7 @@
 					<input class="advance_walkthrough cursor_pointer box-shadowed-hover" type="button" value="start walkthrough" onclick="fire()">
 				</li>
 				<li class="walkthrough_option">
-					<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="close" onclick="close_walkthrough_options()">
+					<input class="close_walkthrough_window cursor_pointer box-shadowed-hover" type="button" value="never mind" onclick="close_walkthrough_options()">
 				</li>
 			</ul>
 		</div>
@@ -239,4 +242,4 @@
 
 </html>
 
-<!-- quite the explorer, aren't you? -- oylo.info 2018 -->
+<!-- quite the explorer, aren't you? -->

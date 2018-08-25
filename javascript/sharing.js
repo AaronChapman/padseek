@@ -45,14 +45,9 @@ function convert_sequence_to_JSON() {
 
 	$('.name_sequence').val('');
 
-	var new_JSON_object = {
-		name,
-		tempo,
-		sample_paths,
-		active_pieces
-	};
+	/*var new_JSON_object = {name, tempo, sample_paths, active_pieces};
 
-	return new_JSON_object;
+	return new_JSON_object;*/
 }
 
 // update database on data mutation
@@ -88,7 +83,7 @@ function update_shared_sequences_container(new_JSON_object) {
 		var converted_object = JSON.stringify(shared_sequences[i]);
 
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.shared_sequences').append(`<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='` + converted_object + `' value='` + shared_sequences[i].name + `'>`);
+		$('.shared_sequences').append('<input class="shared_sequence cursor_pointer box-shadowed-hover" type="button" data-json="' + converted_object + '" value="' + shared_sequences[i].name + '">');
 	}
 }
 
@@ -131,56 +126,57 @@ function set_sequence_from_JSON(new_JSON_object) {
 			'background': 'white',
 			'border-radius': '8px'
 		});
-		
+
 		$('#' + converted_object.active_pieces[i]).attr('data-state', 'active');
 	}
 
+	// and the inactive piece elements
 	$('.pad_piece[data-state="inactive"]').css({
 		'opacity': '1.0',
 		'background': 'aliceblue',
 		'border-radius': '2px',
 		'box-shadow': 'none'
 	});
-	
+
 	// set the selected sample options from the sample paths array in the sequence data JSON object being loaded
 	for (var i = 0; i < converted_object.sample_paths.length; i++) {
-
-
+		// by checking if each type of sample array includes the value given
 		if (sound_effects.includes(selected_options[i])) {
-				sample_directories[i].directory = 'sound-effects';
-				sample_directories[i].sound_paths = sound_effects;
-			} else if (crash_cymbals.includes(selected_options[i])) {
-				sample_directories[i].directory = 'crash-cymbals';
-				sample_directories[i].sound_paths = crash_cymbals;
-			} else if (ride_cymbals.includes(selected_options[i])) {
-				sample_directories[i].directory = 'ride-cymbals';
-				sample_directories[i].sound_paths = ride_cymbals;
-			} else if (open_hi_hats.includes(selected_options[i])) {
-				sample_directories[i].directory = 'open-hi-hats';
-				sample_directories[i].sound_paths = open_hi_hats;
-			} else if (closed_hi_hats.includes(selected_options[i])) {
-				sample_directories[i].directory = 'closed-hi-hats';
-				sample_directories[i].sound_paths = closed_hi_hats;
-			} else if (snares.includes(selected_options[i])) {
-				sample_directories[i].directory = 'snares';
-				sample_directories[i].sound_paths = snares;
-			} else if (kick_drums.includes(selected_options[i])) {
-				sample_directories[i].directory = 'kick-drums';
-				sample_directories[i].sound_paths = kick_drums;
-			} else {
-				application_message('stop trying to break my shit');
-			}
-			
-			var select_to_change = $('.selects .select').eq(i);
-		
-			select_to_change.attr('class', sample_directories[i].directory.replace(/-/g, '_') + '_select' + ' select cursor_pointer');
+			sample_directories[i].directory = 'sound-effects';
+			sample_directories[i].sound_paths = sound_effects;
+		} else if (crash_cymbals.includes(selected_options[i])) {
+			sample_directories[i].directory = 'crash-cymbals';
+			sample_directories[i].sound_paths = crash_cymbals;
+		} else if (ride_cymbals.includes(selected_options[i])) {
+			sample_directories[i].directory = 'ride-cymbals';
+			sample_directories[i].sound_paths = ride_cymbals;
+		} else if (open_hi_hats.includes(selected_options[i])) {
+			sample_directories[i].directory = 'open-hi-hats';
+			sample_directories[i].sound_paths = open_hi_hats;
+		} else if (closed_hi_hats.includes(selected_options[i])) {
+			sample_directories[i].directory = 'closed-hi-hats';
+			sample_directories[i].sound_paths = closed_hi_hats;
+		} else if (snares.includes(selected_options[i])) {
+			sample_directories[i].directory = 'snares';
+			sample_directories[i].sound_paths = snares;
+		} else if (kick_drums.includes(selected_options[i])) {
+			sample_directories[i].directory = 'kick-drums';
+			sample_directories[i].sound_paths = kick_drums;
+		} else {
+			application_message('stop trying to break my shit');
+		}
+
+		// get a reference to the matching sample type select and set its new class attribute
+		var select_to_change = $('.selects .select').eq(i);
+
+		select_to_change.attr('class', sample_directories[i].directory.replace(/-/g, '_') + '_select' + ' select cursor_pointer');
 	}
 
 	// set the selected options array equal to the sample paths received from the JSON object
 	selected_options = converted_object.sample_paths;
 
 	fill_select_options();
-	
+
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
 	calculated_tempo = parseInt($('.tempo_field').val());
@@ -251,11 +247,18 @@ $(document).ready(function () {
 			// reactivate keyboard event listeners
 			set_shortcuts();
 
+			var stasis = $(this).parents('.overlay').parent().find('.name_sequence_overlay');
+
 			// set sequence-naming overlay container properties
-			$('.name_sequence_overlay').css({
-				'opacity': '0',
-				'z-index': '-1'
+			stasis.css({
+				'opacity': '0'
 			});
+
+			setTimeout(function () {
+				stasis.css({
+					'z-index': '-1'
+				});
+			}, 250);
 
 			$('.sharing').css({
 				'overflow-y': 'scroll'

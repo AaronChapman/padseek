@@ -101,8 +101,9 @@ $(document).ready(function () {
 
 		// if the user has chosen to generate a random tempo
 		if ($('.random_tempo').attr('data-activated') == 'true') {
-			var suggested_tempos = [72, 74, 76, 78, 80, 82, 86, 87, 88, 89, 90, 92, 96, 98, 100, 105, 110, 112, 115, 116, 118, 120, 125, 128, 130, 132, 134, 136, 138, 140, 142, 145, 146, 148];
+			var suggested_tempos = [72, 74, 76, 78, 80, 82, 86, 87, 88, 89, 90, 92, 96, 98, 100, 105, 110, 112, 115, 116, 118, 120, 125, 128, 130, 132, 134, 136, 138, 140, 142, 145, 146, 147, 148, 160, 162, 168, 172, 180];
 
+			// and if the pseudorandom checkbox is activated pick from one of the tempos above
 			if ($('.pseudorandom_tempo').attr('data-activated') == 'true') {
 				$('.tempo_field').val(suggested_tempos[Math.floor(Math.random() * suggested_tempos.length)]);
 			} else {
@@ -113,6 +114,7 @@ $(document).ready(function () {
 			calculate(parseInt($('.tempo_field').val()));
 		}
 		
+		// correct new data for pad pieces
 		reorder_pad_pieces();
 	});
 

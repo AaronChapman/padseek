@@ -1,5 +1,5 @@
 /* p a d s e e k */
-/* saved sequences css */
+/* saved sequences module css */
 
 .load_user_sequences {
 	font-family: 'Shrikhand', cursive;
@@ -29,24 +29,7 @@
 	opacity: 0.75;
 }
 
-.name_and_save_sequence {
-	font-family: 'Shrikhand', cursive;
-	width: 80%;
-	border: none;
-	background: floralwhite;
-	border-radius: 5px;
-	height: 50px;
-	font-size: 1.5em;
-	color: #738290;
-	border: 0.5px solid rgba(00, 00, 00, 0.25);
-}
-
-.name_and_save_sequence:hover {
-	background: white;
-}
-
 .save_sequence {
-	width: 80%;
 	background: aliceblue;
 	font-family: 'Shrikhand', cursive;
 	color: #738290;
@@ -104,13 +87,4 @@
 .saved input {
 	border-radius: 5px;
 	padding: 10px;
-}
-
-.saved .name_sequence_overlay {
-	height: 170px
-}
-
-.user_options {
-	list-style-type: none;
-	padding: 0;
 }

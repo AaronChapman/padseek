@@ -44,10 +44,3 @@
 	margin-right: 25px;
 	display: none;
 }
-
-.shortcuts_overlay {
-	width: 90%;
-	height: auto;
-	position: absolute;
-	margin-top: -7px;
-}

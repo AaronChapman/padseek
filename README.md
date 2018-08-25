@@ -52,7 +52,7 @@ key | shortcut
 ---
 ## sample selection
 
-![sample selection module](images/README/samples.png "sample selection module")
+![sample swapper](images/README/swapper.png "sample swapper")
 
 
 -**drum sample options:**
@@ -61,6 +61,9 @@ key | shortcut
 
 -**sample sampler:**
 - clicking on the '▶' icon will play the currently selected option for that sample type
+
+-**sample swapper:**
+- clicking on the '⏣' icon will allow you to swamp that row's sample type with a new one
 
 
 ---

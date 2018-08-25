@@ -10,6 +10,8 @@
 $(document).ready(function () {
 	$('.what_is_this').click(function (event) {
 		event.preventDefault();
+		
+		$('body').find('h1, .github_button, .controls *, .sharing, .tempo, .randomization, .labels, .selects, .pad, .saved').css('opacity', '0.2');
 
 		$('.walkthrough_overlay').css({
 			'z-index': '5',
@@ -66,10 +68,9 @@ function walkthrough_play_sequence() {
 	$('.advance_walkthrough').val('next');
 
 	$('.play_sequence').css({
-		'animation': 'walkthrough_float 1s ease-in-out infinite'
+		'animation': 'walkthrough_float 1s ease-in-out infinite',
+		'opacity': '1'
 	});
-
-	$('body').find('h1, .github_button, .controls *:not(".play_sequence"), .sharing, .tempo, .randomization, .labels, .selects, .pad, .saved').css('opacity', '0.2');
 
 	// setting up the next stage in the walkthrough
 	current_stage = 'shared sequences';

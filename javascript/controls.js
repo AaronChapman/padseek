@@ -8,32 +8,6 @@
 
 // when the document is ready (for setup & event listeners)
 $(document).ready(function () {
-	// when a pad piece is clicked
-	$('.pad').on('click', '.pad_piece', function (event) {
-		// get the pad's index
-		var findex = $(this).parents('.pad:eq(0)').index() - 2;
-
-		// remove any animations on the piece (for walkthrough)
-		$(this).css('animation', 'unset');
-
-		// determine if piece clicked was an inactive piece
-		if ($(this).css('border-radius') == '2px') {
-			// count how many active pieces are in the column
-			var same_column_check = $(this).parents('.pad:eq(0)').find('.pad_piece[id^="' + $(this).attr('id').substring(0, $(this).attr('id').indexOf('-')) + '"][data-state="active"]').length;
-
-			// either click the piece
-			if (same_column_check <= 3) {
-				activate_piece($(this));
-			} else {
-				// or show the stacked pieces in a single column cap message
-				application_message('sorry, but you may only have four samples per column');
-			}
-			// and if the piece clicked was active, deactive it
-		} else if ($(this).css('border-radius') == '8px') {
-			deactivate_piece($(this));
-		}
-	});
-
 	// when the play/pause sequence button is clicked
 	$('.play_sequence').click(function () {
 		// if the sequence is not running
@@ -78,92 +52,6 @@ $(document).ready(function () {
 		}
 	});
 });
-
-// activate a pad piece
-function activate_piece(piece) {
-	// setting active piece properties and attributes
-	piece.css({
-		'background': 'white',
-		'border-radius': '8px'
-	});
-	piece.attr({
-		'data-state': 'active'
-	});
-
-	// incrementing the counter (for column sample stack cap)
-	activated_pad_pieces++;
-
-	// for keeping track of which sound_paths index needs to be altered
-	var number_active_in_column = 0;
-	// set up the sound path string
-	var sound_paths = [];
-
-	// for each piece in the same column
-	piece.parents('.pad:eq(0)').find('.pad_piece[id^="' + piece.attr('id').substring(0, piece.attr('id').indexOf('-')) + '"]').each(function () {
-		// if the piece is active
-		if (piece.attr('data-state') == 'active') {
-			// get the x coordinate of the clicked piece's id attribute
-			var sound_index = parseInt(piece.attr('id').split('-')[1]);
-			// get a reference to the select element for the clicked piece's row
-			var selected_select = $('.select').eq(sound_index - 1);
-			// get the first class from that select element and parse it
-			var selected_select_class = selected_select.attr('class').split(" ")[0];
-			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
-			// continue building sound path
-			sound_paths[number_active_in_column] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
-
-			// incremenet tracker
-			number_active_in_column++;
-		}
-	});
-
-	// gets the last column's coordinate value
-	var temp_index = parseInt(piece.attr('id').substring(0, piece.attr('id').indexOf('-'))) - 1;
-
-	// and sets that index of sequence_sample_paths to the array containing the new pad pieces
-	sequence_sample_paths[temp_index] = sound_paths;
-}
-
-// deactivate a pad piece
-function deactivate_piece(piece) {
-	// setting inactive pad piece properties and attributes
-	piece.css({
-		'background': 'aliceblue',
-		'border-radius': '2px'
-	});
-	piece.attr({
-		'data-state': 'inactive'
-	});
-
-	// decrement the variables tracking the number of active pieces
-	activated_pad_pieces--;
-
-	// get the x-coordinate of the clicked piece
-	var temp_index = parseInt(piece.attr('id').substring(0, piece.attr('id').indexOf('-'))) - 1;
-	// get the y-coordinate of the clicked piece
-	var sound_index = parseInt(piece.attr('id').split('-')[1]);
-	// get a reference to the select element for the clicked piece's row
-	var selected_select = $('.select').eq(sound_index - 1);
-	// get the first class from that select element and parse it
-	var selected_select_class = selected_select.attr('class').split(" ")[0];
-	var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
-
-	// determine which sample path needs to be removed (deactivated piece)
-	var full_sample_path = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3'
-
-	var sample_to_pop = sequence_sample_paths[temp_index].indexOf(full_sample_path);
-
-	// if there is one that needs to be removed
-	if (sample_to_pop > -1) {
-		if (sequence_sample_paths[temp_index].length > 1) {
-			// remove it
-			sequence_sample_paths[temp_index].splice(sample_to_pop, 1);
-		} else {
-			// if it's the last piece in the array, replace the value with the empty file
-			sequence_sample_paths[temp_index][0] = 'samples/none.mp3';
-		}
-	}
-}
 
 
 /*----------------------------------*/
@@ -268,6 +156,7 @@ function play_sequence(pad_reference) {
 				'background': 'white'
 			});
 
+			// and then reset them
 			setTimeout(function () {
 				quick_reference.css({
 					'opacity': '1.0',

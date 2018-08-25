@@ -24,8 +24,6 @@ database.ref().on("value", function (snapshot) {
 function share_sequence_data() {
 	// push the new object to the shared_sequences array
 	shared_sequences.push(convert_sequence_to_JSON());
-	// and update the container housing the list of shared sequences
-	update_shared_sequences_container(new_JSON_object);
 
 	// also update the database with the newly shared sequence data
 	update_firebase();
@@ -45,9 +43,9 @@ function convert_sequence_to_JSON() {
 
 	$('.name_sequence').val('');
 
-	/*var new_JSON_object = {name, tempo, sample_paths, active_pieces};
+	var new_JSON_object = {name, tempo, sample_paths, active_pieces};
 
-	return new_JSON_object;*/
+	return new_JSON_object;
 }
 
 // update database on data mutation
@@ -83,7 +81,7 @@ function update_shared_sequences_container(new_JSON_object) {
 		var converted_object = JSON.stringify(shared_sequences[i]);
 
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.shared_sequences').append('<input class="shared_sequence cursor_pointer box-shadowed-hover" type="button" data-json="' + converted_object + '" value="' + shared_sequences[i].name + '">');
+		$('.shared_sequences').append("<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='" + shared_sequences[i].name + "'>");
 	}
 }
 
@@ -96,6 +94,8 @@ function set_sequence_from_JSON(new_JSON_object) {
 		current_column_in_sequence = 1;
 	}
 
+	console.log(new_JSON_object);
+	
 	// convert string back into JSON object
 	var converted_object = JSON.parse(new_JSON_object);
 	// get last active pad piece

@@ -7,11 +7,14 @@
 >padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
 
 
-. . .
-
-**`how to operate`**
+.  .  .  .  .
 
 >click "what is this?" in the bottom left corner of padseek for a visual walkthrough
+
+![walkthrough](images/README/walkthrough.png "walkthrough")
+
+
+**`how to operate`**
 
 - choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module
 - activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)

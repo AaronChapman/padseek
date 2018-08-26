@@ -42,3 +42,6 @@ $(document).ready(function () {
 // look into a double-sided slider (20hz - 20,000hz)
 // and a single slider for volume
 // look for knob css sliders
+
+
+// when there are multiple selects of the same sample type, the options get filled in x number of times

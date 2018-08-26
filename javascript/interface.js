@@ -75,7 +75,7 @@ function fill_select_options() {
 	// for each sample directory item
 	for (var i = 0; i < sample_directories.length; i++) {
 		// get a parsed reference to the select element that has a class matching the current directory item
-		var select_reference = $('.select[class*="' + sample_directories[i].directory.replace(/-/g, '_') + '"]');
+		var select_reference = $('.selects .select').eq(i);
 
 		sample_directories[i].sound_paths = sample_directories[i].sound_paths.sort(function (a, b) {
 			if (a < b) return -1;

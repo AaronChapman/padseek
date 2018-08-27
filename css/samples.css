@@ -1,4 +1,5 @@
 /* p a d s e e k */
+
 /* sample selection module css */
 
 .change_sample_type {
@@ -13,6 +14,28 @@
 
 .change_sample_type:hover {
 	opacity: 1.0;
+}
+
+.eq_data {
+	min-width: 141px;
+	max-width: 141px;
+	margin-left: 10px;
+}
+
+.equalization {
+	display: inline-flex;
+	width: auto;
+}
+
+.frequency_range {
+	border: 0;
+	color: rgb(205, 130, 130);
+    font-weight: bold;
+    height: 5px;
+    background: rgba(205, 130, 130, 0);
+    border: none !important;
+    width: 150px;
+    margin: 15px 15px 0 25px;
 }
 
 .label {}
@@ -87,6 +110,21 @@
 	padding: 0 7.5px 0 0;
 	border-radius: 0 5px 5px 0;
 	border-left: none;
-	min-width: 150px;
-	max-width: 150px;
+	width: auto;
+}
+
+.ui-slider-handle {
+	left: 45.3854%;
+	height: 10px !important;
+	width: 10px !important;
+	background: white !important;
+	border: 0.5px dashed rgba(00, 00, 00, 0.5);
+}
+
+.ui-slider-range {
+	left: 45.3854%;
+	width: 54.6146%;
+	height: 5px;
+	background: rgb(205, 130, 130);
+	border: none !important;
 }

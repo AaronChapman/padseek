@@ -81,4 +81,22 @@ $(document).ready(function () {
 			});
 		}, 250);
 	});
+
+	$('.frequency_range').slider({
+		range: true,
+		min: 20,
+		max: 20000,
+		values: [20, 20000],
+		slide: function (event, ui) {
+			//set new frequency range on filter
+			update_frequencies();
+		}
+	});
+
+	function update_frequencies() {
+		$('.eq_data').each(function () {
+			var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
+			$(this).parents('.selects_item').find('.eq_data').text(sample_slider.slider('values', 0) + ' - ' + sample_slider.slider('values', 1) + ' hz');
+		});
+	}
 });

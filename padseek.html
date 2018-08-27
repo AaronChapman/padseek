@@ -12,6 +12,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli|Shrikhand">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 	<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/directory-header.css">
 	<link rel="stylesheet" href="https://www.oylo.info/resources/third-party/csshake.css">
@@ -32,6 +33,8 @@
 	<link rel="stylesheet" href="css/pad.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
 	<script src="https://www.oylo.info/javascript/links_for_directory_header.js"></script>
@@ -208,14 +211,62 @@
 				</div>
 				<ul class="labels"></ul>
 				<ul class="selects">
-					<li class="selects_item"><select class="sound_effects_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="crash_cymbals_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="ride_cymbals_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="open_hi_hats_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="closed_hi_hats_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="snares_select select cursor_pointer"></select></li>
-					<li class="selects_item"><select class="kick_drums_select select cursor_pointer"></select></li>
+					<li class="selects_item">
+						<select class="sound_effects_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="crash_cymbals_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="ride_cymbals_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="open_hi_hats_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="closed_hi_hats_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="snares_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="snares_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
+					<li class="selects_item">
+						<select class="kick_drums_select select cursor_pointer"></select>
+						<div class="equalization">
+							<div class="frequency_range"></div>
+							<label class="label eq_data">20 hz - 20000 hz</label>
+						</div>
+					</li>
 				</ul>
 			</div>
 			<div class="pad">

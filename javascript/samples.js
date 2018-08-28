@@ -96,7 +96,8 @@ $(document).ready(function () {
 	function update_frequencies() {
 		$('.eq_data').each(function () {
 			var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
-			$(this).parents('.selects_item').find('.eq_data').text(sample_slider.slider('values', 0) + ' - ' + sample_slider.slider('values', 1) + ' hz');
+			$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider.slider('values', 0) + ' hz');
+			$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider.slider('values', 1) + ' hz');
 		});
 	}
 });

@@ -42,7 +42,7 @@ function generate_pad() {
 	// set up drum sample options
 	generate_labels();
 	generate_select_options();
-	
+
 }
 
 // inital label generation
@@ -51,7 +51,7 @@ function generate_labels() {
 
 	// append each item to the document
 	for (var i = 0; i < label_items.length; i++) {
-		var item = '<li class="labels_item"><input class="change_sample_type cursor_pointer" type="button" value="⏣"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(' + i + ')"><label class="label">' + label_items[i] + '</label></li>';
+		var item = '<li class="labels_item"><img class="change_sample_type cursor_pointer" src="images/application/cog.svg"><input class="sample_sample cursor_pointer" type="button" value="▶" onclick="sample_sample(' + i + ')"><label class="label">' + label_items[i] + '</label></li>';
 
 		$('.labels').append(item);
 	}
@@ -83,7 +83,7 @@ function fill_select_options() {
 
 			return 0;
 		});
-		
+
 		// create temporary array of specified select's samples
 		var samples = sample_directories[i].sound_paths;
 
@@ -109,7 +109,7 @@ function set_sample_labels() {
 		// parse the class of the matching sample select
 		var new_label_class = $('.selects .selects_item').eq($(this).index()).find('.select').attr('class').split(' ')[0];
 		var new_label = new_label_class.substring(0, new_label_class.length - 7).replace(/_/g, ' ');
-		
+
 		// and turn it into the label's text
 		$(this).find('label').text(new_label);
 	});
@@ -150,7 +150,7 @@ function setup_default_interface() {
 
 	// example sequence
 	set_sequence_from_JSON('{"active_pieces":["2-1","6-1","1-2","2-4","3-5","4-5","6-5","7-5","5-7","1-8","8-8","14-1","16-1","13-7","18-1","22-1","17-2","18-4","19-5","20-5","22-5","23-5","21-7","17-8","24-8","30-1","32-1","31-4","26-5","29-7","31-7","27-8"],"name":"clean & simple - stacking test","sample_paths":["wooden-chair.mp3","time-cymbal.mp3","tribal-ride.mp3","meaty-hi-hat.mp3","firm-hi-hat.mp3","lofi-crunk-snare.mp3","well-rounded-snare.mp3","disruptive-kick.mp3"],"tempo":"198"}');
-	
+
 	// fade the page in one most of the content loading has finished
 	$('body').css('opacity', '1.0');
 }
@@ -328,6 +328,12 @@ $(document).ready(function () {
 
 		// set the overflow properties appropriate for the container in which the overlay resides that contained the clicked 'never mind' button :)
 		if ($(this).parents('.overlay:eq(0)').hasClass('sample_swap_overlay')) {
+			$('.rotating').css({
+				'fill': 'none',
+				'opacity': '0.3'
+			});
+			$('.rotating').removeClass('rotating');
+
 			$(this).parents('.overlay:eq(0)').parent().css({
 				'overflow': 'visible'
 			});

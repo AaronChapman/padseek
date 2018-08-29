@@ -13,7 +13,12 @@ $(document).ready(function () {
 
 	// this is where the reference gets set
 	$('body').on('click', '.change_sample_type', function () {
+		$('.rotating').css({'fill':'none', 'opacity':'0.3'});
+		$('.rotating').removeClass('rotating');
+		
 		swapper_clicked = $(this);
+		swapper_clicked.addClass('rotating');
+		swapper_clicked.css({'fill':'#738290', 'opacity':'0.6'});
 
 		// bring up the sample swapper overlay
 		$('.sample_swap_overlay').css({
@@ -69,6 +74,9 @@ $(document).ready(function () {
 		reorder_pad_pieces();
 		// set up the audio tags
 		set_audio_elements();
+		
+		$('.change_sample_type').css({'fill':'none', 'opacity':'0.3'});
+		$('.rotating').removeClass('rotating');
 
 		// and hide the overlay
 		$('.sample_swap_overlay').css({
@@ -96,8 +104,22 @@ $(document).ready(function () {
 	function update_frequencies() {
 		$('.eq_data').each(function () {
 			var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
-			$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider.slider('values', 0) + ' hz');
-			$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider.slider('values', 1) + ' hz');
+			var sample_slider_low = sample_slider.slider('values', 0);
+			var sample_slider_high = sample_slider.slider('values', 1);
+			
+			$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider_low + ' hz');
+			$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider_high + ' hz');
+
+			var context = new AudioContext();
+			var sample_tag = $('.sample_element').eq($(this).parents('.selects_item').index());
+
+			filter = context.createBiquadFilter();
+			
+			sample_tag.source.connect(filter);
+			
+			filter.type = "lowpass";
+			filter.frequency.value = sample_slider_high;
+			filter.connect(context.destination);
 		});
 	}
 });

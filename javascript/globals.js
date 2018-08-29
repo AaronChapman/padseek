@@ -67,35 +67,43 @@ var sound_effects = ['bicycle-bell.mp3', 'bottle-cap.mp3', 'cork-popping.mp3', '
 var sample_directories = [
 	{
 		directory: 'sound-effects',
-		sound_paths: sound_effects
+		sound_paths: sound_effects,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'crash-cymbals',
-		sound_paths: crash_cymbals
+		sound_paths: crash_cymbals,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'ride-cymbals',
-		sound_paths: ride_cymbals
+		sound_paths: ride_cymbals,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'open-hi-hats',
-		sound_paths: open_hi_hats
+		sound_paths: open_hi_hats,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'closed-hi-hats',
-		sound_paths: closed_hi_hats
+		sound_paths: closed_hi_hats,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'snares',
-		sound_paths: snares
+		sound_paths: snares,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'snares',
-		sound_paths: snares
+		sound_paths: snares,
+		eq_settings: [20, 20000]
 	},
 	{
 		directory: 'kick-drums',
-		sound_paths: kick_drums
+		sound_paths: kick_drums,
+		eq_settings: [20, 20000]
 	}];
 
 // sample directory path array

@@ -45,3 +45,5 @@ $(document).ready(function () {
 
 
 // when there are multiple selects of the same sample type, the options get filled in x number of times
+
+// update tempo module bpm display whenever tempo field is updated

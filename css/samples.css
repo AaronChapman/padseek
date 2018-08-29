@@ -6,14 +6,21 @@
 	transition: all 0.25s ease-in-out;
 	background: none;
 	border: none;
-	opacity: 0.5;
+	opacity: 0.3;
 	position: absolute;
-	margin-left: -40px;
-	margin-top: 5.5px;
+	margin-left: -35px;
+	margin-top: 11px;
+	max-width: 12.5px;
+	max-height: 12.5px;
+	-webkit-animation: none;
+	-moz-animation: none;
+	-ms-animation: none;
+	-o-animation: none;
+	animation: none;
 }
 
 .change_sample_type:hover {
-	opacity: 1.0;
+	opacity: 0.6;
 }
 
 .eq_data {

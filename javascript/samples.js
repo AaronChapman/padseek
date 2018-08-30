@@ -13,12 +13,18 @@ $(document).ready(function () {
 
 	// this is where the reference gets set
 	$('body').on('click', '.change_sample_type', function () {
-		$('.rotating').css({'fill':'none', 'opacity':'0.3'});
+		$('.rotating').css({
+			'fill': 'none',
+			'opacity': '0.3'
+		});
 		$('.rotating').removeClass('rotating');
-		
+
 		swapper_clicked = $(this);
 		swapper_clicked.addClass('rotating');
-		swapper_clicked.css({'fill':'#738290', 'opacity':'0.6'});
+		swapper_clicked.css({
+			'fill': '#738290',
+			'opacity': '0.6'
+		});
 
 		// bring up the sample swapper overlay
 		$('.sample_swap_overlay').css({
@@ -74,8 +80,11 @@ $(document).ready(function () {
 		reorder_pad_pieces();
 		// set up the audio tags
 		set_audio_elements();
-		
-		$('.change_sample_type').css({'fill':'none', 'opacity':'0.3'});
+
+		$('.change_sample_type').css({
+			'fill': 'none',
+			'opacity': '0.3'
+		});
 		$('.rotating').removeClass('rotating');
 
 		// and hide the overlay
@@ -96,30 +105,49 @@ $(document).ready(function () {
 		max: 20000,
 		values: [20, 20000],
 		slide: function (event, ui) {
-			//set new frequency range on filter
-			update_frequencies();
+			$('.eq_data').each(function () {
+				var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
+				var sample_slider_low = sample_slider.slider('values', 0);
+				var sample_slider_high = sample_slider.slider('values', 1);
+
+				$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider_low + ' hz');
+				$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider_high + ' hz');
+			});
 		}
 	});
 
-	function update_frequencies() {
-		$('.eq_data').each(function () {
-			var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
-			var sample_slider_low = sample_slider.slider('values', 0);
-			var sample_slider_high = sample_slider.slider('values', 1);
-			
-			$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider_low + ' hz');
-			$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider_high + ' hz');
+	$('.ui-slider-handle').mouseup(function () {
+		create_filter($(this), $(this).parents('.selects_item').index());
+	});
 
-			var context = new AudioContext();
-			var sample_tag = $('.sample_element').eq($(this).parents('.selects_item').index());
+	function create_filter(slider, sample_type_row) {
+		var audio_context = new(window.AudioContext || window.webkitAudioContext)();
 
-			filter = context.createBiquadFilter();
-			
-			sample_tag.source.connect(filter);
-			
-			filter.type = "lowpass";
-			filter.frequency.value = sample_slider_high;
-			filter.connect(context.destination);
-		});
+		var sample_to_filter = $('audio').eq(sample_type_row)[0];
+
+		var gain = audio_context.createGain();
+		var low_cut = audio_context.createBiquadFilter();
+		var high_cut = audio_context.createBiquadFilter();
+
+		var sample_slider = slider.parents('.selects_item').find('.frequency_range');
+		var sample_slider_low = sample_slider.slider('values', 0);
+		var sample_slider_high = sample_slider.slider('values', 1);
+
+		console.log(sample_to_filter);
+		
+		source = audio_context.createMediaElementSource(sample_to_filter);
+		source.connect(low_cut);
+		
+		low_cut.connect(high_cut);
+		high_cut.connect(gain);
+		gain.connect(audio_context.destination);
+
+		low_cut.type = "lowpass";
+		low_cut.frequency.value = sample_slider_low;
+		low_cut.gain.value = -1;
+		
+		high_cut.type = "highpass";
+		high_cut.frequency.value = sample_slider_high;
+		high_cut.gain.value = -1;
 	}
 });

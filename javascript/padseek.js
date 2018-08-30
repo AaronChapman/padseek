@@ -43,7 +43,6 @@ $(document).ready(function () {
 // and a single slider for volume
 // look for knob css sliders
 
-
-// when there are multiple selects of the same sample type, the options get filled in x number of times
-
 // update tempo module bpm display whenever tempo field is updated
+
+// add select being changed in uninteractive red field in sample swapper

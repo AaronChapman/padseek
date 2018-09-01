@@ -114,6 +114,10 @@
 	border-right: none;
 }
 
+.sample_swap_overlay .overlay_description {
+	padding-bottom: 25px;
+}
+
 .sample_swap_label {
 	font-family: 'Shrikhand', cursive;
 	color: rgb(205, 130, 130);
@@ -124,9 +128,9 @@
 
 .sample_swap_select {
 	width: 150px;
-	margin: 25px 0;
+	margin: 10px 0 25px 0;
 	border: 0.5px dashed rgba(00, 00, 00, 0.5) !important;
-	zoom: 1.5;
+	zoom: 1.25;
 }
 
 .shortcuts_overlay {
@@ -145,7 +149,7 @@
 	font-size: 1.5em;
 	height: 50px;
 	zoom: 0.75;
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 .swap_sample_type:hover {

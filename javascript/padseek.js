@@ -46,3 +46,9 @@ $(document).ready(function () {
 // update tempo module bpm display whenever tempo field is updated
 
 // add select being changed in uninteractive red field in sample swapper
+
+
+
+// determine if band pass is working & how
+// then I may need to create an array of objects storing the low_cut and high_cut values for each sample row
+// that data will also need to be stored in firebase, but if a firebase json obejct doesn't have a value I can set the default to 20hz-20khz

@@ -57,7 +57,7 @@ function save_current_sequence() {
 		// determine database connection
 		var on_complete = function (error) {
 			if (error) {
-				console.log('could not update saved sequences for ' + $('.load_user_sequences_input').val());
+				application_message('there was a problem with the database, please try again later');
 			} else {
 				console.log('updated saved sequences for ' + $('.load_user_sequences_input').val());
 			}

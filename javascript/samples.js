@@ -34,7 +34,11 @@ $(document).ready(function () {
 		$('.old_sample_type').prevAll('br').eq(0).remove();
 		$('.old_sample_type').remove();
 		
-		var old_sample_type = $('.selects .select').eq(swapper_clicked.index()).clone();
+		console.log(swapper_clicked.parents('.labels_item').index());
+		
+		var old_sample_type = $('.selects .select').eq(swapper_clicked.parents('.labels_item').index()).clone();
+		
+		console.log(old_sample_type);
 		
 		old_sample_type.css({'background':'floralwhite', 'margin-top':'25px', 'opacity':'0.75'}).attr('disabled', 'true').addClass('old_sample_type').removeClass('cursor_pointer');
 		old_sample_type.find('option[val="' + $('.selects .select').eq(swapper_clicked.index()).find(':selected').val() + '"]').prop('selected', true);
@@ -106,23 +110,6 @@ $(document).ready(function () {
 				'z-index': '-1'
 			});
 		}, 250);
-	});
-
-	$('.frequency_range').slider({
-		range: true,
-		min: 20,
-		max: 20000,
-		values: [20, 20000],
-		slide: function (event, ui) {
-			$('.eq_data').each(function () {
-				var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
-				var sample_slider_low = sample_slider.slider('values', 0);
-				var sample_slider_high = sample_slider.slider('values', 1);
-
-				$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider_low + ' hz');
-				$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider_high + ' hz');
-			});
-		}
 	});
 
 	$('.ui-slider-handle').mouseup(function () {

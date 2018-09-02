@@ -108,10 +108,9 @@
 	max-width: 268px;
 	max-height: 244px;
 	border: 0.5px dashed rgba(00, 00, 00, 0.5);
-	border-radius: 5px 0 0 5px;
+	border-radius: 5px;
 	width: 100%;
 	background: floralwhite;
-	border-right: none;
 }
 
 .sample_swap_overlay .overlay_description {

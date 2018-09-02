@@ -57,8 +57,34 @@ function generate_labels() {
 	}
 }
 
+function generate_sample_selections() {
+	var sample_selection_classes = ['sound_effects_select', 'crash_cymbals_select', 'ride_cymbals_select', 'open_hi_hats_select', 'closed_hi_hats_select', 'snares_select', 'snares_select', 'kick_drums_select'];
+
+	for (var i = 0; i < sample_selection_classes.length; i++) {
+		$('.selects').append(`<li class="selects_item"><select class="` + sample_selection_classes[i] + ` select cursor_pointer"></select><div class="equalization"><label class="label eq_data low_cut">20 hz</label><div class="frequency_range"></div><label class="label eq_data high_cut">20000 hz</label></div></li>`);
+	}
+
+	$('.frequency_range').slider({
+		range: true,
+		min: 20,
+		max: 20000,
+		values: [20, 20000],
+		slide: function (event, ui) {
+			$('.eq_data').each(function () {
+				var sample_slider = $(this).parents('.selects_item').find('.frequency_range');
+				var sample_slider_low = sample_slider.slider('values', 0);
+				var sample_slider_high = sample_slider.slider('values', 1);
+
+				$(this).parents('.selects_item').find('.eq_data.low_cut').text(sample_slider_low + ' hz');
+				$(this).parents('.selects_item').find('.eq_data.high_cut').text(sample_slider_high + ' hz');
+			});
+		}
+	});
+}
+
 // generate options for the drum sample selects
 function generate_select_options() {
+	//generate_sample_selections();
 	// fill the sample select elements with their options
 	fill_select_options();
 	// set up certain default interface element states

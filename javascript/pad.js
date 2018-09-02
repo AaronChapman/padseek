@@ -139,10 +139,13 @@ $(document).ready(function () {
 	// when a sample selection is made
 	$('.selects').on('change', '.select', function (event) {
 		// clear the currently selected options array
+		console.log('1');
 		get_selected_options();
 
 		// refresh data
+		console.log('2');
 		reorder_pad_pieces();
+		console.log('3');
 		set_audio_elements();
 	});
 });
@@ -177,9 +180,11 @@ function activate_piece(piece) {
 			console.log('PIECE IN COLUMN');
 		
 			// get the x coordinate of the clicked piece's id attribute
-			var sound_index = parseInt(piece.attr('id').split('-')[1]);
+			var sound_index = $(this).attr('id').split('-')[1];
 			// get a reference to the select element for the clicked piece's row
-			var selected_select = $('.selects .select').eq(sound_index - 1);
+			var selected_select = $('.selects_item .select').eq(sound_index - 1);
+		
+			console.log(selected_select);
 			// get the first class from that select element and parse it
 			var selected_select_class = selected_select.attr('class').split(" ")[0];
 			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
@@ -218,7 +223,7 @@ function deactivate_piece(piece) {
 	// get the y-coordinate of the clicked piece
 	var sound_index = parseInt(piece.attr('id').split('-')[1]);
 	// get a reference to the select element for the clicked piece's row
-	var selected_select = $('.selects .select').eq(sound_index - 1);
+	var selected_select = $('.selects_item .select').eq(sound_index - 1);
 	// get the first class from that select element and parse it
 	var selected_select_class = selected_select.attr('class').split(" ")[0];
 	var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');

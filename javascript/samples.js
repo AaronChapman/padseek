@@ -33,16 +33,13 @@ $(document).ready(function () {
 		
 		$('.old_sample_type').prevAll('br').eq(0).remove();
 		$('.old_sample_type').remove();
-		
-		console.log(swapper_clicked.parents('.labels_item').index());
-		
+				
 		var old_sample_type = $('.selects .select').eq(swapper_clicked.parents('.labels_item').index()).clone();
-		
-		console.log(old_sample_type);
-		
+		var old_sample_selection = $('.selects .select').eq(swapper_clicked.parents('.labels_item').index()).find(':selected').val();
+				
 		old_sample_type.css({'background':'floralwhite', 'margin-top':'25px', 'opacity':'0.75'}).attr('disabled', 'true').addClass('old_sample_type').removeClass('cursor_pointer');
-		old_sample_type.find('option[val="' + $('.selects .select').eq(swapper_clicked.index()).find(':selected').val() + '"]').prop('selected', true);
-		
+		old_sample_type.find('option[value="' + old_sample_selection + '"]').prop('selected', true);
+				
 		$('.sample_swap_overlay .sample_swap_select').before(old_sample_type, '<br>');
 	});
 
@@ -117,8 +114,6 @@ $(document).ready(function () {
 		
 		sample_filters[parent_item.index()].low_cut.frequency.value = parseInt(parent_item.find('.eq_data.low_cut').text().trim());
 		sample_filters[parent_item.index()].high_cut.frequency.value = parseInt(parent_item.find('.eq_data.high_cut').text().trim());
-		
-		console.log(sample_filters);
 	});
 
 	function update_sample_filter(slider, sample_type_row) {

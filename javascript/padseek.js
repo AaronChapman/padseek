@@ -48,6 +48,8 @@ $(document).ready(function () {
 
 // add select being changed in uninteractive red field in sample swapper
 
+// set classes for playing sequence piece css to add and remove during playback
+
 
 
 // determine if band pass is working & how

@@ -170,15 +170,16 @@ function activate_piece(piece) {
 	var number_active_in_column = 0;
 	// set up the sound path string
 	var sound_paths = [];
+	var pid = piece.attr('id');
 
 	// for each piece in the same column
-	piece.parents('.pad:eq(0)').find('.pad_piece[id^="' + piece.attr('id').substring(0, piece.attr('id').indexOf('-')) + '"]').each(function () {
-		// if the piece is active
-		if (piece.attr('data-state') == 'active') {
+	piece.parents('.pad').find('.pad_piece[id^="'  +pid.substring(0, pid.indexOf('-')) + '"][data-state="active"]').each(function () {
+			console.log('PIECE IN COLUMN');
+		
 			// get the x coordinate of the clicked piece's id attribute
 			var sound_index = parseInt(piece.attr('id').split('-')[1]);
 			// get a reference to the select element for the clicked piece's row
-			var selected_select = $('.select').eq(sound_index - 1);
+			var selected_select = $('.selects .select').eq(sound_index - 1);
 			// get the first class from that select element and parse it
 			var selected_select_class = selected_select.attr('class').split(" ")[0];
 			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
@@ -187,8 +188,9 @@ function activate_piece(piece) {
 
 			// incremenet tracker
 			number_active_in_column++;
-		}
 	});
+	
+	console.log(sound_paths);
 
 	// gets the last column's coordinate value
 	var temp_index = parseInt(piece.attr('id').substring(0, piece.attr('id').indexOf('-'))) - 1;
@@ -216,7 +218,7 @@ function deactivate_piece(piece) {
 	// get the y-coordinate of the clicked piece
 	var sound_index = parseInt(piece.attr('id').split('-')[1]);
 	// get a reference to the select element for the clicked piece's row
-	var selected_select = $('.select').eq(sound_index - 1);
+	var selected_select = $('.selects .select').eq(sound_index - 1);
 	// get the first class from that select element and parse it
 	var selected_select_class = selected_select.attr('class').split(" ")[0];
 	var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');

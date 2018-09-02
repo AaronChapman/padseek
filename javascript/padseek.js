@@ -12,7 +12,8 @@ $(document).ready(function () {
 
 /* ! critical !
 
-		- nothing to report at the moment 😎
+		- sequences plays different samples in same row
+		- nothing else to report at the moment 😎
 
 ! critical ! */
 

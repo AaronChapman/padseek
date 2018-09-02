@@ -1,4 +1,5 @@
 /* p a d s e e k */
+
 /* walkthrough css */
 
 .advance_walkthrough {
@@ -137,5 +138,31 @@
 
 	100% {
 		background: white;
+	}
+}
+
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	} to {
+		transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotating {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	} to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
 	}
 }

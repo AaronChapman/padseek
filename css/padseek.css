@@ -125,6 +125,14 @@ input[type="button"]:active {
 	margin: 30px 40px 40px 40px;
 }
 
+.rotating {
+	-webkit-animation: rotating 1.5s linear infinite;
+	-moz-animation: rotating 1.5s linear infinite;
+	-ms-animation: rotating 1.5s linear infinite;
+	-o-animation: rotating 1.5s linear infinite;
+	animation: rotating 1.5s linear infinite;
+}
+
 .sample_element {
 	display: none;
 }

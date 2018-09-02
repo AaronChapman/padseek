@@ -8,18 +8,39 @@
 
 // when the document is ready for us
 $(document).ready(function () {
-	// reference that gets attached to any sample swap button clicked
 	var swapper_clicked = $('.change_sample_type:first');
 
 	// this is where the reference gets set
 	$('body').on('click', '.change_sample_type', function () {
+		$('.rotating').css({
+			'fill': 'none',
+			'opacity': '0.3'
+		});
+		$('.rotating').removeClass('rotating');
+
 		swapper_clicked = $(this);
+		swapper_clicked.addClass('rotating');
+		swapper_clicked.css({
+			'fill': '#738290',
+			'opacity': '0.6'
+		});
 
 		// bring up the sample swapper overlay
 		$('.sample_swap_overlay').css({
 			'opacity': '1',
 			'z-index': '2'
 		});
+		
+		$('.old_sample_type').prevAll('br').eq(0).remove();
+		$('.old_sample_type').remove();
+				
+		var old_sample_type = $('.selects .select').eq(swapper_clicked.parents('.labels_item').index()).clone();
+		var old_sample_selection = $('.selects .select').eq(swapper_clicked.parents('.labels_item').index()).find(':selected').val();
+				
+		old_sample_type.css({'background':'floralwhite', 'margin-top':'25px', 'opacity':'0.75'}).attr('disabled', 'true').addClass('old_sample_type').removeClass('cursor_pointer');
+		old_sample_type.find('option[value="' + old_sample_selection + '"]').prop('selected', true);
+				
+		$('.sample_swap_overlay .sample_swap_select').before(old_sample_type, '<br>');
 	});
 
 	// when the confirm sample swap button is clicked
@@ -70,6 +91,12 @@ $(document).ready(function () {
 		// set up the audio tags
 		set_audio_elements();
 
+		$('.change_sample_type').css({
+			'fill': 'none',
+			'opacity': '0.3'
+		});
+		$('.rotating').removeClass('rotating');
+
 		// and hide the overlay
 		$('.sample_swap_overlay').css({
 			'opacity': '0'
@@ -81,4 +108,48 @@ $(document).ready(function () {
 			});
 		}, 250);
 	});
+
+	$('.ui-slider-handle').mouseup(function () {
+		var parent_item = $(this).parents('.selects_item')
+		
+		sample_filters[parent_item.index()].low_cut.frequency.value = parseInt(parent_item.find('.eq_data.low_cut').text().trim());
+		sample_filters[parent_item.index()].high_cut.frequency.value = parseInt(parent_item.find('.eq_data.high_cut').text().trim());
+	});
+
+	function update_sample_filter(slider, sample_type_row) {
+		// change this method to update filter, and update the changed object in the array
+		// store array in firebase (meaning convert_sequence_to_JSON)
+		// and make a check for if firebase object doesn't have key, if so, just display default values
+	}
 });
+
+function create_sample_filters() {
+	var audio_context = new(window.AudioContext || window.webkitAudioContext)();
+	
+	$('audio').each(function() {
+		var sample_to_filter = $(this)[0];
+
+		var gain = audio_context.createGain();
+		var low_cut = audio_context.createBiquadFilter();
+		var high_cut = audio_context.createBiquadFilter();
+		
+		source = audio_context.createMediaElementSource(sample_to_filter);
+		
+		source.connect(low_cut);
+		low_cut.connect(high_cut);
+		high_cut.connect(gain);
+		gain.connect(audio_context.destination);
+		
+		low_cut.type = "lowpass";
+		low_cut.frequency.value = 20;
+		low_cut.gain.value = -1;
+		
+		high_cut.type = "highpass";
+		high_cut.frequency.value = 20000;
+		high_cut.gain.value = -1;
+		
+		var new_filter_object = {low_cut, high_cut};
+		
+		sample_filters.push(new_filter_object);
+	});
+}

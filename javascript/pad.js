@@ -82,7 +82,7 @@ $(document).ready(function () {
 			application_message('sequence cannot contain more than 32 drum pads');
 		}
 	});
-	
+
 	// when a pad piece is clicked
 	$('.pad').on('click', '.pad_piece', function (event) {
 		// get the pad's index
@@ -140,7 +140,6 @@ $(document).ready(function () {
 	$('.selects').on('change', '.select', function (event) {
 		// clear the currently selected options array
 		get_selected_options();
-
 		// refresh data
 		reorder_pad_pieces();
 		set_audio_elements();
@@ -170,24 +169,23 @@ function activate_piece(piece) {
 	var number_active_in_column = 0;
 	// set up the sound path string
 	var sound_paths = [];
+	var pid = piece.attr('id');
 
 	// for each piece in the same column
-	piece.parents('.pad:eq(0)').find('.pad_piece[id^="' + piece.attr('id').substring(0, piece.attr('id').indexOf('-')) + '"]').each(function () {
-		// if the piece is active
-		if (piece.attr('data-state') == 'active') {
-			// get the x coordinate of the clicked piece's id attribute
-			var sound_index = parseInt(piece.attr('id').split('-')[1]);
-			// get a reference to the select element for the clicked piece's row
-			var selected_select = $('.select').eq(sound_index - 1);
-			// get the first class from that select element and parse it
-			var selected_select_class = selected_select.attr('class').split(" ")[0];
-			var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
-			// continue building sound path
-			sound_paths[number_active_in_column] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
+	piece.parents('.pad').find('.pad_piece[id^="' + pid.substring(0, pid.indexOf('-')) + '"][data-state="active"]').each(function () {
+		// get the x coordinate of the clicked piece's id attribute
+		var sound_index = $(this).attr('id').split('-')[1];
+		// get a reference to the select element for the clicked piece's row
+		var selected_select = $('.selects_item .select').eq(sound_index - 1);
 
-			// incremenet tracker
-			number_active_in_column++;
-		}
+		// get the first class from that select element and parse it
+		var selected_select_class = selected_select.attr('class').split(" ")[0];
+		var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
+		// continue building sound path
+		sound_paths[number_active_in_column] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').text().replace(/ /g, '-') + '.mp3';
+
+		// incremenet tracker
+		number_active_in_column++;
 	});
 
 	// gets the last column's coordinate value
@@ -216,7 +214,7 @@ function deactivate_piece(piece) {
 	// get the y-coordinate of the clicked piece
 	var sound_index = parseInt(piece.attr('id').split('-')[1]);
 	// get a reference to the select element for the clicked piece's row
-	var selected_select = $('.select').eq(sound_index - 1);
+	var selected_select = $('.selects_item .select').eq(sound_index - 1);
 	// get the first class from that select element and parse it
 	var selected_select_class = selected_select.attr('class').split(" ")[0];
 	var class_trim = selected_select_class.substring(0, selected_select_class.length - 7).replace(/_/g, '-');
@@ -313,7 +311,7 @@ function reorder_pad_pieces() {
 
 			// use the currently selected option from that select element for the same reason
 			sound_paths[piece_count] = 'samples/' + class_trim + '/' + selected_select.find('option:selected').val();
-			
+
 			// set the index of the sequence sample paths array to the newly formed sample path
 			sequence_sample_paths[i] = sound_paths;
 

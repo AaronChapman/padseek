@@ -7,7 +7,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/AaronChapman/padseek.svg?style=social&label=Fork) ![GitHub followers](https://img.shields.io/github/followers/AaronChapman.svg?style=social&label=Follow)
 
 >padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
-<br/>
+
 >click "what is this?" in the bottom left corner of padseek for a visual walkthrough
 
 visual | how to operate

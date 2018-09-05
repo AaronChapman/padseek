@@ -27,6 +27,7 @@ key | shortcut
 `[ x ]` | clear pad piece selections
 `[ z ]` | randomize sequence
 `[ m ]` | share current sequence
+`[ j ]` | copy sequence JSON to clipboard
 `[ t ]` | calculate tempo
 `[ r ]` | reset calculated tempo
 `[ s ]` | set sequence tempo
@@ -34,10 +35,9 @@ key | shortcut
 ---
 ## sequence controls
 
-![controls module](images/README/controls.png "controls module")
-
-
--**play / pause sequence:**
+visual | how to operate
+--- | ---
+![controls module](images/README/controls.png "controls module") | -**play / pause sequence:**
 - this button allows you to control whether or not the sequence is running
 
 -**clear selections:**
@@ -46,7 +46,6 @@ key | shortcut
 -**tempo (beats per minute):**
 - this field controls the speed at which your drum sequence will run
 - you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
-
 
 ---
 ## sample selection

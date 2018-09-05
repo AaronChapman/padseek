@@ -35,9 +35,8 @@ key | shortcut
 ---
 ## sequence controls
 
-visual | how to operate
 --- | ---
-![controls module](images/README/controls.png "controls module") | -**play / pause sequence:**<br/>- this button allows you to control whether or not the sequence is running<br/><br/>-**clear selections:**<br/>- this button will reset all of the pad piece selections you've made<br/><br/>-**tempo (beats per minute):**<br/>- this field controls the speed at which your drum sequence will run<br/>- you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
+![controls module](images/README/controls.png "controls module") | **play / pause sequence:**<br/> • this button allows you to control whether or not the sequence is running<br/><br/>**clear selections:**<br/> • this button will reset all of the pad piece selections you've made<br/><br/>**tempo (beats per minute):**<br/> • this field controls the speed at which your drum sequence will run<br/> • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
 
 ---
 ## sample selection

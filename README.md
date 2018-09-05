@@ -37,36 +37,21 @@ key | shortcut
 
 visual | how to operate
 --- | ---
-![controls module](images/README/controls.png "controls module") | **play / pause sequence:**<br/> • this button allows you to control whether or not the sequence is running<br/><br/>**clear selections:**<br/> • this button will reset all of the pad piece selections you've made<br/><br/>**tempo (beats per minute):**<br/> • this field controls the speed at which your drum sequence will run<br/> • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
+![controls module](images/README/controls.png "controls module") | **`play / pause sequence:`**<br/> • this button allows you to control whether or not the sequence is running<br/><br/>**`clear selections:`**<br/> • this button will reset all of the pad piece selections you've made<br/><br/>**`tempo (beats per minute):`**<br/> • this field controls the speed at which your drum sequence will run<br/> • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
 
 ## sample selection
 
-
 visual | how to operate
 --- | ---
-![sample selection module](images/README/samples.png "sample selection module") | **drum sample options:**<br/> • each row of this module houses a different set of drum samples for you to choose from<br/> • you can make your sample selections at anytime during the sequence<br/><br/>**sample sampler:** • clicking on the '▶' icon will play the currently selected option for that sample type
-![sample swapper](images/README/swapper.png "sample swapper") | **sample swapper:**<br/> • clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
+![sample selection module](images/README/samples.png "sample selection module") | **`drum sample options:`**<br/> • each row of this module houses a different set of drum samples for you to choose from<br/> • you can make your sample selections at anytime during the sequence<br/><br/>**`sample sampler:`**<br/> • clicking on the '▶' icon will play the currently selected option for that sample type
+![sample swapper](images/README/swapper.png "sample swapper") | **`sample swapper:`**<br/> • clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
 
 
 ## drum pads
 
-![drum pad module](images/README/pad.png "drum pad module")
-
-
--**duplicate pad:**
-- this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)
-
--**remove pad:**
-- this button will remove the pad beneath it
-
--**pad pieces:**
-- activating a pad piece will result in that piece's row triggering the selected sample
-
--**duplicate sequence:**
-- this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)
-
--**remove all pads:**
-- this button will remove all pads except the first
+visual | how to operate
+--- | ---
+![drum pad module](images/README/pad.png "drum pad module") | **`duplicate pad:`**<br/> • this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)<br/><br/>**`remove pad:`**<br/> • this button will remove the pad beneath it<br/><br/>**`pad pieces:`**<br/> • activating a pad piece will result in that piece's row triggering the selected sample<br/><br/>**`duplicate sequence:`**<br/> • this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)<br/><br/>**`remove all pads:`**<br/> • this button will remove all pads except the first
 
 
 ## randomization module

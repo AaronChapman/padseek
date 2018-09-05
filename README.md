@@ -5,20 +5,18 @@
 ![GitHub forks](https://img.shields.io/github/forks/AaronChapman/padseek.svg?style=social&label=Fork) ![GitHub followers](https://img.shields.io/github/followers/AaronChapman.svg?style=social&label=Follow)
 
 >padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
-<br/>
+
+• • • • •
+
 >click "what is this?" in the bottom left corner of padseek for a visual walkthrough
-
-<sup>**keyboard shortcuts > bottom of this document**</sup>
-
----
 
 visual | how to operate
 --- | ---
 ![walkthrough](images/README/walkthrough.png "walkthrough") | _choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module_<br/><br/>_activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)_<br/><br/>_choose the drum samples that fit your sequence through the 'sample selection' module_<br/><br/>_press 'play sequence' or 'pause sequence' to do exactly what that says_<br/><br/>_see modules below_
 
+<br/><sup>**keyboard shortcuts: bottom of this document**</sup>
 
 ---
-
 
 ## sequence controls
 

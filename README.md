@@ -6,30 +6,20 @@
 
 >padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
 
-operation | &nbsp;
+visual | how to operate
 --- | ---
-• choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module<br/>• activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)<br/>• choose the drum samples that fit your sequence through the 'sample selection' module<br/>• press 'play sequence' or 'pause sequence' to do exactly what that says<br/>• see modules below | >click "what is this?" in the bottom left corner of padseek for a visual walkthrough<br/>![walkthrough](images/README/walkthrough.png "walkthrough")
+<sup>click "what is this?" in the bottom left corner of padseek for a visual walkthrough</sup><br/>![walkthrough](images/README/walkthrough.png "walkthrough") | _choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module_<br/><br/>_activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)_<br/><br/>_choose the drum samples that fit your sequence through the 'sample selection' module_<br/><br/>_press 'play sequence' or 'pause sequence' to do exactly what that says_<br/><br/>_see modules below_
 
-**`keyboard shortcuts`**
-
-key | shortcut
---- | ---
-`[ c ]` | open or close shortcuts menu
-`[ p ]` | play or pause your sequence
-`[ x ]` | clear all of your selected pad pieces
-`[ z ]` | randomize sequence with current randomization options
-`[ m ]` | share current sequence
-`[ j ]` | copy the sequence data in JSON format to your clipboard
-`[ t ]` | calculate tempo (press repeatedly)
-`[ r ]` | reset calculated tempo
-`[ s ]` | set sequence tempo from calculated tempo
 
 ---
+
+
 ## sequence controls
 
 visual | how to operate
 --- | ---
 ![controls module](images/README/controls.png "controls module") | **`play / pause sequence:`**<br/>_this button allows you to control whether or not the sequence is running_<br/><br/>**`clear selections:`**<br/>_this button will reset all of the pad piece selections you've made_<br/><br/>**`tempo (beats per minute):`**<br/>_this field controls the speed at which your drum sequence will run_<br/><br/>_you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module_
+
 
 ## sample selection
 
@@ -82,3 +72,18 @@ visual | how to operate
 visual | how to operate
 --- | ---
 ![tempo module](images/README/tempo.png "tempo module") | **`to operate:`**<br/>_the bpm display inside the tempo module displays the tempo currently being calculated_<br/><br/>_hit the [ t ] key on each beat to get the number of beats per minute_<br/><br/>_hit the [ r ] key to reset the bpm counter_<br/><br/>_hit the [ s ] key to set the sequence tempo to the newly calculated bpm_
+
+
+**`keyboard shortcuts`**
+
+key | shortcut
+--- | ---
+`[ c ]` | open or close shortcuts menu
+`[ p ]` | play or pause your sequence
+`[ x ]` | clear all of your selected pad pieces
+`[ z ]` | randomize sequence with current randomization options
+`[ m ]` | share current sequence
+`[ j ]` | copy the sequence data in JSON format to your clipboard
+`[ t ]` | calculate tempo (press repeatedly)
+`[ r ]` | reset calculated tempo
+`[ s ]` | set sequence tempo from calculated tempo

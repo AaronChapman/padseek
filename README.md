@@ -37,78 +37,48 @@ key | shortcut
 
 visual | how to operate
 --- | ---
-![controls module](images/README/controls.png "controls module") | **`play / pause sequence:`**<br/> • this button allows you to control whether or not the sequence is running<br/><br/>**`clear selections:`**<br/> • this button will reset all of the pad piece selections you've made<br/><br/>**`tempo (beats per minute):`**<br/> • this field controls the speed at which your drum sequence will run<br/> • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
+![controls module](images/README/controls.png "controls module") | **`play / pause sequence:`**<br/> • • this button allows you to control whether or not the sequence is running<br/><br/>**`clear selections:`**<br/> • • this button will reset all of the pad piece selections you've made<br/><br/>**`tempo (beats per minute):`**<br/> • • this field controls the speed at which your drum sequence will run<br/> • • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
 
 ## sample selection
 
 visual | how to operate
 --- | ---
-![sample selection module](images/README/samples.png "sample selection module") | **`drum sample options:`**<br/> • each row of this module houses a different set of drum samples for you to choose from<br/> • you can make your sample selections at anytime during the sequence<br/><br/>**`sample sampler:`**<br/> • clicking on the '▶' icon will play the currently selected option for that sample type
-![sample swapper](images/README/swapper.png "sample swapper") | **`sample swapper:`**<br/> • clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
+![sample selection module](images/README/samples.png "sample selection module") | **`drum sample options:`**<br/> • • each row of this module houses a different set of drum samples for you to choose from<br/> • • you can make your sample selections at anytime during the sequence<br/><br/>**`sample sampler:`**<br/> • • clicking on the '▶' icon will play the currently selected option for that sample type
+![sample swapper](images/README/swapper.png "sample swapper") | **`sample swapper:`**<br/> • • clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
 
 
 ## drum pads
 
 visual | how to operate
 --- | ---
-![drum pad module](images/README/pad.png "drum pad module") | **`duplicate pad:`**<br/> • this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)<br/><br/>**`remove pad:`**<br/> • this button will remove the pad beneath it<br/><br/>**`pad pieces:`**<br/> • activating a pad piece will result in that piece's row triggering the selected sample<br/><br/>**`duplicate sequence:`**<br/> • this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)<br/><br/>**`remove all pads:`**<br/> • this button will remove all pads except the first
+![drum pad module](images/README/pad.png "drum pad module") | **`duplicate pad:`**<br/> • • this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)<br/><br/>**`remove pad:`**<br/> • • this button will remove the pad beneath it<br/><br/>**`pad pieces:`**<br/> • • activating a pad piece will result in that piece's row triggering the selected sample<br/><br/>**`duplicate sequence:`**<br/> • • this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)<br/>**`remove all pads:`**<br/> • • this button will remove all pads except the first
 
 
 ## randomization module
 
-![randomization module](images/README/randomization.png "randomization module")
-
-
--**randomize:**
-- this button will randomize the sequence according to the randomization options you have selected
-
-**`randomization options`**
+visual | how to operate
+--- | ---
+![randomization module](images/README/randomization.png "randomization module") | **`randomize:`** • • this button will randomize the sequence according to the randomization options you have selected<br/><br/>option | description | pseudo*<br/>--- | --- | ---<br/>arrangement | randomly<br/>arranges pad pieces | no<br/>samples | selects random sample options | no<br/>number of pads | generates a random sequence size | yes<br/>beats per minute | randomizes the sequence tempo | yes<br/>these options | switches random randomization options on / off | no
 
 <sup>*pseudorandom options choose from a set a predefined values that follow popular sequence structures</sup>
-
-option | description | pseudo*
---- | --- | ---
-arrangement | randomly arranges pad pieces | no
-samples | selects random sample options | no
-number of pads | generates a random sequence size | yes
-beats per minute | randomizes the sequence tempo | yes
-these options | switches random randomization options on / off | no
 
 
 ## shared sequences
 
-![shared sequences module](images/README/shared.png "shared sequences module")
-
-
--**share sequence:**
-- this button will prompt you to name your sequence before sharing its data with the community
-
--**browse recently shared sequences:**
-- click on any of the named buttons under this section to load a sequence that has been shared by another user
+visual | how to operate
+--- | ---
+![shared sequences module](images/README/shared.png "shared sequences module") | **`share sequence:`**<br/> • • this button will prompt you to name your sequence before sharing its data with the community<br/><br/>**`browse recently shared sequences:`**<br/> • • click on any of the named buttons under this section to load a sequence that has been shared by another user
 
 
 ## saved sequences
 
-![saved sequences module](images/README/saved.png "saved sequences module")
-
-
--**load sequences:**
-- after entering the name of an existing user with valid data, pressing this button will load up that user's personally saved sequences
-
--**save current sequence:**
-- pressing this button will save the current sequence for the user that was provided
-
--**sequences saved by loaded user:**
-- uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem...
+visual | how to operate
+--- | ---
+![saved sequences module](images/README/saved.png "saved sequences module") | **`load sequences:`**<br/> • • after entering the name of an existing user with valid data, pressing this button will load up that user's personally saved sequences<br/><br/>**`save current sequence:`**<br/> • • pressing this button will save the current sequence for the user that was provided<br/><br/>**`sequences saved by loaded user:`**<br/> • • uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem...
 
 
 ## tempo tool
 
-![tempo module](images/README/tempo.png "tempo module")
-
-
--**to operate:**
-- the bpm display inside the tempo module displays the tempo currently being calculated
-- hit the [ t ] key on each beat to get the number of beats per minute
-- hit the [ r ] key to reset the bpm counter
-- hit the [ s ] key to set the sequence tempo to the newly calculated bpm
+visual | how to operate
+--- | ---
+![tempo module](images/README/tempo.png "tempo module") | **`to operate:`**<br/> • • the bpm display inside the tempo module displays the tempo currently being calculated<br/> • • hit the [ t ] key on each beat to get the number of beats per minute<br/> • • hit the [ r ] key to reset the bpm counter<br/> • • hit the [ s ] key to set the sequence tempo to the newly calculated bpm

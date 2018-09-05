@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 /* ! critical !
 
-		- sequences plays different samples in same row
+		- take better screenshots for readme
 		- nothing else to report at the moment 😎
 
 ! critical ! */

@@ -39,26 +39,15 @@ visual | how to operate
 --- | ---
 ![controls module](images/README/controls.png "controls module") | **play / pause sequence:**<br/> • this button allows you to control whether or not the sequence is running<br/><br/>**clear selections:**<br/> • this button will reset all of the pad piece selections you've made<br/><br/>**tempo (beats per minute):**<br/> • this field controls the speed at which your drum sequence will run<br/> • you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module
 
----
 ## sample selection
 
-![sample selection module](images/README/samples.png "sample selection module")
+
+visual | how to operate
+--- | ---
+![sample selection module](images/README/samples.png "sample selection module") | **drum sample options:**<br/> • each row of this module houses a different set of drum samples for you to choose from<br/> • you can make your sample selections at anytime during the sequence<br/><br/>**sample sampler:** • clicking on the '▶' icon will play the currently selected option for that sample type
+![sample swapper](images/README/swapper.png "sample swapper") | **sample swapper:**<br/> • clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
 
 
--**drum sample options:**
-- each row of this module houses a different set of drum samples for you to choose from
-- you can make your sample selections at anytime during the sequence
-
--**sample sampler:**
-- clicking on the '▶' icon will play the currently selected option for that sample type
-
--**sample swapper:**
-- clicking on the '⏣' icon will allow you to swap that row's sample type with a new one
-
-![sample swapper](images/README/swapper.png "sample swapper")
-
-
----
 ## drum pads
 
 ![drum pad module](images/README/pad.png "drum pad module")
@@ -80,7 +69,6 @@ visual | how to operate
 - this button will remove all pads except the first
 
 
----
 ## randomization module
 
 ![randomization module](images/README/randomization.png "randomization module")
@@ -102,7 +90,6 @@ beats per minute | randomizes the sequence tempo | yes
 these options | switches random randomization options on / off | no
 
 
----
 ## shared sequences
 
 ![shared sequences module](images/README/shared.png "shared sequences module")
@@ -115,7 +102,6 @@ these options | switches random randomization options on / off | no
 - click on any of the named buttons under this section to load a sequence that has been shared by another user
 
 
----
 ## saved sequences
 
 ![saved sequences module](images/README/saved.png "saved sequences module")
@@ -131,17 +117,6 @@ these options | switches random randomization options on / off | no
 - uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem...
 
 
-. . .
-
-**`internal commands`**
-
-key | shortcut
---- | ---
-`[ j ]` | copy sequence data to clipboard (JSON)
-`[ o ]` | coming soon
-
-
----
 ## tempo tool
 
 ![tempo module](images/README/tempo.png "tempo module")

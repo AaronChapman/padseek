@@ -6,7 +6,7 @@
 
 >padseek is a module-based drum sequencer made with love and javascript. this is an ongoing project, so it might be wonky here and there, but please feel free to check back in for more features and add-ons!
 
-• • • • •
+---
 
 >click "what is this?" in the bottom left corner of padseek for a visual walkthrough
 

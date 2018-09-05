@@ -31,6 +31,7 @@ $(document).ready(function () {
 			'z-index': '2'
 		});
 		
+		// format sample swapping overlay components
 		$('.old_sample_type').prevAll('br').eq(0).remove();
 		$('.old_sample_type').remove();
 				
@@ -109,9 +110,12 @@ $(document).ready(function () {
 		}, 250);
 	});
 
+	// when a frequency slider handle is let off of
 	$('.ui-slider-handle').mouseup(function () {
-		var parent_item = $(this).parents('.selects_item')
+		// get a reference to the selects list item parent element
+		var parent_item = $(this).parents('.selects_item');
 		
+		// update the sample_filters array with the appropriate values
 		sample_filters[parent_item.index()].low_cut.frequency.value = parseInt(parent_item.find('.eq_data.low_cut').text().trim());
 		sample_filters[parent_item.index()].high_cut.frequency.value = parseInt(parent_item.find('.eq_data.high_cut').text().trim());
 	});
@@ -123,6 +127,7 @@ $(document).ready(function () {
 	}
 });
 
+// create initial sample filters objects
 function create_sample_filters() {
 	var audio_context = new(window.AudioContext || window.webkitAudioContext)();
 	

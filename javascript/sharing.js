@@ -177,6 +177,7 @@ function set_sequence_from_JSON(new_JSON_object) {
 
 	// set the new tempo
 	$('.tempo_field').val(converted_object.tempo);
+	
 	calculated_tempo = parseInt($('.tempo_field').val());
 
 	$('.currently_loaded_sequence').text('recently loaded: ' + converted_object.name);

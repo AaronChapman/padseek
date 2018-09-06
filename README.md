@@ -14,6 +14,8 @@ visual | how to operate
 --- | ---
 ![walkthrough](images/README/walkthrough.png "walkthrough") | _choose a tempo for your sequence via the 'tempo (beats per minute)' field inside of the 'sequence controls' module_<br/><br/>_activate your selected pad pieces inside the 'drum pad' module (optionally: duplicate existing pads)_<br/><br/>_choose the drum samples that fit your sequence through the 'sample selection' module_<br/><br/>_press 'play sequence' or 'pause sequence' to do exactly what that says_<br/><br/>_see modules below_<br/><br/><sup>**keyboard shortcuts: bottom of this document**</sup>
 
+<br/>[click here to start building your own drum sequences](https://aaronchapman.github.io/padseek)
+
 ---
 
 <sup>**modules**</sup>
@@ -77,6 +79,7 @@ visual | how to operate
 --- | ---
 ![tempo module](images/README/tempo.png "tempo module") | **`to operate:`**<br/>_the bpm display inside the tempo module displays the tempo currently being calculated_<br/><br/>_hit the [ t ] key on each beat to get the number of beats per minute_<br/><br/>_hit the [ r ] key to reset the bpm counter_<br/><br/>_hit the [ s ] key to set the sequence tempo to the newly calculated bpm_
 
+---
 
 **`keyboard shortcuts`**
 

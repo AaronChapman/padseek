@@ -31,7 +31,9 @@ function generate_pad() {
 			pad_piece.addClass('pad_piece cursor_pointer');
 			pad_piece.attr({
 				'id': j + '-' + i,
-				'data-state': 'inactive'
+				'data-state': 'inactive',
+				'data-co-x': j,
+				'data-co-y': i
 			});
 
 			// and add it to the referenced drum pad container
@@ -184,7 +186,7 @@ function setup_default_interface() {
 
 	// example sequence
 	set_sequence_from_JSON('{"active_pieces":["2-1","6-1","1-2","2-4","3-5","4-5","6-5","7-5","5-7","1-8","8-8","14-1","16-1","13-7","18-1","22-1","17-2","18-4","19-5","20-5","22-5","23-5","21-7","17-8","24-8","30-1","32-1","31-4","26-5","29-7","31-7","27-8"],"name":"clean & simple - stacking test","sample_paths":["wooden-chair.mp3","time-cymbal.mp3","tribal-ride.mp3","meaty-hi-hat.mp3","firm-hi-hat.mp3","lofi-crunk-snare.mp3","well-rounded-snare.mp3","disruptive-kick.mp3"],"tempo":"198"}');
-	
+
 	$('.shortcuts_overlay').append('<table class="list_of_shortcuts"><tr><td>open / close shortcuts menu:</td><td>[ c ]</td></tr><tr><td>play / pause sequence:</td><td>[ p ]</td></tr><tr><td>clear pad piece selections:</td><td>[ x ]</td></tr><tr><td>randomize sequence:</td><td>[ z ]</td></tr><tr><td>share sequence:</td><td>[ m ]</td></tr><!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>--><tr><td>calculate tempo:</td><td>[ t ]</td></tr><tr><td>reset calculated tempo:</td><td>[ r ]</td></tr><tr><td>set sequence tempo:</td><td>[ s ]</td></tr></table>');
 
 	// fade the page in one most of the content loading has finished

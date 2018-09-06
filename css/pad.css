@@ -79,6 +79,30 @@
 	opacity 0.25;
 }
 
+/* pad_piece_triggered_active */
+.ppta {
+	min-width: 25px;
+	margin: 5px;
+	height: 25px;
+	opacity: 0.5 !important;
+	background: white;
+	border-radius: 8px;
+	animation: unset;
+	box-shadow: rgba(0, 0, 0, 0.75) 0px 1px 0.5px;
+}
+
+/* pad_piece_triggered_inactive */
+.ppti {
+	min-width: 25px;
+	margin: 5px;
+	height: 25px;
+	opacity: 0.25 !important;
+	background: white;
+	border-radius: 2px;
+	animation: unset;
+	box-shadow: none;
+}
+
 .remove_all_pads {
 	position: absolute;
 	border: none;

@@ -12,8 +12,7 @@ $(document).ready(function () {
 
 /* ! critical !
 
-		- take better screenshots for readme
-		- nothing else to report at the moment 😎
+		- nothing to report at the moment 😎
 
 ! critical ! */
 
@@ -24,10 +23,6 @@ $(document).ready(function () {
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
 // audio effects: pitch, swing, reverb
-
-// update tempo module bpm display whenever tempo field is updated
-
-// set classes for playing sequence piece css to add and remove during playback
 
 // cut down on string parsing by saving coordinates as objects
 // each piece could have an x-coordinate datattribute and a y-coordinate datattribute

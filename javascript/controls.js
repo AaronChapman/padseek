@@ -131,38 +131,24 @@ function play_sequence(pad_reference) {
 			}
 
 			// set active pad piece css properties
-			$(this).css({
-				'opacity': '0.25',
-				'box-shadow': '0 1px 0.5px rgba(00, 00, 00, 0.75)'
-			});
+			$(this).addClass('ppta');
 
 			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);
 
 			setTimeout(function () {
-				quick_reference.css({
-					'opacity': '1.0',
-					'box-shadow': 'none'
-				});
+				quick_reference.removeClass('ppta');
 			}, calculated_tempo);
 		} else {
 			// get a reference to the piece and reset its css attributes
 			var quick_reference = $(this);
 
 			// set inactive pad piece css properties
-			quick_reference.css({
-				'opacity': '0.25',
-				'box-shadow': 'none',
-				'background': 'white'
-			});
+			$(this).addClass('ppti');
 
 			// and then reset them
 			setTimeout(function () {
-				quick_reference.css({
-					'opacity': '1.0',
-					'box-shadow': 'none',
-					'background': 'aliceblue'
-				});
+				quick_reference.removeClass('ppti');
 			}, calculated_tempo);
 		}
 	});

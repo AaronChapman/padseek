@@ -88,10 +88,10 @@ $(document).ready(function () {
 					var x_portion = Math.floor(Math.random() * (last_x_value - first_x_value + 1)) + first_x_value;
 					var y_portion = Math.floor(Math.random() * 8) + 1;
 					var piece_id = $('#' + x_portion + '-' + y_portion);
-					
+
 					// determine number of active piece in the same column before clicking
 					var same_column_check = $(this).find('.pad_piece[id^="' + piece_id.attr('id').substring(0, piece_id.attr('id').indexOf('-')) + '"][data-state="active"]').length;
-					
+
 					if (same_column_check < 4) {
 						piece_id.click();
 					}
@@ -113,7 +113,7 @@ $(document).ready(function () {
 			// calculate tempo
 			calculate(parseInt($('.tempo_field').val()));
 		}
-		
+
 		// correct new data for pad pieces
 		reorder_pad_pieces();
 	});

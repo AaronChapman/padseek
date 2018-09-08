@@ -41,12 +41,13 @@ body {
 	overflow: auto;
 	overflow-x: visible;
 	opacity: 0;
+	background: #FFFCF7;
 }
 
 h1 {
 	top: 0;
 	z-index: 5;
-	padding: 40px 1500px 15px 50px;
+	padding: 40px 600px 15px 50px;
 	transition: all 5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
 	margin: 0px 0 15px 0;
@@ -58,6 +59,7 @@ h1 {
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	white-space: nowrap;
 	overflow: hidden;
+	opacity: 0.75;
 }
 
 .application_message {

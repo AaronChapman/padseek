@@ -94,3 +94,5 @@ key | shortcut
 `[ t ]` | calculate tempo (press repeatedly)
 `[ r ]` | reset calculated tempo
 `[ s ]` | set sequence tempo from calculated tempo
+
+<sup>**see javascript/padseek.js for to-do list**</sup>

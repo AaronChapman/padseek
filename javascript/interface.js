@@ -44,7 +44,6 @@ function generate_pad() {
 	// set up drum sample options
 	generate_labels();
 	generate_select_options();
-
 }
 
 // inital label generation
@@ -94,8 +93,10 @@ function generate_sample_selections() {
 
 // generate options for the drum sample selects
 function generate_select_options() {
+	////////////////////////////////////////////////////
 	temp_generate_sample_selections();
-	///////////////////////////////////////////////////////////////////generate_sample_selections();
+	//generate_sample_selections();
+	///////////////////////////////////////////////////////////////////
 	// fill the sample select elements with their options
 	fill_select_options();
 	// set up certain default interface element states
@@ -191,6 +192,11 @@ function setup_default_interface() {
 
 	// fade the page in one most of the content loading has finished
 	$('body').css('opacity', '1.0');
+	
+	
+	
+	
+	$('');
 }
 
 

@@ -1,4 +1,5 @@
 /* p a d s e e k */
+
 /* drum pad module css */
 
 .duplicate_pad {
@@ -79,7 +80,26 @@
 	opacity 0.25;
 }
 
+.pad_piece[data-state="active"] {
+	min-width: 25px;
+	margin: 5px;
+	height: 25px;
+	opacity: 1;
+	background: white;
+	border-radius: 8px;
+}
+
+.pad_piece[data-state="inactive"] {
+	min-width: 25px;
+	margin: 5px;
+	height: 25px;
+	opacity: 1.0;
+	background: aliceblue;
+	border-radius: 2px;
+}
+
 /* pad_piece_triggered_active */
+
 .ppta {
 	min-width: 25px;
 	margin: 5px;
@@ -92,6 +112,7 @@
 }
 
 /* pad_piece_triggered_inactive */
+
 .ppti {
 	min-width: 25px;
 	margin: 5px;

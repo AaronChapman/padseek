@@ -32,7 +32,7 @@ $(document).ready(function () {
 			reorder_pad_pieces();
 
 			// and set their css properties
-			new_pad.find('.pad_piece').each(function () {
+			/*new_pad.find('.pad_piece').each(function () {
 				if ($(this).attr('data-state') === "active") {
 					$(this).css({
 						'opacity': '1.0',
@@ -44,7 +44,7 @@ $(document).ready(function () {
 						'background': 'aliceblue'
 					});
 				}
-			});
+			});*/
 		} else {
 			application_message('sequence cannot contain more than 32 drum pads');
 		}
@@ -153,14 +153,7 @@ $(document).ready(function () {
 
 // activate a pad piece
 function activate_piece(piece) {
-	// setting active piece properties and attributes
-	piece.css({
-		'background': 'white',
-		'border-radius': '8px'
-	});
-	piece.attr({
-		'data-state': 'active'
-	});
+	piece.attr('data-state', 'active');
 
 	// incrementing the counter (for column sample stack cap)
 	activated_pad_pieces++;
@@ -197,14 +190,7 @@ function activate_piece(piece) {
 
 // deactivate a pad piece
 function deactivate_piece(piece) {
-	// setting inactive pad piece properties and attributes
-	piece.css({
-		'background': 'aliceblue',
-		'border-radius': '2px'
-	});
-	piece.attr({
-		'data-state': 'inactive'
-	});
+	piece.attr('data-state', 'inactive');
 
 	// decrement the variables tracking the number of active pieces
 	activated_pad_pieces--;

@@ -72,36 +72,38 @@ rgba(195, 217, 224, 1);
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: 0;
-	background: rgba(135, 41, 47, 1);
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
 	margin: 10px 10%;
-	color: rgba(195, 217, 224, 1);
-	border: .5px solid rgba(00, 00, 00, 0.25);
+	color: rgba(135, 41, 47, 1);
+	border: .5px solid rgba(135, 41, 47, 1);
+	background: rgba(28, 31, 33, 1);
 }
-
+ 
 .clear_selections:hover {
-	opacity: 0.5;
+	background: rgba(135, 41, 47, 1);
+	color: rgba(28, 31, 33, 1);
 }
 
 .play_sequence {
 	transition: zoom 1.5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
 	width: 100%;
-	background: rgba(195, 217, 224, 1);
-	color: rgba(28, 31, 33, 1);
+	background: rgba(195, 217, 224, 0);
+	color: rgba(195, 217, 224, 1);
 	height: 50px;
 	border-radius: 5px;
 	font-size: 1.5em;
 	margin: 10px 0;
-	border: .5px solid rgba(00, 00, 00, 0.25);
+	border: .5px solid rgba(195, 217, 224, 1);
 	transform: translatey(0px);
 	position: relative;
 }
 
 .play_sequence:hover {
-	opacity: 0.5;
+	background: rgba(195, 217, 224, 1);
+	color: rgba(28, 31, 33, 1);
 }
 
 .controls {
@@ -116,8 +118,9 @@ rgba(195, 217, 224, 1);
 	width: -webkit-fill-available;
 	margin: 5px 50px;
 	height: 50px;
-	color: lightgrey;
-	border-radius: 5px
+	color: rgba(195, 217, 224, 1);
+	border-radius: 5px;
+	background: rgba(28, 31, 33, 1);
 }
 
 .tempo_field_label {
@@ -301,7 +304,7 @@ rgba(195, 217, 224, 1);
 	border: 0;
 	padding: 0 0 0 170px;
 	margin-top: 300px;
-	color: rgba(195, 217, 224, 1);
+	color: rgba(28, 31, 33, 1);
 	background: rgba(195, 217, 224, 1);
 	width: 298px;
 	border-radius: 5px;
@@ -476,7 +479,8 @@ h1 {
 	text-shadow: 1px 1px .5px rgba(00, 00, 00, 0.5);
 	-space: nowrap;
 	overflow: hidden;
-	opacity: .75
+	opacity: .75;
+	box-shadow: none !important;
 }
 
 .application_message {
@@ -581,7 +585,7 @@ input[type="button"] {
 	right: 0;
 	margin: 20px;
 	background: rgba(00, 00, 00, 0);
-	color: rgba(59, 92, 102, 1)
+	color: rgba(195, 217, 224, 1);
 }
 
 #directory_header {
@@ -595,7 +599,7 @@ input[type="button"] {
 	width: 80%;
 	border: 0;
 	border-radius: 5px;
-	background: rgba(195, 217, 224, 1);
+	background: rgba(28, 31, 33, 1);
 	height: 50px;
 	margin-top: 42px;
 	zoom: .75;
@@ -1014,7 +1018,7 @@ input[type="button"] {
 }
 
 .bpm_display {
-	border-bottom: 1px solid #000;
+	border-bottom: .5px solid rgba(195, 217, 224, 1);
 	width: 100px;
 	max-width: 60px;
 	text-align: center

@@ -72,37 +72,36 @@ rgba(195, 217, 224, 1);
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: 0;
-	background: rgba(195, 217, 224, 1);
+	background: rgba(135, 41, 47, 1);
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
 	margin: 10px 10%;
 	color: rgba(195, 217, 224, 1);
-	border: .5px solid rgba(00, 00, 00, 0.25)
+	border: .5px solid rgba(00, 00, 00, 0.25);
 }
 
 .clear_selections:hover {
-	background: #4C243B
+	opacity: 0.5;
 }
 
 .play_sequence {
 	transition: zoom 1.5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
 	width: 100%;
-	background: rgba(28, 31, 33, 1);
+	background: rgba(195, 217, 224, 1);
+	color: rgba(28, 31, 33, 1);
 	height: 50px;
 	border-radius: 5px;
 	font-size: 1.5em;
 	margin: 10px 0;
-	color: rgba(59, 92, 102, 1);
 	border: .5px solid rgba(00, 00, 00, 0.25);
 	transform: translatey(0px);
 	position: relative;
-	animation: walkthrough_float 2s ease-in-out infinite
 }
 
 .play_sequence:hover {
-	background: rgba(195, 217, 224, 1)
+	opacity: 0.5;
 }
 
 .controls {
@@ -206,18 +205,18 @@ rgba(195, 217, 224, 1);
 	text-align: center;
 	color: rgba(195, 217, 224, 1);
 	border: 1px solid rgba(00, 00, 00, 0.25);
-	background: #4C243B
+	background: rgba(135, 41, 47, 1)
 }
 
 .never_mind:hover {
-	color: #4C243B;
+	color: rgba(135, 41, 47, 1);
 	background: rgba(195, 217, 224, 1)
 }
 
 .overlay {
 	height: 100%;
 	position: absolute;
-	background: (59, 92, 102, 1);
+	background: rgba(28, 31, 33, 1);
 	justify-content: center;
 	transition: all .15s ease-in-out;
 	transition: opacity .25s ease-in-out;
@@ -243,7 +242,7 @@ rgba(195, 217, 224, 1);
 
 .sample_swap_label {
 	font-family: 'Shrikhand', cursive;
-	color: #4C243B;
+	color: rgba(135, 41, 47, 1);
 	font-size: 2em;
 	text-shadow: .5px .5px .5px rgba(00, 00, 00, 0.25);
 	margin-top: 25px
@@ -303,7 +302,7 @@ rgba(195, 217, 224, 1);
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: rgba(195, 217, 224, 1);
-	background: rgba(59, 92, 102, 1);
+	background: rgba(195, 217, 224, 1);
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;
@@ -366,7 +365,7 @@ rgba(195, 217, 224, 1);
 	margin: 5px;
 	height: 25px;
 	opacity: 1;
-	background: rgba(195, 217, 224, 1);
+	background: rgba(135, 41, 47, 1);
 	border-radius: 8px;
 }
 
@@ -375,7 +374,7 @@ rgba(195, 217, 224, 1);
 	margin: 5px;
 	height: 25px;
 	opacity: 1.0;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	border-radius: 2px;
 }
 
@@ -387,7 +386,7 @@ rgba(195, 217, 224, 1);
 	background: rgba(195, 217, 224, 1);
 	border-radius: 8px;
 	animation: unset;
-	box-shadow: rgba(0, 0, 0, 0.75) 0 1px .5px
+	box-shadow: 0 1px .5px rgba(0, 0, 0, 0.75); 
 }
 
 .ppti {
@@ -407,7 +406,7 @@ rgba(195, 217, 224, 1);
 	padding: 0 0 0 170px;
 	margin-top: 300px;
 	color: rgba(195, 217, 224, 1);
-	background: #4C243B;
+	background: rgba(135, 41, 47, 1);
 	width: 298px;
 	border-radius: 5px;
 	height: 25px;
@@ -424,7 +423,7 @@ rgba(195, 217, 224, 1);
 	border: 0;
 	padding: 0 100px 0 0;
 	z-index: 10;
-	color: #4C243B
+	color: rgba(135, 41, 47, 1)
 }
 
 * {
@@ -488,7 +487,7 @@ h1 {
 	right: 175px;
 	font-size: 1.75em;
 	padding: 34px;
-	background: #4C243B;
+	background: rgba(135, 41, 47, 1);
 	color: rgba(195, 217, 224, 1);
 	z-index: -1;
 	text-align: center;
@@ -503,11 +502,11 @@ input[type="button"]:active {
 }
 
 .box-shadowed {
-	box-shadow: 0 2px .5px rgba(00, 00, 00, 0.25)
+	box-shadow: 0 2px .5px rgba(195, 217, 224, 1)
 }
 
 .box-shadowed-hover:hover {
-	box-shadow: 0 2px .5px rgba(00, 00, 00, 0.25)
+	/*box-shadow: 0 2px .5px rgba(195, 217, 224, 1)*/
 }
 
 .cursor_pointer:hover {
@@ -610,19 +609,19 @@ input[type="button"] {
 }
 
 .random_shared_sequence:hover {
-	background: #4D5359
+	opacity: 0.75;
 }
 
 .randomization_checkbox {
 	position: relative;
 	border-radius: 20px;
-	background: rgba(195, 217, 224, 1);
+	background: rgba(28, 31, 33, 1);
 	outline: 0;
 	-webkit-appearance: none;
 	cursor: pointer;
 	width: 20px;
 	height: 12px;
-	border: .5px solid rgba(59, 92, 102, 1)
+	border: .5px solid rgba(195, 217, 224, 1);
 }
 
 .randomization_checkboxes {
@@ -662,7 +661,7 @@ input[type="button"] {
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: #4C243B;
+	background: rgba(135, 41, 47, 1);
 	transition: all .1s linear
 }
 
@@ -698,7 +697,7 @@ input[type="button"] {
 }
 
 .randomize:hover {
-	background: rgba(28, 31, 33, 1)
+	opacity: 0.75;
 }
 
 .load_user_sequences {
@@ -781,7 +780,7 @@ input[type="button"] {
 	padding: 25px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background: rgba(195, 217, 224, 1)
+	background: rgba(28, 31, 33, 1);
 }
 
 .saved input {
@@ -829,7 +828,7 @@ input[type="button"] {
 
 .frequency_range {
 	border: 0;
-	color: #4C243B;
+	color: rgba(135, 41, 47, 1);
 	font-weight: bold;
 	height: 5px;
 	background: rgba(205, 130, 130, 0);
@@ -849,7 +848,7 @@ input[type="button"] {
 	height: 294px;
 	display: grid;
 	width: 150px;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	border: .5px dashed rgba(195, 217, 224, 1);
 	position: relative
 }
@@ -878,8 +877,6 @@ input[type="button"] {
 }
 
 .labels_item {
-	padding: 0 40px 0 0;
-	overflow: visible
 }
 
 .samples {
@@ -926,7 +923,7 @@ input[type="button"] {
 	left: 45.3854%;
 	width: 54.6146%;
 	height: 5px;
-	background: #4C243B;
+	background: rgba(135, 41, 47, 1);
 	border: none!important
 }
 
@@ -968,20 +965,25 @@ input[type="button"] {
 .sharing input {
 	border-radius: 5px;
 	padding: 10px;
-	width: -webkit-fill-available
+	width: -webkit-fill-available;
+	background: rgba(28, 31, 33, 1);
+}
+
+.sharing input:hover {
+	background: rgba(255, 255, 255, 0.25);
 }
 
 .share_sequence {
 	width: 100%;
-	background: #4D5359;
+	background: rgba(195, 217, 224, 1) !important;
 	font-family: 'Shrikhand', cursive;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(28, 31, 33, 1);
 	font-size: 1.5em;
 	height: 50px
 }
 
 .share_sequence:hover {
-	background: rgba(195, 217, 224, 1)
+	opacity: 0.5;
 }
 
 .shared_sequence {
@@ -1075,7 +1077,7 @@ input[type="button"] {
 	overflow: hidden;
 	font-family: 'Shrikhand', cursive;
 	color: rgba(195, 217, 224, 1);
-	background: #4C243B;
+	background: rgba(135, 41, 47, 1);
 	font-size: 1.5em;
 	min-height: 40px;
 	max-height: 40px;
@@ -1132,11 +1134,11 @@ input[type="button"] {
 
 @keyframes walkthrough_float {
 	0% {
-		box-shadow: 0 2px .5px rgba(00, 00, 00, 0.5);
+		box-shadow: 0 2px .5px rgba(195, 217, 224, 0.55);
 		transform: translatey(0px)
 	}
 	50% {
-		box-shadow: 0 2px .5px rgba(00, 00, 00, 0.25);
+		box-shadow: 0 2px .5px rgba(195, 217, 224, 1);
 		transform: translatey(-1.5px)
 	}
 	100% {

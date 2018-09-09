@@ -17,6 +17,7 @@
 	-ms-animation: none;
 	-o-animation: none;
 	animation: none;
+	filter: none !important;
 }
 
 .change_sample_type:hover {

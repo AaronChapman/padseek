@@ -44,7 +44,6 @@ function generate_pad() {
 	// set up drum sample options
 	generate_labels();
 	generate_select_options();
-
 }
 
 // inital label generation
@@ -94,8 +93,10 @@ function generate_sample_selections() {
 
 // generate options for the drum sample selects
 function generate_select_options() {
+	////////////////////////////////////////////////////
 	temp_generate_sample_selections();
-	///////////////////////////////////////////////////////////////////generate_sample_selections();
+	//generate_sample_selections();
+	///////////////////////////////////////////////////////////////////
 	// fill the sample select elements with their options
 	fill_select_options();
 	// set up certain default interface element states
@@ -191,6 +192,11 @@ function setup_default_interface() {
 
 	// fade the page in one most of the content loading has finished
 	$('body').css('opacity', '1.0');
+	
+	
+	
+	
+	$('');
 }
 
 
@@ -336,6 +342,34 @@ function remove_shortcuts() {
 	shortcut.remove("m");
 }
 
+function set_theme(theme) {
+	if (theme == "regular") {
+		$('link[rel="stylesheet"]').each(function() {
+			if ($(this).attr('href').indexOf('padseek-dark') == -1) {
+				$(this).removeAttr('disabled');
+			}
+		});
+
+		
+	} else if (theme == "dark") {
+		$('link[rel="stylesheet"]').each(function() {
+			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('padseek-dark') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
+				$(this).prop('disabled', 'true');
+			} else {
+				$(this).removeAttr('disabled');
+			}
+		});
+	}
+	
+	$('.theme_option').each(function() {
+		if ($(this).attr('class').indexOf(theme) == -1) {
+			$(this).css('display', 'block');
+		} else {
+			$(this).css('display', 'none');
+		}
+	});
+}
+
 // when the document is ready
 $(document).ready(function () {
 	// turn off keyboard shortcuts when an input element is focused
@@ -380,5 +414,9 @@ $(document).ready(function () {
 				'overflow': 'scroll'
 			});
 		}
+	});
+	
+	$('.theme_option').click(function() {
+		set_theme($(this).attr('data-theme'));
 	});
 });

@@ -14,10 +14,11 @@
 	max-height: 40px;
 	width: 100%;
 	margin: 0 25px 0 0;
+	background: white !important;
 }
 
 .advance_walkthrough:hover {
-	background: floralwhite;
+	background: floralwhite !important;
 }
 
 .close_walkthrough_window {
@@ -26,8 +27,8 @@
 	padding: 1px 0 0 2px;
 	overflow: hidden;
 	font-family: 'Shrikhand', cursive;
-	color: white;
-	background: rgb(205, 130, 130);
+	color: white !important;
+	background: rgb(205, 130, 130) !important;
 	font-size: 1.5em;
 	min-height: 40px;
 	max-height: 40px;
@@ -36,8 +37,8 @@
 }
 
 .close_walkthrough_window:hover {
-	background: white;
-	color: #738290;
+	background: white !important;
+	color: #738290 !important;
 }
 
 .detailed_instructions_link {

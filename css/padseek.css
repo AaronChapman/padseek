@@ -18,6 +18,7 @@
 	font-family: 'Muli', sans-serif;
 	outline: none;
 	z-index: 1;
+	color: rgb(84, 84, 84);
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -41,23 +42,25 @@ body {
 	overflow: auto;
 	overflow-x: visible;
 	opacity: 0;
+	background: #FFFCF7;
+	transition: background 0.25s ease-in-out;
 }
 
 h1 {
 	top: 0;
 	z-index: 5;
-	padding: 40px 1500px 15px 50px;
-	transition: all 5s ease-in-out;
+	padding: 40px 150px 15px 100px;
 	font-family: 'Shrikhand', cursive;
-	margin: 0px 0 15px 0;
-	border-radius: 0 5px 5px 0;
+	margin: 0 0 15px 100px;
+	border-radius: 0 0 5px 5px;
 	position: fixed;
-	background: linear-gradient(to right, #738290, #FFFCF7);
+	background: #738290;
 	font-size: 36px;
-	color: white;
+	color: #F5F5F5;
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
-	white-space: nowrap;
 	overflow: hidden;
+	opacity: 0.75;
+	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25) !important;
 }
 
 .application_message {
@@ -121,7 +124,7 @@ input[type="button"]:active {
 .main_content {
 	width: auto;
 	height: auto;
-	padding: 25px 40px 25px 0px;
+	padding: 50px 40px 25px 0px;
 	margin: 30px 40px 40px 40px;
 }
 
@@ -167,4 +170,28 @@ input[type="button"] {
 
 #directory_header {
 	z-index: 10 !important;
+}
+
+.themes {
+	position: fixed;
+    display: inline-flex;
+    top: 38.5px;
+    right: 175px;
+}
+
+.theme_option {
+	width: 30px;
+	height: 30px;
+	border-radius: 8px;
+	margin-left: 10px;
+	opacity: 0.5;
+}
+
+.regular_theme {
+	background: floralwhite;
+	display: none;
+}
+
+.dark_theme {
+	background: rgba(28, 31, 33, 1);
 }

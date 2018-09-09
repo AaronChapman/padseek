@@ -24,6 +24,14 @@ $(document).ready(function () {
 
 // audio effects: pitch, swing, reverb
 
+// redesign saved sequences and maybe sample swapper
+
+// full code documentation
+
+// add theme to readme
+
+// scroll overlays to top of container before locking scroll
+
 // cut down on string parsing by saving coordinates as objects
 // each piece could have an x-coordinate datattribute and a y-coordinate datattribute
 // helps processing pieces in the same column

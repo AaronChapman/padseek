@@ -77,20 +77,7 @@ function clear_selections() {
 	}
 
 	// reset css and attributes for each pad piece element
-	$('.pad').find('.pad_piece').each(function () {
-		$(this).css({
-			'min-width': '25px',
-			'margin': '5px',
-			'height': '25px',
-			'opacity': '1.0',
-			'background': 'aliceblue',
-			'border-radius': '2px'
-		});
-
-		$(this).attr({
-			'data-state': 'inactive'
-		});
-	});
+	$('.pad_piece').attr('data-state', 'inactive');
 }
 
 // plays cloned copies of the audio tags so same samples can overlap

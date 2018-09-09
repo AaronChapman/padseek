@@ -19,8 +19,9 @@
 	<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/template.css">
 	<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
 
+	<link rel="stylesheet" href="css/padseek-dark.css" disabled="true">
+
 	<link rel="stylesheet" href="css/randomization.css">
-	<link rel="stylesheet" href="css/padseek-dark.css">
 	<link rel="stylesheet" href="css/walkthrough.css">
 	<link rel="stylesheet" href="css/animations.css">
 	<link rel="stylesheet" href="css/overlays.css">
@@ -54,15 +55,19 @@
 	<script src="javascript/audio.js"></script>
 	<script src="javascript/pad.js"></script>
 	<script src="javascript/padseek.js"></script>
-	
+
 	<!--<script src="javascript/padseek.min.js"></script>-->
 </head>
 
 <body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
 	<p class="application_message box-shadowed"></p>
-	<p class="stat_repo">
+	<div class="stat_repo">
+		<div class="themes">
+			<div class="regular_theme theme_option cursor_pointer" data-theme="regular"></div>
+			<div class="dark_theme theme_option cursor_pointer" data-theme="dark"></div>
+		</div>
 		<a class="github_button" href="https://github.com/AaronChapman/padseek" data-size="large" aria-label="Fork padseek on GitHub">Fork padseek on GitHub</a>
-	</p>
+	</div>
 	<h1 class="title box-shadowed">p a d s e e k</h1>
 	<div id="directory_header"></div>
 	<div class="main_content">

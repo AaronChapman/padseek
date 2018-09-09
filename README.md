@@ -81,6 +81,16 @@ visual | how to operate
 
 ---
 
+**`themes`**
+
+<sup>switch themes using the options in top right corner</sup>
+
+regular theme | dark theme
+--- | ---
+![regular padseek theme](images/README/regular-theme.png "regular padseek theme") | ![dark padseek theme](images/README/dark-theme.png "dark padseek theme")
+
+---
+
 **`keyboard shortcuts`**
 
 key | shortcut
@@ -94,3 +104,5 @@ key | shortcut
 `[ t ]` | calculate tempo (press repeatedly)
 `[ r ]` | reset calculated tempo
 `[ s ]` | set sequence tempo from calculated tempo
+
+<sup>**see javascript/padseek.js for to-do list**</sup>

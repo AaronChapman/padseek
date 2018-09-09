@@ -36,7 +36,7 @@
 	overflow-y: scroll;
 }
 
-.sharing input {
+.sharing input  {
 	border-radius: 5px;
   padding: 10px;
   width: -webkit-fill-available;
@@ -44,7 +44,7 @@
 
 .share_sequence {
 	width: 100%;
-	background: floralwhite;
+	background: floralwhite !important;
 	font-family: 'Shrikhand', cursive;
 	color: #738290;
 	font-size: 1.5em;
@@ -52,7 +52,8 @@
 }
 
 .share_sequence:hover {
-	background: white;
+	background: white !important;
+	opacity: 1;
 }
 
 .shared_sequence {
@@ -60,10 +61,11 @@
 	margin: 10px auto;
   overflow: hidden;
 	position: relative;
+	background: white !important;
 }
 
 .shared_sequence:hover {
-	background: floralwhite;
+	background: floralwhite !important;
 }
 
 .shared_sequences {

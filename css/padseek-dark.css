@@ -465,7 +465,7 @@ body {
 	overflow: auto;
 	overflow-x: visible;
 	opacity: 0;
-	background: rgba(28, 31, 33, 1)
+	background: rgba(28, 31, 33, 1);
 }
 
 h1 {
@@ -474,7 +474,7 @@ h1 {
 	padding: 40px 100px 15px 50px;
 	transition: all 5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
-	margin: 0 0 15px 150px;
+	margin: 0 0 15px 100px;
 	border-radius: 0 0 5px 5px;
 	position: fixed;
 	background: rgba(135, 41, 47, 1);
@@ -482,7 +482,7 @@ h1 {
 	color: #F5F5F5;
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	overflow: hidden;
-	opacity: 1;
+	opacity: 0.75;
 	box-shadow: none !important;
 }
 
@@ -606,9 +606,9 @@ input[type="button"] {
 .theme_option {
 	width: 30px;
 	height: 30px;
-	border-radius: 5px;
-	border: .5px dashed #F5F5F5;
+	border-radius: 8px;
 	margin-left: 10px;
+	opacity: 0.5;
 }
 
 .regular_theme {

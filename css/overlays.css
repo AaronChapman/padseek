@@ -70,7 +70,6 @@
 
 .never_mind {
 	font-family: 'Shrikhand', cursive;
-	width: 80%;
 	border: none;
 	background: white;
 	border-radius: 5px;
@@ -78,7 +77,7 @@
 	margin-top: 10px;
 	zoom: 0.75;
 	font-size: 1.5em;
-	width: 75% !important;
+	width: 85% !important;
 	text-align: center;
 	color: white;
 	border: 1px solid rgba(00, 00, 00, 0.25);
@@ -86,8 +85,9 @@
 }
 
 .never_mind:hover {
-	color: rgb(205, 130, 130);
-	background: white;
+	color: rgb(205, 130, 130) !important;
+	background: white !important;
+	opacity: 1 !important;
 }
 
 .overlay {
@@ -100,6 +100,11 @@
 	display: inline-block;
 	z-index: -1;
 	opacity: 0;
+}
+
+.old_sample_type {
+	background: floralwhite !important;
+	color: rgb(84, 84, 84) !important;
 }
 
 .sample_swap_overlay {
@@ -144,7 +149,7 @@
 	border-radius: 5px;
 	background: aliceblue;
 	font-family: 'Shrikhand', cursive;
-	color: #738290;
+	color: #738290 !important;
 	font-size: 1.5em;
 	height: 50px;
 	zoom: 0.75;
@@ -153,6 +158,7 @@
 
 .swap_sample_type:hover {
 	background: white;
+	color: #738290 !important;
 }
 
 .saved .name_sequence_overlay {

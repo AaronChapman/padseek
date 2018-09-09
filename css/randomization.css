@@ -34,7 +34,7 @@
   cursor: pointer;
 	width: 20px;
 	height: 12px;
-	border: 0.5px solid #738290;
+	border: 0.5px solid #738290 !important;
 }
 
 .randomization_checkboxes {
@@ -79,6 +79,7 @@
 
 .randomization_checkbox:checked {
   background: #738290;
+	border: 0.5px solid #738290 !important;
 }
 
 .randomization_checkbox:checked::after {

@@ -343,8 +343,6 @@ function remove_shortcuts() {
 }
 
 function set_theme(theme) {
-	console.log(theme);
-	
 	if (theme == "regular") {
 		$('link[rel="stylesheet"]').each(function() {
 			if ($(this).attr('href').indexOf('padseek-dark') == -1) {
@@ -363,6 +361,14 @@ function set_theme(theme) {
 			}
 		});
 	}
+	
+	$('.theme_option').each(function() {
+		if ($(this).attr('class').indexOf(theme) == -1) {
+			$(this).css('display', 'block');
+		} else {
+			$(this).css('display', 'none');
+		}
+	});
 }
 
 // when the document is ready

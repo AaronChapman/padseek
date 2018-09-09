@@ -15,9 +15,9 @@ File list:
 * walkthrough.css
 *****************************/
 
-rgba(28, 31, 33, 1);
+rgba(28, 31, 33, 1) rgba(28, 31, 33, 1);
 rgba(195, 217, 224, 1);
-rgba(59, 92, 102, 1);
+rgba(195, 217, 224, 1);
 rgba(111, 154, 168, 1);
 rgba(158, 185, 193, 1);
 rgba(195, 217, 224, 1);
@@ -26,10 +26,10 @@ rgba(195, 217, 224, 1);
 // rgba(195, 217, 224, 1)
 // rgba(28, 31, 33, 1)
 // #F5F5F5 
-// #4D5359
-// rgba(59, 92, 102, 1)
+// rgba(28, 31, 33, 1)
+// rgba(195, 217, 224, 1)
 // rgba(00, 00, 00, 0.5)
-// #545454
+// rgba(195, 217, 224, 1)
 */
 
 @keyframes rotating {
@@ -80,10 +80,10 @@ rgba(195, 217, 224, 1);
 	border: .5px solid rgba(135, 41, 47, 1);
 	background: rgba(28, 31, 33, 1);
 }
- 
+
 .clear_selections:hover {
 	background: rgba(135, 41, 47, 1);
-	color: rgba(28, 31, 33, 1);
+	color: rgba(195, 217, 224, 1);
 }
 
 .play_sequence {
@@ -134,7 +134,7 @@ rgba(195, 217, 224, 1);
 	height: 30px;
 	background: #f5f5f5;
 	margin-bottom: 25px;
-	border: 1px solid rgba(59, 92, 102, 1);
+	border: 1px solid rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	font-size: 1.5em;
 	opacity: .75
@@ -152,12 +152,12 @@ rgba(195, 217, 224, 1);
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: 0;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	color: rgba(59, 92, 102, 1);
-	border: .5px solid rgba(00, 00, 00, 0.25)
+	color: rgba(195, 217, 224, 1);
+	border: .5px solid rgba(195, 217, 224, 1)
 }
 
 .name_and_save_sequence:hover {
@@ -168,16 +168,17 @@ rgba(195, 217, 224, 1);
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: 0;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	color: rgba(59, 92, 102, 1);
-	border: .5px solid rgba(00, 00, 00, 0.25)
+	color: rgba(195, 217, 224, 1);
+	border: .5px solid rgba(195, 217, 224, 1)
 }
 
 .name_and_share_sequence:hover {
-	background: rgba(195, 217, 224, 1)
+	background: rgba(195, 217, 224, 1) !important;
+	color: rgba(28, 31, 33, 1);
 }
 
 .naming_sequence_overlay_buttons {
@@ -196,24 +197,21 @@ rgba(195, 217, 224, 1);
 
 .never_mind {
 	font-family: 'Shrikhand', cursive;
-	width: 80%;
-	border: 0;
-	background: rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	height: 50px;
 	margin-top: 10px;
 	zoom: .75;
 	font-size: 1.5em;
-	width: 75%!important;
+	width: 85%!important;
 	text-align: center;
-	color: rgba(195, 217, 224, 1);
-	border: 1px solid rgba(00, 00, 00, 0.25);
-	background: rgba(135, 41, 47, 1)
+	color: rgba(135, 41, 47, 1);
+	border: 1px solid rgba(135, 41, 47, 1);
+	background: rgba(28, 31, 33, 1);
 }
 
 .never_mind:hover {
-	color: rgba(135, 41, 47, 1);
-	background: rgba(195, 217, 224, 1)
+	color: rgba(195, 217, 224, 1) !important;
+	background: rgba(135, 41, 47, 1) !important;
 }
 
 .overlay {
@@ -228,6 +226,12 @@ rgba(195, 217, 224, 1);
 	opacity: 0
 }
 
+.old_sample_type {
+	border: .5px solid rgba(135, 41, 47, 1) !important;
+	background: rgba(135, 41, 47, 1) !important;
+	color: rgba(195, 217, 224, 1) !important;
+}
+
 .sample_swap_overlay {
 	text-align: center;
 	padding: 25px;
@@ -236,7 +240,7 @@ rgba(195, 217, 224, 1);
 	border: .5px dashed rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	width: 100%;
-	background: #4D5359
+	background: rgba(28, 31, 33, 1)
 }
 
 .sample_swap_overlay .overlay_description {
@@ -254,7 +258,6 @@ rgba(195, 217, 224, 1);
 .sample_swap_select {
 	width: 150px;
 	margin: 10px 0 25px;
-	border: .5px dashed rgba(00, 00, 00, 0.5)!important;
 	zoom: 1.25
 }
 
@@ -270,7 +273,7 @@ rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	background: rgba(28, 31, 33, 1);
 	font-family: 'Shrikhand', cursive;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(195, 217, 224, 1);
 	font-size: 1.5em;
 	height: 50px;
 	zoom: .75;
@@ -278,7 +281,8 @@ rgba(195, 217, 224, 1);
 }
 
 .swap_sample_type:hover {
-	background: rgba(195, 217, 224, 1)
+	background: rgba(195, 217, 224, 1);
+	color: rgba(28, 31, 33, 1);
 }
 
 .saved .name_sequence_overlay {
@@ -290,7 +294,7 @@ rgba(195, 217, 224, 1);
 	margin: -25px 0 0 50px;
 	border: 0;
 	padding: 0 0 0 85px;
-	color: #545454
+	color: rgba(195, 217, 224, 1)
 }
 
 .duplicate_pad,
@@ -389,7 +393,7 @@ rgba(195, 217, 224, 1);
 	background: rgba(195, 217, 224, 1);
 	border-radius: 8px;
 	animation: unset;
-	box-shadow: 0 1px .5px rgba(0, 0, 0, 0.75); 
+	box-shadow: 0 1px .5px rgba(0, 0, 0, 0.75);
 }
 
 .ppti {
@@ -457,7 +461,7 @@ body {
 	height: 100%;
 	font-size: 12px;
 	line-height: 1.5em;
-	color: #545454;
+	color: rgba(195, 217, 224, 1);
 	overflow: auto;
 	overflow-x: visible;
 	opacity: 0;
@@ -467,19 +471,18 @@ body {
 h1 {
 	top: 0;
 	z-index: 5;
-	padding: 40px 600px 15px 50px;
+	padding: 40px 100px 15px 50px;
 	transition: all 5s ease-in-out;
 	font-family: 'Shrikhand', cursive;
-	margin: 0 0 15px;
-	border-radius: 0 5px 5px 0;
+	margin: 0 0 15px 150px;
+	border-radius: 0 0 5px 5px;
 	position: fixed;
-	background: linear-gradient(to right, rgba(59, 92, 102, 1), rgba(28, 31, 33, 1));
+	background: rgba(135, 41, 47, 1);
 	font-size: 36px;
-	color: rgba(195, 217, 224, 1);
-	text-shadow: 1px 1px .5px rgba(00, 00, 00, 0.5);
-	-space: nowrap;
+	color: #F5F5F5;
+	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	overflow: hidden;
-	opacity: .75;
+	opacity: 1;
 	box-shadow: none !important;
 }
 
@@ -496,7 +499,7 @@ h1 {
 	z-index: -1;
 	text-align: center;
 	border-radius: 5px;
-	border: .5px solid rgba(195, 217, 224, 1);
+	border: .5px solid rgba(135, 41, 47, 1);
 	width: fit-content
 }
 
@@ -530,15 +533,16 @@ input[type="button"]:active {
 	right: 0;
 	top: 0;
 	margin: 35px 10px 0 0;
-	background: rgba(195, 217, 224, 1);
-	color: rgba(59, 92, 102, 1);
+	background: rgba(28, 31, 33, 1);
+	color: rgba(195, 217, 224, 1);
 	border: .5px dashed rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	padding: 10px
 }
 
 .github_button:hover {
-	background: #4D5359
+	background: rgba(255, 255, 255, 0.25);
+	color: rgba(195, 217, 224, 1);
 }
 
 .main_content {
@@ -549,11 +553,11 @@ input[type="button"]:active {
 }
 
 .rotating {
-	-webkit-animation: rotating 1.5s linear infinite;
-	-moz-animation: rotating 1.5s linear infinite;
-	-ms-animation: rotating 1.5s linear infinite;
-	-o-animation: rotating 1.5s linear infinite;
-	animation: rotating 1.5s linear infinite
+	-webkit-animation: rotating 1.5s linear infinite !important;
+	-moz-animation: rotating 1.5s linear infinite !important;
+	-ms-animation: rotating 1.5s linear infinite !important;
+	-o-animation: rotating 1.5s linear infinite !important;
+	animation: rotating 1.5s linear infinite;
 }
 
 .sample_element {
@@ -609,7 +613,6 @@ input[type="button"] {
 	color: slategray;
 	border: 1px dashed rgba(195, 217, 224, 1);
 	text-shadow: 1px 1px .5px rgba(00, 00, 00, 0.75);
-	animation: walkthrough_float 2s ease-in-out infinite
 }
 
 .random_shared_sequence:hover {
@@ -625,7 +628,7 @@ input[type="button"] {
 	cursor: pointer;
 	width: 20px;
 	height: 12px;
-	border: .5px solid rgba(195, 217, 224, 1);
+	border: .5px dashed rgba(195, 217, 224, 1);
 }
 
 .randomization_checkboxes {
@@ -670,7 +673,8 @@ input[type="button"] {
 }
 
 .randomization_checkbox:checked {
-	background: rgba(59, 92, 102, 1)
+	background: rgba(28, 31, 33, 1);
+	border: .5px solid rgba(195, 217, 224, 1);
 }
 
 .randomization_checkbox:checked::after {
@@ -691,13 +695,13 @@ input[type="button"] {
 	transition: background 1.25s ease-in-out;
 	width: 100%;
 	border: 0;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	height: 50px;
 	border-radius: 5px;
 	font-size: 1.5em;
 	margin: 10px 0;
-	color: rgba(195, 217, 224, 1);
-	border: .5px solid rgba(00, 00, 00, 0.25)
+	color: rgba(28, 31, 33, 1);
+	border: .5px solid rgba(195, 217, 224, 1)
 }
 
 .randomize:hover {
@@ -708,11 +712,11 @@ input[type="button"] {
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: 0;
-	background: #4D5359;
+	background: rgba(28, 31, 33, 1);
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(195, 217, 224, 1);
 	border: 1px solid rgba(00, 00, 00, 0.25);
 	margin-top: 20px;
 	zoom: .75
@@ -726,7 +730,7 @@ input[type="button"] {
 	text-align: left;
 	height: 25px;
 	background: #f5f5f5;
-	border: 1px solid rgba(59, 92, 102, 1);
+	border: 1px solid rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	font-size: 1.5em;
 	opacity: .75
@@ -735,7 +739,7 @@ input[type="button"] {
 .save_sequence {
 	background: rgba(28, 31, 33, 1);
 	font-family: 'Shrikhand', cursive;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(195, 217, 224, 1);
 	font-size: 1.5em;
 	height: 50px;
 	zoom: .75;
@@ -755,7 +759,7 @@ input[type="button"] {
 }
 
 .saved_sequence:hover {
-	background: #4D5359
+	background: rgba(28, 31, 33, 1)
 }
 
 .saved_sequences {
@@ -806,7 +810,9 @@ input[type="button"] {
 	-moz-animation: none;
 	-ms-animation: none;
 	-o-animation: none;
-	animation: none
+	animation: none;
+	-webkit-filter: invert(1);
+	filter: invert(1);
 }
 
 .change_sample_type:hover {
@@ -880,8 +886,7 @@ input[type="button"] {
 	border-bottom: 0
 }
 
-.labels_item {
-}
+.labels_item {}
 
 .samples {
 	display: inline-flex
@@ -903,7 +908,7 @@ input[type="button"] {
 	width: 150px;
 	border: 0;
 	background: rgba(28, 31, 33, 1);
-	border: .5px solid rgba(0, 0, 0, 0.25)
+	border: .5px solid rgba(195, 217, 224, 1)
 }
 
 .selects {
@@ -973,7 +978,7 @@ input[type="button"] {
 	background: rgba(28, 31, 33, 1);
 }
 
-.sharing input:hover {
+.sharing input[type="button"]:hover {
 	background: rgba(255, 255, 255, 0.25);
 }
 
@@ -998,7 +1003,7 @@ input[type="button"] {
 }
 
 .shared_sequence:hover {
-	background: #4D5359
+	background: rgba(28, 31, 33, 1)
 }
 
 .shared_sequences {
@@ -1046,12 +1051,12 @@ input[type="button"] {
 
 .set_tempo {
 	width: 75px;
-	border: .5px solid rgba(00, 00, 00, 0.25);
+	border: .5px solid rgba(195, 217, 224, 1);
 	background: rgba(28, 31, 33, 1);
 	height: 25px;
 	border-radius: 5px;
 	font-size: 12px;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(195, 217, 224, 1);
 	margin-right: 25px;
 	display: none
 }
@@ -1062,7 +1067,7 @@ input[type="button"] {
 	padding: 1px 0 0 2px;
 	overflow: hidden;
 	font-family: 'Shrikhand', cursive;
-	color: rgba(59, 92, 102, 1);
+	color: rgba(195, 217, 224, 1);
 	font-size: 1.5em;
 	min-height: 40px;
 	max-height: 40px;
@@ -1071,11 +1076,11 @@ input[type="button"] {
 }
 
 .advance_walkthrough:hover {
-	background: #4D5359
+	background: rgba(28, 31, 33, 1)
 }
 
 .close_walkthrough_window {
-	border: .5px solid rgba(00, 00, 00, 0.25);
+	border: .5px solid rgba(195, 217, 224, 1);
 	border-radius: 5px;
 	padding: 1px 0 0 2px;
 	overflow: hidden;
@@ -1091,7 +1096,7 @@ input[type="button"] {
 
 .close_walkthrough_window:hover {
 	background: rgba(195, 217, 224, 1);
-	color: rgba(59, 92, 102, 1)
+	color: rgba(195, 217, 224, 1)
 }
 
 .detailed_instructions_link {
@@ -1168,7 +1173,7 @@ input[type="button"] {
 		background: rgba(28, 31, 33, 1)
 	}
 	50% {
-		background: #4D5359
+		background: rgba(28, 31, 33, 1)
 	}
 	100% {
 		background: rgba(28, 31, 33, 1)

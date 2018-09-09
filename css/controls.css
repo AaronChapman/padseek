@@ -10,7 +10,7 @@
 	height: 50px;
 	font-size: 1.5em;
 	margin: 10px 10%;
-	color: white;
+	color: white !important;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 }
 
@@ -27,7 +27,7 @@
 	border-radius: 5px;
 	font-size: 1.5em;
 	margin: 10px 0;
-	color: #738290;
+	color: #738290 !important;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 	transform: translatey(0px);
 	position: relative;

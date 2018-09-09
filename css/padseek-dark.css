@@ -499,7 +499,8 @@ h1 {
 	text-align: center;
 	border-radius: 5px;
 	border: .5px solid rgba(135, 41, 47, 1);
-	width: fit-content
+	width: fit-content;
+	box-shadow: none !important;
 }
 
 input[type="button"]:active {
@@ -765,7 +766,7 @@ input[type="button"] {
 	font-size: 1.5em;
 	height: 50px;
 	zoom: .75;
-	margin: 10px 0 0 4px;
+	margin: 10px auto;
 	width: 80%;
 }
 

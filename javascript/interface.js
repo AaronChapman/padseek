@@ -354,7 +354,6 @@ function set_theme(theme) {
 	} else if (theme == "dark") {
 		$('link[rel="stylesheet"]').each(function() {
 			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('padseek-dark') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
-				console.log('no oylo and no padseek-dark');
 				$(this).prop('disabled', 'true');
 			} else {
 				$(this).removeAttr('disabled');

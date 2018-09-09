@@ -27,16 +27,16 @@
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: none;
-	background: floralwhite;
+	background: floralwhite !important;
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	color: #738290;
+	color: #738290 !important;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 }
 
 .name_and_save_sequence:hover {
-	background: white;
+	background: white !important;
 }
 
 .name_and_share_sequence {

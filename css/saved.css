@@ -1,6 +1,14 @@
 /* p a d s e e k */
 /* saved sequences module css */
 
+
+.saved input {
+	border-radius: 5px;
+	padding: 10px;
+	width: -webkit-fill-available;
+	background: white;
+}
+
 .load_user_sequences {
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
@@ -40,7 +48,7 @@
 }
 
 .save_sequence:hover {
-	background: white;
+	background: white !important;
 }
 
 .saved_sequence {
@@ -83,10 +91,4 @@
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background: white;
-}
-
-.saved input {
-	border-radius: 5px;
-	padding: 10px;
-	width: -webkit-fill-available;
 }

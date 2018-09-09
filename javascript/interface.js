@@ -342,6 +342,29 @@ function remove_shortcuts() {
 	shortcut.remove("m");
 }
 
+function set_theme(theme) {
+	console.log(theme);
+	
+	if (theme == "regular") {
+		$('link[rel="stylesheet"]').each(function() {
+			if ($(this).attr('href').indexOf('padseek-dark') == -1) {
+				$(this).removeAttr('disabled');
+			}
+		});
+
+		
+	} else if (theme == "dark") {
+		$('link[rel="stylesheet"]').each(function() {
+			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('padseek-dark') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
+				console.log('no oylo and no padseek-dark');
+				$(this).prop('disabled', 'true');
+			} else {
+				$(this).removeAttr('disabled');
+			}
+		});
+	}
+}
+
 // when the document is ready
 $(document).ready(function () {
 	// turn off keyboard shortcuts when an input element is focused
@@ -386,5 +409,9 @@ $(document).ready(function () {
 				'overflow': 'scroll'
 			});
 		}
+	});
+	
+	$('.theme_option').click(function() {
+		set_theme($(this).attr('data-theme'));
 	});
 });

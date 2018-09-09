@@ -12,6 +12,7 @@
 	border-radius: 5px;
 	font-size: 1.5em;
 	opacity: 0.75;
+	background: #F5F5F5 !important;
 }
 
 .name_sequence_overlay {
@@ -42,16 +43,16 @@
 	font-family: 'Shrikhand', cursive;
 	width: 80%;
 	border: none;
-	background: floralwhite;
+	background: floralwhite !important;
 	border-radius: 5px;
 	height: 50px;
 	font-size: 1.5em;
-	color: #738290;
+	color: #738290 !important;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
 }
 
 .name_and_share_sequence:hover {
-	background: white;
+	background: white !important;
 }
 
 .naming_sequence_overlay_buttons {
@@ -81,7 +82,7 @@
 	text-align: center;
 	color: white;
 	border: 1px solid rgba(00, 00, 00, 0.25);
-	background: rgb(205, 130, 130);
+	background: rgb(205, 130, 130) !important;
 }
 
 .never_mind:hover {

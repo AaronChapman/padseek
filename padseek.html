@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 
+<!-- aaron chapman, 2018 ~ oylo.info
+   ▄███████▄    ▄████████ ████████▄     ▄████████    ▄████████    ▄████████    ▄█   ▄█▄ 
+  ███    ███   ███    ███ ███   ▀███   ███    ███   ███    ███   ███    ███   ███ ▄███▀ 
+  ███    ███   ███    ███ ███    ███   ███    █▀    ███    █▀    ███    █▀    ███▐██▀   
+  ███    ███   ███    ███ ███    ███   ███         ▄███▄▄▄      ▄███▄▄▄      ▄█████▀    
+▀█████████▀  ▀███████████ ███    ███ ▀███████████ ▀▀███▀▀▀     ▀▀███▀▀▀     ▀▀█████▄    
+  ███          ███    ███ ███    ███          ███   ███    █▄    ███    █▄    ███▐██▄   
+  ███          ███    ███ ███   ▄███    ▄█    ███   ███    ███   ███    ███   ███ ▀███▄ 
+ ▄████▀        ███    █▀  ████████▀   ▄████████▀    ██████████   ██████████   ███   ▀█▀ 
+                                                                              ▀ 	
+a module-based drum sequencer made with love and javascript
+*   *  * ** ** *     *  * **   ***  * *    * * *  * * * *  
+  **  * *       * *   *  *  * *         **    *  *     * * 
+     *     *     *  *  *           * *    *        * *    *
+*         *                    *             *   ** *      
+         * *        *                                *     
+      *                   *          *  *             *   *
+  * **       * * **    *      * *              *           
+       *    *        *  ** *     *        **  *    *       
+   *                               *     *                 
+                                                         * 
+                      *               *                    
+                *           *       *                  **-->
+
 <html>
 
 <head>
-	<title>padseek - a module-based drum sequencer</title>
+	<title>padseek - drum sequencer</title>
 
 	<meta charset="utf-8">
 	<meta name="description" content="padseek - a module-based drum sequencer">
@@ -19,20 +43,8 @@
 	<link rel="stylesheet" href="https://www.oylo.info/css/site-wide/template.css">
 	<link rel="stylesheet" href="https://www.oylo.info/tool/tempo.css">
 
-	<link rel="stylesheet" href="css/padseek-regular.css">
-	<link rel="stylesheet" href="css/padseek-dark.css" disabled="true">
-
-	<!--<link rel="stylesheet" href="css/randomization.css">
-	<link rel="stylesheet" href="css/walkthrough.css">
-	<link rel="stylesheet" href="css/animations.css">
-	<link rel="stylesheet" href="css/overlays.css">
-	<link rel="stylesheet" href="css/controls.css">
-	<link rel="stylesheet" href="css/samples.css">
-	<link rel="stylesheet" href="css/padseek.css">
-	<link rel="stylesheet" href="css/shared.css">
-	<link rel="stylesheet" href="css/tempo.css">
-	<link rel="stylesheet" href="css/saved.css">
-	<link rel="stylesheet" href="css/pad.css">-->
+	<link rel="stylesheet" href="css/padseek-regular.css" disabled="true">
+	<link rel="stylesheet" href="css/padseek-dark.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -56,8 +68,6 @@
 	<script src="javascript/audio.js"></script>
 	<script src="javascript/pad.js"></script>
 	<script src="javascript/padseek.js"></script>
-
-	<!--<script src="javascript/padseek.min.js"></script>-->
 </head>
 
 <body id="page_body" onload="load_directory_header('https://cors-anywhere.herokuapp.com/https://oylo.info/resources/templates/directory_header.html')">
@@ -205,5 +215,3 @@
 <script src="https://oylo.info/javascript/page_fade.js"></script>
 
 </html>
-
-<!-- quite the explorer, aren't you? -->

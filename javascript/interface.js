@@ -6,16 +6,6 @@
 /* DOM SETUP */
 /*-----------*/
 
-/* future shit
-function load_containers() {
-	$('.controls').load('../padseek/markup/controls.html');
-	$('.shared').load('../padseek/markup/shared.html');
-	$('.tempo').load('../padseek/markup/tempo.html');
-	$('.randomization').load('../padseek/markup/randomization.html');
-	$('.saved').load('../padseek/markup/saved.html');
-	$('.pads').load('../padseek/markup/pads.html');
-} */
-
 // generate drum pad pieces
 function generate_pad() {
 	// reference to drum pad container
@@ -58,6 +48,7 @@ function generate_labels() {
 	}
 }
 
+// temp generate sample type selection area (while filtering is still in progress)
 function temp_generate_sample_selections() {
 	var sample_selection_classes = ['sound_effects_select', 'crash_cymbals_select', 'ride_cymbals_select', 'open_hi_hats_select', 'closed_hi_hats_select', 'snares_select', 'snares_select', 'kick_drums_select'];
 
@@ -66,13 +57,16 @@ function temp_generate_sample_selections() {
 	}
 }
 
+// generate sample type selection area
 function generate_sample_selections() {
 	var sample_selection_classes = ['sound_effects_select', 'crash_cymbals_select', 'ride_cymbals_select', 'open_hi_hats_select', 'closed_hi_hats_select', 'snares_select', 'snares_select', 'kick_drums_select'];
 
+	// append each selects item with the appropriate elements
 	for (var i = 0; i < sample_selection_classes.length; i++) {
 		$('.selects').append(`<li class="selects_item"><select class="` + sample_selection_classes[i] + ` select cursor_pointer"></select><div class="equalization"><label class="label eq_data low_cut">20 hz</label><div class="frequency_range"></div><label class="label eq_data high_cut">20000 hz</label></div></li>`);
 	}
 
+	// set up the newly added frequency filter sliders
 	$('.frequency_range').slider({
 		range: true,
 		min: 20,
@@ -188,15 +182,11 @@ function setup_default_interface() {
 	// example sequence
 	set_sequence_from_JSON('{"active_pieces":["2-1","6-1","1-2","2-4","3-5","4-5","6-5","7-5","5-7","1-8","8-8","14-1","16-1","13-7","18-1","22-1","17-2","18-4","19-5","20-5","22-5","23-5","21-7","17-8","24-8","30-1","32-1","31-4","26-5","29-7","31-7","27-8"],"name":"clean & simple - stacking test","sample_paths":["wooden-chair.mp3","time-cymbal.mp3","tribal-ride.mp3","meaty-hi-hat.mp3","firm-hi-hat.mp3","lofi-crunk-snare.mp3","well-rounded-snare.mp3","disruptive-kick.mp3"],"tempo":"198"}');
 
+	// fill shortcuts overlay
 	$('.shortcuts_overlay').append('<table class="list_of_shortcuts"><tr><td>open / close shortcuts menu:</td><td>[ c ]</td></tr><tr><td>play / pause sequence:</td><td>[ p ]</td></tr><tr><td>clear pad piece selections:</td><td>[ x ]</td></tr><tr><td>randomize sequence:</td><td>[ z ]</td></tr><tr><td>share sequence:</td><td>[ m ]</td></tr><!--<tr><td>copy sequence JSON:</td><td>[ m ]</td></tr>--><tr><td>calculate tempo:</td><td>[ t ]</td></tr><tr><td>reset calculated tempo:</td><td>[ r ]</td></tr><tr><td>set sequence tempo:</td><td>[ s ]</td></tr></table>');
 
 	// fade the page in one most of the content loading has finished
 	$('body').css('opacity', '1.0');
-	
-	
-	
-	
-	$('');
 }
 
 
@@ -342,15 +332,20 @@ function remove_shortcuts() {
 	shortcut.remove("m");
 }
 
+// function called when a theme option has been selected
 function set_theme(theme) {
+	// for each stylsheet that isn't pull from oylo.info or googleapis
 	$('link[rel="stylesheet"]').each(function() {
 			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
+				// disable the stylesheet
 				$(this).prop('disabled', 'true');
 			}
 	});
 	
+	// remove the disabled attribute on the stylesheet matching the selected theme option
 	$('link[rel="stylesheet"][href*="' + theme + '"]').removeAttr('disabled');
 	
+	// hide current theme's option
 	$('.theme_option').each(function() {
 		if ($(this).attr('class').indexOf(theme) == -1) {
 			$(this).css('display', 'block');
@@ -359,6 +354,11 @@ function set_theme(theme) {
 		}
 	});
 }
+
+
+/*-----------------*/
+/* EVENT LISTENERS */
+/*-----------------*/
 
 // when the document is ready
 $(document).ready(function () {
@@ -396,6 +396,7 @@ $(document).ready(function () {
 			});
 			$('.rotating').removeClass('rotating');
 
+			// scroll back to top here -----------
 			$(this).parents('.overlay:eq(0)').parent().css({
 				'overflow': 'visible'
 			});
@@ -406,6 +407,7 @@ $(document).ready(function () {
 		}
 	});
 	
+	// set them when a theme option is selected
 	$('.theme_option').click(function() {
 		set_theme($(this).attr('data-theme'));
 	});

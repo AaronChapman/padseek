@@ -12,10 +12,12 @@ $(document).ready(function () {
 
 	// this is where the reference gets set
 	$('body').on('click', '.change_sample_type', function () {
+		// aesthetic animation control
 		$('.rotating').css({
 			'fill': 'none',
 			'opacity': '0.3'
 		});
+		
 		$('.rotating').removeClass('rotating');
 
 		swapper_clicked = $(this);

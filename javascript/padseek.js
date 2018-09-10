@@ -16,19 +16,11 @@ $(document).ready(function () {
 
 ! critical ! */
 
-// comb and perfect all animations
-
 // make a list of samples that need to be removed
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
 // audio effects: pitch, swing, reverb
-
-// redesign saved sequences and maybe sample swapper
-
-// full code documentation
-
-// add theme to readme
 
 // scroll overlays to top of container before locking scroll
 

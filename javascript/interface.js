@@ -343,23 +343,13 @@ function remove_shortcuts() {
 }
 
 function set_theme(theme) {
-	if (theme == "regular") {
-		$('link[rel="stylesheet"]').each(function() {
-			if ($(this).attr('href').indexOf('padseek-dark') == -1) {
-				$(this).removeAttr('disabled');
-			}
-		});
-
-		
-	} else if (theme == "dark") {
-		$('link[rel="stylesheet"]').each(function() {
-			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('padseek-dark') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
+	$('link[rel="stylesheet"]').each(function() {
+			if ($(this).attr('href').indexOf('oylo') == -1 && $(this).attr('href').indexOf('googleapis') == -1) {
 				$(this).prop('disabled', 'true');
-			} else {
-				$(this).removeAttr('disabled');
 			}
-		});
-	}
+	});
+	
+	$('link[rel="stylesheet"][href*="' + theme + '"]').removeAttr('disabled');
 	
 	$('.theme_option').each(function() {
 		if ($(this).attr('class').indexOf(theme) == -1) {

@@ -616,10 +616,12 @@ input[type="button"] {
 
 .regular_theme {
 	background: floralwhite;
+	display: block !important;
 }
 
 .dark_theme {
 	background: rgba(28, 31, 33, 1);
+	display: none !important;
 }
 
 .random_shared_sequence {
@@ -717,7 +719,7 @@ input[type="button"] {
 
 .randomize {
 	font-family: 'Shrikhand', cursive;
-  transition: color 1.25s, background 1.25s ease-in-out !important;
+	transition: color 1.25s, background 1.25s ease-in-out !important;
 	width: 100%;
 	border: 0;
 	background: rgba(28, 31, 33, 1);
@@ -1137,7 +1139,7 @@ input[type="button"] {
 	bottom: 100px;
 	right: 50px;
 	padding: 25px;
-	background: background: rgba(28, 31, 33, 1) !important;
+	background: rgba(28, 31, 33, 1) !important;
 	border-radius: 5px;
 	display: grid;
 	max-width: 25%;
@@ -1171,15 +1173,12 @@ input[type="button"] {
 
 @keyframes walkthrough_float {
 	0% {
-		box-shadow: 0 2px .5px rgba(195, 217, 224, 0.55);
 		transform: translatey(0px)
 	}
 	50% {
-		box-shadow: 0 2px .5px rgba(195, 217, 224, 1);
 		transform: translatey(-1.5px)
 	}
 	100% {
-		box-shadow: 0 2px .5px rgba(00, 00, 00, 0.55);
 		transform: translatey(0px)
 	}
 }
@@ -1210,13 +1209,13 @@ input[type="button"] {
 
 @keyframes walkthrough_pad_pieces {
 	0% {
-		background: rgba(195, 217, 224, 1)
+		background: rgba(255, 255, 255, 0.25)
 	}
 	50% {
 		background: rgba(28, 31, 33, 1)
 	}
 	100% {
-		background: rgba(195, 217, 224, 1)
+		background: rgba(255, 255, 255, 0.25)
 	}
 }
 

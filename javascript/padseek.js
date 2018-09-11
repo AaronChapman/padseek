@@ -8,30 +8,42 @@ $(document).ready(function () {
 	generate_pad();
 });
 
-//•••• to-do list ••••//
 
-/* ! critical !
 
-		- nothing to report at the moment 😎
 
-! critical ! */
+//////////////// TO DO ////////////////
 
-// make a list of samples that need to be removed
+
+/* CRITICAL */
+
+// nothing to report at the moment 😎
+
+/* CRITICAL */
+
+
+/* SHORT TERM */
 
 // add ability to have apostrophes and similar symbols in the shared seqence name
 
-// audio effects: pitch, swing, reverb
-
 // scroll overlays to top of container before locking scroll
 
-// cut down on string parsing by saving coordinates as objects
-// each piece could have an x-coordinate datattribute and a y-coordinate datattribute
-// helps processing pieces in the same column
-// helps speeed up storage time
-// simplifies syntax
-// steps:
+//renmae sharing to shared
+
 // fix reordering to change two attributes instead of forming id
 // remove all id manipulation because I can just pull x or y coordinate values
 // set up firebase storage of new coordinate objects
 // set up firebase retrieval of new coordinate objects
 // alter check for same column pieces
+
+
+/* LONG TERM */
+
+// exports
+// pitch
+// reverb
+// swing
+
+
+/* SAMPLES THAT NEED A FIXIN' */
+
+// primo-primo.mp3

@@ -201,12 +201,13 @@ $(document).ready(function () {
 	$('body').on('click', '.share_sequence', function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
+			$('.sharing').scrollTop(0);
+			
 			// set sequence-naming overlay container properties
 			$(this).parents('.sharing:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
 				'z-index': '2'
 			});
-
 			$('.sharing').css({
 				'overflow-y': 'hidden'
 			});

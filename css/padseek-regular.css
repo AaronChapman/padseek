@@ -1,7 +1,9 @@
 /* padseek - regular theme */
 
 /**************/
+
 /* animations */
+
 /**************/
 
 @keyframes rotating {
@@ -12,7 +14,7 @@
 		-moz-transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
 	}
-	
+
 	to {
 		transform: rotate(360deg);
 		-o-transform: rotate(360deg);
@@ -27,7 +29,7 @@
 		transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
 	}
-	
+
 	to {
 		transform: rotate(360deg);
 		-webkit-transform: rotate(360deg);
@@ -51,7 +53,9 @@
 
 
 /************/
+
 /* controls */
+
 /************/
 
 .clear_selections {
@@ -115,7 +119,9 @@
 
 
 /*************/
+
 /* interface */
+
 /*************/
 
 /* palette 
@@ -287,17 +293,19 @@ input[type="button"]:active {
 
 
 /***********/
-/* theming */
-/***********/
 
+/* theming */
+
+/***********/
 
 .dark_theme {
 	background: rgba(28, 31, 33, 1);
+	display: block !important;
 }
 
 .regular_theme {
 	background: floralwhite;
-	display: none;
+	display: none !important;
 }
 
 .theme_option {
@@ -310,14 +318,16 @@ input[type="button"]:active {
 
 .themes {
 	position: fixed;
-    display: inline-flex;
-    top: 38.5px;
-    right: 175px;
+	display: inline-flex;
+	top: 38.5px;
+	right: 175px;
 }
 
 
 /***********/
+
 /* overlay */
+
 /***********/
 
 .name_sequence {
@@ -486,7 +496,9 @@ input[type="button"]:active {
 
 
 /*******/
+
 /* pad */
+
 /*******/
 
 .duplicate_pad {
@@ -639,7 +651,9 @@ input[type="button"]:active {
 
 
 /*****************/
+
 /* randomization */
+
 /*****************/
 
 .random_shared_sequence {
@@ -668,44 +682,44 @@ input[type="button"]:active {
 
 .randomization {
 	display: inline-block;
-  justify-content: center;
-  padding: 10px 35px;
+	justify-content: center;
+	padding: 10px 35px;
 	width: 298px;
 }
 
 .randomization_checkbox {
-  position: relative;
-  border-radius: 20px;
-  background: white;
-  outline: 0;
-  -webkit-appearance: none;
-  cursor: pointer;
+	position: relative;
+	border-radius: 20px;
+	background: white;
+	outline: 0;
+	-webkit-appearance: none;
+	cursor: pointer;
 	width: 20px;
 	height: 12px;
 	border: 0.5px solid #738290 !important;
 }
 
 .randomization_checkbox::after {
-  content: '';
-  position: absolute;
-  top: 1.5px;
-  left: 1.5px;
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgb(205, 130, 130);
-  transition: all .1s linear;
+	content: '';
+	position: absolute;
+	top: 1.5px;
+	left: 1.5px;
+	display: block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgb(205, 130, 130);
+	transition: all .1s linear;
 }
 
 .randomization_checkbox:checked {
-  background: #738290;
+	background: #738290;
 	border: 0.5px solid #738290 !important;
 }
 
 .randomization_checkbox:checked::after {
-  transform: translateX(100%);
-  background: white;
+	transform: translateX(100%);
+	background: white;
 }
 
 .randomization_checkboxes {
@@ -731,7 +745,8 @@ input[type="button"]:active {
 	background: #FFFCF7;
 }
 
-.randomization_checkboxes li:eq(0), .randomization_checkboxes li:eq(1) {
+.randomization_checkboxes li:eq(0),
+.randomization_checkboxes li:eq(1) {
 	width: -webkit-fill-available;
 }
 
@@ -755,7 +770,9 @@ input[type="button"]:active {
 
 
 /********************/
+
 /* sample selection */
+
 /********************/
 
 .change_sample_type {
@@ -904,7 +921,9 @@ input[type="button"]:active {
 
 
 /*******************/
+
 /* saved sequences */
+
 /*******************/
 
 .load_user_sequences {
@@ -1000,7 +1019,9 @@ input[type="button"]:active {
 
 
 /********************/
+
 /* shared sequences */
+
 /********************/
 
 .copy_sequence_JSON {
@@ -1038,10 +1059,10 @@ input[type="button"]:active {
 	overflow-y: scroll;
 }
 
-.sharing input  {
+.sharing input {
 	border-radius: 5px;
-  padding: 10px;
-  width: -webkit-fill-available;
+	padding: 10px;
+	width: -webkit-fill-available;
 }
 
 .share_sequence {
@@ -1061,7 +1082,7 @@ input[type="button"]:active {
 .shared_sequence {
 	border: 1px dashed rgba(00, 00, 00, 0.5);
 	margin: 10px auto;
-  overflow: hidden;
+	overflow: hidden;
 	position: relative;
 	background: white !important;
 }
@@ -1083,19 +1104,21 @@ input[type="button"]:active {
 
 
 /****************/
+
 /* tempo module */
+
 /****************/
 
 .all_shortcuts_label {
 	position: absolute;
-  margin: -50px 0 0 140px;
+	margin: -50px 0 0 140px;
 }
 
 .bpm_display {
 	border-bottom: 1px solid black;
-  width: 100px;
-  max-width: 60px;
- 	text-align: center;
+	width: 100px;
+	max-width: 60px;
+	text-align: center;
 }
 
 .tempo {
@@ -1103,7 +1126,7 @@ input[type="button"]:active {
 	min-width: 246px;
 	max-width: 246px;
 	min-height: 167.5px;
-  max-height: 167.5px;
+	max-height: 167.5px;
 	margin: 20px 0 0 35px;
 	border-radius: 5px;
 	display: inline-block;
@@ -1115,24 +1138,26 @@ input[type="button"]:active {
 
 .tempo_controls {
 	display: inline-flex;
-  margin: 10px 0;
+	margin: 10px 0;
 }
 
 .set_tempo {
 	width: 75px;
 	border: 0.5px solid rgba(00, 00, 00, 0.25);
-  background: aliceblue;
-  height: 25px;
-  border-radius: 5px;
-  font-size: 12px;
-  color: #738290;
+	background: aliceblue;
+	height: 25px;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #738290;
 	margin-right: 25px;
 	display: none;
 }
 
 
 /***************/
+
 /* walkthrough */
+
 /***************/
 
 .advance_walkthrough {
@@ -1282,7 +1307,8 @@ input[type="button"]:active {
 		-ms-transform: rotate(0deg);
 		-moz-transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
-	} to {
+	}
+	to {
 		transform: rotate(360deg);
 		-o-transform: rotate(360deg);
 		-ms-transform: rotate(360deg);
@@ -1295,7 +1321,8 @@ input[type="button"]:active {
 	from {
 		transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
-	} to {
+	}
+	to {
 		transform: rotate(360deg);
 		-webkit-transform: rotate(360deg);
 	}

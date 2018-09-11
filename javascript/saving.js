@@ -118,12 +118,14 @@ $(document).ready(function () {
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
 			// and if the username field has valid input
 			if ($('.load_user_sequences_input').val().length > 1) {
+				$('.saved').scrollTop(0);
+				
 				// set overlay and container properties
 				$(this).parents('.saved:eq(0)').find('.name_sequence_overlay').css({
 					'opacity': '1',
 					'z-index': '2'
 				});
-
+				
 				$('.saved').css({
 					'overflow-y': 'hidden'
 				});

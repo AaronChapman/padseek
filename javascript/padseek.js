@@ -23,12 +23,6 @@ $(document).ready(function () {
 
 /* SHORT TERM */
 
-// add ability to have apostrophes and similar symbols in the shared seqence name
-
-// scroll overlays to top of container before locking scroll
-
-//renmae sharing to shared
-
 // fix reordering to change two attributes instead of forming id
 // remove all id manipulation because I can just pull x or y coordinate values
 // set up firebase storage of new coordinate objects

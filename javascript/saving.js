@@ -81,9 +81,9 @@ function update_saved_sequences_container(new_JSON_object) {
 	// for each item in the array
 	saved_sequences.forEach(function (sequence) {
 		var converted_object = JSON.stringify(sequence);
-
+		
 		// append the saved sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.saved_sequences').append("<input class='saved_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='" + sequence.name + "'>");
+		$('.saved_sequences').append("<input class='saved_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='" + sequence.name.replace(/'|"|`/g,`\'`) + "'>");
 	});
 }
 
@@ -147,10 +147,7 @@ $(document).ready(function () {
 		var field_reference = $(this).parents('.saved:eq(0)').find('.name_sequence');
 
 		// if the name is valid
-		if ((field_reference.val()) &&
-			(field_reference.val().indexOf("'") == -1) &&
-			(field_reference.val().indexOf('"') == -1) &&
-			(field_reference.val().indexOf("`") == -1)) {
+		if (field_reference.val()) {
 			current_sequence_name = field_reference.val();
 
 			// fire sequence sharing flow

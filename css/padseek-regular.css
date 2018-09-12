@@ -1042,7 +1042,7 @@ input[type="button"]:active {
 	padding: 0 10px;
 }
 
-.sharing {
+.shared {
 	position: relative;
 	min-width: 246px;
 	max-width: 246px;
@@ -1059,7 +1059,7 @@ input[type="button"]:active {
 	overflow-y: scroll;
 }
 
-.sharing input {
+.shared input {
 	border-radius: 5px;
 	padding: 10px;
 	width: -webkit-fill-available;

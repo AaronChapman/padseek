@@ -11,11 +11,7 @@ database.ref().on("value", function (snapshot) {
 	// set the local shared sequences array to the value of the same array in firebase
 	shared_sequences = snapshot.val().shared_sequences;
 
-	// for each JSON object in that array
-	for (var i = shared_sequences.length - 1; i > 0; i--) {
-		// add a shared sequence button item to the shared sequences container
-		update_shared_sequences_container(shared_sequences[i]);
-	}
+	update_shared_sequences_container(shared_sequences);
 }, function (errorObject) {
 	console.log("errors handled: " + errorObject.code);
 });
@@ -62,6 +58,8 @@ function update_firebase() {
 
 // update shared sequence button items listed in the shared sequences container
 function update_shared_sequences_container(new_JSON_object) {
+	console.log('adsjsklajdlkjskljdjsakdjklsjdlkajslkdjklsajdkljk');
+	
 	// empty the container
 	$('.shared_sequences').empty();
 	// append the label separator
@@ -79,9 +77,11 @@ function update_shared_sequences_container(new_JSON_object) {
 	for (var i = shared_sequences.length - 1; i >= comparator; i--) {
 		// convert the JSON object to a string
 		var converted_object = JSON.stringify(shared_sequences[i]);
-
+		
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.shared_sequences').append("<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='" + shared_sequences[i].name + "'>");
+		$('.shared_sequences').append("<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='none'>");
+				
+		$('.shared_sequence:last').val(shared_sequences[i].name);
 	}
 }
 
@@ -201,14 +201,14 @@ $(document).ready(function () {
 	$('body').on('click', '.share_sequence', function () {
 		// if there is a sequence to be shared
 		if ($('body').find('.pad_piece[data-state="active"]').length > 0) {
-			$('.sharing').scrollTop(0);
+			$('.shared').scrollTop(0);
 			
 			// set sequence-naming overlay container properties
-			$(this).parents('.sharing:eq(0)').find('.name_sequence_overlay').css({
+			$(this).parents('.shared:eq(0)').find('.name_sequence_overlay').css({
 				'opacity': '1',
 				'z-index': '2'
 			});
-			$('.sharing').css({
+			$('.shared').css({
 				'overflow-y': 'hidden'
 			});
 
@@ -220,11 +220,10 @@ $(document).ready(function () {
 
 	// when the button to confirm sharing the newly named sequence is clicked
 	$('body').on('click', '.name_and_share_sequence', function () {
+		var field_reference = $(this).parents('.shared').find('.name_sequence');
+		
 		// if the name is valid
-		if (($('.name_sequence').val().length > 1) &&
-			($('.name_sequence').val().indexOf("'") == -1) &&
-			($('.name_sequence').val().indexOf('"') == -1) &&
-			($('.name_sequence').val().indexOf("`") == -1)) {
+		if (field_reference.val()) {
 			current_sequence_name = $('.name_sequence').val();
 
 			// fire sequence sharing flow
@@ -246,7 +245,7 @@ $(document).ready(function () {
 				});
 			}, 250);
 
-			$('.sharing').css({
+			$('.shared').css({
 				'overflow-y': 'scroll'
 			});
 		} else {

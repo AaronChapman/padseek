@@ -58,8 +58,6 @@ function update_firebase() {
 
 // update shared sequence button items listed in the shared sequences container
 function update_shared_sequences_container(new_JSON_object) {
-	console.log('adsjsklajdlkjskljdjsakdjklsjdlkajslkdjklsajdkljk');
-	
 	// empty the container
 	$('.shared_sequences').empty();
 	// append the label separator
@@ -94,8 +92,13 @@ function set_sequence_from_JSON(new_JSON_object) {
 		current_column_in_sequence = 1;
 	}
 	
+	console.log(new_JSON_object);
+	
 	// convert string back into JSON object
 	var converted_object = JSON.parse(new_JSON_object);
+	
+	console.log(converted_object);
+	
 	// get last active pad piece
 	var last_active_pad_piece = converted_object.active_pieces[converted_object.active_pieces.length - 1];
 	// parse it

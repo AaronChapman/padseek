@@ -16,12 +16,16 @@ $(document).ready(function () {
 
 /* CRITICAL */
 
-// nothing to report at the moment 😎
+// quote-type character support is still broken
+
+// nothing else to report at the moment 😎
 
 /* CRITICAL */
 
 
 /* SHORT TERM */
+
+// add appropriate readme icon for sampler & swapper
 
 // fix reordering to change two attributes instead of forming id
 // remove all id manipulation because I can just pull x or y coordinate values

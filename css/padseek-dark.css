@@ -481,11 +481,11 @@ input[type="button"]:active {
 	opacity: .75
 }
 
-.box-shadowed {
+.box_shadowed {
 	box-shadow: 0 2px .5px rgba(195, 217, 224, 1)
 }
 
-.box-shadowed-hover:hover {
+.box_shadowed_hover:hover {
 	/*box-shadow: 0 2px .5px rgba(195, 217, 224, 1)*/
 }
 

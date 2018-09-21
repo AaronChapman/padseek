@@ -245,7 +245,7 @@ function reorder_pad_pieces() {
 			if ($('.pad:eq(1)').find('.remove_all_pads').length == 0) {
 				$('.remove_all_pads').remove();
 
-				$('.pad:eq(1)').append('<input class="remove_all_pads pad_manipulator cursor_pointer box-shadowed-hover" type="button" value="remove all pads">');
+				$('.pad:eq(1)').append('<input class="remove_all_pads pad_manipulator cursor_pointer box_shadowed_hover" type="button" value="remove all pads">');
 			}
 
 			// if the pad cap is active, remove the duplicate pad buttons

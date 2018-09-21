@@ -182,11 +182,11 @@ body {
 	background: #FFFCF7;
 }
 
-.box-shadowed {
+.box_shadowed {
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 
-.box-shadowed-hover:hover {
+.box_shadowed_hover:hover {
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25);
 }
 

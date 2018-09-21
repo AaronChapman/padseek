@@ -83,7 +83,7 @@ function update_saved_sequences_container(new_JSON_object) {
 		var converted_object = JSON.stringify(sequence);
 		
 		// append the saved sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.saved_sequences').append("<input class='saved_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='" + sequence.name.replace(/'|"|`/g,`\'`) + "'>");
+		$('.saved_sequences').append("<input class='saved_sequence cursor_pointer box_shadowed_hover' type='button' data-json='" + converted_object + "' value='" + sequence.name.replace(/'|"|`/g,`\'`) + "'>");
 	});
 }
 

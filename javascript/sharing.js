@@ -77,7 +77,7 @@ function update_shared_sequences_container(new_JSON_object) {
 		var converted_object = JSON.stringify(shared_sequences[i]);
 		
 		// append the shared sequence button with the stringified JSON sequence data stored in the element's data-json attribute
-		$('.shared_sequences').append("<input class='shared_sequence cursor_pointer box-shadowed-hover' type='button' data-json='" + converted_object + "' value='none'>");
+		$('.shared_sequences').append("<input class='shared_sequence cursor_pointer box_shadowed_hover' type='button' data-json='" + converted_object + "' value='none'>");
 				
 		$('.shared_sequence:last').val(shared_sequences[i].name);
 	}

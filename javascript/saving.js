@@ -148,20 +148,24 @@ $(document).ready(function () {
 
 		// if the name is valid
 		if (field_reference.val()) {
-			current_sequence_name = field_reference.val();
+			if (field_reference.val().indexOf("'") != -1 || field_reference.val().indexOf('"') != -1 || field_reference.val().indexOf("`") != -1) {
+				application_message('sorry, quote-type characters break my JSON');
+			} else {
+				current_sequence_name = field_reference.val();
 
-			// fire sequence sharing flow
-			save_current_sequence();
+				// fire sequence sharing flow
+				save_current_sequence();
 
-			// set sequence-naming overlay container properties
-			$(this).parents('.saved:eq(0)').find('.name_sequence_overlay').css({
-				'opacity': '0',
-				'z-index': '-2'
-			});
+				// set sequence-naming overlay container properties
+				$(this).parents('.saved:eq(0)').find('.name_sequence_overlay').css({
+					'opacity': '0',
+					'z-index': '-2'
+				});
 
-			$('.saved').css({
-				'overflow-y': 'scroll'
-			});
+				$('.saved').css({
+					'overflow-y': 'scroll'
+				});
+			}
 		} else {
 			application_message('please enter a name for your sequence');
 		}

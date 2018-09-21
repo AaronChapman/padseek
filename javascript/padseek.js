@@ -16,9 +16,7 @@ $(document).ready(function () {
 
 /* CRITICAL */
 
-// quote-type character support is still broken
-
-// nothing else to report at the moment 😎
+// nothing to report at the moment 😎
 
 /* CRITICAL */
 

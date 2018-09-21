@@ -61,7 +61,7 @@ rgba(158, 185, 193, 1);*/
 
 .clear_selections:hover {
 	background: rgba(135, 41, 47, 1);
-	color: rgba(195, 217, 224, 1);
+	color: #F5F5F5;
 }
 
 .play_sequence {
@@ -188,7 +188,7 @@ rgba(158, 185, 193, 1);*/
 }
 
 .never_mind:hover {
-	color: rgba(195, 217, 224, 1) !important;
+	color: #F5F5F5 !important;
 	background: rgba(135, 41, 47, 1) !important;
 }
 
@@ -455,7 +455,6 @@ h1 {
 	color: #F5F5F5;
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	overflow: hidden;
-	opacity: 0.75;
 	box-shadow: none !important;
 }
 
@@ -578,11 +577,16 @@ input[type="button"] {
 }
 
 .theme_option {
+	transition: opacity 0.25s ease-in-out !important;
 	width: 30px;
 	height: 30px;
 	border-radius: 8px;
 	margin-left: 10px;
 	opacity: 0.75;
+}
+
+.theme_option:hover {
+	opacity: 0.25;
 }
 
 .regular_theme {

@@ -235,7 +235,7 @@ h1 {
 	color: #F5F5F5;
 	text-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5);
 	overflow: hidden;
-	opacity: 0.75;
+	opacity: 1.0;
 	box-shadow: 0 2px 0.5px rgba(00, 00, 00, 0.25) !important;
 }
 
@@ -309,11 +309,16 @@ input[type="button"]:active {
 }
 
 .theme_option {
+	transition: opacity 0.25s ease-in-out !important;
 	width: 30px;
 	height: 30px;
 	border-radius: 8px;
 	margin-left: 10px;
-	opacity: 0.5;
+	opacity: 0.75;
+}
+
+.theme_option:hover {
+	opacity: 0.25;
 }
 
 .themes {
@@ -563,7 +568,7 @@ input[type="button"]:active {
 
 .pad_piece {
 	transition-timing-function: ease-in-out;
-	transition: opacity 0.1s, box-shadow 0.1s, border-radius 0.2s, background 0.2s;
+	transition: opacity 0.1s, box-shadow 0.1s, border-radius 0.2s, background 0.2s !important;
 	min-width: 25px;
 	height: 25px;
 	margin: 5px;

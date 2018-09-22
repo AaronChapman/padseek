@@ -107,6 +107,44 @@ function play_selected_sample(sample, set_size) {
 
 // play sequence
 function play_sequence(pad_reference) {
+	// // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // //
+	
+	// find each active piece in the current sequence column
+	pad_reference.find('.pad_piece[data-co-x="' + current_column_in_sequence + '"]').each(function () {
+		if ($(this).attr('data-state') === "active") {
+			for (var i = 0; i < sequence_sample_paths[current_column_in_sequence - 1].length; i++) {
+				var sample = sequence_sample_paths[current_column_in_sequence - 1][i];
+				
+				// play the samples at the specified index of the sequence_sample_paths array of arrays Lol
+				play_selected_sample(sample, sequence_sample_paths[current_column_in_sequence - 1].length);
+			}
+
+			// set active pad piece css properties
+			$(this).addClass('ppta');
+
+			// get a reference to the piece and reset its css attributes
+			var quick_reference = $(this);
+
+			setTimeout(function () {
+				quick_reference.removeClass('ppta');
+			}, calculated_tempo);
+		} else {
+			// get a reference to the piece and reset its css attributes
+			var quick_reference = $(this);
+
+			// set inactive pad piece css properties
+			$(this).addClass('ppti');
+
+			// and then reset them
+			setTimeout(function () {
+				quick_reference.removeClass('ppti');
+			}, calculated_tempo);
+		}
+	});
+																																												
+	// // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // //
+	
+	/*
 	// find each active piece in the current sequence column
 	pad_reference.find('.pad_piece[id^="' + current_column_in_sequence + '"]').each(function () {
 		if ($(this).attr('data-state') === "active") {
@@ -139,6 +177,7 @@ function play_sequence(pad_reference) {
 			}, calculated_tempo);
 		}
 	});
+	*/
 
 	// at the end of every pad
 	if (current_column_in_sequence % 8 == 0) {

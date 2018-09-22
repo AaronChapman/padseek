@@ -19,16 +19,17 @@ visual | how to operate
 
 ---
 
+🎛️
 <sup>**modules**</sup>
 
-## 🎛️ sequence controls
+## sequence controls
 
 visual | how to operate
 --- | ---
 ![controls module](images/README/controls.png "controls module") | **`play / pause sequence:`**<br/>_this button allows you to control whether or not the sequence is running_<br/><br/>**`clear selections:`**<br/>_this button will reset all of the pad piece selections you've made_<br/><br/>**`tempo (beats per minute):`**<br/>_this field controls the speed at which your drum sequence will run_<br/><br/>_you can enter a tempo value, or calculate and set one using the keyboard shortcuts outlined in the tempo module_
 
 
-## 🎶 sample selection
+## sample selection
 
 visual | how to operate
 --- | ---
@@ -36,14 +37,14 @@ visual | how to operate
 ![sample swapper](images/README/swapper.png "sample swapper") | **`sample swapper:`**<br/>_clicking on the gear icon will allow you to swap that row's sample type with a new one_
 
 
-## 🥁 drum pads
+## drum pads
 
 visual | how to operate
 --- | ---
 ![drum pad module](images/README/pad.png "drum pad module") | **`duplicate pad:`**<br/>_this button will duplicate the pad beneath it directly in front of it (the maximum sequence size is 32 pads)_<br/><br/>**`remove pad:`**<br/>_this button will remove the pad beneath it_<br/><br/>**`pad pieces:`**<br/>_activating a pad piece will result in that piece's row triggering the selected sample_<br/><br/>**`duplicate sequence:`**<br/>_this button will duplicate the entire pad sequence (the maximum sequence size that can be duplicated is 16 pads)_<br/><br/>**`remove all pads:`**<br/>_this button will remove all pads except the first_
 
 
-## 🎊 randomization module
+## randomization module
 
 visual | how to operate
 --- | ---
@@ -60,21 +61,21 @@ these options | switches random randomization options on / off | default
 <sup>*pseudorandom options choose from a set a predefined values that follow popular sequence structures</sup>
 
 
-## 🤲 shared sequences
+## shared sequences
 
 visual | how to operate
 --- | ---
 ![shared sequences module](images/README/shared.png "shared sequences module") | **`share sequence:`**<br/>_this button will prompt you to name your sequence before sharing its data with the community_<br/><br/>**`browse recently shared sequences:`**<br/>_click on any of the named buttons under this section to load a sequence that has been shared by another user_
 
 
-## 💾 saved sequences
+## saved sequences
 
 visual | how to operate
 --- | ---
 ![saved sequences module](images/README/saved.png "saved sequences module") | **`load sequences:`**<br/>_after entering the name of an existing user with valid data, pressing this button will load up that user's personally saved sequences_<br/><br/>**`save current sequence:`**<br/>_pressing this button will save the current sequence for the user that was provided_<br/><br/>**`sequences saved by loaded user:`**<br/>_uhh... a list... of sequences... saved... by the... currently... loaded... user... ahem..._
 
 
-## ⏲️ tempo tool
+## tempo tool
 
 visual | how to operate
 --- | ---

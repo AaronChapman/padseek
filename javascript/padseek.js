@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 /* SHORT TERM */
 
-// add appropriate readme icon for sampler & swapper
+// animations acrosss themes ( use !important )
 
 // fix reordering to change two attributes instead of forming id
 // remove all id manipulation because I can just pull x or y coordinate values
@@ -42,4 +42,4 @@ $(document).ready(function () {
 
 /* SAMPLES THAT NEED A FIXIN' */
 
-// primo-primo.mp3
+// none 😎

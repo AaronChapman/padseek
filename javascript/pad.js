@@ -221,39 +221,15 @@ function reorder_pad_pieces() {
 				// grab the appropriate pad piece by id and give that attribute a new value according to the current pad index
 				var temporary_piece_reference = temporary_pad_reference.find('.pad_piece[id$="' + row + '"]').eq(column - 1);
 				temporary_piece_reference.attr({
-					'id': (column + (8 * pads)) + '-' + temporary_piece_reference.attr('id').split('-')[1]
+					'id' : (column + (8 * pads)) + '-' + temporary_piece_reference.attr('id').split('-')[1],
+					'data-x' : (column + (8 * pads)),
+					'data-y' : temporary_piece_reference.attr('id').split('-')[1]
 				});
 			}
 		}
 	}
-
-	// remove visual pad flow indicators
-	$('.sequence_flow_arrow').remove();
-	$('.duplicate_pad').css('display', 'initial');
-
-	// for each duplicate pad button
-	for (var i = 0; i < $('body').find('.duplicate_pad').length; i++) {
-		// append the pad number to the text being displayed
-		$('.duplicate_pad').eq(i).val('duplicate pad ' + (i + 1));
-
-		// for each pad index above 0
-		if (i > 0) {
-			// append visual pad flow inficators to appropriate range of pads
-			$('.duplicate_pad').eq(i - 1).parents('.pad:eq(0)').append('<p class="sequence_flow_arrow" style="position: absolute; font-size: 20px; margin: auto; margin-left: 166.5px; margin-top: 136px; color: rgba(00, 00, 00, 0.1);">⇨</p>');
-
-			// situate the remove all pads button
-			if ($('.pad:eq(1)').find('.remove_all_pads').length == 0) {
-				$('.remove_all_pads').remove();
-
-				$('.pad:eq(1)').append('<input class="remove_all_pads pad_manipulator cursor_pointer box_shadowed_hover" type="button" value="remove all pads">');
-			}
-
-			// if the pad cap is active, remove the duplicate pad buttons
-			if (i == 31) {
-				$('.duplicate_pad').css('display', 'none');
-			}
-		}
-	}
+	
+	setup_pad_manipulators();
 
 	// creating and setting a new length for the sequence sample paths array
 	var ssp_length = $('body').find('.pad').length * 8;
@@ -291,6 +267,39 @@ function reorder_pad_pieces() {
 
 		if (piece_count == 0) {
 			sequence_sample_paths[i] = 'samples/none.mp3';
+		}
+	}
+}
+
+function setup_pad_manipulators() {
+	// remove visual pad flow indicators
+	$('.sequence_flow_arrow').remove();
+	$('.duplicate_pad').css('display', 'initial');
+
+	var sequence_flow_arrow = '<p class="sequence_flow_arrow" style="position: absolute; font-size: 20px; margin: auto; margin-left: 166.5px; margin-top: 136px; color: rgba(00, 00, 00, 0.1);">⇨</p>';
+	var remove_all_pads = '<input class="remove_all_pads pad_manipulator cursor_pointer box_shadowed_hover" type="button" value="remove all pads">';
+
+	// for each duplicate pad button
+	for (var i = 0; i < $('body').find('.duplicate_pad').length; i++) {
+		// append the pad number to the text being displayed
+		$('.duplicate_pad').eq(i).val('duplicate pad ' + (i + 1));
+
+		// for each pad index above 0
+		if (i > 0) {
+			// append visual pad flow inficators to appropriate range of pads
+			$('.duplicate_pad').eq(i - 1).parents('.pad').append(sequence_flow_arrow);
+
+			// situate the remove all pads button
+			if ($('.pad:eq(1)').find('.remove_all_pads').length == 0) {
+				$('.remove_all_pads').remove();
+
+				$('.pad:eq(1)').append(remove_all_pads);
+			}
+
+			// if the pad cap is active, remove the duplicate pad buttons
+			if (i == 31) {
+				$('.duplicate_pad').css('display', 'none');
+			}
 		}
 	}
 }

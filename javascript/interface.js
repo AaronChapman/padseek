@@ -22,8 +22,8 @@ function generate_pad() {
 			pad_piece.attr({
 				'id': j + '-' + i,
 				'data-state': 'inactive',
-				'data-co-x': j,
-				'data-co-y': i
+				'data-x': j,
+				'data-y': i
 			});
 
 			// and add it to the referenced drum pad container

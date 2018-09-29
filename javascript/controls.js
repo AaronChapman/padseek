@@ -97,7 +97,7 @@ function play_selected_sample(sample, set_size) {
 			// removes cloned copies after they're done being used
 			setTimeout(function () {
 				copied_element.remove();
-			}, calculate_tempo * 16);
+			}, calculated_tempo * 16);
 			// if the sample isn't currently playing, just go ahead and play the original node
 		} else {
 			this.play();
@@ -108,9 +108,9 @@ function play_selected_sample(sample, set_size) {
 // play sequence
 function play_sequence(pad_reference) {
 	// // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // //
-	
+	/*
 	// find each active piece in the current sequence column
-	pad_reference.find('.pad_piece[data-co-x="' + current_column_in_sequence + '"]').each(function () {
+	pad_reference.find('.pad_piece[data-x="' + current_column_in_sequence + '"]').each(function () {
 		if ($(this).attr('data-state') === "active") {
 			for (var i = 0; i < sequence_sample_paths[current_column_in_sequence - 1].length; i++) {
 				var sample = sequence_sample_paths[current_column_in_sequence - 1][i];
@@ -141,10 +141,9 @@ function play_sequence(pad_reference) {
 			}, calculated_tempo);
 		}
 	});
-																																												
+			*/																																									
 	// // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // // DATA-CO RE-DO // // // // //
-	
-	/*
+
 	// find each active piece in the current sequence column
 	pad_reference.find('.pad_piece[id^="' + current_column_in_sequence + '"]').each(function () {
 		if ($(this).attr('data-state') === "active") {
@@ -177,7 +176,6 @@ function play_sequence(pad_reference) {
 			}, calculated_tempo);
 		}
 	});
-	*/
 
 	// at the end of every pad
 	if (current_column_in_sequence % 8 == 0) {
